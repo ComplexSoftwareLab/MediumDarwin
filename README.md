@@ -1,5 +1,5 @@
 # MediumDarwin
-This repository serves as the companion code for the research paper "MediumDarwin: LittleDarwin Grows with Performance and Research-oriented Extensions." The project is a work in progress, with future commits refining the codebase. Depending on the acceptance of pull requests, this repository may eventually be merged with the original LittleDarwin.
+This repository serves as the companion code for the research paper "MediumDarwin: LittleDarwin Grows with Performance and Research-oriented Extensions." The project is a work in progress. Depending on the acceptance of pull requests, this repository may eventually be merged with the original [LittleDarwin](https://github.com/aliparsai/LittleDarwin).
 
 MediumDarwin is an advanced mutation testing framework for Java, extending the capabilities of LittleDarwin. It is designed to support both industrial-scale testing and academic research, offering a modular and extensible architecture with several performance and usability enhancements.
 
