@@ -44,7 +44,7 @@ Usage
 To run MediumDarwin, use:
 
 ```
-python MediumDarwin.py -h
+python MediumDarwin.py -H
 
 Options:
   --reset                    Reset the project to the initial state.
