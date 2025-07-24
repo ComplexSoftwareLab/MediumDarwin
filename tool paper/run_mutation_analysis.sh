@@ -6,6 +6,7 @@
 # Configuration
 MEDIUMDARWIN_REPO="https://github.com/ComplexSoftwareLab/MediumDarwin"
 LITTLEDARWIN_REPO="https://github.com/aliparsai/LittleDarwin.git"
+INSTALL_DEPS=true
 # OUTPUT_DIR="mutation_results"
 LOG_FILE="mutation_analysis.log"
 JAVA_VERSION="8"
@@ -133,13 +134,73 @@ run_mutation_analysis() {
   cd ..
 }
 
+# Help message
+show_help() {
+    cat <<EOF
+MediumDarwin Mutation Analysis Runner
+
+Usage: $0 [options]
+
+Options:
+  --no-deps       Skip installation of system dependencies
+  --help, -h      Show this help message and exit
+
+Environment variables:
+  PROJECTS        Associative array of projects to analyze (format: [project]="url tag")
+                  Example: declare -A PROJECTS=([project1]="url1 tag1" [project2]="url2 tag2")
+
+Default projects analyzed:
+$(for project in "${!PROJECTS[@]}"; do
+    IFS=' ' read -r url tag <<< "${PROJECTS[$project]}"
+    echo "  - $project (Tag: $tag)"
+done)
+
+Example commands:
+  $0                          # Run with default settings
+  $0 --no-deps                # Skip system dependencies installation
+  $0 --help                   # Show this help message
+EOF
+    exit 0
+}
+
+parse_args() {
+  echo "Parsing command line arguments..."
+  while [[ $# -gt 0 ]]; do
+    echo "Argument: $1"
+    case "$1" in
+      --no-deps)
+        INSTALL_DEPS=false
+        shift
+        ;;
+      --help|-h)
+        show_help
+        shift
+        ;;
+      *)
+        echo "Error: Unknown option $1"
+        show_help
+        exit 1
+        ;;
+    esac
+  done
+}
+
+
 # Main execution
 main() {
+  parse_args "$@"
+
+
   exec > >(tee -a "$LOG_FILE") 2>&1
   echo "Starting mutation analysis at $(date)"
   
   verify_java
-  install_system_deps
+
+  if [ "$INSTALL_DEPS" = true ]; then
+        install_system_deps
+    else
+        echo "Skipping system dependencies installation as requested"
+  fi
   setup_mediumdarwin
   setup_python_env
   install_python_deps
@@ -160,4 +221,4 @@ main() {
   done
 }
 
-main
+main "$@"
