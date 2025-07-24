@@ -339,7 +339,7 @@ def parseCmdArgs(optionParser: OptionParser, mockArgs: list = None) -> object:
               - If both --build and --mutate are active, it's recommended to run them in separate phases.
               
               Example:
-                MediumDarwin.py --mutate -b --build-command "mvn,install" --timeout 90
+                MediumDarwin.py -m -b --build-command "mvn,install" --timeout 90
               """)
         sys.exit(0)
 

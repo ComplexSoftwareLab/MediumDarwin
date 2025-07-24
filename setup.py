@@ -9,7 +9,7 @@ setuptools.setup(
     version=__version__,
     url=__url__,
     author=__author__,
-    author_email="ali.parsai@live.com",
+    author_email="hesamips@tcd.ie",
     description="MediumDarwin Mutation Analysis Framework",
     long_description=long_description,
     long_description_content_type="text/markdown",

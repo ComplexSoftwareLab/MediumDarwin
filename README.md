@@ -85,7 +85,7 @@ Note:
 - If both --build and --mutate are active, it's recommended to run them in separate phases.
 
 Example:
-  python MediumDarwin.py --m -b --build-command "mvn,install" --timeout 90
+  python MediumDarwin.py -m -b --build-command "mvn,install" --timeout 90
 
 ```
 
