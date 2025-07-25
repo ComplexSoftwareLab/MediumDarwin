@@ -5,6 +5,8 @@ This repository serves as the companion code for the research paper "MediumDarwi
 
 MediumDarwin is an advanced mutation testing framework for Java, extending the capabilities of LittleDarwin. It is designed to support both industrial-scale testing and academic research, offering a modular and extensible architecture with several performance and usability enhancements.
 
+[Link to the paper](https://github.com/ComplexSoftwareLab/MediumDarwin/blob/main/tool%20paper/ICSME2025.pdf)
+
 Features
 --------
 *   **Persistent Storage**: Uses a relational database to store mutation testing data efficiently.
