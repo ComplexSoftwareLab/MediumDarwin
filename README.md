@@ -45,7 +45,7 @@ pip install -r requirements.txt
 Usage
 -----
 
-To run MediumDarwin, use:
+To run MediumDarwin, from this repository's root folder, use:
 
 ```
 python MediumDarwin.py -H
@@ -92,6 +92,17 @@ Example:
 ```
 
 This command initiates the help and guides you.
+
+
+Example
+-----
+The `tool\ paper/run_mutation_analysis.sh` script downloads multiple open source projects and runs both LittleDarwin and MediumDarwin against them. It provides examples of how to use MediumDarwin and reproduces the results in Table I in the tool paper. 
+
+To run the script:
+```
+cd ./tool\ paper/
+./run_mutation_analysis.sh
+```
 
 Licence
 --------
