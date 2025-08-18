@@ -1,5 +1,11 @@
 #!/usr/bin/env bash
 
+if ((BASH_VERSINFO[0] < 4))
+then
+  echo "Sorry, you need at least bash-4.0 to run this script."
+  exit 1
+fi
+
 # Ensure the script is run from the correct directory
 if [ "$(basename "$PWD")" != "tool paper" ]; then
   echo "Please navigate to the 'tool paper' directory before running this script."
