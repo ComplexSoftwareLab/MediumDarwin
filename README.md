@@ -26,7 +26,7 @@ To install and run the tool:
 1.  Clone the repository:
 
 ```
-git clone https://github.com/yourusername/MediumDarwin.git
+git clone https://github.com/ComplexSoftwareLab/MediumDarwin.git
 cd MediumDarwin
  ```
 2.  Create a virtual environment (optional but recommended):
