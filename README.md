@@ -104,6 +104,8 @@ cd ./tool\ paper/
 ./run_mutation_analysis.sh
 ```
 
+Plus, `mutateJavaSourceCode.ipynb` shows how to use some of MediumDarwin's features programatically. 
+
 Licence
 --------
 This project is licensed under the GNU General Public License v3.0. See the LICENSE file for details.
