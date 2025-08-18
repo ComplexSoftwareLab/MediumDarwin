@@ -79,7 +79,7 @@ Options:
   --whitelist FILE          Whitelisted packages/files (one per line).
   --blacklist FILE          Blacklisted packages/files (one per line).
   -s, --subsumption         Enable subsumption analysis output.
-  -e, --schemata            Enable mutant schemata generation - This feature is analyzed in Experiment 3 (Section 4.3) for performance comparison..
+  -e, --schemata            Enable mutant schemata generation.
   --compile_failure_regex REGEX  Regex to detect compile failures.
 
 Note:
