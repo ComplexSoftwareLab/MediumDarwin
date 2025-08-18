@@ -282,7 +282,8 @@ def parseCmdArgs(optionParser: OptionParser, mockArgs: list = None) -> object:
         action="store",
         dest="compile_failure_regex",
         default=r".*\[(\d+),(\d+)\] error:.*",
-        help="Regular expression to detect the compile failures in the generation of schemata.",
+        help="Regex to detect compile failures in schemata generation. It should match compile errors and contain three groups: 1) the path to the java file with the error, 2) the line number, and 3) the column number."
+",
     )
     optionParser.add_option(
         "-H",
@@ -332,7 +333,8 @@ def parseCmdArgs(optionParser: OptionParser, mockArgs: list = None) -> object:
                 --blacklist FILE          Blacklisted packages/files (one per line).
                 -s, --subsumption         Enable subsumption analysis output.
                 -e, --schemata            Enable mutant schemata generation.
-                --compile_failure_regex REGEX  Regex to detect compile failures.
+                --compile_failure_regex REGEX  Regex to detect compile failures in schemata generation. It should match compile errors and contain three groups: 1) the path to the java file with the error, 2) the line number, and 3) the column number.
+
               
               Note:
               - You can specify either a whitelist or a blacklist, not both.
