@@ -1,4 +1,11 @@
-#!/bin/bash
+#!/usr/bin/env bash
+
+# Ensure the script is run from the correct directory
+if [ "$(basename "$PWD")" != "tool paper" ]; then
+  echo "Please navigate to the 'tool paper' directory before running this script."
+  exit 1
+fi
+
 
 # MediumDarwin Mutation Analysis Runner (with dependency installation)
 # This script clones MediumDarwin, installs dependencies, and runs mutation testing

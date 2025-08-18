@@ -9,15 +9,15 @@ MediumDarwin is an advanced mutation testing framework for Java, extending the c
 
 Features
 --------
-*   **Persistent Storage**: Uses a relational database to store mutation testing data efficiently.
+*   **Persistent Storage - This is explained in Section 3.1.**: Uses a relational database to store mutation testing data efficiently.
     
-*   **Coverage-Based Test Selection**: Reduces execution time by selecting only relevant tests.
+*   **Coverage-Based Test Selection - This is explained in Section 3.2 to reduce test execution time.**: Reduces execution time by selecting only relevant tests.
     
-*   **Mutant Schemata**: Minimizes compilation overhead by consolidating mutants into schemata.
+*   **Mutant Schemata - Discussed in Section 3.3.**: Minimizes compilation overhead by consolidating mutants into schemata.
     
-*   **Refined Mutation Operators**: Avoids non-compilable mutants and generates skipped ones.
+*   **Refined Mutation Operators - These are discussed in Section 3.4 and Section 4 to improve mutation effectiveness.**: Avoids non-compilable mutants and generates skipped ones.
     
-*   **Dynamic Subsumption Analysis**: Constructs subsumption graphs to analyze mutant relationships.
+*   **Dynamic Subsumption Analysis - This is explained in Section 3.5 to identify redundant mutants.**: Constructs subsumption graphs to analyze mutant relationships.
 
 Installation
 ------------
@@ -79,7 +79,7 @@ Options:
   --whitelist FILE          Whitelisted packages/files (one per line).
   --blacklist FILE          Blacklisted packages/files (one per line).
   -s, --subsumption         Enable subsumption analysis output.
-  -e, --schemata            Enable mutant schemata generation.
+  -e, --schemata            Enable mutant schemata generation - This feature is analyzed in Experiment 3 (Section 4.3) for performance comparison..
   --compile_failure_regex REGEX  Regex to detect compile failures.
 
 Note:
