@@ -282,8 +282,7 @@ def parseCmdArgs(optionParser: OptionParser, mockArgs: list = None) -> object:
         action="store",
         dest="compile_failure_regex",
         default=r".*\[(\d+),(\d+)\] error:.*",
-        help="Regex to detect compile failures in schemata generation. It should match compile errors and contain three groups: 1) the path to the java file with the error, 2) the line number, and 3) the column number."
-",
+        help="Regex to detect compile failures in schemata generation. It should match compile errors and contain three groups: 1) the path to the java file with the error, 2) the line number, and 3) the column number.",
     )
     optionParser.add_option(
         "-H",
@@ -2360,3 +2359,4 @@ class Schemata:
         if self.options.isSubsumptionActive:
             self.subsumptionAnalysisPhase(self.options)
         mutationDatabase2.close_connection()
+
