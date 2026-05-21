@@ -1,0 +1,1789 @@
+========== commons-validator started at Tue May 19 17:19:29 JST 2026 ==========
+
+Cloning commons-validator...
+Cloning into 'commons-validator'...
+Updating files:  19% (48/242)Updating files:  20% (49/242)Updating files:  21% (51/242)Updating files:  22% (54/242)Updating files:  23% (56/242)Updating files:  24% (59/242)Updating files:  25% (61/242)Updating files:  26% (63/242)Updating files:  27% (66/242)Updating files:  28% (68/242)Updating files:  29% (71/242)Updating files:  30% (73/242)Updating files:  31% (76/242)Updating files:  32% (78/242)Updating files:  33% (80/242)Updating files:  34% (83/242)Updating files:  35% (85/242)Updating files:  35% (87/242)Updating files:  36% (88/242)Updating files:  37% (90/242)Updating files:  38% (92/242)Updating files:  39% (95/242)Updating files:  40% (97/242)Updating files:  41% (100/242)Updating files:  42% (102/242)Updating files:  43% (105/242)Updating files:  44% (107/242)Updating files:  45% (109/242)Updating files:  46% (112/242)Updating files:  47% (114/242)Updating files:  48% (117/242)Updating files:  49% (119/242)Updating files:  50% (121/242)Updating files:  51% (124/242)Updating files:  52% (126/242)Updating files:  53% (129/242)Updating files:  54% (131/242)Updating files:  55% (134/242)Updating files:  56% (136/242)Updating files:  57% (138/242)Updating files:  58% (141/242)Updating files:  59% (143/242)Updating files:  60% (146/242)Updating files:  61% (148/242)Updating files:  62% (151/242)Updating files:  63% (153/242)Updating files:  64% (155/242)Updating files:  65% (158/242)Updating files:  65% (159/242)Updating files:  66% (160/242)Updating files:  67% (163/242)Updating files:  68% (165/242)Updating files:  69% (167/242)Updating files:  70% (170/242)Updating files:  71% (172/242)Updating files:  72% (175/242)Updating files:  73% (177/242)Updating files:  74% (180/242)Updating files:  75% (182/242)Updating files:  76% (184/242)Updating files:  77% (187/242)Updating files:  78% (189/242)Updating files:  79% (192/242)Updating files:  80% (194/242)Updating files:  81% (197/242)Updating files:  82% (199/242)Updating files:  83% (201/242)Updating files:  84% (204/242)Updating files:  85% (206/242)Updating files:  86% (209/242)Updating files:  87% (211/242)Updating files:  88% (213/242)Updating files:  89% (216/242)Updating files:  90% (218/242)Updating files:  91% (221/242)Updating files:  92% (223/242)Updating files:  93% (226/242)Updating files:  94% (228/242)Updating files:  95% (230/242)Updating files:  96% (233/242)Updating files:  97% (235/242)Updating files:  98% (238/242)Updating files:  98% (239/242)Updating files:  99% (240/242)Updating files: 100% (242/242)Updating files: 100% (242/242), done.
+Note: switching to 'tags/rel/commons-validator-1.9.0'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by switching back to a branch.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -c with the switch command. Example:
+
+  git switch -c <new-branch-name>
+
+Or undo this operation with:
+
+  git switch -
+
+Turn off this advice by setting config variable advice.detachedHead to false
+
+HEAD is now at 191171b2 Prepare for the next release candidate
+
+Processing commons-validator (Java 11)...
+----------------------------------------
+JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64
+Using Java 11:
+openjdk version "11.0.30" 2026-01-20
+OpenJDK Runtime Environment (build 11.0.30+7-post-Ubuntu-1ubuntu124.04)
+OpenJDK 64-Bit Server VM (build 11.0.30+7-post-Ubuntu-1ubuntu124.04, mixed mode, sharing)
+----------------------------------------
+python3 ../../MediumDarwin.py -m --all --build-command "mvn,compile" -q -t . -p ./src/main/java
+
+        __       __                  __  __                          _______                                     __
+       |  \     /  \                |  \|  \                        |       \                                   |  \
+       | $$\   /  $$  ______    ____| $$ \$$ __    __  ______ ____  | $$$$$$$\  ______    ______   __   __   __  \$$ _______
+       | $$$\ /  $$$ /      \  /      $$|  \|  \  |  \|      \    \ | $$  | $$ |      \  /      \ |  \ |  \ |  \|  \|       \
+       | $$$$\  $$$$|  $$$$$$\|  $$$$$$$| $$| $$  | $$| $$$$$$\$$$$\| $$  | $$  \$$$$$$\|  $$$$$$\| $$ | $$ | $$| $$| $$$$$$$\
+       | $$\$$ $$ $$| $$    $$| $$  | $$| $$| $$  | $$| $$ | $$ | $$| $$  | $$ /      $$| $$   \$$| $$ | $$ | $$| $$| $$  | $$
+       | $$ \$$$| $$| $$$$$$$$| $$__| $$| $$| $$__/ $$| $$ | $$ | $$| $$__/ $$|  $$$$$$$| $$      | $$_/ $$_/ $$| $$| $$  | $$
+       | $$  \$ | $$ \$$     \ \$$    $$| $$ \$$    $$| $$ | $$ | $$| $$    $$ \$$    $$| $$       \$$   $$   $$| $$| $$  | $$
+        \$$      \$$  \$$$$$$$  \$$$$$$$ \$$  \$$$$$$  \$$  \$$  \$$ \$$$$$$$   \$$$$$$$ \$$        \$$$$$\$$$$  \$$ \$$   \$$
+
+       Copyright (c) 2014 2022 Ali Parsai
+       Copyright (c) 2025      MediumDarwin Contributors
+
+       This project builds upon the original work of Ali Parsai and the LittleDarwin mutation testing framework.
+       We gratefully acknowledge his foundational contributions, which made this extended version possible.
+
+       This program is free software: you can redistribute it and/or modify it under the terms of the GNU
+       General Public License as published by the Free Software Foundation, version 3  of the License, or
+       (at your option) any later version.
+
+       This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied
+       warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the  GNU General Public License for more details.
+
+       You should have received a copy of the GNU General Public License along with this program.
+       If not, see <https://www.gnu.org/licenses/>.
+
+       Original author:
+       Ali Parsai — https://www.parsai.net/
+        
+
+        __       __                  __  __                          _______                                     __            
+       |  \     /  \                |  \|  \                        |       \                                   |  \           
+       | $$\   /  $$  ______    ____| $$ \$$ __    __  ______ ____  | $$$$$$$\  ______    ______   __   __   __  \$$ _______   
+       | $$$\ /  $$$ /      \  /      $$|  \|  \  |  \|      \    \ | $$  | $$ |      \  /      \ |  \ |  \ |  \|  \|       \  
+       | $$$$\  $$$$|  $$$$$$\|  $$$$$$$| $$| $$  | $$| $$$$$$\$$$$\| $$  | $$  \$$$$$$\|  $$$$$$\| $$ | $$ | $$| $$| $$$$$$$\ 
+       | $$\$$ $$ $$| $$    $$| $$  | $$| $$| $$  | $$| $$ | $$ | $$| $$  | $$ /      $$| $$   \$$| $$ | $$ | $$| $$| $$  | $$ 
+       | $$ \$$$| $$| $$$$$$$$| $$__| $$| $$| $$__/ $$| $$ | $$ | $$| $$__/ $$|  $$$$$$$| $$      | $$_/ $$_/ $$| $$| $$  | $$ 
+       | $$  \$ | $$ \$$     \ \$$    $$| $$ \$$    $$| $$ | $$ | $$| $$    $$ \$$    $$| $$       \$$   $$   $$| $$| $$  | $$ 
+        \$$      \$$  \$$$$$$$  \$$$$$$$ \$$  \$$$$$$  \$$  \$$  \$$ \$$$$$$$   \$$$$$$$ \$$        \$$$$$\$$$$  \$$ \$$   \$$ 
+                                                                                                                            
+       Copyright (c) 2014 2022 Ali Parsai                                                                                      
+       Copyright (c) 2025      MediumDarwin Contributors                                                                       
+                                                                                                                            
+       This project builds upon the original work of Ali Parsai and the LittleDarwin mutation testing framework.               
+       We gratefully acknowledge his foundational contributions, which made this extended version possible.                    
+                                                                                                                                
+       This program is free software: you can redistribute it and/or modify it under the terms of the GNU                      
+       General Public License as published by the Free Software Foundation, version 3  of the License, or                      
+       (at your option) any later version.                                                                                     
+                                                                                                                            
+       This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied       
+       warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the  GNU General Public License for more details.   
+                                                                                                                                
+       You should have received a copy of the GNU General Public License along with this program.                              
+       If not, see <https://www.gnu.org/licenses/>.                                                                             
+                                                                                                                                
+       Original author:                                                                                                         
+       Ali Parsai — https://www.parsai.net/                                                                                     
+        
+Source Path:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-validator/src/main/java
+Target Path:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-validator/LittleDarwinResults
+Creating Mutation Database:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-validator/LittleDarwinResults/mutationdatabase
+
+(1/71) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-validator/src/main/java/org/apache/commons/validator/Arg.java
+--> Mutations found:  27
+----> ArithmeticOperatorReplacementUnary : 2
+----> NullifyObjectInitialization : 2
+----> NullifyReturnValue : 5
+----> RemoveMethod : 18
+
+(2/71) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-validator/src/main/java/org/apache/commons/validator/CreditCardValidator.java
+--> Mutations found:  57
+----> ArithmeticOperatorReplacementBinary : 4
+----> ArithmeticOperatorReplacementShortcut : 1
+----> AssignmentOperatorReplacementShortcut : 3
+----> ConditionalOperatorDeletion : 1
+----> ConditionalOperatorReplacement : 8
+----> LogicalOperatorReplacement : 3
+----> NullifyObjectInitialization : 6
+----> RelationalOperatorReplacement : 13
+----> RemoveMethod : 13
+----> RemoveNullCheck : 1
+----> ShiftOperatorReplacement : 4
+
+(3/71) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-validator/src/main/java/org/apache/commons/validator/DateValidator.java
+--> Mutations found:  20
+----> ConditionalOperatorReplacement : 3
+----> NullifyObjectInitialization : 2
+----> NullifyReturnValue : 1
+----> RelationalOperatorReplacement : 5
+----> RemoveMethod : 5
+----> RemoveNullCheck : 4
+
+(4/71) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-validator/src/main/java/org/apache/commons/validator/EmailValidator.java
+--> Mutations found:  33
+----> ArithmeticOperatorReplacementBinary : 3
+----> ArithmeticOperatorReplacementShortcut : 2
+----> ConditionalOperatorDeletion : 3
+----> ConditionalOperatorReplacement : 1
+----> NullifyInputVariable : 1
+----> NullifyObjectInitialization : 1
+----> NullifyReturnValue : 2
+----> RelationalOperatorReplacement : 6
+----> RemoveMethod : 13
+----> RemoveNullCheck : 1
+
+(5/71) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-validator/src/main/java/org/apache/commons/validator/Field.java
+--> Mutations found:  205
+----> ArithmeticOperatorReplacementBinary : 11
+----> ArithmeticOperatorReplacementShortcut : 5
+----> ArithmeticOperatorReplacementUnary : 3
+----> ConditionalOperatorDeletion : 6
+----> ConditionalOperatorReplacement : 11
+----> NullifyObjectInitialization : 17
+----> NullifyReturnValue : 26
+----> RelationalOperatorReplacement : 35
+----> RemoveMethod : 65
+----> RemoveNullCheck : 26
+
+(6/71) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-validator/src/main/java/org/apache/commons/validator/Form.java
+--> Mutations found:  54
+----> ArithmeticOperatorReplacementShortcut : 1
+----> ConditionalOperatorDeletion : 2
+----> NullifyObjectInitialization : 7
+----> NullifyReturnValue : 8
+----> RelationalOperatorReplacement : 8
+----> RemoveMethod : 22
+----> RemoveNullCheck : 6
+
+(7/71) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-validator/src/main/java/org/apache/commons/validator/FormSet.java
+--> Mutations found:  75
+----> ArithmeticOperatorReplacementUnary : 1
+----> ConditionalOperatorDeletion : 3
+----> ConditionalOperatorReplacement : 4
+----> NullifyObjectInitialization : 6
+----> NullifyReturnValue : 8
+----> RelationalOperatorReplacement : 15
+----> RemoveMethod : 26
+----> RemoveNullCheck : 12
+
+(8/71) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-validator/src/main/java/org/apache/commons/validator/FormSetFactory.java
+--> Mutations found:  12
+----> NullifyObjectInitialization : 1
+----> NullifyReturnValue : 4
+----> RelationalOperatorReplacement : 2
+----> RemoveMethod : 3
+----> RemoveNullCheck : 2
+
+(9/71) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-validator/src/main/java/org/apache/commons/validator/GenericTypeValidator.java
+--> Mutations found:  151
+----> ArithmeticOperatorReplacementBinary : 2
+----> ArithmeticOperatorReplacementUnary : 8
+----> ConditionalOperatorReplacement : 21
+----> NullifyObjectInitialization : 7
+----> NullifyReturnValue : 29
+----> RelationalOperatorReplacement : 47
+----> RemoveMethod : 15
+----> RemoveNullCheck : 22
+
+(10/71) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-validator/src/main/java/org/apache/commons/validator/GenericValidator.java
+--> Mutations found:  127
+----> ArithmeticOperatorReplacementBinary : 5
+----> ArithmeticOperatorReplacementShortcut : 3
+----> ArithmeticOperatorReplacementUnary : 1
+----> ConditionalOperatorReplacement : 9
+----> NullifyObjectInitialization : 2
+----> RelationalOperatorReplacement : 35
+----> RemoveMethod : 64
+----> RemoveNullCheck : 8
+
+(11/71) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-validator/src/main/java/org/apache/commons/validator/ISBNValidator.java
+--> Mutations found:  2
+----> RemoveMethod : 2
+
+(12/71) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-validator/src/main/java/org/apache/commons/validator/Msg.java
+--> Mutations found:  22
+----> NullifyObjectInitialization : 2
+----> NullifyReturnValue : 5
+----> RemoveMethod : 15
+
+(13/71) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-validator/src/main/java/org/apache/commons/validator/UrlValidator.java
+--> Mutations found:  79
+----> ArithmeticOperatorReplacementBinary : 5
+----> ArithmeticOperatorReplacementShortcut : 4
+----> ArithmeticOperatorReplacementUnary : 2
+----> ConditionalOperatorDeletion : 17
+----> ConditionalOperatorReplacement : 6
+----> NullifyObjectInitialization : 2
+----> RelationalOperatorReplacement : 18
+----> RemoveMethod : 14
+----> RemoveNullCheck : 8
+----> ShiftOperatorReplacement : 3
+
+(14/71) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-validator/src/main/java/org/apache/commons/validator/Validator.java
+--> Mutations found:  44
+----> ArithmeticOperatorReplacementUnary : 1
+----> NullifyObjectInitialization : 5
+----> NullifyReturnValue : 7
+----> RelationalOperatorReplacement : 6
+----> RemoveMethod : 19
+----> RemoveNullCheck : 6
+
+(15/71) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-validator/src/main/java/org/apache/commons/validator/ValidatorAction.java
+--> Mutations found:  146
+----> ArithmeticOperatorReplacementBinary : 2
+----> ArithmeticOperatorReplacementShortcut : 2
+----> ConditionalOperatorDeletion : 6
+----> ConditionalOperatorReplacement : 4
+----> NullifyObjectInitialization : 16
+----> NullifyReturnValue : 21
+----> RelationalOperatorReplacement : 20
+----> RemoveMethod : 57
+----> RemoveNullCheck : 18
+
+(16/71) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-validator/src/main/java/org/apache/commons/validator/ValidatorException.java
+--> Mutations found:  0
+
+(17/71) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-validator/src/main/java/org/apache/commons/validator/ValidatorResources.java
+--> Mutations found:  103
+----> ArithmeticOperatorReplacementBinary : 1
+----> ArithmeticOperatorReplacementShortcut : 1
+----> ArithmeticOperatorReplacementUnary : 1
+----> AssignmentOperatorReplacementShortcut : 1
+----> ConditionalOperatorDeletion : 7
+----> ConditionalOperatorReplacement : 4
+----> NullifyObjectInitialization : 7
+----> NullifyReturnValue : 14
+----> RelationalOperatorReplacement : 25
+----> RemoveMethod : 22
+----> RemoveNullCheck : 20
+
+(18/71) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-validator/src/main/java/org/apache/commons/validator/ValidatorResult.java
+--> Mutations found:  28
+----> ArithmeticOperatorReplacementUnary : 1
+----> ConditionalOperatorReplacement : 1
+----> NullifyObjectInitialization : 2
+----> NullifyReturnValue : 5
+----> RelationalOperatorReplacement : 2
+----> RemoveMethod : 15
+----> RemoveNullCheck : 2
+
+(19/71) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-validator/src/main/java/org/apache/commons/validator/ValidatorResults.java
+--> Mutations found:  22
+----> ArithmeticOperatorReplacementUnary : 1
+----> ConditionalOperatorDeletion : 1
+----> ConditionalOperatorReplacement : 1
+----> NullifyObjectInitialization : 3
+----> NullifyReturnValue : 3
+----> RelationalOperatorReplacement : 2
+----> RemoveMethod : 9
+----> RemoveNullCheck : 2
+
+(20/71) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-validator/src/main/java/org/apache/commons/validator/Var.java
+--> Mutations found:  27
+----> ArithmeticOperatorReplacementUnary : 1
+----> NullifyObjectInitialization : 2
+----> NullifyReturnValue : 6
+----> RemoveMethod : 18
+
+(21/71) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-validator/src/main/java/org/apache/commons/validator/package-info.java
+--> Mutations found:  0
+
+(22/71) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-validator/src/main/java/org/apache/commons/validator/routines/AbstractCalendarValidator.java
+--> Mutations found:  116
+----> ArithmeticOperatorReplacementBinary : 9
+----> ArithmeticOperatorReplacementShortcut : 1
+----> ArithmeticOperatorReplacementUnary : 3
+----> ConditionalOperatorDeletion : 2
+----> ConditionalOperatorReplacement : 10
+----> NullifyInputVariable : 2
+----> NullifyObjectInitialization : 4
+----> NullifyReturnValue : 11
+----> RelationalOperatorReplacement : 38
+----> RemoveMethod : 27
+----> RemoveNullCheck : 9
+
+(23/71) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-validator/src/main/java/org/apache/commons/validator/routines/AbstractFormatValidator.java
+--> Mutations found:  35
+----> ArithmeticOperatorReplacementUnary : 2
+----> ConditionalOperatorReplacement : 1
+----> NullifyObjectInitialization : 1
+----> NullifyReturnValue : 8
+----> RelationalOperatorReplacement : 3
+----> RemoveMethod : 19
+----> RemoveNullCheck : 1
+
+(24/71) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-validator/src/main/java/org/apache/commons/validator/routines/AbstractNumberValidator.java
+--> Mutations found:  59
+----> ArithmeticOperatorReplacementUnary : 3
+----> AssignmentOperatorReplacementShortcut : 3
+----> ConditionalOperatorDeletion : 6
+----> ConditionalOperatorReplacement : 2
+----> NullifyInputVariable : 1
+----> NullifyObjectInitialization : 3
+----> NullifyReturnValue : 4
+----> RelationalOperatorReplacement : 14
+----> RemoveMethod : 17
+----> RemoveNullCheck : 6
+
+(25/71) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-validator/src/main/java/org/apache/commons/validator/routines/BigDecimalValidator.java
+--> Mutations found:  27
+----> ArithmeticOperatorReplacementUnary : 1
+----> ConditionalOperatorReplacement : 1
+----> NullifyObjectInitialization : 2
+----> NullifyReturnValue : 6
+----> RelationalOperatorReplacement : 5
+----> RemoveMethod : 12
+
+(26/71) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-validator/src/main/java/org/apache/commons/validator/routines/BigIntegerValidator.java
+--> Mutations found:  24
+----> ConditionalOperatorReplacement : 1
+----> NullifyObjectInitialization : 1
+----> NullifyReturnValue : 6
+----> RelationalOperatorReplacement : 4
+----> RemoveMethod : 12
+
+(27/71) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-validator/src/main/java/org/apache/commons/validator/routines/ByteValidator.java
+--> Mutations found:  34
+----> ConditionalOperatorReplacement : 2
+----> NullifyObjectInitialization : 1
+----> NullifyReturnValue : 7
+----> RelationalOperatorReplacement : 6
+----> RemoveMethod : 18
+
+(28/71) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-validator/src/main/java/org/apache/commons/validator/routines/CalendarValidator.java
+--> Mutations found:  35
+----> ArithmeticOperatorReplacementUnary : 1
+----> NullifyObjectInitialization : 1
+----> NullifyReturnValue : 10
+----> RemoveMethod : 23
+
+(29/71) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-validator/src/main/java/org/apache/commons/validator/routines/CodeValidator.java
+--> Mutations found:  42
+----> ArithmeticOperatorReplacementUnary : 4
+----> ConditionalOperatorDeletion : 2
+----> ConditionalOperatorReplacement : 4
+----> NullifyObjectInitialization : 1
+----> NullifyReturnValue : 8
+----> RelationalOperatorReplacement : 9
+----> RemoveMethod : 9
+----> RemoveNullCheck : 5
+
+(30/71) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-validator/src/main/java/org/apache/commons/validator/routines/CreditCardValidator.java
+--> Mutations found:  83
+----> ArithmeticOperatorReplacementBinary : 3
+----> ArithmeticOperatorReplacementUnary : 2
+----> ConditionalOperatorReplacement : 2
+----> LogicalOperatorReplacement : 1
+----> NullifyObjectInitialization : 17
+----> NullifyReturnValue : 11
+----> RelationalOperatorReplacement : 15
+----> RemoveMethod : 16
+----> RemoveNullCheck : 9
+----> ShiftOperatorReplacement : 7
+
+(31/71) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-validator/src/main/java/org/apache/commons/validator/routines/CurrencyValidator.java
+--> Mutations found:  16
+----> ArithmeticOperatorReplacementShortcut : 1
+----> ArithmeticOperatorReplacementUnary : 1
+----> ConditionalOperatorDeletion : 1
+----> ConditionalOperatorReplacement : 1
+----> NullifyObjectInitialization : 2
+----> NullifyReturnValue : 3
+----> RelationalOperatorReplacement : 4
+----> RemoveMethod : 2
+----> RemoveNullCheck : 1
+
+(32/71) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-validator/src/main/java/org/apache/commons/validator/routines/DateValidator.java
+--> Mutations found:  39
+----> ArithmeticOperatorReplacementUnary : 2
+----> NullifyObjectInitialization : 1
+----> NullifyReturnValue : 11
+----> RelationalOperatorReplacement : 1
+----> RemoveMethod : 23
+----> RemoveNullCheck : 1
+
+(33/71) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-validator/src/main/java/org/apache/commons/validator/routines/DomainValidator.java
+--> Mutations found:  102
+----> ArithmeticOperatorReplacementBinary : 4
+----> ArithmeticOperatorReplacementShortcut : 3
+----> ArithmeticOperatorReplacementUnary : 1
+----> ConditionalOperatorDeletion : 3
+----> ConditionalOperatorReplacement : 13
+----> NullifyInputVariable : 2
+----> NullifyObjectInitialization : 10
+----> NullifyReturnValue : 14
+----> RelationalOperatorReplacement : 15
+----> RemoveMethod : 32
+----> RemoveNullCheck : 5
+
+(34/71) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-validator/src/main/java/org/apache/commons/validator/routines/DoubleValidator.java
+--> Mutations found:  31
+----> ConditionalOperatorReplacement : 1
+----> NullifyObjectInitialization : 1
+----> NullifyReturnValue : 7
+----> RelationalOperatorReplacement : 4
+----> RemoveMethod : 18
+
+(35/71) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-validator/src/main/java/org/apache/commons/validator/routines/EmailValidator.java
+--> Mutations found:  36
+----> ConditionalOperatorDeletion : 4
+----> ConditionalOperatorReplacement : 3
+----> NullifyObjectInitialization : 6
+----> NullifyReturnValue : 6
+----> RelationalOperatorReplacement : 5
+----> RemoveMethod : 9
+----> RemoveNullCheck : 3
+
+(36/71) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-validator/src/main/java/org/apache/commons/validator/routines/FloatValidator.java
+--> Mutations found:  43
+----> ArithmeticOperatorReplacementBinary : 1
+----> ArithmeticOperatorReplacementUnary : 2
+----> ConditionalOperatorReplacement : 1
+----> NullifyObjectInitialization : 1
+----> NullifyReturnValue : 10
+----> RelationalOperatorReplacement : 10
+----> RemoveMethod : 18
+
+(37/71) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-validator/src/main/java/org/apache/commons/validator/routines/IBANValidator.java
+--> Mutations found:  144
+----> ArithmeticOperatorReplacementBinary : 4
+----> ConditionalOperatorDeletion : 3
+----> ConditionalOperatorReplacement : 6
+----> NullifyObjectInitialization : 97
+----> NullifyReturnValue : 9
+----> RelationalOperatorReplacement : 11
+----> RemoveMethod : 11
+----> RemoveNullCheck : 3
+
+(38/71) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-validator/src/main/java/org/apache/commons/validator/routines/ISBNValidator.java
+--> Mutations found:  44
+----> ArithmeticOperatorReplacementBinary : 1
+----> AssignmentOperatorReplacementShortcut : 1
+----> ConditionalOperatorReplacement : 2
+----> NullifyObjectInitialization : 6
+----> NullifyReturnValue : 7
+----> RelationalOperatorReplacement : 6
+----> RemoveMethod : 16
+----> RemoveNullCheck : 5
+
+(39/71) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-validator/src/main/java/org/apache/commons/validator/routines/ISINValidator.java
+--> Mutations found:  20
+----> ArithmeticOperatorReplacementUnary : 1
+----> ConditionalOperatorReplacement : 3
+----> NullifyObjectInitialization : 3
+----> NullifyReturnValue : 3
+----> RelationalOperatorReplacement : 3
+----> RemoveMethod : 6
+----> RemoveNullCheck : 1
+
+(40/71) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-validator/src/main/java/org/apache/commons/validator/routines/ISSNValidator.java
+--> Mutations found:  39
+----> ArithmeticOperatorReplacementBinary : 4
+----> AssignmentOperatorReplacementShortcut : 1
+----> ConditionalOperatorDeletion : 2
+----> ConditionalOperatorReplacement : 1
+----> NullifyObjectInitialization : 8
+----> NullifyReturnValue : 7
+----> RelationalOperatorReplacement : 4
+----> RemoveMethod : 9
+----> RemoveNullCheck : 3
+
+(41/71) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-validator/src/main/java/org/apache/commons/validator/routines/InetAddressValidator.java
+--> Mutations found:  60
+----> ArithmeticOperatorReplacementBinary : 1
+----> ArithmeticOperatorReplacementShortcut : 3
+----> ArithmeticOperatorReplacementUnary : 3
+----> AssignmentOperatorReplacementShortcut : 1
+----> ConditionalOperatorDeletion : 7
+----> ConditionalOperatorReplacement : 13
+----> NullifyInputVariable : 1
+----> NullifyObjectInitialization : 3
+----> NullifyReturnValue : 1
+----> RelationalOperatorReplacement : 19
+----> RemoveMethod : 7
+----> RemoveNullCheck : 1
+
+(42/71) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-validator/src/main/java/org/apache/commons/validator/routines/IntegerValidator.java
+--> Mutations found:  34
+----> ConditionalOperatorReplacement : 2
+----> NullifyObjectInitialization : 1
+----> NullifyReturnValue : 7
+----> RelationalOperatorReplacement : 6
+----> RemoveMethod : 18
+
+(43/71) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-validator/src/main/java/org/apache/commons/validator/routines/LongValidator.java
+--> Mutations found:  32
+----> ArithmeticOperatorReplacementUnary : 1
+----> ConditionalOperatorReplacement : 1
+----> NullifyObjectInitialization : 1
+----> NullifyReturnValue : 7
+----> RelationalOperatorReplacement : 4
+----> RemoveMethod : 18
+
+(44/71) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-validator/src/main/java/org/apache/commons/validator/routines/PercentValidator.java
+--> Mutations found:  19
+----> ArithmeticOperatorReplacementShortcut : 1
+----> ArithmeticOperatorReplacementUnary : 1
+----> ConditionalOperatorDeletion : 1
+----> ConditionalOperatorReplacement : 1
+----> NullifyObjectInitialization : 3
+----> NullifyReturnValue : 3
+----> RelationalOperatorReplacement : 5
+----> RemoveMethod : 2
+----> RemoveNullCheck : 2
+
+(45/71) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-validator/src/main/java/org/apache/commons/validator/routines/RegexValidator.java
+--> Mutations found:  49
+----> ArithmeticOperatorReplacementBinary : 2
+----> ArithmeticOperatorReplacementShortcut : 4
+----> ArithmeticOperatorReplacementUnary : 1
+----> ConditionalOperatorReplacement : 2
+----> NullifyObjectInitialization : 4
+----> NullifyReturnValue : 9
+----> RelationalOperatorReplacement : 13
+----> RemoveMethod : 8
+----> RemoveNullCheck : 6
+
+(46/71) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-validator/src/main/java/org/apache/commons/validator/routines/ShortValidator.java
+--> Mutations found:  35
+----> ArithmeticOperatorReplacementUnary : 1
+----> ConditionalOperatorReplacement : 2
+----> NullifyObjectInitialization : 1
+----> NullifyReturnValue : 7
+----> RelationalOperatorReplacement : 6
+----> RemoveMethod : 18
+
+(47/71) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-validator/src/main/java/org/apache/commons/validator/routines/TimeValidator.java
+--> Mutations found:  30
+----> ArithmeticOperatorReplacementUnary : 1
+----> NullifyObjectInitialization : 1
+----> NullifyReturnValue : 10
+----> RemoveMethod : 18
+
+(48/71) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-validator/src/main/java/org/apache/commons/validator/routines/UrlValidator.java
+--> Mutations found:  98
+----> ArithmeticOperatorReplacementBinary : 1
+----> ArithmeticOperatorReplacementShortcut : 2
+----> ArithmeticOperatorReplacementUnary : 2
+----> ConditionalOperatorDeletion : 14
+----> ConditionalOperatorReplacement : 9
+----> LogicalOperatorReplacement : 4
+----> NullifyObjectInitialization : 6
+----> NullifyReturnValue : 1
+----> RelationalOperatorReplacement : 22
+----> RemoveMethod : 21
+----> RemoveNullCheck : 12
+----> ShiftOperatorReplacement : 4
+
+(49/71) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-validator/src/main/java/org/apache/commons/validator/routines/checkdigit/ABANumberCheckDigit.java
+--> Mutations found:  6
+----> ArithmeticOperatorReplacementBinary : 2
+----> ArithmeticOperatorReplacementUnary : 1
+----> NullifyObjectInitialization : 1
+----> RemoveMethod : 2
+
+(50/71) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-validator/src/main/java/org/apache/commons/validator/routines/checkdigit/AbstractCheckDigit.java
+--> Mutations found:  0
+
+(51/71) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-validator/src/main/java/org/apache/commons/validator/routines/checkdigit/CASNumberCheckDigit.java
+--> Mutations found:  19
+----> ArithmeticOperatorReplacementBinary : 4
+----> ArithmeticOperatorReplacementUnary : 1
+----> ConditionalOperatorDeletion : 1
+----> NullifyObjectInitialization : 3
+----> NullifyReturnValue : 2
+----> RelationalOperatorReplacement : 1
+----> RemoveMethod : 7
+
+(52/71) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-validator/src/main/java/org/apache/commons/validator/routines/checkdigit/CUSIPCheckDigit.java
+--> Mutations found:  12
+----> ArithmeticOperatorReplacementBinary : 2
+----> ConditionalOperatorReplacement : 1
+----> NullifyObjectInitialization : 2
+----> RelationalOperatorReplacement : 3
+----> RemoveMethod : 4
+
+(53/71) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-validator/src/main/java/org/apache/commons/validator/routines/checkdigit/CheckDigit.java
+--> Mutations found:  0
+
+(54/71) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-validator/src/main/java/org/apache/commons/validator/routines/checkdigit/CheckDigitException.java
+--> Mutations found:  1
+----> ArithmeticOperatorReplacementUnary : 1
+
+(55/71) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-validator/src/main/java/org/apache/commons/validator/routines/checkdigit/EAN13CheckDigit.java
+--> Mutations found:  5
+----> ArithmeticOperatorReplacementBinary : 2
+----> NullifyObjectInitialization : 1
+----> RemoveMethod : 2
+
+(56/71) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-validator/src/main/java/org/apache/commons/validator/routines/checkdigit/ECNumberCheckDigit.java
+--> Mutations found:  17
+----> ArithmeticOperatorReplacementBinary : 2
+----> ConditionalOperatorDeletion : 1
+----> NullifyObjectInitialization : 3
+----> NullifyReturnValue : 2
+----> RelationalOperatorReplacement : 2
+----> RemoveMethod : 7
+
+(57/71) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-validator/src/main/java/org/apache/commons/validator/routines/checkdigit/IBANCheckDigit.java
+--> Mutations found:  41
+----> ArithmeticOperatorReplacementBinary : 7
+----> ArithmeticOperatorReplacementShortcut : 1
+----> ArithmeticOperatorReplacementUnary : 1
+----> AssignmentOperatorReplacementShortcut : 1
+----> ConditionalOperatorReplacement : 5
+----> NullifyInputVariable : 1
+----> NullifyObjectInitialization : 3
+----> NullifyReturnValue : 1
+----> RelationalOperatorReplacement : 12
+----> RemoveMethod : 6
+----> RemoveNullCheck : 3
+
+(58/71) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-validator/src/main/java/org/apache/commons/validator/routines/checkdigit/ISBN10CheckDigit.java
+--> Mutations found:  14
+----> ArithmeticOperatorReplacementBinary : 1
+----> ConditionalOperatorReplacement : 1
+----> NullifyObjectInitialization : 1
+----> NullifyReturnValue : 2
+----> RelationalOperatorReplacement : 3
+----> RemoveMethod : 6
+
+(59/71) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-validator/src/main/java/org/apache/commons/validator/routines/checkdigit/ISBNCheckDigit.java
+--> Mutations found:  15
+----> NullifyObjectInitialization : 3
+----> NullifyReturnValue : 2
+----> RelationalOperatorReplacement : 5
+----> RemoveMethod : 4
+----> RemoveNullCheck : 1
+
+(60/71) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-validator/src/main/java/org/apache/commons/validator/routines/checkdigit/ISINCheckDigit.java
+--> Mutations found:  20
+----> ArithmeticOperatorReplacementBinary : 5
+----> ArithmeticOperatorReplacementShortcut : 1
+----> ArithmeticOperatorReplacementUnary : 1
+----> ConditionalOperatorDeletion : 1
+----> ConditionalOperatorReplacement : 1
+----> NullifyObjectInitialization : 4
+----> RelationalOperatorReplacement : 3
+----> RemoveMethod : 4
+
+(61/71) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-validator/src/main/java/org/apache/commons/validator/routines/checkdigit/ISSNCheckDigit.java
+--> Mutations found:  15
+----> ArithmeticOperatorReplacementBinary : 2
+----> ConditionalOperatorReplacement : 1
+----> NullifyObjectInitialization : 1
+----> NullifyReturnValue : 2
+----> RelationalOperatorReplacement : 3
+----> RemoveMethod : 6
+
+(62/71) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-validator/src/main/java/org/apache/commons/validator/routines/checkdigit/LuhnCheckDigit.java
+--> Mutations found:  8
+----> ArithmeticOperatorReplacementBinary : 3
+----> ArithmeticOperatorReplacementUnary : 1
+----> NullifyObjectInitialization : 1
+----> RelationalOperatorReplacement : 1
+----> RemoveMethod : 2
+
+(63/71) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-validator/src/main/java/org/apache/commons/validator/routines/checkdigit/ModulusCheckDigit.java
+--> Mutations found:  39
+----> ArithmeticOperatorReplacementBinary : 7
+----> ArithmeticOperatorReplacementShortcut : 1
+----> ArithmeticOperatorReplacementUnary : 1
+----> AssignmentOperatorReplacementShortcut : 3
+----> ConditionalOperatorReplacement : 1
+----> NullifyObjectInitialization : 4
+----> NullifyReturnValue : 2
+----> RelationalOperatorReplacement : 6
+----> RemoveMethod : 14
+
+(64/71) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-validator/src/main/java/org/apache/commons/validator/routines/checkdigit/ModulusTenCheckDigit.java
+--> Mutations found:  20
+----> ArithmeticOperatorReplacementBinary : 7
+----> ArithmeticOperatorReplacementUnary : 1
+----> ConditionalOperatorDeletion : 1
+----> NullifyObjectInitialization : 1
+----> NullifyReturnValue : 1
+----> RelationalOperatorReplacement : 1
+----> RemoveMethod : 8
+
+(65/71) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-validator/src/main/java/org/apache/commons/validator/routines/checkdigit/SedolCheckDigit.java
+--> Mutations found:  17
+----> ArithmeticOperatorReplacementBinary : 2
+----> ArithmeticOperatorReplacementUnary : 1
+----> ConditionalOperatorReplacement : 1
+----> NullifyObjectInitialization : 3
+----> RelationalOperatorReplacement : 4
+----> RemoveMethod : 6
+
+(66/71) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-validator/src/main/java/org/apache/commons/validator/routines/checkdigit/VerhoeffCheckDigit.java
+--> Mutations found:  20
+----> ArithmeticOperatorReplacementBinary : 4
+----> ArithmeticOperatorReplacementShortcut : 1
+----> ConditionalOperatorReplacement : 1
+----> NullifyObjectInitialization : 3
+----> NullifyReturnValue : 1
+----> RelationalOperatorReplacement : 4
+----> RemoveMethod : 6
+
+(67/71) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-validator/src/main/java/org/apache/commons/validator/routines/checkdigit/package-info.java
+--> Mutations found:  0
+
+(68/71) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-validator/src/main/java/org/apache/commons/validator/routines/package-info.java
+--> Mutations found:  0
+
+(69/71) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-validator/src/main/java/org/apache/commons/validator/util/Flags.java
+--> Mutations found:  34
+----> ArithmeticOperatorReplacementBinary : 1
+----> ArithmeticOperatorReplacementShortcut : 1
+----> AssignmentOperatorReplacementShortcut : 2
+----> ConditionalOperatorDeletion : 1
+----> LogicalOperatorReplacement : 2
+----> NullifyObjectInitialization : 2
+----> NullifyReturnValue : 2
+----> RelationalOperatorReplacement : 5
+----> RemoveMethod : 18
+
+(70/71) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-validator/src/main/java/org/apache/commons/validator/util/ValidatorUtils.java
+--> Mutations found:  27
+----> ConditionalOperatorReplacement : 2
+----> NullifyObjectInitialization : 2
+----> NullifyReturnValue : 8
+----> RelationalOperatorReplacement : 5
+----> RemoveMethod : 6
+----> RemoveNullCheck : 4
+
+(71/71) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-validator/src/main/java/org/apache/commons/validator/util/package-info.java
+--> Mutations found:  0
+
+Total mutations found:  2890
+Total mutant found:  2890
+--> ArithmeticOperatorReplacementBinary: 114
+--> ArithmeticOperatorReplacementShortcut: 39
+--> ArithmeticOperatorReplacementUnary: 64
+--> AssignmentOperatorReplacementShortcut: 16
+--> ConditionalOperatorDeletion: 96
+--> ConditionalOperatorReplacement: 171
+--> LogicalOperatorReplacement: 10
+--> NullifyInputVariable: 8
+--> NullifyObjectInitialization: 314
+--> NullifyReturnValue: 362
+--> RelationalOperatorReplacement: 529
+--> RemoveMethod: 930
+--> RemoveNullCheck: 219
+--> ShiftOperatorReplacement: 18
+Cleanup MediumDarwin...
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-validator/src/main/java/org/apache/commons/validator/Arg.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-validator/src/main/java/org/apache/commons/validator/CreditCardValidator.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-validator/src/main/java/org/apache/commons/validator/DateValidator.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-validator/src/main/java/org/apache/commons/validator/EmailValidator.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-validator/src/main/java/org/apache/commons/validator/Field.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-validator/src/main/java/org/apache/commons/validator/Form.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-validator/src/main/java/org/apache/commons/validator/FormSet.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-validator/src/main/java/org/apache/commons/validator/FormSetFactory.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-validator/src/main/java/org/apache/commons/validator/GenericTypeValidator.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-validator/src/main/java/org/apache/commons/validator/GenericValidator.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-validator/src/main/java/org/apache/commons/validator/ISBNValidator.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-validator/src/main/java/org/apache/commons/validator/Msg.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-validator/src/main/java/org/apache/commons/validator/UrlValidator.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-validator/src/main/java/org/apache/commons/validator/Validator.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-validator/src/main/java/org/apache/commons/validator/ValidatorAction.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-validator/src/main/java/org/apache/commons/validator/ValidatorResources.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-validator/src/main/java/org/apache/commons/validator/ValidatorResult.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-validator/src/main/java/org/apache/commons/validator/ValidatorResults.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-validator/src/main/java/org/apache/commons/validator/Var.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-validator/src/main/java/org/apache/commons/validator/routines/AbstractCalendarValidator.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-validator/src/main/java/org/apache/commons/validator/routines/AbstractFormatValidator.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-validator/src/main/java/org/apache/commons/validator/routines/AbstractNumberValidator.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-validator/src/main/java/org/apache/commons/validator/routines/BigDecimalValidator.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-validator/src/main/java/org/apache/commons/validator/routines/BigIntegerValidator.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-validator/src/main/java/org/apache/commons/validator/routines/ByteValidator.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-validator/src/main/java/org/apache/commons/validator/routines/CalendarValidator.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-validator/src/main/java/org/apache/commons/validator/routines/CodeValidator.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-validator/src/main/java/org/apache/commons/validator/routines/CreditCardValidator.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-validator/src/main/java/org/apache/commons/validator/routines/CurrencyValidator.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-validator/src/main/java/org/apache/commons/validator/routines/DateValidator.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-validator/src/main/java/org/apache/commons/validator/routines/DomainValidator.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-validator/src/main/java/org/apache/commons/validator/routines/DoubleValidator.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-validator/src/main/java/org/apache/commons/validator/routines/EmailValidator.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-validator/src/main/java/org/apache/commons/validator/routines/FloatValidator.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-validator/src/main/java/org/apache/commons/validator/routines/IBANValidator.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-validator/src/main/java/org/apache/commons/validator/routines/ISBNValidator.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-validator/src/main/java/org/apache/commons/validator/routines/ISINValidator.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-validator/src/main/java/org/apache/commons/validator/routines/ISSNValidator.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-validator/src/main/java/org/apache/commons/validator/routines/InetAddressValidator.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-validator/src/main/java/org/apache/commons/validator/routines/IntegerValidator.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-validator/src/main/java/org/apache/commons/validator/routines/LongValidator.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-validator/src/main/java/org/apache/commons/validator/routines/PercentValidator.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-validator/src/main/java/org/apache/commons/validator/routines/RegexValidator.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-validator/src/main/java/org/apache/commons/validator/routines/ShortValidator.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-validator/src/main/java/org/apache/commons/validator/routines/TimeValidator.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-validator/src/main/java/org/apache/commons/validator/routines/UrlValidator.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-validator/src/main/java/org/apache/commons/validator/routines/checkdigit/ABANumberCheckDigit.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-validator/src/main/java/org/apache/commons/validator/routines/checkdigit/CASNumberCheckDigit.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-validator/src/main/java/org/apache/commons/validator/routines/checkdigit/CUSIPCheckDigit.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-validator/src/main/java/org/apache/commons/validator/routines/checkdigit/CheckDigitException.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-validator/src/main/java/org/apache/commons/validator/routines/checkdigit/EAN13CheckDigit.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-validator/src/main/java/org/apache/commons/validator/routines/checkdigit/ECNumberCheckDigit.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-validator/src/main/java/org/apache/commons/validator/routines/checkdigit/IBANCheckDigit.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-validator/src/main/java/org/apache/commons/validator/routines/checkdigit/ISBN10CheckDigit.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-validator/src/main/java/org/apache/commons/validator/routines/checkdigit/ISBNCheckDigit.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-validator/src/main/java/org/apache/commons/validator/routines/checkdigit/ISINCheckDigit.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-validator/src/main/java/org/apache/commons/validator/routines/checkdigit/ISSNCheckDigit.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-validator/src/main/java/org/apache/commons/validator/routines/checkdigit/LuhnCheckDigit.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-validator/src/main/java/org/apache/commons/validator/routines/checkdigit/ModulusCheckDigit.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-validator/src/main/java/org/apache/commons/validator/routines/checkdigit/ModulusTenCheckDigit.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-validator/src/main/java/org/apache/commons/validator/routines/checkdigit/SedolCheckDigit.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-validator/src/main/java/org/apache/commons/validator/routines/checkdigit/VerhoeffCheckDigit.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-validator/src/main/java/org/apache/commons/validator/util/Flags.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-validator/src/main/java/org/apache/commons/validator/util/ValidatorUtils.java
+elapsed: 0:04:29
+python3 ../littledarwin/LittleDarwin.py -m --all --build-command "mvn,compile" -t . -p ./src/main/java
+
+    __     _  __   __   __       ____                          _
+   / /    (_)/ /_ / /_ / /___   / __ \ ____ _ _____ _      __ (_)____
+  / /    / // __// __// // _ \ / / / // __ `// ___/| | /| / // // __ \
+ / /___ / // /_ / /_ / //  __// /_/ // /_/ // /    | |/ |/ // // / / /
+/_____//_/ \__/ \__//_/ \___//_____/ \__,_//_/     |__/|__//_//_/ /_/
+
+      _                     _                 ___
+     /_|  /|/|  _/__/'     /_|   _ /   _ ' _ (_  _ _ _  _      _ /
+    (  | /   |(//(///()/) (  |/)(/((/_) /_)  /  / (///)(-((/()/ /(
+                                  /
+
+
+    LittleDarwin version 0.10.9 Copyright (C) 2014-2022 Ali Parsai
+
+    LittleDarwin comes with ABSOLUTELY NO WARRANTY.
+    This is free software, and you are welcome to redistribute it
+    under certain conditions; run LittleDarwin --license for details.
+
+
+    
+Source Path:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-validator/src/main/java
+Target Path:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-validator/LittleDarwinResults
+Creating Mutation Database:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-validator/LittleDarwinResults/mutationdatabase
+
+(1/71) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-validator/src/main/java/org/apache/commons/validator/Arg.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  30
+----> NullifyReturnValue : 5
+----> NullifyInputVariable : 3
+----> NullifyObjectInitialization : 2
+----> RemoveMethod : 18
+----> ArithmeticOperatorReplacementUnary : 2
+
+(2/71) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-validator/src/main/java/org/apache/commons/validator/CreditCardValidator.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  64
+----> RelationalOperatorReplacement : 13
+----> RemoveNullCheck : 1
+----> ShiftOperatorReplacement : 4
+----> ConditionalOperatorDeletion : 1
+----> AssignmentOperatorReplacementShortcut : 3
+----> ConditionalOperatorReplacement : 8
+----> ArithmeticOperatorReplacementBinary : 4
+----> NullifyInputVariable : 7
+----> NullifyObjectInitialization : 6
+----> RemoveMethod : 13
+----> ArithmeticOperatorReplacementShortcut : 1
+----> LogicalOperatorReplacement : 3
+
+(3/71) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-validator/src/main/java/org/apache/commons/validator/DateValidator.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  24
+----> RelationalOperatorReplacement : 5
+----> NullifyReturnValue : 1
+----> RemoveNullCheck : 4
+----> ConditionalOperatorReplacement : 3
+----> NullifyInputVariable : 4
+----> NullifyObjectInitialization : 2
+----> RemoveMethod : 5
+
+(4/71) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-validator/src/main/java/org/apache/commons/validator/EmailValidator.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  38
+----> RelationalOperatorReplacement : 6
+----> NullifyReturnValue : 2
+----> RemoveNullCheck : 1
+----> ConditionalOperatorDeletion : 3
+----> ConditionalOperatorReplacement : 1
+----> ArithmeticOperatorReplacementBinary : 3
+----> NullifyInputVariable : 6
+----> NullifyObjectInitialization : 1
+----> RemoveMethod : 13
+----> ArithmeticOperatorReplacementShortcut : 2
+
+(5/71) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-validator/src/main/java/org/apache/commons/validator/Field.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  246
+----> RelationalOperatorReplacement : 35
+----> NullifyReturnValue : 26
+----> RemoveNullCheck : 26
+----> ConditionalOperatorDeletion : 6
+----> ConditionalOperatorReplacement : 11
+----> ArithmeticOperatorReplacementBinary : 11
+----> NullifyInputVariable : 41
+----> NullifyObjectInitialization : 17
+----> RemoveMethod : 65
+----> ArithmeticOperatorReplacementShortcut : 5
+----> ArithmeticOperatorReplacementUnary : 3
+
+(6/71) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-validator/src/main/java/org/apache/commons/validator/Form.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  68
+----> RelationalOperatorReplacement : 8
+----> NullifyReturnValue : 8
+----> RemoveNullCheck : 6
+----> ConditionalOperatorDeletion : 2
+----> NullifyInputVariable : 14
+----> NullifyObjectInitialization : 7
+----> RemoveMethod : 22
+----> ArithmeticOperatorReplacementShortcut : 1
+
+(7/71) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-validator/src/main/java/org/apache/commons/validator/FormSet.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  84
+----> RelationalOperatorReplacement : 15
+----> NullifyReturnValue : 8
+----> RemoveNullCheck : 12
+----> ConditionalOperatorDeletion : 3
+----> ConditionalOperatorReplacement : 4
+----> NullifyInputVariable : 9
+----> NullifyObjectInitialization : 6
+----> RemoveMethod : 26
+----> ArithmeticOperatorReplacementUnary : 1
+
+(8/71) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-validator/src/main/java/org/apache/commons/validator/FormSetFactory.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  17
+----> RelationalOperatorReplacement : 2
+----> NullifyReturnValue : 4
+----> RemoveNullCheck : 2
+----> NullifyInputVariable : 5
+----> NullifyObjectInitialization : 1
+----> RemoveMethod : 3
+
+(9/71) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-validator/src/main/java/org/apache/commons/validator/GenericTypeValidator.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  174
+----> RelationalOperatorReplacement : 47
+----> NullifyReturnValue : 29
+----> RemoveNullCheck : 22
+----> ConditionalOperatorReplacement : 21
+----> ArithmeticOperatorReplacementBinary : 2
+----> NullifyInputVariable : 23
+----> NullifyObjectInitialization : 7
+----> RemoveMethod : 15
+----> ArithmeticOperatorReplacementUnary : 8
+
+(10/71) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-validator/src/main/java/org/apache/commons/validator/GenericValidator.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  148
+----> RelationalOperatorReplacement : 35
+----> RemoveNullCheck : 8
+----> ConditionalOperatorReplacement : 9
+----> ArithmeticOperatorReplacementBinary : 5
+----> NullifyInputVariable : 21
+----> NullifyObjectInitialization : 2
+----> RemoveMethod : 64
+----> ArithmeticOperatorReplacementShortcut : 3
+----> ArithmeticOperatorReplacementUnary : 1
+
+(11/71) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-validator/src/main/java/org/apache/commons/validator/ISBNValidator.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  3
+----> NullifyInputVariable : 1
+----> RemoveMethod : 2
+
+(12/71) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-validator/src/main/java/org/apache/commons/validator/Msg.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  25
+----> NullifyReturnValue : 5
+----> NullifyInputVariable : 3
+----> NullifyObjectInitialization : 2
+----> RemoveMethod : 15
+
+(13/71) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-validator/src/main/java/org/apache/commons/validator/package-info.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  0
+
+(14/71) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-validator/src/main/java/org/apache/commons/validator/UrlValidator.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  87
+----> RelationalOperatorReplacement : 18
+----> RemoveNullCheck : 8
+----> ShiftOperatorReplacement : 3
+----> ConditionalOperatorDeletion : 17
+----> ConditionalOperatorReplacement : 6
+----> ArithmeticOperatorReplacementBinary : 5
+----> NullifyInputVariable : 8
+----> NullifyObjectInitialization : 2
+----> RemoveMethod : 14
+----> ArithmeticOperatorReplacementShortcut : 4
+----> ArithmeticOperatorReplacementUnary : 2
+
+(15/71) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-validator/src/main/java/org/apache/commons/validator/Validator.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  50
+----> RelationalOperatorReplacement : 6
+----> NullifyReturnValue : 7
+----> RemoveNullCheck : 6
+----> NullifyInputVariable : 6
+----> NullifyObjectInitialization : 5
+----> RemoveMethod : 19
+----> ArithmeticOperatorReplacementUnary : 1
+
+(16/71) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-validator/src/main/java/org/apache/commons/validator/ValidatorAction.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  172
+----> RelationalOperatorReplacement : 20
+----> NullifyReturnValue : 21
+----> RemoveNullCheck : 18
+----> ConditionalOperatorDeletion : 6
+----> ConditionalOperatorReplacement : 4
+----> ArithmeticOperatorReplacementBinary : 2
+----> NullifyInputVariable : 26
+----> NullifyObjectInitialization : 16
+----> RemoveMethod : 57
+----> ArithmeticOperatorReplacementShortcut : 2
+
+(17/71) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-validator/src/main/java/org/apache/commons/validator/ValidatorException.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  0
+
+(18/71) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-validator/src/main/java/org/apache/commons/validator/ValidatorResources.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  126
+----> RelationalOperatorReplacement : 25
+----> NullifyReturnValue : 14
+----> RemoveNullCheck : 20
+----> ConditionalOperatorDeletion : 7
+----> AssignmentOperatorReplacementShortcut : 1
+----> ConditionalOperatorReplacement : 4
+----> ArithmeticOperatorReplacementBinary : 1
+----> NullifyInputVariable : 23
+----> NullifyObjectInitialization : 7
+----> RemoveMethod : 22
+----> ArithmeticOperatorReplacementShortcut : 1
+----> ArithmeticOperatorReplacementUnary : 1
+
+(19/71) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-validator/src/main/java/org/apache/commons/validator/ValidatorResult.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  35
+----> RelationalOperatorReplacement : 2
+----> NullifyReturnValue : 5
+----> RemoveNullCheck : 2
+----> ConditionalOperatorReplacement : 1
+----> NullifyInputVariable : 7
+----> NullifyObjectInitialization : 2
+----> RemoveMethod : 15
+----> ArithmeticOperatorReplacementUnary : 1
+
+(20/71) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-validator/src/main/java/org/apache/commons/validator/ValidatorResults.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  29
+----> RelationalOperatorReplacement : 2
+----> NullifyReturnValue : 3
+----> RemoveNullCheck : 2
+----> ConditionalOperatorDeletion : 1
+----> ConditionalOperatorReplacement : 1
+----> NullifyInputVariable : 7
+----> NullifyObjectInitialization : 3
+----> RemoveMethod : 9
+----> ArithmeticOperatorReplacementUnary : 1
+
+(21/71) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-validator/src/main/java/org/apache/commons/validator/Var.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  31
+----> NullifyReturnValue : 6
+----> NullifyInputVariable : 4
+----> NullifyObjectInitialization : 2
+----> RemoveMethod : 18
+----> ArithmeticOperatorReplacementUnary : 1
+
+(22/71) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-validator/src/main/java/org/apache/commons/validator/routines/AbstractCalendarValidator.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  150
+----> RelationalOperatorReplacement : 38
+----> NullifyReturnValue : 11
+----> RemoveNullCheck : 9
+----> ConditionalOperatorDeletion : 2
+----> ConditionalOperatorReplacement : 10
+----> ArithmeticOperatorReplacementBinary : 9
+----> NullifyInputVariable : 36
+----> NullifyObjectInitialization : 4
+----> RemoveMethod : 27
+----> ArithmeticOperatorReplacementShortcut : 1
+----> ArithmeticOperatorReplacementUnary : 3
+
+(23/71) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-validator/src/main/java/org/apache/commons/validator/routines/AbstractFormatValidator.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  52
+----> RelationalOperatorReplacement : 3
+----> NullifyReturnValue : 8
+----> RemoveNullCheck : 1
+----> ConditionalOperatorReplacement : 1
+----> NullifyInputVariable : 17
+----> NullifyObjectInitialization : 1
+----> RemoveMethod : 19
+----> ArithmeticOperatorReplacementUnary : 2
+
+(24/71) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-validator/src/main/java/org/apache/commons/validator/routines/AbstractNumberValidator.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  75
+----> RelationalOperatorReplacement : 14
+----> NullifyReturnValue : 4
+----> RemoveNullCheck : 6
+----> ConditionalOperatorDeletion : 6
+----> AssignmentOperatorReplacementShortcut : 3
+----> ConditionalOperatorReplacement : 2
+----> NullifyInputVariable : 17
+----> NullifyObjectInitialization : 3
+----> RemoveMethod : 17
+----> ArithmeticOperatorReplacementUnary : 3
+
+(25/71) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-validator/src/main/java/org/apache/commons/validator/routines/BigDecimalValidator.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  40
+----> RelationalOperatorReplacement : 5
+----> NullifyReturnValue : 6
+----> ConditionalOperatorReplacement : 1
+----> NullifyInputVariable : 13
+----> NullifyObjectInitialization : 2
+----> RemoveMethod : 12
+----> ArithmeticOperatorReplacementUnary : 1
+
+(26/71) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-validator/src/main/java/org/apache/commons/validator/routines/BigIntegerValidator.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  37
+----> RelationalOperatorReplacement : 4
+----> NullifyReturnValue : 6
+----> ConditionalOperatorReplacement : 1
+----> NullifyInputVariable : 13
+----> NullifyObjectInitialization : 1
+----> RemoveMethod : 12
+
+(27/71) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-validator/src/main/java/org/apache/commons/validator/routines/ByteValidator.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  47
+----> RelationalOperatorReplacement : 6
+----> NullifyReturnValue : 7
+----> ConditionalOperatorReplacement : 2
+----> NullifyInputVariable : 13
+----> NullifyObjectInitialization : 1
+----> RemoveMethod : 18
+
+(28/71) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-validator/src/main/java/org/apache/commons/validator/routines/CalendarValidator.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  71
+----> NullifyReturnValue : 10
+----> NullifyInputVariable : 36
+----> NullifyObjectInitialization : 1
+----> RemoveMethod : 23
+----> ArithmeticOperatorReplacementUnary : 1
+
+(29/71) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-validator/src/main/java/org/apache/commons/validator/routines/CodeValidator.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  44
+----> RelationalOperatorReplacement : 9
+----> NullifyReturnValue : 8
+----> RemoveNullCheck : 5
+----> ConditionalOperatorDeletion : 2
+----> ConditionalOperatorReplacement : 4
+----> NullifyInputVariable : 2
+----> NullifyObjectInitialization : 1
+----> RemoveMethod : 9
+----> ArithmeticOperatorReplacementUnary : 4
+
+(30/71) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-validator/src/main/java/org/apache/commons/validator/routines/CreditCardValidator.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  92
+----> RelationalOperatorReplacement : 15
+----> NullifyReturnValue : 11
+----> RemoveNullCheck : 9
+----> ShiftOperatorReplacement : 7
+----> ConditionalOperatorReplacement : 2
+----> ArithmeticOperatorReplacementBinary : 3
+----> NullifyInputVariable : 8
+----> NullifyObjectInitialization : 17
+----> RemoveMethod : 17
+----> ArithmeticOperatorReplacementUnary : 2
+----> LogicalOperatorReplacement : 1
+
+(31/71) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-validator/src/main/java/org/apache/commons/validator/routines/CurrencyValidator.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  18
+----> RelationalOperatorReplacement : 4
+----> NullifyReturnValue : 3
+----> RemoveNullCheck : 1
+----> ConditionalOperatorDeletion : 1
+----> ConditionalOperatorReplacement : 1
+----> NullifyInputVariable : 2
+----> NullifyObjectInitialization : 2
+----> RemoveMethod : 2
+----> ArithmeticOperatorReplacementShortcut : 1
+----> ArithmeticOperatorReplacementUnary : 1
+
+(32/71) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-validator/src/main/java/org/apache/commons/validator/routines/DateValidator.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  81
+----> RelationalOperatorReplacement : 1
+----> NullifyReturnValue : 11
+----> RemoveNullCheck : 1
+----> NullifyInputVariable : 42
+----> NullifyObjectInitialization : 1
+----> RemoveMethod : 23
+----> ArithmeticOperatorReplacementUnary : 2
+
+(33/71) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-validator/src/main/java/org/apache/commons/validator/routines/DomainValidator.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  119
+----> RelationalOperatorReplacement : 15
+----> NullifyReturnValue : 14
+----> RemoveNullCheck : 5
+----> ConditionalOperatorDeletion : 3
+----> ConditionalOperatorReplacement : 13
+----> ArithmeticOperatorReplacementBinary : 4
+----> NullifyInputVariable : 17
+----> NullifyObjectInitialization : 10
+----> RemoveMethod : 34
+----> ArithmeticOperatorReplacementShortcut : 3
+----> ArithmeticOperatorReplacementUnary : 1
+
+(34/71) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-validator/src/main/java/org/apache/commons/validator/routines/DoubleValidator.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  44
+----> RelationalOperatorReplacement : 4
+----> NullifyReturnValue : 7
+----> ConditionalOperatorReplacement : 1
+----> NullifyInputVariable : 13
+----> NullifyObjectInitialization : 1
+----> RemoveMethod : 18
+
+(35/71) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-validator/src/main/java/org/apache/commons/validator/routines/EmailValidator.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  39
+----> RelationalOperatorReplacement : 5
+----> NullifyReturnValue : 6
+----> RemoveNullCheck : 3
+----> ConditionalOperatorDeletion : 4
+----> ConditionalOperatorReplacement : 3
+----> NullifyInputVariable : 3
+----> NullifyObjectInitialization : 6
+----> RemoveMethod : 9
+
+(36/71) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-validator/src/main/java/org/apache/commons/validator/routines/FloatValidator.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  56
+----> RelationalOperatorReplacement : 10
+----> NullifyReturnValue : 10
+----> ConditionalOperatorReplacement : 1
+----> ArithmeticOperatorReplacementBinary : 1
+----> NullifyInputVariable : 13
+----> NullifyObjectInitialization : 1
+----> RemoveMethod : 18
+----> ArithmeticOperatorReplacementUnary : 2
+
+(37/71) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-validator/src/main/java/org/apache/commons/validator/routines/IBANValidator.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  151
+----> RelationalOperatorReplacement : 11
+----> NullifyReturnValue : 9
+----> RemoveNullCheck : 3
+----> ConditionalOperatorDeletion : 3
+----> ConditionalOperatorReplacement : 6
+----> ArithmeticOperatorReplacementBinary : 4
+----> NullifyInputVariable : 7
+----> NullifyObjectInitialization : 97
+----> RemoveMethod : 11
+
+(38/71) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-validator/src/main/java/org/apache/commons/validator/routines/InetAddressValidator.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  62
+----> RelationalOperatorReplacement : 19
+----> NullifyReturnValue : 1
+----> RemoveNullCheck : 1
+----> ConditionalOperatorDeletion : 7
+----> AssignmentOperatorReplacementShortcut : 1
+----> ConditionalOperatorReplacement : 13
+----> ArithmeticOperatorReplacementBinary : 1
+----> NullifyInputVariable : 3
+----> NullifyObjectInitialization : 3
+----> RemoveMethod : 7
+----> ArithmeticOperatorReplacementShortcut : 3
+----> ArithmeticOperatorReplacementUnary : 3
+
+(39/71) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-validator/src/main/java/org/apache/commons/validator/routines/IntegerValidator.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  47
+----> RelationalOperatorReplacement : 6
+----> NullifyReturnValue : 7
+----> ConditionalOperatorReplacement : 2
+----> NullifyInputVariable : 13
+----> NullifyObjectInitialization : 1
+----> RemoveMethod : 18
+
+(40/71) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-validator/src/main/java/org/apache/commons/validator/routines/ISBNValidator.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  51
+----> RelationalOperatorReplacement : 6
+----> NullifyReturnValue : 7
+----> RemoveNullCheck : 5
+----> AssignmentOperatorReplacementShortcut : 1
+----> ConditionalOperatorReplacement : 2
+----> ArithmeticOperatorReplacementBinary : 1
+----> NullifyInputVariable : 7
+----> NullifyObjectInitialization : 6
+----> RemoveMethod : 16
+
+(41/71) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-validator/src/main/java/org/apache/commons/validator/routines/ISINValidator.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  23
+----> RelationalOperatorReplacement : 3
+----> NullifyReturnValue : 3
+----> RemoveNullCheck : 1
+----> ConditionalOperatorReplacement : 3
+----> NullifyInputVariable : 3
+----> NullifyObjectInitialization : 3
+----> RemoveMethod : 6
+----> ArithmeticOperatorReplacementUnary : 1
+
+(42/71) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-validator/src/main/java/org/apache/commons/validator/routines/ISSNValidator.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  45
+----> RelationalOperatorReplacement : 4
+----> NullifyReturnValue : 7
+----> RemoveNullCheck : 3
+----> ConditionalOperatorDeletion : 2
+----> AssignmentOperatorReplacementShortcut : 1
+----> ConditionalOperatorReplacement : 1
+----> ArithmeticOperatorReplacementBinary : 4
+----> NullifyInputVariable : 6
+----> NullifyObjectInitialization : 8
+----> RemoveMethod : 9
+
+(43/71) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-validator/src/main/java/org/apache/commons/validator/routines/LongValidator.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  45
+----> RelationalOperatorReplacement : 4
+----> NullifyReturnValue : 7
+----> ConditionalOperatorReplacement : 1
+----> NullifyInputVariable : 13
+----> NullifyObjectInitialization : 1
+----> RemoveMethod : 18
+----> ArithmeticOperatorReplacementUnary : 1
+
+(44/71) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-validator/src/main/java/org/apache/commons/validator/routines/package-info.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  0
+
+(45/71) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-validator/src/main/java/org/apache/commons/validator/routines/PercentValidator.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  21
+----> RelationalOperatorReplacement : 5
+----> NullifyReturnValue : 3
+----> RemoveNullCheck : 2
+----> ConditionalOperatorDeletion : 1
+----> ConditionalOperatorReplacement : 1
+----> NullifyInputVariable : 2
+----> NullifyObjectInitialization : 3
+----> RemoveMethod : 2
+----> ArithmeticOperatorReplacementShortcut : 1
+----> ArithmeticOperatorReplacementUnary : 1
+
+(46/71) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-validator/src/main/java/org/apache/commons/validator/routines/RegexValidator.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  53
+----> RelationalOperatorReplacement : 13
+----> NullifyReturnValue : 9
+----> RemoveNullCheck : 6
+----> ConditionalOperatorReplacement : 2
+----> ArithmeticOperatorReplacementBinary : 2
+----> NullifyInputVariable : 3
+----> NullifyObjectInitialization : 4
+----> RemoveMethod : 9
+----> ArithmeticOperatorReplacementShortcut : 4
+----> ArithmeticOperatorReplacementUnary : 1
+
+(47/71) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-validator/src/main/java/org/apache/commons/validator/routines/ShortValidator.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  48
+----> RelationalOperatorReplacement : 6
+----> NullifyReturnValue : 7
+----> ConditionalOperatorReplacement : 2
+----> NullifyInputVariable : 13
+----> NullifyObjectInitialization : 1
+----> RemoveMethod : 18
+----> ArithmeticOperatorReplacementUnary : 1
+
+(48/71) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-validator/src/main/java/org/apache/commons/validator/routines/TimeValidator.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  60
+----> NullifyReturnValue : 10
+----> NullifyInputVariable : 30
+----> NullifyObjectInitialization : 1
+----> RemoveMethod : 18
+----> ArithmeticOperatorReplacementUnary : 1
+
+(49/71) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-validator/src/main/java/org/apache/commons/validator/routines/UrlValidator.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  106
+----> RelationalOperatorReplacement : 22
+----> NullifyReturnValue : 1
+----> RemoveNullCheck : 12
+----> ShiftOperatorReplacement : 4
+----> ConditionalOperatorDeletion : 14
+----> ConditionalOperatorReplacement : 9
+----> ArithmeticOperatorReplacementBinary : 1
+----> NullifyInputVariable : 8
+----> NullifyObjectInitialization : 6
+----> RemoveMethod : 21
+----> ArithmeticOperatorReplacementShortcut : 2
+----> ArithmeticOperatorReplacementUnary : 2
+----> LogicalOperatorReplacement : 4
+
+(50/71) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-validator/src/main/java/org/apache/commons/validator/routines/checkdigit/ABANumberCheckDigit.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  6
+----> ArithmeticOperatorReplacementBinary : 2
+----> NullifyObjectInitialization : 1
+----> RemoveMethod : 2
+----> ArithmeticOperatorReplacementUnary : 1
+
+(51/71) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-validator/src/main/java/org/apache/commons/validator/routines/checkdigit/AbstractCheckDigit.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  0
+
+(52/71) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-validator/src/main/java/org/apache/commons/validator/routines/checkdigit/CASNumberCheckDigit.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  21
+----> RelationalOperatorReplacement : 1
+----> NullifyReturnValue : 2
+----> ConditionalOperatorDeletion : 1
+----> ArithmeticOperatorReplacementBinary : 4
+----> NullifyInputVariable : 2
+----> NullifyObjectInitialization : 3
+----> RemoveMethod : 7
+----> ArithmeticOperatorReplacementUnary : 1
+
+(53/71) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-validator/src/main/java/org/apache/commons/validator/routines/checkdigit/CheckDigit.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  0
+
+(54/71) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-validator/src/main/java/org/apache/commons/validator/routines/checkdigit/CheckDigitException.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  1
+----> ArithmeticOperatorReplacementUnary : 1
+
+(55/71) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-validator/src/main/java/org/apache/commons/validator/routines/checkdigit/CUSIPCheckDigit.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  12
+----> RelationalOperatorReplacement : 3
+----> ConditionalOperatorReplacement : 1
+----> ArithmeticOperatorReplacementBinary : 2
+----> NullifyObjectInitialization : 2
+----> RemoveMethod : 4
+
+(56/71) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-validator/src/main/java/org/apache/commons/validator/routines/checkdigit/EAN13CheckDigit.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  5
+----> ArithmeticOperatorReplacementBinary : 2
+----> NullifyObjectInitialization : 1
+----> RemoveMethod : 2
+
+(57/71) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-validator/src/main/java/org/apache/commons/validator/routines/checkdigit/ECNumberCheckDigit.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  19
+----> RelationalOperatorReplacement : 2
+----> NullifyReturnValue : 2
+----> ConditionalOperatorDeletion : 1
+----> ArithmeticOperatorReplacementBinary : 2
+----> NullifyInputVariable : 2
+----> NullifyObjectInitialization : 3
+----> RemoveMethod : 7
+
+(58/71) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-validator/src/main/java/org/apache/commons/validator/routines/checkdigit/IBANCheckDigit.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  43
+----> RelationalOperatorReplacement : 12
+----> NullifyReturnValue : 1
+----> RemoveNullCheck : 3
+----> AssignmentOperatorReplacementShortcut : 1
+----> ConditionalOperatorReplacement : 5
+----> ArithmeticOperatorReplacementBinary : 7
+----> NullifyInputVariable : 3
+----> NullifyObjectInitialization : 3
+----> RemoveMethod : 6
+----> ArithmeticOperatorReplacementShortcut : 1
+----> ArithmeticOperatorReplacementUnary : 1
+
+(59/71) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-validator/src/main/java/org/apache/commons/validator/routines/checkdigit/ISBN10CheckDigit.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  14
+----> RelationalOperatorReplacement : 3
+----> NullifyReturnValue : 2
+----> ConditionalOperatorReplacement : 1
+----> ArithmeticOperatorReplacementBinary : 1
+----> NullifyObjectInitialization : 1
+----> RemoveMethod : 6
+
+(60/71) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-validator/src/main/java/org/apache/commons/validator/routines/checkdigit/ISBNCheckDigit.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  17
+----> RelationalOperatorReplacement : 5
+----> NullifyReturnValue : 2
+----> RemoveNullCheck : 1
+----> NullifyInputVariable : 2
+----> NullifyObjectInitialization : 3
+----> RemoveMethod : 4
+
+(61/71) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-validator/src/main/java/org/apache/commons/validator/routines/checkdigit/ISINCheckDigit.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  21
+----> RelationalOperatorReplacement : 3
+----> ConditionalOperatorDeletion : 1
+----> ConditionalOperatorReplacement : 1
+----> ArithmeticOperatorReplacementBinary : 5
+----> NullifyInputVariable : 1
+----> NullifyObjectInitialization : 4
+----> RemoveMethod : 4
+----> ArithmeticOperatorReplacementShortcut : 1
+----> ArithmeticOperatorReplacementUnary : 1
+
+(62/71) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-validator/src/main/java/org/apache/commons/validator/routines/checkdigit/ISSNCheckDigit.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  15
+----> RelationalOperatorReplacement : 3
+----> NullifyReturnValue : 2
+----> ConditionalOperatorReplacement : 1
+----> ArithmeticOperatorReplacementBinary : 2
+----> NullifyObjectInitialization : 1
+----> RemoveMethod : 6
+
+(63/71) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-validator/src/main/java/org/apache/commons/validator/routines/checkdigit/LuhnCheckDigit.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  8
+----> RelationalOperatorReplacement : 1
+----> ArithmeticOperatorReplacementBinary : 3
+----> NullifyObjectInitialization : 1
+----> RemoveMethod : 2
+----> ArithmeticOperatorReplacementUnary : 1
+
+(64/71) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-validator/src/main/java/org/apache/commons/validator/routines/checkdigit/ModulusCheckDigit.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  42
+----> RelationalOperatorReplacement : 6
+----> NullifyReturnValue : 2
+----> AssignmentOperatorReplacementShortcut : 3
+----> ConditionalOperatorReplacement : 1
+----> ArithmeticOperatorReplacementBinary : 7
+----> NullifyInputVariable : 3
+----> NullifyObjectInitialization : 4
+----> RemoveMethod : 14
+----> ArithmeticOperatorReplacementShortcut : 1
+----> ArithmeticOperatorReplacementUnary : 1
+
+(65/71) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-validator/src/main/java/org/apache/commons/validator/routines/checkdigit/ModulusTenCheckDigit.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  21
+----> RelationalOperatorReplacement : 1
+----> NullifyReturnValue : 1
+----> ConditionalOperatorDeletion : 1
+----> ArithmeticOperatorReplacementBinary : 7
+----> NullifyInputVariable : 1
+----> NullifyObjectInitialization : 1
+----> RemoveMethod : 8
+----> ArithmeticOperatorReplacementUnary : 1
+
+(66/71) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-validator/src/main/java/org/apache/commons/validator/routines/checkdigit/package-info.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  0
+
+(67/71) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-validator/src/main/java/org/apache/commons/validator/routines/checkdigit/SedolCheckDigit.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  18
+----> RelationalOperatorReplacement : 4
+----> ConditionalOperatorReplacement : 1
+----> ArithmeticOperatorReplacementBinary : 2
+----> NullifyInputVariable : 1
+----> NullifyObjectInitialization : 3
+----> RemoveMethod : 6
+----> ArithmeticOperatorReplacementUnary : 1
+
+(68/71) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-validator/src/main/java/org/apache/commons/validator/routines/checkdigit/VerhoeffCheckDigit.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  23
+----> RelationalOperatorReplacement : 4
+----> NullifyReturnValue : 1
+----> ConditionalOperatorReplacement : 1
+----> ArithmeticOperatorReplacementBinary : 4
+----> NullifyInputVariable : 3
+----> NullifyObjectInitialization : 3
+----> RemoveMethod : 6
+----> ArithmeticOperatorReplacementShortcut : 1
+
+(69/71) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-validator/src/main/java/org/apache/commons/validator/util/Flags.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  35
+----> RelationalOperatorReplacement : 5
+----> NullifyReturnValue : 2
+----> ConditionalOperatorDeletion : 1
+----> AssignmentOperatorReplacementShortcut : 2
+----> ArithmeticOperatorReplacementBinary : 1
+----> NullifyInputVariable : 1
+----> NullifyObjectInitialization : 2
+----> RemoveMethod : 18
+----> ArithmeticOperatorReplacementShortcut : 1
+----> LogicalOperatorReplacement : 2
+
+(70/71) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-validator/src/main/java/org/apache/commons/validator/util/package-info.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  0
+
+(71/71) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-validator/src/main/java/org/apache/commons/validator/util/ValidatorUtils.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  34
+----> RelationalOperatorReplacement : 5
+----> NullifyReturnValue : 8
+----> RemoveNullCheck : 4
+----> ConditionalOperatorReplacement : 2
+----> NullifyInputVariable : 7
+----> NullifyObjectInitialization : 2
+----> RemoveMethod : 6
+
+Total mutations found:  3483
+--> RelationalOperatorReplacement: 529
+--> NullifyReturnValue: 362
+--> RemoveNullCheck: 219
+--> ShiftOperatorReplacement: 18
+--> ConditionalOperatorDeletion: 96
+--> AssignmentOperatorReplacementShortcut: 16
+--> ConditionalOperatorReplacement: 171
+--> ArithmeticOperatorReplacementBinary: 114
+--> NullifyInputVariable: 597
+--> NullifyObjectInitialization: 314
+--> RemoveMethod: 934
+--> ArithmeticOperatorReplacementShortcut: 39
+--> ArithmeticOperatorReplacementUnary: 64
+--> LogicalOperatorReplacement: 10
+
+Comparing mutation operators: commons-validator -> operator_comparisons/commons-validator/
+Extracted 3483 mutants -> operator_comparisons/commons-validator/littledarwin.csv
+Extracted 2890 mutants -> operator_comparisons/commons-validator/mediumdarwin.csv
+Comparison written to /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/operator_comparisons/commons-validator
+  Original (LD): 3483
+  MediumDarwin: 2890
+  Reduced: 593  Added: 0  delta: -17.03%
+  (strict diff would show removed=803, added=214 — see strict_*.csv)
+Mutant comparison for commons-validator:
+  === Paper Table I (refined mutation operators) ===
+  Original (LittleDarwin): 3483
+  MediumDarwin: 2890
+  Reduced: 593
+  Added: 0
+  delta_percent: -17.03
+  check MD = Original - Reduced + Added: 2890 (should equal 2890)
+  
+  in_both_strict_match: 2676
+  ld_only_sites: 589
+  md_only_sites: 0
+  
+    Reduced categories:
+      reduced_nullify_final_param_non_compilable: 574
+      reduced_nullify_input_other_filter: 15
+      reduced_remove_method_other: 4
+    Reduced by operator:
+      NullifyInputVariable: 589
+      RemoveMethod: 4
+  
+    Added categories: (none)
+    Added by operator: (none)
+  
+  === Strict before/after diff (misleading for relational ops) ===
+  strict_removed: 803
+  strict_added: 214
+    (LD uses '<'->'>='; MD uses '<'->'<=' — same site, not Reduced+Added)
+  
+  # Listing 1 examples:
+  #   reduced_nullify_final_param_non_compilable -> MUT0 (final param nullify)
+  #   added_remove_method_array_return -> MUT1 (array return RemoveMethod)
+  Details: operator_comparisons/commons-validator/added_in_mediumdarwin.csv
+           operator_comparisons/commons-validator/removed_in_mediumdarwin.csv
+========== commons-validator finished at Tue May 19 17:44:53 JST 2026 ==========

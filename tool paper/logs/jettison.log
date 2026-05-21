@@ -1,0 +1,968 @@
+========== jettison started at Tue May 19 17:19:29 JST 2026 ==========
+
+Cloning jettison...
+Cloning into 'jettison'...
+Updating files:  72% (44/61)Updating files:  73% (45/61)Updating files:  75% (46/61)Updating files:  77% (47/61)Updating files:  78% (48/61)Updating files:  80% (49/61)Updating files:  81% (50/61)Updating files:  83% (51/61)Updating files:  85% (52/61)Updating files:  86% (53/61)Updating files:  88% (54/61)Updating files:  90% (55/61)Updating files:  91% (56/61)Updating files:  93% (57/61)Updating files:  95% (58/61)Updating files:  96% (59/61)Updating files:  98% (60/61)Updating files: 100% (61/61)Updating files: 100% (61/61), done.
+Note: switching to 'tags/jettison-1.5.4'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by switching back to a branch.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -c with the switch command. Example:
+
+  git switch -c <new-branch-name>
+
+Or undo this operation with:
+
+  git switch -
+
+Turn off this advice by setting config variable advice.detachedHead to false
+
+HEAD is now at a77ffc4 [maven-release-plugin] prepare release jettison-1.5.4
+
+Processing jettison (Java 11)...
+----------------------------------------
+JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64
+Using Java 11:
+openjdk version "11.0.30" 2026-01-20
+OpenJDK Runtime Environment (build 11.0.30+7-post-Ubuntu-1ubuntu124.04)
+OpenJDK 64-Bit Server VM (build 11.0.30+7-post-Ubuntu-1ubuntu124.04, mixed mode, sharing)
+----------------------------------------
+python3 ../../MediumDarwin.py -m --all --build-command "mvn,compile" -q -t . -p ./src/main/java
+
+        __       __                  __  __                          _______                                     __
+       |  \     /  \                |  \|  \                        |       \                                   |  \
+       | $$\   /  $$  ______    ____| $$ \$$ __    __  ______ ____  | $$$$$$$\  ______    ______   __   __   __  \$$ _______
+       | $$$\ /  $$$ /      \  /      $$|  \|  \  |  \|      \    \ | $$  | $$ |      \  /      \ |  \ |  \ |  \|  \|       \
+       | $$$$\  $$$$|  $$$$$$\|  $$$$$$$| $$| $$  | $$| $$$$$$\$$$$\| $$  | $$  \$$$$$$\|  $$$$$$\| $$ | $$ | $$| $$| $$$$$$$\
+       | $$\$$ $$ $$| $$    $$| $$  | $$| $$| $$  | $$| $$ | $$ | $$| $$  | $$ /      $$| $$   \$$| $$ | $$ | $$| $$| $$  | $$
+       | $$ \$$$| $$| $$$$$$$$| $$__| $$| $$| $$__/ $$| $$ | $$ | $$| $$__/ $$|  $$$$$$$| $$      | $$_/ $$_/ $$| $$| $$  | $$
+       | $$  \$ | $$ \$$     \ \$$    $$| $$ \$$    $$| $$ | $$ | $$| $$    $$ \$$    $$| $$       \$$   $$   $$| $$| $$  | $$
+        \$$      \$$  \$$$$$$$  \$$$$$$$ \$$  \$$$$$$  \$$  \$$  \$$ \$$$$$$$   \$$$$$$$ \$$        \$$$$$\$$$$  \$$ \$$   \$$
+
+       Copyright (c) 2014 2022 Ali Parsai
+       Copyright (c) 2025      MediumDarwin Contributors
+
+       This project builds upon the original work of Ali Parsai and the LittleDarwin mutation testing framework.
+       We gratefully acknowledge his foundational contributions, which made this extended version possible.
+
+       This program is free software: you can redistribute it and/or modify it under the terms of the GNU
+       General Public License as published by the Free Software Foundation, version 3  of the License, or
+       (at your option) any later version.
+
+       This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied
+       warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the  GNU General Public License for more details.
+
+       You should have received a copy of the GNU General Public License along with this program.
+       If not, see <https://www.gnu.org/licenses/>.
+
+       Original author:
+       Ali Parsai — https://www.parsai.net/
+        
+
+        __       __                  __  __                          _______                                     __            
+       |  \     /  \                |  \|  \                        |       \                                   |  \           
+       | $$\   /  $$  ______    ____| $$ \$$ __    __  ______ ____  | $$$$$$$\  ______    ______   __   __   __  \$$ _______   
+       | $$$\ /  $$$ /      \  /      $$|  \|  \  |  \|      \    \ | $$  | $$ |      \  /      \ |  \ |  \ |  \|  \|       \  
+       | $$$$\  $$$$|  $$$$$$\|  $$$$$$$| $$| $$  | $$| $$$$$$\$$$$\| $$  | $$  \$$$$$$\|  $$$$$$\| $$ | $$ | $$| $$| $$$$$$$\ 
+       | $$\$$ $$ $$| $$    $$| $$  | $$| $$| $$  | $$| $$ | $$ | $$| $$  | $$ /      $$| $$   \$$| $$ | $$ | $$| $$| $$  | $$ 
+       | $$ \$$$| $$| $$$$$$$$| $$__| $$| $$| $$__/ $$| $$ | $$ | $$| $$__/ $$|  $$$$$$$| $$      | $$_/ $$_/ $$| $$| $$  | $$ 
+       | $$  \$ | $$ \$$     \ \$$    $$| $$ \$$    $$| $$ | $$ | $$| $$    $$ \$$    $$| $$       \$$   $$   $$| $$| $$  | $$ 
+        \$$      \$$  \$$$$$$$  \$$$$$$$ \$$  \$$$$$$  \$$  \$$  \$$ \$$$$$$$   \$$$$$$$ \$$        \$$$$$\$$$$  \$$ \$$   \$$ 
+                                                                                                                            
+       Copyright (c) 2014 2022 Ali Parsai                                                                                      
+       Copyright (c) 2025      MediumDarwin Contributors                                                                       
+                                                                                                                            
+       This project builds upon the original work of Ali Parsai and the LittleDarwin mutation testing framework.               
+       We gratefully acknowledge his foundational contributions, which made this extended version possible.                    
+                                                                                                                                
+       This program is free software: you can redistribute it and/or modify it under the terms of the GNU                      
+       General Public License as published by the Free Software Foundation, version 3  of the License, or                      
+       (at your option) any later version.                                                                                     
+                                                                                                                            
+       This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied       
+       warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the  GNU General Public License for more details.   
+                                                                                                                                
+       You should have received a copy of the GNU General Public License along with this program.                              
+       If not, see <https://www.gnu.org/licenses/>.                                                                             
+                                                                                                                                
+       Original author:                                                                                                         
+       Ali Parsai — https://www.parsai.net/                                                                                     
+        
+Source Path:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jettison/src/main/java
+Target Path:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jettison/LittleDarwinResults
+Creating Mutation Database:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jettison/LittleDarwinResults/mutationdatabase
+
+(1/38) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jettison/src/main/java/org/codehaus/jettison/AbstractDOMDocumentParser.java
+--> Mutations found:  9
+----> NullifyInputVariable : 1
+----> NullifyObjectInitialization : 4
+----> NullifyReturnValue : 2
+----> RemoveMethod : 2
+
+(2/38) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jettison/src/main/java/org/codehaus/jettison/AbstractDOMDocumentSerializer.java
+--> Mutations found:  7
+----> NullifyInputVariable : 1
+----> NullifyObjectInitialization : 3
+----> RelationalOperatorReplacement : 1
+----> RemoveMethod : 1
+----> RemoveNullCheck : 1
+
+(3/38) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jettison/src/main/java/org/codehaus/jettison/AbstractXMLEventWriter.java
+--> Mutations found:  28
+----> ConditionalOperatorReplacement : 2
+----> NullifyInputVariable : 7
+----> NullifyObjectInitialization : 1
+----> NullifyReturnValue : 2
+----> RelationalOperatorReplacement : 6
+----> RemoveMethod : 10
+
+(4/38) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jettison/src/main/java/org/codehaus/jettison/AbstractXMLInputFactory.java
+--> Mutations found:  126
+----> ArithmeticOperatorReplacementBinary : 3
+----> ArithmeticOperatorReplacementUnary : 1
+----> AssignmentOperatorReplacementShortcut : 1
+----> NullifyInputVariable : 34
+----> NullifyObjectInitialization : 11
+----> NullifyReturnValue : 25
+----> RelationalOperatorReplacement : 14
+----> RemoveMethod : 30
+----> RemoveNullCheck : 7
+
+(5/38) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jettison/src/main/java/org/codehaus/jettison/AbstractXMLOutputFactory.java
+--> Mutations found:  47
+----> NullifyInputVariable : 13
+----> NullifyObjectInitialization : 8
+----> NullifyReturnValue : 9
+----> RelationalOperatorReplacement : 3
+----> RemoveMethod : 11
+----> RemoveNullCheck : 3
+
+(6/38) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jettison/src/main/java/org/codehaus/jettison/AbstractXMLStreamReader.java
+--> Mutations found:  135
+----> ArithmeticOperatorReplacementBinary : 1
+----> ArithmeticOperatorReplacementShortcut : 2
+----> ArithmeticOperatorReplacementUnary : 1
+----> ConditionalOperatorReplacement : 1
+----> NullifyInputVariable : 6
+----> NullifyObjectInitialization : 1
+----> NullifyReturnValue : 24
+----> RelationalOperatorReplacement : 12
+----> RemoveMethod : 84
+----> RemoveNullCheck : 3
+
+(7/38) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jettison/src/main/java/org/codehaus/jettison/AbstractXMLStreamWriter.java
+--> Mutations found:  38
+----> ConditionalOperatorDeletion : 1
+----> NullifyInputVariable : 17
+----> NullifyObjectInitialization : 2
+----> NullifyReturnValue : 1
+----> RemoveMethod : 17
+
+(8/38) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jettison/src/main/java/org/codehaus/jettison/Convention.java
+--> Mutations found:  0
+
+(9/38) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jettison/src/main/java/org/codehaus/jettison/JSONSequenceTooLargeException.java
+--> Mutations found:  1
+----> ArithmeticOperatorReplacementUnary : 1
+
+(10/38) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jettison/src/main/java/org/codehaus/jettison/Node.java
+--> Mutations found:  82
+----> ArithmeticOperatorReplacementShortcut : 2
+----> ConditionalOperatorReplacement : 4
+----> NullifyInputVariable : 10
+----> NullifyObjectInitialization : 8
+----> NullifyReturnValue : 12
+----> RelationalOperatorReplacement : 12
+----> RemoveMethod : 28
+----> RemoveNullCheck : 6
+
+(11/38) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jettison/src/main/java/org/codehaus/jettison/XsonNamespaceContext.java
+--> Mutations found:  17
+----> NullifyInputVariable : 3
+----> NullifyReturnValue : 5
+----> RelationalOperatorReplacement : 2
+----> RemoveMethod : 5
+----> RemoveNullCheck : 2
+
+(12/38) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jettison/src/main/java/org/codehaus/jettison/badgerfish/BadgerFishConvention.java
+--> Mutations found:  21
+----> ArithmeticOperatorReplacementBinary : 1
+----> ArithmeticOperatorReplacementUnary : 1
+----> NullifyInputVariable : 4
+----> NullifyObjectInitialization : 5
+----> NullifyReturnValue : 3
+----> RelationalOperatorReplacement : 3
+----> RemoveMethod : 2
+----> RemoveNullCheck : 2
+
+(13/38) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jettison/src/main/java/org/codehaus/jettison/badgerfish/BadgerFishDOMDocumentParser.java
+--> Mutations found:  1
+----> NullifyObjectInitialization : 1
+
+(14/38) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jettison/src/main/java/org/codehaus/jettison/badgerfish/BadgerFishDOMDocumentSerializer.java
+--> Mutations found:  1
+----> NullifyObjectInitialization : 1
+
+(15/38) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jettison/src/main/java/org/codehaus/jettison/badgerfish/BadgerFishXMLInputFactory.java
+--> Mutations found:  6
+----> NullifyInputVariable : 1
+----> NullifyObjectInitialization : 3
+----> NullifyReturnValue : 1
+----> RemoveMethod : 1
+
+(16/38) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jettison/src/main/java/org/codehaus/jettison/badgerfish/BadgerFishXMLOutputFactory.java
+--> Mutations found:  4
+----> NullifyInputVariable : 1
+----> NullifyObjectInitialization : 1
+----> NullifyReturnValue : 1
+----> RemoveMethod : 1
+
+(17/38) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jettison/src/main/java/org/codehaus/jettison/badgerfish/BadgerFishXMLStreamReader.java
+--> Mutations found:  47
+----> ArithmeticOperatorReplacementShortcut : 2
+----> ConditionalOperatorReplacement : 3
+----> NullifyInputVariable : 2
+----> NullifyObjectInitialization : 8
+----> NullifyReturnValue : 5
+----> RelationalOperatorReplacement : 10
+----> RemoveMethod : 14
+----> RemoveNullCheck : 3
+
+(18/38) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jettison/src/main/java/org/codehaus/jettison/badgerfish/BadgerFishXMLStreamWriter.java
+--> Mutations found:  93
+----> ArithmeticOperatorReplacementBinary : 1
+----> ConditionalOperatorReplacement : 1
+----> NullifyInputVariable : 32
+----> NullifyObjectInitialization : 17
+----> NullifyReturnValue : 8
+----> RelationalOperatorReplacement : 4
+----> RemoveMethod : 28
+----> RemoveNullCheck : 2
+
+(19/38) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jettison/src/main/java/org/codehaus/jettison/json/JSONArray.java
+--> Mutations found:  192
+----> ArithmeticOperatorReplacementBinary : 4
+----> AssignmentOperatorReplacementShortcut : 6
+----> ConditionalOperatorReplacement : 7
+----> NullifyInputVariable : 12
+----> NullifyObjectInitialization : 24
+----> NullifyReturnValue : 33
+----> RelationalOperatorReplacement : 30
+----> RemoveMethod : 72
+----> RemoveNullCheck : 4
+
+(20/38) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jettison/src/main/java/org/codehaus/jettison/json/JSONException.java
+--> Mutations found:  6
+----> ArithmeticOperatorReplacementUnary : 2
+----> RemoveMethod : 4
+
+(21/38) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jettison/src/main/java/org/codehaus/jettison/json/JSONObject.java
+--> Mutations found:  394
+----> ArithmeticOperatorReplacementBinary : 9
+----> ArithmeticOperatorReplacementUnary : 1
+----> AssignmentOperatorReplacementShortcut : 6
+----> ConditionalOperatorDeletion : 10
+----> ConditionalOperatorReplacement : 29
+----> NullifyInputVariable : 61
+----> NullifyObjectInitialization : 38
+----> NullifyReturnValue : 52
+----> RelationalOperatorReplacement : 58
+----> RemoveMethod : 106
+----> RemoveNullCheck : 24
+
+(22/38) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jettison/src/main/java/org/codehaus/jettison/json/JSONString.java
+--> Mutations found:  0
+
+(23/38) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jettison/src/main/java/org/codehaus/jettison/json/JSONStringer.java
+--> Mutations found:  5
+----> NullifyObjectInitialization : 1
+----> NullifyReturnValue : 1
+----> RelationalOperatorReplacement : 1
+----> RemoveMethod : 2
+
+(24/38) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jettison/src/main/java/org/codehaus/jettison/json/JSONTokener.java
+--> Mutations found:  153
+----> ArithmeticOperatorReplacementBinary : 7
+----> ArithmeticOperatorReplacementShortcut : 3
+----> ArithmeticOperatorReplacementUnary : 2
+----> AssignmentOperatorReplacementShortcut : 4
+----> ConditionalOperatorDeletion : 1
+----> ConditionalOperatorReplacement : 21
+----> NullifyInputVariable : 3
+----> NullifyObjectInitialization : 10
+----> NullifyReturnValue : 22
+----> RelationalOperatorReplacement : 49
+----> RemoveMethod : 31
+
+(25/38) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jettison/src/main/java/org/codehaus/jettison/json/JSONWriter.java
+--> Mutations found:  71
+----> ArithmeticOperatorReplacementBinary : 2
+----> AssignmentOperatorReplacementShortcut : 2
+----> ConditionalOperatorReplacement : 6
+----> NullifyInputVariable : 3
+----> NullifyObjectInitialization : 13
+----> NullifyReturnValue : 11
+----> RelationalOperatorReplacement : 19
+----> RemoveMethod : 13
+----> RemoveNullCheck : 2
+
+(26/38) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jettison/src/main/java/org/codehaus/jettison/mapped/Configuration.java
+--> Mutations found:  72
+----> ConditionalOperatorReplacement : 1
+----> NullifyInputVariable : 7
+----> NullifyObjectInitialization : 5
+----> NullifyReturnValue : 10
+----> RelationalOperatorReplacement : 3
+----> RemoveMethod : 44
+----> RemoveNullCheck : 2
+
+(27/38) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jettison/src/main/java/org/codehaus/jettison/mapped/DefaultConverter.java
+--> Mutations found:  84
+----> ArithmeticOperatorReplacementBinary : 2
+----> ArithmeticOperatorReplacementShortcut : 6
+----> ConditionalOperatorDeletion : 4
+----> ConditionalOperatorReplacement : 5
+----> NullifyInputVariable : 4
+----> NullifyReturnValue : 26
+----> RelationalOperatorReplacement : 28
+----> RemoveMethod : 5
+----> RemoveNullCheck : 4
+
+(28/38) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jettison/src/main/java/org/codehaus/jettison/mapped/MappedDOMDocumentParser.java
+--> Mutations found:  1
+----> NullifyObjectInitialization : 1
+
+(29/38) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jettison/src/main/java/org/codehaus/jettison/mapped/MappedDOMDocumentSerializer.java
+--> Mutations found:  1
+----> NullifyObjectInitialization : 1
+
+(30/38) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jettison/src/main/java/org/codehaus/jettison/mapped/MappedNamespaceConvention.java
+--> Mutations found:  145
+----> ArithmeticOperatorReplacementBinary : 1
+----> ArithmeticOperatorReplacementShortcut : 1
+----> ArithmeticOperatorReplacementUnary : 2
+----> ConditionalOperatorDeletion : 3
+----> ConditionalOperatorReplacement : 9
+----> NullifyInputVariable : 27
+----> NullifyObjectInitialization : 12
+----> NullifyReturnValue : 18
+----> RelationalOperatorReplacement : 21
+----> RemoveMethod : 37
+----> RemoveNullCheck : 14
+
+(31/38) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jettison/src/main/java/org/codehaus/jettison/mapped/MappedXMLInputFactory.java
+--> Mutations found:  29
+----> ArithmeticOperatorReplacementUnary : 3
+----> NullifyInputVariable : 2
+----> NullifyObjectInitialization : 7
+----> NullifyReturnValue : 4
+----> RelationalOperatorReplacement : 1
+----> RemoveMethod : 12
+
+(32/38) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jettison/src/main/java/org/codehaus/jettison/mapped/MappedXMLOutputFactory.java
+--> Mutations found:  6
+----> NullifyInputVariable : 1
+----> NullifyObjectInitialization : 3
+----> NullifyReturnValue : 1
+----> RemoveMethod : 1
+
+(33/38) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jettison/src/main/java/org/codehaus/jettison/mapped/MappedXMLStreamReader.java
+--> Mutations found:  106
+----> ArithmeticOperatorReplacementBinary : 3
+----> ArithmeticOperatorReplacementShortcut : 6
+----> ConditionalOperatorDeletion : 7
+----> ConditionalOperatorReplacement : 13
+----> NullifyInputVariable : 4
+----> NullifyObjectInitialization : 13
+----> NullifyReturnValue : 5
+----> RelationalOperatorReplacement : 28
+----> RemoveMethod : 15
+----> RemoveNullCheck : 12
+
+(34/38) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jettison/src/main/java/org/codehaus/jettison/mapped/MappedXMLStreamWriter.java
+--> Mutations found:  143
+----> ArithmeticOperatorReplacementBinary : 2
+----> ConditionalOperatorDeletion : 7
+----> ConditionalOperatorReplacement : 8
+----> NullifyInputVariable : 34
+----> NullifyObjectInitialization : 18
+----> NullifyReturnValue : 14
+----> RelationalOperatorReplacement : 11
+----> RemoveMethod : 42
+----> RemoveNullCheck : 7
+
+(35/38) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jettison/src/main/java/org/codehaus/jettison/mapped/SimpleConverter.java
+--> Mutations found:  3
+----> NullifyInputVariable : 1
+----> NullifyReturnValue : 1
+----> RemoveMethod : 1
+
+(36/38) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jettison/src/main/java/org/codehaus/jettison/mapped/TypeConverter.java
+--> Mutations found:  0
+
+(37/38) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jettison/src/main/java/org/codehaus/jettison/util/FastStack.java
+--> Mutations found:  13
+----> ArithmeticOperatorReplacementBinary : 2
+----> NullifyInputVariable : 1
+----> NullifyObjectInitialization : 2
+----> NullifyReturnValue : 2
+----> RelationalOperatorReplacement : 1
+----> RemoveMethod : 5
+
+(38/38) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jettison/src/main/java/org/codehaus/jettison/util/StringIndenter.java
+--> Mutations found:  124
+----> ArithmeticOperatorReplacementBinary : 22
+----> ArithmeticOperatorReplacementShortcut : 9
+----> ArithmeticOperatorReplacementUnary : 5
+----> ConditionalOperatorDeletion : 3
+----> ConditionalOperatorReplacement : 11
+----> NullifyInputVariable : 7
+----> NullifyObjectInitialization : 3
+----> NullifyReturnValue : 3
+----> RelationalOperatorReplacement : 32
+----> RemoveMethod : 26
+----> RemoveNullCheck : 3
+
+Total mutations found:  2211
+Total mutant found:  2211
+--> ArithmeticOperatorReplacementBinary: 60
+--> ArithmeticOperatorReplacementShortcut: 31
+--> ArithmeticOperatorReplacementUnary: 19
+--> AssignmentOperatorReplacementShortcut: 19
+--> ConditionalOperatorDeletion: 36
+--> ConditionalOperatorReplacement: 121
+--> NullifyInputVariable: 299
+--> NullifyObjectInitialization: 225
+--> NullifyReturnValue: 301
+--> RelationalOperatorReplacement: 349
+--> RemoveMethod: 650
+--> RemoveNullCheck: 101
+Cleanup MediumDarwin...
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jettison/src/main/java/org/codehaus/jettison/AbstractDOMDocumentParser.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jettison/src/main/java/org/codehaus/jettison/AbstractDOMDocumentSerializer.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jettison/src/main/java/org/codehaus/jettison/AbstractXMLEventWriter.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jettison/src/main/java/org/codehaus/jettison/AbstractXMLInputFactory.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jettison/src/main/java/org/codehaus/jettison/AbstractXMLOutputFactory.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jettison/src/main/java/org/codehaus/jettison/AbstractXMLStreamReader.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jettison/src/main/java/org/codehaus/jettison/AbstractXMLStreamWriter.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jettison/src/main/java/org/codehaus/jettison/JSONSequenceTooLargeException.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jettison/src/main/java/org/codehaus/jettison/Node.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jettison/src/main/java/org/codehaus/jettison/XsonNamespaceContext.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jettison/src/main/java/org/codehaus/jettison/badgerfish/BadgerFishConvention.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jettison/src/main/java/org/codehaus/jettison/badgerfish/BadgerFishDOMDocumentParser.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jettison/src/main/java/org/codehaus/jettison/badgerfish/BadgerFishDOMDocumentSerializer.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jettison/src/main/java/org/codehaus/jettison/badgerfish/BadgerFishXMLInputFactory.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jettison/src/main/java/org/codehaus/jettison/badgerfish/BadgerFishXMLOutputFactory.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jettison/src/main/java/org/codehaus/jettison/badgerfish/BadgerFishXMLStreamReader.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jettison/src/main/java/org/codehaus/jettison/badgerfish/BadgerFishXMLStreamWriter.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jettison/src/main/java/org/codehaus/jettison/json/JSONArray.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jettison/src/main/java/org/codehaus/jettison/json/JSONException.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jettison/src/main/java/org/codehaus/jettison/json/JSONObject.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jettison/src/main/java/org/codehaus/jettison/json/JSONStringer.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jettison/src/main/java/org/codehaus/jettison/json/JSONTokener.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jettison/src/main/java/org/codehaus/jettison/json/JSONWriter.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jettison/src/main/java/org/codehaus/jettison/mapped/Configuration.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jettison/src/main/java/org/codehaus/jettison/mapped/DefaultConverter.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jettison/src/main/java/org/codehaus/jettison/mapped/MappedDOMDocumentParser.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jettison/src/main/java/org/codehaus/jettison/mapped/MappedDOMDocumentSerializer.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jettison/src/main/java/org/codehaus/jettison/mapped/MappedNamespaceConvention.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jettison/src/main/java/org/codehaus/jettison/mapped/MappedXMLInputFactory.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jettison/src/main/java/org/codehaus/jettison/mapped/MappedXMLOutputFactory.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jettison/src/main/java/org/codehaus/jettison/mapped/MappedXMLStreamReader.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jettison/src/main/java/org/codehaus/jettison/mapped/MappedXMLStreamWriter.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jettison/src/main/java/org/codehaus/jettison/mapped/SimpleConverter.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jettison/src/main/java/org/codehaus/jettison/util/FastStack.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jettison/src/main/java/org/codehaus/jettison/util/StringIndenter.java
+elapsed: 0:03:07
+python3 ../littledarwin/LittleDarwin.py -m --all --build-command "mvn,compile" -t . -p ./src/main/java
+
+    __     _  __   __   __       ____                          _
+   / /    (_)/ /_ / /_ / /___   / __ \ ____ _ _____ _      __ (_)____
+  / /    / // __// __// // _ \ / / / // __ `// ___/| | /| / // // __ \
+ / /___ / // /_ / /_ / //  __// /_/ // /_/ // /    | |/ |/ // // / / /
+/_____//_/ \__/ \__//_/ \___//_____/ \__,_//_/     |__/|__//_//_/ /_/
+
+      _                     _                 ___
+     /_|  /|/|  _/__/'     /_|   _ /   _ ' _ (_  _ _ _  _      _ /
+    (  | /   |(//(///()/) (  |/)(/((/_) /_)  /  / (///)(-((/()/ /(
+                                  /
+
+
+    LittleDarwin version 0.10.9 Copyright (C) 2014-2022 Ali Parsai
+
+    LittleDarwin comes with ABSOLUTELY NO WARRANTY.
+    This is free software, and you are welcome to redistribute it
+    under certain conditions; run LittleDarwin --license for details.
+
+
+    
+Source Path:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jettison/src/main/java
+Target Path:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jettison/LittleDarwinResults
+Creating Mutation Database:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jettison/LittleDarwinResults/mutationdatabase
+
+(1/38) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jettison/src/main/java/org/codehaus/jettison/AbstractDOMDocumentParser.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  9
+----> NullifyInputVariable : 1
+----> NullifyObjectInitialization : 4
+----> RemoveMethod : 2
+----> NullifyReturnValue : 2
+
+(2/38) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jettison/src/main/java/org/codehaus/jettison/AbstractDOMDocumentSerializer.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  7
+----> RemoveNullCheck : 1
+----> NullifyInputVariable : 1
+----> NullifyObjectInitialization : 3
+----> RemoveMethod : 1
+----> RelationalOperatorReplacement : 1
+
+(3/38) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jettison/src/main/java/org/codehaus/jettison/AbstractXMLEventWriter.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  28
+----> ConditionalOperatorReplacement : 2
+----> NullifyInputVariable : 7
+----> NullifyObjectInitialization : 1
+----> RemoveMethod : 10
+----> RelationalOperatorReplacement : 6
+----> NullifyReturnValue : 2
+
+(4/38) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jettison/src/main/java/org/codehaus/jettison/AbstractXMLInputFactory.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  126
+----> RemoveNullCheck : 7
+----> AssignmentOperatorReplacementShortcut : 1
+----> ArithmeticOperatorReplacementBinary : 3
+----> NullifyInputVariable : 34
+----> NullifyObjectInitialization : 11
+----> RemoveMethod : 30
+----> ArithmeticOperatorReplacementUnary : 1
+----> RelationalOperatorReplacement : 14
+----> NullifyReturnValue : 25
+
+(5/38) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jettison/src/main/java/org/codehaus/jettison/AbstractXMLOutputFactory.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  47
+----> RemoveNullCheck : 3
+----> NullifyInputVariable : 13
+----> NullifyObjectInitialization : 8
+----> RemoveMethod : 11
+----> RelationalOperatorReplacement : 3
+----> NullifyReturnValue : 9
+
+(6/38) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jettison/src/main/java/org/codehaus/jettison/AbstractXMLStreamReader.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  135
+----> RemoveNullCheck : 3
+----> ConditionalOperatorReplacement : 1
+----> ArithmeticOperatorReplacementBinary : 1
+----> NullifyInputVariable : 6
+----> NullifyObjectInitialization : 1
+----> RemoveMethod : 85
+----> ArithmeticOperatorReplacementShortcut : 2
+----> ArithmeticOperatorReplacementUnary : 1
+----> RelationalOperatorReplacement : 12
+----> NullifyReturnValue : 23
+
+(7/38) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jettison/src/main/java/org/codehaus/jettison/AbstractXMLStreamWriter.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  38
+----> ConditionalOperatorDeletion : 1
+----> NullifyInputVariable : 17
+----> NullifyObjectInitialization : 2
+----> RemoveMethod : 17
+----> NullifyReturnValue : 1
+
+(8/38) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jettison/src/main/java/org/codehaus/jettison/Convention.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  0
+
+(9/38) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jettison/src/main/java/org/codehaus/jettison/JSONSequenceTooLargeException.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  1
+----> ArithmeticOperatorReplacementUnary : 1
+
+(10/38) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jettison/src/main/java/org/codehaus/jettison/Node.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  82
+----> RemoveNullCheck : 6
+----> ConditionalOperatorReplacement : 4
+----> NullifyInputVariable : 10
+----> NullifyObjectInitialization : 8
+----> RemoveMethod : 28
+----> ArithmeticOperatorReplacementShortcut : 2
+----> RelationalOperatorReplacement : 12
+----> NullifyReturnValue : 12
+
+(11/38) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jettison/src/main/java/org/codehaus/jettison/XsonNamespaceContext.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  17
+----> RemoveNullCheck : 2
+----> NullifyInputVariable : 3
+----> RemoveMethod : 5
+----> RelationalOperatorReplacement : 2
+----> NullifyReturnValue : 5
+
+(12/38) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jettison/src/main/java/org/codehaus/jettison/badgerfish/BadgerFishConvention.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  21
+----> RemoveNullCheck : 2
+----> ArithmeticOperatorReplacementBinary : 1
+----> NullifyInputVariable : 4
+----> NullifyObjectInitialization : 5
+----> RemoveMethod : 2
+----> ArithmeticOperatorReplacementUnary : 1
+----> RelationalOperatorReplacement : 3
+----> NullifyReturnValue : 3
+
+(13/38) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jettison/src/main/java/org/codehaus/jettison/badgerfish/BadgerFishDOMDocumentParser.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  1
+----> NullifyObjectInitialization : 1
+
+(14/38) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jettison/src/main/java/org/codehaus/jettison/badgerfish/BadgerFishDOMDocumentSerializer.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  1
+----> NullifyObjectInitialization : 1
+
+(15/38) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jettison/src/main/java/org/codehaus/jettison/badgerfish/BadgerFishXMLInputFactory.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  6
+----> NullifyInputVariable : 1
+----> NullifyObjectInitialization : 3
+----> RemoveMethod : 1
+----> NullifyReturnValue : 1
+
+(16/38) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jettison/src/main/java/org/codehaus/jettison/badgerfish/BadgerFishXMLOutputFactory.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  4
+----> NullifyInputVariable : 1
+----> NullifyObjectInitialization : 1
+----> RemoveMethod : 1
+----> NullifyReturnValue : 1
+
+(17/38) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jettison/src/main/java/org/codehaus/jettison/badgerfish/BadgerFishXMLStreamReader.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  47
+----> RemoveNullCheck : 3
+----> ConditionalOperatorReplacement : 3
+----> NullifyInputVariable : 2
+----> NullifyObjectInitialization : 8
+----> RemoveMethod : 14
+----> ArithmeticOperatorReplacementShortcut : 2
+----> RelationalOperatorReplacement : 10
+----> NullifyReturnValue : 5
+
+(18/38) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jettison/src/main/java/org/codehaus/jettison/badgerfish/BadgerFishXMLStreamWriter.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  93
+----> RemoveNullCheck : 2
+----> ConditionalOperatorReplacement : 1
+----> ArithmeticOperatorReplacementBinary : 1
+----> NullifyInputVariable : 32
+----> NullifyObjectInitialization : 17
+----> RemoveMethod : 28
+----> RelationalOperatorReplacement : 4
+----> NullifyReturnValue : 8
+
+(19/38) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jettison/src/main/java/org/codehaus/jettison/json/JSONArray.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  192
+----> RemoveNullCheck : 4
+----> AssignmentOperatorReplacementShortcut : 6
+----> ConditionalOperatorReplacement : 7
+----> ArithmeticOperatorReplacementBinary : 4
+----> NullifyInputVariable : 12
+----> NullifyObjectInitialization : 24
+----> RemoveMethod : 72
+----> RelationalOperatorReplacement : 30
+----> NullifyReturnValue : 33
+
+(20/38) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jettison/src/main/java/org/codehaus/jettison/json/JSONException.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  6
+----> RemoveMethod : 4
+----> ArithmeticOperatorReplacementUnary : 2
+
+(21/38) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jettison/src/main/java/org/codehaus/jettison/json/JSONObject.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  394
+----> RemoveNullCheck : 24
+----> ConditionalOperatorDeletion : 10
+----> AssignmentOperatorReplacementShortcut : 6
+----> ConditionalOperatorReplacement : 29
+----> ArithmeticOperatorReplacementBinary : 9
+----> NullifyInputVariable : 61
+----> NullifyObjectInitialization : 38
+----> RemoveMethod : 106
+----> ArithmeticOperatorReplacementUnary : 1
+----> RelationalOperatorReplacement : 58
+----> NullifyReturnValue : 52
+
+(22/38) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jettison/src/main/java/org/codehaus/jettison/json/JSONString.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  0
+
+(23/38) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jettison/src/main/java/org/codehaus/jettison/json/JSONStringer.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  5
+----> NullifyObjectInitialization : 1
+----> RemoveMethod : 2
+----> RelationalOperatorReplacement : 1
+----> NullifyReturnValue : 1
+
+(24/38) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jettison/src/main/java/org/codehaus/jettison/json/JSONTokener.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  153
+----> ConditionalOperatorDeletion : 1
+----> AssignmentOperatorReplacementShortcut : 4
+----> ConditionalOperatorReplacement : 21
+----> ArithmeticOperatorReplacementBinary : 7
+----> NullifyInputVariable : 3
+----> NullifyObjectInitialization : 10
+----> RemoveMethod : 31
+----> ArithmeticOperatorReplacementShortcut : 3
+----> ArithmeticOperatorReplacementUnary : 2
+----> RelationalOperatorReplacement : 49
+----> NullifyReturnValue : 22
+
+(25/38) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jettison/src/main/java/org/codehaus/jettison/json/JSONWriter.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  71
+----> RemoveNullCheck : 2
+----> AssignmentOperatorReplacementShortcut : 2
+----> ConditionalOperatorReplacement : 6
+----> ArithmeticOperatorReplacementBinary : 2
+----> NullifyInputVariable : 3
+----> NullifyObjectInitialization : 13
+----> RemoveMethod : 13
+----> RelationalOperatorReplacement : 19
+----> NullifyReturnValue : 11
+
+(26/38) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jettison/src/main/java/org/codehaus/jettison/mapped/Configuration.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  72
+----> RemoveNullCheck : 2
+----> ConditionalOperatorReplacement : 1
+----> NullifyInputVariable : 7
+----> NullifyObjectInitialization : 5
+----> RemoveMethod : 44
+----> RelationalOperatorReplacement : 3
+----> NullifyReturnValue : 10
+
+(27/38) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jettison/src/main/java/org/codehaus/jettison/mapped/DefaultConverter.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  84
+----> RemoveNullCheck : 4
+----> ConditionalOperatorDeletion : 4
+----> ConditionalOperatorReplacement : 5
+----> ArithmeticOperatorReplacementBinary : 2
+----> NullifyInputVariable : 4
+----> RemoveMethod : 5
+----> ArithmeticOperatorReplacementShortcut : 6
+----> RelationalOperatorReplacement : 28
+----> NullifyReturnValue : 26
+
+(28/38) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jettison/src/main/java/org/codehaus/jettison/mapped/MappedDOMDocumentParser.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  1
+----> NullifyObjectInitialization : 1
+
+(29/38) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jettison/src/main/java/org/codehaus/jettison/mapped/MappedDOMDocumentSerializer.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  1
+----> NullifyObjectInitialization : 1
+
+(30/38) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jettison/src/main/java/org/codehaus/jettison/mapped/MappedNamespaceConvention.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  145
+----> RemoveNullCheck : 14
+----> ConditionalOperatorDeletion : 3
+----> ConditionalOperatorReplacement : 9
+----> ArithmeticOperatorReplacementBinary : 1
+----> NullifyInputVariable : 27
+----> NullifyObjectInitialization : 12
+----> RemoveMethod : 37
+----> ArithmeticOperatorReplacementShortcut : 1
+----> ArithmeticOperatorReplacementUnary : 2
+----> RelationalOperatorReplacement : 21
+----> NullifyReturnValue : 18
+
+(31/38) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jettison/src/main/java/org/codehaus/jettison/mapped/MappedXMLInputFactory.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  29
+----> NullifyInputVariable : 2
+----> NullifyObjectInitialization : 7
+----> RemoveMethod : 12
+----> ArithmeticOperatorReplacementUnary : 3
+----> RelationalOperatorReplacement : 1
+----> NullifyReturnValue : 4
+
+(32/38) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jettison/src/main/java/org/codehaus/jettison/mapped/MappedXMLOutputFactory.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  6
+----> NullifyInputVariable : 1
+----> NullifyObjectInitialization : 3
+----> RemoveMethod : 1
+----> NullifyReturnValue : 1
+
+(33/38) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jettison/src/main/java/org/codehaus/jettison/mapped/MappedXMLStreamReader.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  106
+----> RemoveNullCheck : 12
+----> ConditionalOperatorDeletion : 7
+----> ConditionalOperatorReplacement : 13
+----> ArithmeticOperatorReplacementBinary : 3
+----> NullifyInputVariable : 4
+----> NullifyObjectInitialization : 13
+----> RemoveMethod : 15
+----> ArithmeticOperatorReplacementShortcut : 6
+----> RelationalOperatorReplacement : 28
+----> NullifyReturnValue : 5
+
+(34/38) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jettison/src/main/java/org/codehaus/jettison/mapped/MappedXMLStreamWriter.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  143
+----> RemoveNullCheck : 7
+----> ConditionalOperatorDeletion : 7
+----> ConditionalOperatorReplacement : 8
+----> ArithmeticOperatorReplacementBinary : 2
+----> NullifyInputVariable : 34
+----> NullifyObjectInitialization : 18
+----> RemoveMethod : 42
+----> RelationalOperatorReplacement : 11
+----> NullifyReturnValue : 14
+
+(35/38) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jettison/src/main/java/org/codehaus/jettison/mapped/SimpleConverter.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  3
+----> NullifyInputVariable : 1
+----> RemoveMethod : 1
+----> NullifyReturnValue : 1
+
+(36/38) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jettison/src/main/java/org/codehaus/jettison/mapped/TypeConverter.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  0
+
+(37/38) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jettison/src/main/java/org/codehaus/jettison/util/FastStack.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  13
+----> ArithmeticOperatorReplacementBinary : 2
+----> NullifyInputVariable : 1
+----> NullifyObjectInitialization : 2
+----> RemoveMethod : 5
+----> RelationalOperatorReplacement : 1
+----> NullifyReturnValue : 2
+
+(38/38) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jettison/src/main/java/org/codehaus/jettison/util/StringIndenter.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  124
+----> RemoveNullCheck : 3
+----> ConditionalOperatorDeletion : 3
+----> ConditionalOperatorReplacement : 11
+----> ArithmeticOperatorReplacementBinary : 22
+----> NullifyInputVariable : 7
+----> NullifyObjectInitialization : 3
+----> RemoveMethod : 26
+----> ArithmeticOperatorReplacementShortcut : 9
+----> ArithmeticOperatorReplacementUnary : 5
+----> RelationalOperatorReplacement : 32
+----> NullifyReturnValue : 3
+
+Total mutations found:  2211
+--> RemoveNullCheck: 101
+--> ConditionalOperatorDeletion: 36
+--> AssignmentOperatorReplacementShortcut: 19
+--> ConditionalOperatorReplacement: 121
+--> ArithmeticOperatorReplacementBinary: 60
+--> NullifyInputVariable: 299
+--> NullifyObjectInitialization: 225
+--> RemoveMethod: 651
+--> ArithmeticOperatorReplacementShortcut: 31
+--> ArithmeticOperatorReplacementUnary: 19
+--> RelationalOperatorReplacement: 349
+--> NullifyReturnValue: 300
+
+Comparing mutation operators: jettison -> operator_comparisons/jettison/
+Extracted 2211 mutants -> operator_comparisons/jettison/littledarwin.csv
+Extracted 2211 mutants -> operator_comparisons/jettison/mediumdarwin.csv
+Comparison written to /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/operator_comparisons/jettison
+  Original (LD): 2211
+  MediumDarwin: 2211
+  Reduced: 1  Added: 1  delta: 0.00%
+  (strict diff would show removed=106, added=107 — see strict_*.csv)
+Mutant comparison for jettison:
+  === Paper Table I (refined mutation operators) ===
+  Original (LittleDarwin): 2211
+  MediumDarwin: 2211
+  Reduced: 1
+  Added: 1
+  delta_percent: 0.00
+  check MD = Original - Reduced + Added: 2211 (should equal 2211)
+  
+  in_both_strict_match: 2104
+  ld_only_sites: 0
+  md_only_sites: 1
+  
+    Reduced categories:
+      reduced_remove_method_other: 1
+    Reduced by operator:
+      RemoveMethod: 1
+  
+    Added categories:
+      added_other: 1
+    Added by operator:
+      NullifyReturnValue: 1
+  
+  === Strict before/after diff (misleading for relational ops) ===
+  strict_removed: 106
+  strict_added: 107
+    (LD uses '<'->'>='; MD uses '<'->'<=' — same site, not Reduced+Added)
+  
+  # Listing 1 examples:
+  #   reduced_nullify_final_param_non_compilable -> MUT0 (final param nullify)
+  #   added_remove_method_array_return -> MUT1 (array return RemoveMethod)
+  Details: operator_comparisons/jettison/added_in_mediumdarwin.csv
+           operator_comparisons/jettison/removed_in_mediumdarwin.csv
+========== jettison finished at Tue May 19 17:41:37 JST 2026 ==========

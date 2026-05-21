@@ -1,0 +1,422 @@
+========== commons-csv started at Tue May 19 19:22:37 JST 2026 ==========
+
+Cloning commons-csv...
+Cloning into 'commons-csv'...
+Updating files:  42% (52/123)Updating files:  43% (53/123)Updating files:  44% (55/123)Updating files:  45% (56/123)Updating files:  46% (57/123)Updating files:  47% (58/123)Updating files:  48% (60/123)Updating files:  49% (61/123)Updating files:  50% (62/123)Updating files:  51% (63/123)Updating files:  52% (64/123)Updating files:  53% (66/123)Updating files:  54% (67/123)Updating files:  55% (68/123)Updating files:  56% (69/123)Updating files:  57% (71/123)Updating files:  58% (72/123)Updating files:  59% (73/123)Updating files:  60% (74/123)Updating files:  61% (76/123)Updating files:  62% (77/123)Updating files:  63% (78/123)Updating files:  64% (79/123)Updating files:  65% (80/123)Updating files:  66% (82/123)Updating files:  67% (83/123)Updating files:  68% (84/123)Updating files:  69% (85/123)Updating files:  70% (87/123)Updating files:  71% (88/123)Updating files:  72% (89/123)Updating files:  73% (90/123)Updating files:  74% (92/123)Updating files:  75% (93/123)Updating files:  76% (94/123)Updating files:  77% (95/123)Updating files:  78% (96/123)Updating files:  79% (98/123)Updating files:  80% (99/123)Updating files:  81% (100/123)Updating files:  82% (101/123)Updating files:  83% (103/123)Updating files:  84% (104/123)Updating files:  85% (105/123)Updating files:  86% (106/123)Updating files:  87% (108/123)Updating files:  88% (109/123)Updating files:  89% (110/123)Updating files:  90% (111/123)Updating files:  91% (112/123)Updating files:  92% (114/123)Updating files:  93% (115/123)Updating files:  94% (116/123)Updating files:  95% (117/123)Updating files:  96% (119/123)Updating files:  97% (120/123)Updating files:  98% (121/123)Updating files:  99% (122/123)Updating files: 100% (123/123)Updating files: 100% (123/123), done.
+Note: switching to 'tags/rel/commons-csv-1.14.0'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by switching back to a branch.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -c with the switch command. Example:
+
+  git switch -c <new-branch-name>
+
+Or undo this operation with:
+
+  git switch -
+
+Turn off this advice by setting config variable advice.detachedHead to false
+
+HEAD is now at 969d42a1 Prepare for the next release candidate
+
+Processing commons-csv (Java 11)...
+----------------------------------------
+JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64
+Using Java 11:
+openjdk version "11.0.30" 2026-01-20
+OpenJDK Runtime Environment (build 11.0.30+7-post-Ubuntu-1ubuntu124.04)
+OpenJDK 64-Bit Server VM (build 11.0.30+7-post-Ubuntu-1ubuntu124.04, mixed mode, sharing)
+----------------------------------------
+python3 ../../MediumDarwin.py -m --all --build-command "mvn,compile" -q -t . -p ./src/main/java
+
+        __       __                  __  __                          _______                                     __
+       |  \     /  \                |  \|  \                        |       \                                   |  \
+       | $$\   /  $$  ______    ____| $$ \$$ __    __  ______ ____  | $$$$$$$\  ______    ______   __   __   __  \$$ _______
+       | $$$\ /  $$$ /      \  /      $$|  \|  \  |  \|      \    \ | $$  | $$ |      \  /      \ |  \ |  \ |  \|  \|       \
+       | $$$$\  $$$$|  $$$$$$\|  $$$$$$$| $$| $$  | $$| $$$$$$\$$$$\| $$  | $$  \$$$$$$\|  $$$$$$\| $$ | $$ | $$| $$| $$$$$$$\
+       | $$\$$ $$ $$| $$    $$| $$  | $$| $$| $$  | $$| $$ | $$ | $$| $$  | $$ /      $$| $$   \$$| $$ | $$ | $$| $$| $$  | $$
+       | $$ \$$$| $$| $$$$$$$$| $$__| $$| $$| $$__/ $$| $$ | $$ | $$| $$__/ $$|  $$$$$$$| $$      | $$_/ $$_/ $$| $$| $$  | $$
+       | $$  \$ | $$ \$$     \ \$$    $$| $$ \$$    $$| $$ | $$ | $$| $$    $$ \$$    $$| $$       \$$   $$   $$| $$| $$  | $$
+        \$$      \$$  \$$$$$$$  \$$$$$$$ \$$  \$$$$$$  \$$  \$$  \$$ \$$$$$$$   \$$$$$$$ \$$        \$$$$$\$$$$  \$$ \$$   \$$
+
+       Copyright (c) 2014 2022 Ali Parsai
+       Copyright (c) 2025      MediumDarwin Contributors
+
+       This project builds upon the original work of Ali Parsai and the LittleDarwin mutation testing framework.
+       We gratefully acknowledge his foundational contributions, which made this extended version possible.
+
+       This program is free software: you can redistribute it and/or modify it under the terms of the GNU
+       General Public License as published by the Free Software Foundation, version 3  of the License, or
+       (at your option) any later version.
+
+       This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied
+       warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the  GNU General Public License for more details.
+
+       You should have received a copy of the GNU General Public License along with this program.
+       If not, see <https://www.gnu.org/licenses/>.
+
+       Original author:
+       Ali Parsai — https://www.parsai.net/
+        
+
+        __       __                  __  __                          _______                                     __            
+       |  \     /  \                |  \|  \                        |       \                                   |  \           
+       | $$\   /  $$  ______    ____| $$ \$$ __    __  ______ ____  | $$$$$$$\  ______    ______   __   __   __  \$$ _______   
+       | $$$\ /  $$$ /      \  /      $$|  \|  \  |  \|      \    \ | $$  | $$ |      \  /      \ |  \ |  \ |  \|  \|       \  
+       | $$$$\  $$$$|  $$$$$$\|  $$$$$$$| $$| $$  | $$| $$$$$$\$$$$\| $$  | $$  \$$$$$$\|  $$$$$$\| $$ | $$ | $$| $$| $$$$$$$\ 
+       | $$\$$ $$ $$| $$    $$| $$  | $$| $$| $$  | $$| $$ | $$ | $$| $$  | $$ /      $$| $$   \$$| $$ | $$ | $$| $$| $$  | $$ 
+       | $$ \$$$| $$| $$$$$$$$| $$__| $$| $$| $$__/ $$| $$ | $$ | $$| $$__/ $$|  $$$$$$$| $$      | $$_/ $$_/ $$| $$| $$  | $$ 
+       | $$  \$ | $$ \$$     \ \$$    $$| $$ \$$    $$| $$ | $$ | $$| $$    $$ \$$    $$| $$       \$$   $$   $$| $$| $$  | $$ 
+        \$$      \$$  \$$$$$$$  \$$$$$$$ \$$  \$$$$$$  \$$  \$$  \$$ \$$$$$$$   \$$$$$$$ \$$        \$$$$$\$$$$  \$$ \$$   \$$ 
+                                                                                                                            
+       Copyright (c) 2014 2022 Ali Parsai                                                                                      
+       Copyright (c) 2025      MediumDarwin Contributors                                                                       
+                                                                                                                            
+       This project builds upon the original work of Ali Parsai and the LittleDarwin mutation testing framework.               
+       We gratefully acknowledge his foundational contributions, which made this extended version possible.                    
+                                                                                                                                
+       This program is free software: you can redistribute it and/or modify it under the terms of the GNU                      
+       General Public License as published by the Free Software Foundation, version 3  of the License, or                      
+       (at your option) any later version.                                                                                     
+                                                                                                                            
+       This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied       
+       warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the  GNU General Public License for more details.   
+                                                                                                                                
+       You should have received a copy of the GNU General Public License along with this program.                              
+       If not, see <https://www.gnu.org/licenses/>.                                                                             
+                                                                                                                                
+       Original author:                                                                                                         
+       Ali Parsai — https://www.parsai.net/                                                                                     
+        
+Source Path:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-csv/src/main/java
+Target Path:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-csv/LittleDarwinResults
+Creating Mutation Database:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-csv/LittleDarwinResults/mutationdatabase
+
+(1/12) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-csv/src/main/java/org/apache/commons/csv/CSVException.java
+--> Mutations found:  0
+
+(2/12) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-csv/src/main/java/org/apache/commons/csv/CSVFormat.java
+--> Mutations found:  531
+----> ArithmeticOperatorReplacementBinary : 18
+----> ArithmeticOperatorReplacementShortcut : 12
+----> ArithmeticOperatorReplacementUnary : 1
+----> ConditionalOperatorDeletion : 10
+----> ConditionalOperatorReplacement : 48
+----> NullifyObjectInitialization : 30
+----> NullifyReturnValue : 102
+----> RelationalOperatorReplacement : 96
+----> RemoveMethod : 181
+----> RemoveNullCheck : 33
+
+(3/12) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-csv/src/main/java/org/apache/commons/csv/CSVParser.java
+--> Mutations found:  165
+----> ArithmeticOperatorReplacementBinary : 4
+----> ArithmeticOperatorReplacementShortcut : 2
+----> AssignmentOperatorReplacementShortcut : 1
+----> ConditionalOperatorDeletion : 5
+----> ConditionalOperatorReplacement : 11
+----> NullifyObjectInitialization : 22
+----> NullifyReturnValue : 29
+----> RelationalOperatorReplacement : 25
+----> RemoveMethod : 48
+----> RemoveNullCheck : 18
+
+(4/12) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-csv/src/main/java/org/apache/commons/csv/CSVPrinter.java
+--> Mutations found:  46
+----> ArithmeticOperatorReplacementBinary : 2
+----> ArithmeticOperatorReplacementShortcut : 4
+----> ConditionalOperatorDeletion : 3
+----> ConditionalOperatorReplacement : 5
+----> NullifyReturnValue : 1
+----> RelationalOperatorReplacement : 7
+----> RemoveMethod : 21
+----> RemoveNullCheck : 3
+
+(5/12) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-csv/src/main/java/org/apache/commons/csv/CSVRecord.java
+--> Mutations found:  81
+----> ConditionalOperatorReplacement : 4
+----> NullifyObjectInitialization : 4
+----> NullifyReturnValue : 14
+----> RelationalOperatorReplacement : 14
+----> RemoveMethod : 36
+----> RemoveNullCheck : 9
+
+(6/12) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-csv/src/main/java/org/apache/commons/csv/Constants.java
+--> Mutations found:  1
+----> ArithmeticOperatorReplacementUnary : 1
+
+(7/12) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-csv/src/main/java/org/apache/commons/csv/DuplicateHeaderMode.java
+--> Mutations found:  0
+
+(8/12) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-csv/src/main/java/org/apache/commons/csv/ExtendedBufferedReader.java
+--> Mutations found:  77
+----> ArithmeticOperatorReplacementBinary : 5
+----> ArithmeticOperatorReplacementShortcut : 5
+----> AssignmentOperatorReplacementShortcut : 2
+----> ConditionalOperatorDeletion : 1
+----> ConditionalOperatorReplacement : 12
+----> NullifyObjectInitialization : 2
+----> NullifyReturnValue : 2
+----> RelationalOperatorReplacement : 27
+----> RemoveMethod : 19
+----> RemoveNullCheck : 2
+
+(9/12) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-csv/src/main/java/org/apache/commons/csv/Lexer.java
+--> Mutations found:  119
+----> ArithmeticOperatorReplacementBinary : 8
+----> ArithmeticOperatorReplacementShortcut : 3
+----> ConditionalOperatorDeletion : 4
+----> ConditionalOperatorReplacement : 14
+----> NullifyObjectInitialization : 3
+----> NullifyReturnValue : 11
+----> RelationalOperatorReplacement : 34
+----> RemoveMethod : 38
+----> RemoveNullCheck : 4
+
+(10/12) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-csv/src/main/java/org/apache/commons/csv/QuoteMode.java
+--> Mutations found:  0
+
+(11/12) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-csv/src/main/java/org/apache/commons/csv/Token.java
+--> Mutations found:  6
+----> ArithmeticOperatorReplacementBinary : 1
+----> NullifyObjectInitialization : 1
+----> NullifyReturnValue : 1
+----> RemoveMethod : 3
+
+(12/12) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-csv/src/main/java/org/apache/commons/csv/package-info.java
+--> Mutations found:  0
+
+Total mutations found:  1026
+Total mutant found:  1026
+--> ArithmeticOperatorReplacementBinary: 38
+--> ArithmeticOperatorReplacementShortcut: 26
+--> ArithmeticOperatorReplacementUnary: 2
+--> AssignmentOperatorReplacementShortcut: 3
+--> ConditionalOperatorDeletion: 23
+--> ConditionalOperatorReplacement: 94
+--> NullifyObjectInitialization: 62
+--> NullifyReturnValue: 160
+--> RelationalOperatorReplacement: 203
+--> RemoveMethod: 346
+--> RemoveNullCheck: 69
+Cleanup MediumDarwin...
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-csv/src/main/java/org/apache/commons/csv/CSVFormat.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-csv/src/main/java/org/apache/commons/csv/CSVParser.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-csv/src/main/java/org/apache/commons/csv/CSVPrinter.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-csv/src/main/java/org/apache/commons/csv/CSVRecord.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-csv/src/main/java/org/apache/commons/csv/Constants.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-csv/src/main/java/org/apache/commons/csv/ExtendedBufferedReader.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-csv/src/main/java/org/apache/commons/csv/Lexer.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-csv/src/main/java/org/apache/commons/csv/Token.java
+elapsed: 0:02:24
+python3 ../littledarwin/LittleDarwin.py -m --all --build-command "mvn,compile" -t . -p ./src/main/java
+
+    __     _  __   __   __       ____                          _
+   / /    (_)/ /_ / /_ / /___   / __ \ ____ _ _____ _      __ (_)____
+  / /    / // __// __// // _ \ / / / // __ `// ___/| | /| / // // __ \
+ / /___ / // /_ / /_ / //  __// /_/ // /_/ // /    | |/ |/ // // / / /
+/_____//_/ \__/ \__//_/ \___//_____/ \__,_//_/     |__/|__//_//_/ /_/
+
+      _                     _                 ___
+     /_|  /|/|  _/__/'     /_|   _ /   _ ' _ (_  _ _ _  _      _ /
+    (  | /   |(//(///()/) (  |/)(/((/_) /_)  /  / (///)(-((/()/ /(
+                                  /
+
+
+    LittleDarwin version 0.10.9 Copyright (C) 2014-2022 Ali Parsai
+
+    LittleDarwin comes with ABSOLUTELY NO WARRANTY.
+    This is free software, and you are welcome to redistribute it
+    under certain conditions; run LittleDarwin --license for details.
+
+
+    
+Source Path:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-csv/src/main/java
+Target Path:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-csv/LittleDarwinResults
+Creating Mutation Database:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-csv/LittleDarwinResults/mutationdatabase
+
+(1/12) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-csv/src/main/java/org/apache/commons/csv/Constants.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  1
+----> ArithmeticOperatorReplacementUnary : 1
+
+(2/12) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-csv/src/main/java/org/apache/commons/csv/CSVException.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  0
+
+(3/12) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-csv/src/main/java/org/apache/commons/csv/CSVFormat.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  607
+----> RemoveNullCheck : 33
+----> ConditionalOperatorDeletion : 10
+----> ConditionalOperatorReplacement : 48
+----> ArithmeticOperatorReplacementBinary : 18
+----> NullifyInputVariable : 73
+----> NullifyObjectInitialization : 30
+----> RemoveMethod : 185
+----> ArithmeticOperatorReplacementShortcut : 12
+----> ArithmeticOperatorReplacementUnary : 1
+----> RelationalOperatorReplacement : 96
+----> NullifyReturnValue : 101
+
+(4/12) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-csv/src/main/java/org/apache/commons/csv/CSVParser.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  183
+----> RemoveNullCheck : 18
+----> ConditionalOperatorDeletion : 5
+----> AssignmentOperatorReplacementShortcut : 1
+----> ConditionalOperatorReplacement : 11
+----> ArithmeticOperatorReplacementBinary : 4
+----> NullifyInputVariable : 18
+----> NullifyObjectInitialization : 22
+----> RemoveMethod : 48
+----> ArithmeticOperatorReplacementShortcut : 2
+----> RelationalOperatorReplacement : 25
+----> NullifyReturnValue : 29
+
+(5/12) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-csv/src/main/java/org/apache/commons/csv/CSVPrinter.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  59
+----> RemoveNullCheck : 3
+----> ConditionalOperatorDeletion : 3
+----> ConditionalOperatorReplacement : 5
+----> ArithmeticOperatorReplacementBinary : 2
+----> NullifyInputVariable : 13
+----> RemoveMethod : 21
+----> ArithmeticOperatorReplacementShortcut : 4
+----> RelationalOperatorReplacement : 7
+----> NullifyReturnValue : 1
+
+(6/12) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-csv/src/main/java/org/apache/commons/csv/CSVRecord.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  87
+----> RemoveNullCheck : 9
+----> ConditionalOperatorReplacement : 4
+----> NullifyInputVariable : 5
+----> NullifyObjectInitialization : 4
+----> RemoveMethod : 37
+----> RelationalOperatorReplacement : 14
+----> NullifyReturnValue : 14
+
+(7/12) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-csv/src/main/java/org/apache/commons/csv/DuplicateHeaderMode.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  0
+
+(8/12) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-csv/src/main/java/org/apache/commons/csv/ExtendedBufferedReader.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  77
+----> RemoveNullCheck : 2
+----> ConditionalOperatorDeletion : 1
+----> AssignmentOperatorReplacementShortcut : 2
+----> ConditionalOperatorReplacement : 12
+----> ArithmeticOperatorReplacementBinary : 5
+----> NullifyObjectInitialization : 2
+----> RemoveMethod : 19
+----> ArithmeticOperatorReplacementShortcut : 5
+----> RelationalOperatorReplacement : 27
+----> NullifyReturnValue : 2
+
+(9/12) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-csv/src/main/java/org/apache/commons/csv/Lexer.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  125
+----> RemoveNullCheck : 4
+----> ConditionalOperatorDeletion : 4
+----> ConditionalOperatorReplacement : 14
+----> ArithmeticOperatorReplacementBinary : 8
+----> NullifyInputVariable : 6
+----> NullifyObjectInitialization : 3
+----> RemoveMethod : 38
+----> ArithmeticOperatorReplacementShortcut : 3
+----> RelationalOperatorReplacement : 34
+----> NullifyReturnValue : 11
+
+(10/12) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-csv/src/main/java/org/apache/commons/csv/package-info.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  0
+
+(11/12) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-csv/src/main/java/org/apache/commons/csv/QuoteMode.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  0
+
+(12/12) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-csv/src/main/java/org/apache/commons/csv/Token.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  6
+----> ArithmeticOperatorReplacementBinary : 1
+----> NullifyObjectInitialization : 1
+----> RemoveMethod : 3
+----> NullifyReturnValue : 1
+
+Total mutations found:  1145
+--> RemoveNullCheck: 69
+--> ConditionalOperatorDeletion: 23
+--> AssignmentOperatorReplacementShortcut: 3
+--> ConditionalOperatorReplacement: 94
+--> ArithmeticOperatorReplacementBinary: 38
+--> NullifyInputVariable: 115
+--> NullifyObjectInitialization: 62
+--> RemoveMethod: 351
+--> ArithmeticOperatorReplacementShortcut: 26
+--> ArithmeticOperatorReplacementUnary: 2
+--> RelationalOperatorReplacement: 203
+--> NullifyReturnValue: 159
+
+Comparing mutation operators: commons-csv -> operator_comparisons/commons-csv/
+Extracted 1145 mutants -> operator_comparisons/commons-csv/littledarwin.csv
+Extracted 1026 mutants -> operator_comparisons/commons-csv/mediumdarwin.csv
+Comparison written to /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/operator_comparisons/commons-csv
+  Original (LD): 1145
+  MediumDarwin: 1026
+  Reduced: 120  Added: 1  delta: -10.39%
+  (strict diff would show removed=152, added=38 — see strict_*.csv)
+Mutant comparison for commons-csv:
+  === Paper Table I (refined mutation operators) ===
+  Original (LittleDarwin): 1145
+  MediumDarwin: 1026
+  Reduced: 120
+  Added: 1
+  delta_percent: -10.39
+  check MD = Original - Reduced + Added: 1026 (should equal 1026)
+  
+  in_both_strict_match: 988
+  ld_only_sites: 115
+  md_only_sites: 1
+  
+    Reduced categories:
+      reduced_nullify_final_param_non_compilable: 112
+      reduced_remove_method_other: 5
+      reduced_nullify_input_other_filter: 3
+    Reduced by operator:
+      NullifyInputVariable: 115
+      RemoveMethod: 5
+  
+    Added categories:
+      added_other: 1
+    Added by operator:
+      NullifyReturnValue: 1
+  
+  === Strict before/after diff (misleading for relational ops) ===
+  strict_removed: 152
+  strict_added: 38
+    (LD uses '<'->'>='; MD uses '<'->'<=' — same site, not Reduced+Added)
+  
+  # Listing 1 examples:
+  #   reduced_nullify_final_param_non_compilable -> MUT0 (final param nullify)
+  #   added_remove_method_array_return -> MUT1 (array return RemoveMethod)
+  Details: operator_comparisons/commons-csv/added_in_mediumdarwin.csv
+           operator_comparisons/commons-csv/removed_in_mediumdarwin.csv
+========== commons-csv finished at Tue May 19 19:51:39 JST 2026 ==========

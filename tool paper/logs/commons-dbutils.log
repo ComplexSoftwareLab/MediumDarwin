@@ -1,0 +1,858 @@
+========== commons-dbutils started at Tue May 19 19:16:32 JST 2026 ==========
+Directory commons-dbutils already exists, skipping clone
+
+Processing commons-dbutils (Java 8)...
+----------------------------------------
+JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
+Using Java 8:
+openjdk version "1.8.0_482"
+OpenJDK Runtime Environment (build 1.8.0_482-8u482-ga~us1-0ubuntu1~24.04-b08)
+OpenJDK 64-Bit Server VM (build 25.482-b08, mixed mode)
+----------------------------------------
+python3 ../../MediumDarwin.py -m --all --build-command "mvn,compile" -q -t . -p ./src/main/java
+ : 1
+----> ConditionalOperatorDeletion : 4
+----> ConditionalOperatorReplacement : 6
+----> NullifyInputVariable : 1
+----> NullifyObjectInitialization : 10
+----> NullifyReturnValue : 12
+----> RelationalOperatorReplacement : 18
+----> RemoveMethod : 15
+----> RemoveNullCheck : 11
+
+(6/49) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/Column.java
+--> Mutations found:  0
+
+(7/49) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/ColumnHandler.java
+--> Mutations found:  0
+
+(8/49) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/DbUtils.java
+--> Mutations found:  58
+----> ConditionalOperatorDeletion : 2
+----> NullifyObjectInitialization : 3
+----> NullifyReturnValue : 3
+----> RelationalOperatorReplacement : 9
+----> RemoveMethod : 32
+----> RemoveNullCheck : 9
+
+(9/49) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/GenerousBeanProcessor.java
+--> Mutations found:  12
+----> ArithmeticOperatorReplacementBinary : 1
+----> ArithmeticOperatorReplacementShortcut : 2
+----> ConditionalOperatorReplacement : 2
+----> NullifyReturnValue : 1
+----> RelationalOperatorReplacement : 4
+----> RemoveMethod : 1
+----> RemoveNullCheck : 1
+
+(10/49) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/OutParameter.java
+--> Mutations found:  14
+----> NullifyReturnValue : 3
+----> RelationalOperatorReplacement : 1
+----> RemoveMethod : 9
+----> RemoveNullCheck : 1
+
+(11/49) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/PropertyHandler.java
+--> Mutations found:  0
+
+(12/49) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/ProxyFactory.java
+--> Mutations found:  19
+----> NullifyObjectInitialization : 1
+----> NullifyReturnValue : 9
+----> RemoveMethod : 9
+
+(13/49) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/QueryLoader.java
+--> Mutations found:  16
+----> NullifyObjectInitialization : 5
+----> NullifyReturnValue : 3
+----> RelationalOperatorReplacement : 2
+----> RemoveMethod : 4
+----> RemoveNullCheck : 2
+
+(14/49) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/QueryRunner.java
+--> Mutations found:  128
+----> ArithmeticOperatorReplacementBinary : 1
+----> ArithmeticOperatorReplacementShortcut : 1
+----> ConditionalOperatorReplacement : 3
+----> NullifyObjectInitialization : 20
+----> NullifyReturnValue : 18
+----> RelationalOperatorReplacement : 27
+----> RemoveMethod : 35
+----> RemoveNullCheck : 23
+
+(15/49) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/ResultSetHandler.java
+--> Mutations found:  0
+
+(16/49) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/ResultSetIterator.java
+--> Mutations found:  13
+----> ConditionalOperatorDeletion : 1
+----> NullifyObjectInitialization : 3
+----> NullifyReturnValue : 3
+----> RemoveMethod : 6
+
+(17/49) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/RowProcessor.java
+--> Mutations found:  0
+
+(18/49) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/StatementConfiguration.java
+--> Mutations found:  56
+----> ConditionalOperatorReplacement : 1
+----> NullifyObjectInitialization : 2
+----> NullifyReturnValue : 13
+----> RelationalOperatorReplacement : 9
+----> RemoveMethod : 23
+----> RemoveNullCheck : 8
+
+(19/49) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/handlers/AbstractKeyedHandler.java
+--> Mutations found:  5
+----> NullifyObjectInitialization : 1
+----> NullifyReturnValue : 2
+----> RemoveMethod : 2
+
+(20/49) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/handlers/AbstractListHandler.java
+--> Mutations found:  3
+----> NullifyObjectInitialization : 1
+----> NullifyReturnValue : 1
+----> RemoveMethod : 1
+
+(21/49) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/handlers/ArrayHandler.java
+--> Mutations found:  3
+----> NullifyObjectInitialization : 1
+----> NullifyReturnValue : 1
+----> RemoveMethod : 1
+
+(22/49) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/handlers/ArrayListHandler.java
+--> Mutations found:  2
+----> NullifyReturnValue : 1
+----> RemoveMethod : 1
+
+(23/49) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/handlers/BeanHandler.java
+--> Mutations found:  2
+----> NullifyReturnValue : 1
+----> RemoveMethod : 1
+
+(24/49) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/handlers/BeanListHandler.java
+--> Mutations found:  2
+----> NullifyReturnValue : 1
+----> RemoveMethod : 1
+
+(25/49) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/handlers/BeanMapHandler.java
+--> Mutations found:  6
+----> NullifyReturnValue : 2
+----> RelationalOperatorReplacement : 1
+----> RemoveMethod : 2
+----> RemoveNullCheck : 1
+
+(26/49) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/handlers/ColumnListHandler.java
+--> Mutations found:  5
+----> NullifyReturnValue : 2
+----> RelationalOperatorReplacement : 1
+----> RemoveMethod : 1
+----> RemoveNullCheck : 1
+
+(27/49) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/handlers/KeyedHandler.java
+--> Mutations found:  6
+----> NullifyReturnValue : 2
+----> RelationalOperatorReplacement : 1
+----> RemoveMethod : 2
+----> RemoveNullCheck : 1
+
+(28/49) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/handlers/MapHandler.java
+--> Mutations found:  2
+----> NullifyReturnValue : 1
+----> RemoveMethod : 1
+
+(29/49) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/handlers/MapListHandler.java
+--> Mutations found:  2
+----> NullifyReturnValue : 1
+----> RemoveMethod : 1
+
+(30/49) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/handlers/ScalarHandler.java
+--> Mutations found:  6
+----> NullifyReturnValue : 3
+----> RelationalOperatorReplacement : 1
+----> RemoveMethod : 1
+----> RemoveNullCheck : 1
+
+(31/49) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/handlers/columns/BooleanColumnHandler.java
+--> Mutations found:  5
+----> ConditionalOperatorReplacement : 1
+----> NullifyReturnValue : 1
+----> RemoveMethod : 3
+
+(32/49) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/handlers/columns/ByteColumnHandler.java
+--> Mutations found:  5
+----> ConditionalOperatorReplacement : 1
+----> NullifyReturnValue : 1
+----> RemoveMethod : 3
+
+(33/49) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/handlers/columns/DoubleColumnHandler.java
+--> Mutations found:  5
+----> ConditionalOperatorReplacement : 1
+----> NullifyReturnValue : 1
+----> RemoveMethod : 3
+
+(34/49) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/handlers/columns/FloatColumnHandler.java
+--> Mutations found:  5
+----> ConditionalOperatorReplacement : 1
+----> NullifyReturnValue : 1
+----> RemoveMethod : 3
+
+(35/49) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/handlers/columns/IntegerColumnHandler.java
+--> Mutations found:  5
+----> ConditionalOperatorReplacement : 1
+----> NullifyReturnValue : 1
+----> RemoveMethod : 3
+
+(36/49) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/handlers/columns/LongColumnHandler.java
+--> Mutations found:  5
+----> ConditionalOperatorReplacement : 1
+----> NullifyReturnValue : 1
+----> RemoveMethod : 3
+
+(37/49) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/handlers/columns/SQLXMLColumnHandler.java
+--> Mutations found:  4
+----> NullifyReturnValue : 1
+----> RemoveMethod : 3
+
+(38/49) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/handlers/columns/ShortColumnHandler.java
+--> Mutations found:  5
+----> ConditionalOperatorReplacement : 1
+----> NullifyReturnValue : 1
+----> RemoveMethod : 3
+
+(39/49) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/handlers/columns/StringColumnHandler.java
+--> Mutations found:  5
+----> NullifyReturnValue : 1
+----> RemoveMethod : 4
+
+(40/49) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/handlers/columns/TimestampColumnHandler.java
+--> Mutations found:  4
+----> NullifyReturnValue : 1
+----> RemoveMethod : 3
+
+(41/49) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/handlers/columns/package-info.java
+--> Mutations found:  0
+
+(42/49) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/handlers/package-info.java
+--> Mutations found:  0
+
+(43/49) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/handlers/properties/DatePropertyHandler.java
+--> Mutations found:  10
+----> ConditionalOperatorDeletion : 1
+----> ConditionalOperatorReplacement : 1
+----> NullifyInputVariable : 1
+----> NullifyObjectInitialization : 3
+----> NullifyReturnValue : 1
+----> RemoveMethod : 3
+
+(44/49) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/handlers/properties/StringEnumPropertyHandler.java
+--> Mutations found:  5
+----> ConditionalOperatorReplacement : 1
+----> NullifyReturnValue : 1
+----> RemoveMethod : 3
+
+(45/49) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/handlers/properties/package-info.java
+--> Mutations found:  0
+
+(46/49) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/package-info.java
+--> Mutations found:  0
+
+(47/49) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/wrappers/SqlNullCheckedResultSet.java
+--> Mutations found:  97
+----> ConditionalOperatorReplacement : 1
+----> NullifyObjectInitialization : 8
+----> NullifyReturnValue : 18
+----> RelationalOperatorReplacement : 9
+----> RemoveMethod : 52
+----> RemoveNullCheck : 9
+
+(48/49) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/wrappers/StringTrimmedResultSet.java
+--> Mutations found:  7
+----> ConditionalOperatorReplacement : 2
+----> NullifyObjectInitialization : 1
+----> NullifyReturnValue : 2
+----> RemoveMethod : 2
+
+(49/49) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/wrappers/package-info.java
+--> Mutations found:  0
+
+Total mutations found:  1066
+Total mutant found:  1066
+--> ArithmeticOperatorReplacementBinary: 8
+--> ArithmeticOperatorReplacementShortcut: 11
+--> ArithmeticOperatorReplacementUnary: 2
+--> ConditionalOperatorDeletion: 13
+--> ConditionalOperatorReplacement: 28
+--> NullifyInputVariable: 2
+--> NullifyObjectInitialization: 75
+--> NullifyReturnValue: 211
+--> RelationalOperatorReplacement: 106
+--> RemoveMethod: 527
+--> RemoveNullCheck: 83
+Cleanup MediumDarwin...
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/AbstractQueryRunner.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/AsyncQueryRunner.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/BaseResultSetHandler.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/BasicRowProcessor.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/BeanProcessor.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/DbUtils.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/GenerousBeanProcessor.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/OutParameter.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/ProxyFactory.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/QueryLoader.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/QueryRunner.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/ResultSetIterator.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/StatementConfiguration.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/handlers/AbstractKeyedHandler.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/handlers/AbstractListHandler.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/handlers/ArrayHandler.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/handlers/ArrayListHandler.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/handlers/BeanHandler.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/handlers/BeanListHandler.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/handlers/BeanMapHandler.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/handlers/ColumnListHandler.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/handlers/KeyedHandler.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/handlers/MapHandler.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/handlers/MapListHandler.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/handlers/ScalarHandler.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/handlers/columns/BooleanColumnHandler.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/handlers/columns/ByteColumnHandler.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/handlers/columns/DoubleColumnHandler.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/handlers/columns/FloatColumnHandler.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/handlers/columns/IntegerColumnHandler.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/handlers/columns/LongColumnHandler.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/handlers/columns/SQLXMLColumnHandler.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/handlers/columns/ShortColumnHandler.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/handlers/columns/StringColumnHandler.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/handlers/columns/TimestampColumnHandler.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/handlers/properties/DatePropertyHandler.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/handlers/properties/StringEnumPropertyHandler.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/wrappers/SqlNullCheckedResultSet.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/wrappers/StringTrimmedResultSet.java
+elapsed: 0:01:27
+python3 ../littledarwin/LittleDarwin.py -m --all --build-command "mvn,compile" -t . -p ./src/main/java
+
+    __     _  __   __   __       ____                          _
+   / /    (_)/ /_ / /_ / /___   / __ \ ____ _ _____ _      __ (_)____
+  / /    / // __// __// // _ \ / / / // __ `// ___/| | /| / // // __ \
+ / /___ / // /_ / /_ / //  __// /_/ // /_/ // /    | |/ |/ // // / / /
+/_____//_/ \__/ \__//_/ \___//_____/ \__,_//_/     |__/|__//_//_/ /_/
+
+      _                     _                 ___
+     /_|  /|/|  _/__/'     /_|   _ /   _ ' _ (_  _ _ _  _      _ /
+    (  | /   |(//(///()/) (  |/)(/((/_) /_)  /  / (///)(-((/()/ /(
+                                  /
+
+
+    LittleDarwin version 0.10.9 Copyright (C) 2014-2022 Ali Parsai
+
+    LittleDarwin comes with ABSOLUTELY NO WARRANTY.
+    This is free software, and you are welcome to redistribute it
+    under certain conditions; run LittleDarwin --license for details.
+
+
+    
+Source Path:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java
+Target Path:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/LittleDarwinResults
+Creating Mutation Database:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/LittleDarwinResults/mutationdatabase
+
+(1/49) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/AbstractQueryRunner.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  109
+----> NullifyReturnValue : 7
+----> RemoveNullCheck : 12
+----> ConditionalOperatorDeletion : 5
+----> ConditionalOperatorReplacement : 2
+----> ArithmeticOperatorReplacementBinary : 4
+----> NullifyInputVariable : 29
+----> NullifyObjectInitialization : 10
+----> RemoveMethod : 21
+----> ArithmeticOperatorReplacementShortcut : 3
+----> RelationalOperatorReplacement : 16
+
+(2/49) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/AsyncQueryRunner.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  92
+----> NullifyReturnValue : 20
+----> NullifyInputVariable : 49
+----> NullifyObjectInitialization : 1
+----> RemoveMethod : 22
+
+(3/49) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/BaseResultSetHandler.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  445
+----> NullifyReturnValue : 57
+----> RemoveNullCheck : 1
+----> NullifyInputVariable : 150
+----> NullifyObjectInitialization : 1
+----> RemoveMethod : 235
+----> RelationalOperatorReplacement : 1
+
+(4/49) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/BasicRowProcessor.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  51
+----> NullifyReturnValue : 9
+----> RemoveNullCheck : 2
+----> ConditionalOperatorReplacement : 2
+----> ArithmeticOperatorReplacementBinary : 1
+----> NullifyInputVariable : 12
+----> NullifyObjectInitialization : 4
+----> RemoveMethod : 12
+----> ArithmeticOperatorReplacementShortcut : 2
+----> ArithmeticOperatorReplacementUnary : 1
+----> RelationalOperatorReplacement : 6
+
+(5/49) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/BeanProcessor.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  109
+----> NullifyReturnValue : 11
+----> RemoveNullCheck : 11
+----> ConditionalOperatorDeletion : 4
+----> ConditionalOperatorReplacement : 6
+----> ArithmeticOperatorReplacementBinary : 1
+----> NullifyInputVariable : 28
+----> NullifyObjectInitialization : 10
+----> RemoveMethod : 16
+----> ArithmeticOperatorReplacementShortcut : 3
+----> ArithmeticOperatorReplacementUnary : 1
+----> RelationalOperatorReplacement : 18
+
+(6/49) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/Column.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  0
+
+(7/49) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/ColumnHandler.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  0
+
+(8/49) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/DbUtils.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  87
+----> NullifyReturnValue : 3
+----> RemoveNullCheck : 9
+----> ConditionalOperatorDeletion : 2
+----> NullifyInputVariable : 29
+----> NullifyObjectInitialization : 3
+----> RemoveMethod : 32
+----> RelationalOperatorReplacement : 9
+
+(9/49) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/GenerousBeanProcessor.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  14
+----> RemoveNullCheck : 1
+----> ConditionalOperatorReplacement : 2
+----> ArithmeticOperatorReplacementBinary : 1
+----> NullifyInputVariable : 2
+----> RemoveMethod : 2
+----> ArithmeticOperatorReplacementShortcut : 2
+----> RelationalOperatorReplacement : 4
+
+(10/49) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/OutParameter.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  17
+----> NullifyReturnValue : 3
+----> RemoveNullCheck : 1
+----> NullifyInputVariable : 3
+----> RemoveMethod : 9
+----> RelationalOperatorReplacement : 1
+
+(11/49) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/package-info.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  0
+
+(12/49) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/PropertyHandler.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  0
+
+(13/49) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/ProxyFactory.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  28
+----> NullifyReturnValue : 9
+----> NullifyInputVariable : 9
+----> NullifyObjectInitialization : 1
+----> RemoveMethod : 9
+
+(14/49) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/QueryLoader.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  19
+----> NullifyReturnValue : 3
+----> RemoveNullCheck : 2
+----> NullifyInputVariable : 3
+----> NullifyObjectInitialization : 5
+----> RemoveMethod : 4
+----> RelationalOperatorReplacement : 2
+
+(15/49) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/QueryRunner.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  205
+----> NullifyReturnValue : 16
+----> RemoveNullCheck : 23
+----> ConditionalOperatorReplacement : 3
+----> ArithmeticOperatorReplacementBinary : 1
+----> NullifyInputVariable : 77
+----> NullifyObjectInitialization : 20
+----> RemoveMethod : 37
+----> ArithmeticOperatorReplacementShortcut : 1
+----> RelationalOperatorReplacement : 27
+
+(16/49) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/ResultSetHandler.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  0
+
+(17/49) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/ResultSetIterator.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  15
+----> NullifyReturnValue : 3
+----> ConditionalOperatorDeletion : 1
+----> NullifyInputVariable : 2
+----> NullifyObjectInitialization : 3
+----> RemoveMethod : 6
+
+(18/49) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/RowProcessor.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  0
+
+(19/49) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/StatementConfiguration.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  62
+----> NullifyReturnValue : 13
+----> RemoveNullCheck : 8
+----> ConditionalOperatorReplacement : 1
+----> NullifyInputVariable : 6
+----> NullifyObjectInitialization : 2
+----> RemoveMethod : 23
+----> RelationalOperatorReplacement : 9
+
+(20/49) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/handlers/AbstractKeyedHandler.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  6
+----> NullifyReturnValue : 2
+----> NullifyInputVariable : 1
+----> NullifyObjectInitialization : 1
+----> RemoveMethod : 2
+
+(21/49) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/handlers/AbstractListHandler.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  4
+----> NullifyReturnValue : 1
+----> NullifyInputVariable : 1
+----> NullifyObjectInitialization : 1
+----> RemoveMethod : 1
+
+(22/49) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/handlers/ArrayHandler.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  4
+----> NullifyReturnValue : 1
+----> NullifyInputVariable : 1
+----> NullifyObjectInitialization : 1
+----> RemoveMethod : 1
+
+(23/49) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/handlers/ArrayListHandler.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  3
+----> NullifyReturnValue : 1
+----> NullifyInputVariable : 1
+----> RemoveMethod : 1
+
+(24/49) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/handlers/BeanHandler.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  3
+----> NullifyReturnValue : 1
+----> NullifyInputVariable : 1
+----> RemoveMethod : 1
+
+(25/49) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/handlers/BeanListHandler.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  3
+----> NullifyReturnValue : 1
+----> NullifyInputVariable : 1
+----> RemoveMethod : 1
+
+(26/49) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/handlers/BeanMapHandler.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  8
+----> NullifyReturnValue : 2
+----> RemoveNullCheck : 1
+----> NullifyInputVariable : 2
+----> RemoveMethod : 2
+----> RelationalOperatorReplacement : 1
+
+(27/49) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/handlers/ColumnListHandler.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  6
+----> NullifyReturnValue : 2
+----> RemoveNullCheck : 1
+----> NullifyInputVariable : 1
+----> RemoveMethod : 1
+----> RelationalOperatorReplacement : 1
+
+(28/49) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/handlers/KeyedHandler.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  8
+----> NullifyReturnValue : 2
+----> RemoveNullCheck : 1
+----> NullifyInputVariable : 2
+----> RemoveMethod : 2
+----> RelationalOperatorReplacement : 1
+
+(29/49) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/handlers/MapHandler.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  3
+----> NullifyReturnValue : 1
+----> NullifyInputVariable : 1
+----> RemoveMethod : 1
+
+(30/49) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/handlers/MapListHandler.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  3
+----> NullifyReturnValue : 1
+----> NullifyInputVariable : 1
+----> RemoveMethod : 1
+
+(31/49) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/handlers/package-info.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  0
+
+(32/49) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/handlers/ScalarHandler.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  7
+----> NullifyReturnValue : 3
+----> RemoveNullCheck : 1
+----> NullifyInputVariable : 1
+----> RemoveMethod : 1
+----> RelationalOperatorReplacement : 1
+
+(33/49) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/handlers/columns/BooleanColumnHandler.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  7
+----> NullifyReturnValue : 1
+----> ConditionalOperatorReplacement : 1
+----> NullifyInputVariable : 2
+----> RemoveMethod : 3
+
+(34/49) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/handlers/columns/ByteColumnHandler.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  7
+----> NullifyReturnValue : 1
+----> ConditionalOperatorReplacement : 1
+----> NullifyInputVariable : 2
+----> RemoveMethod : 3
+
+(35/49) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/handlers/columns/DoubleColumnHandler.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  7
+----> NullifyReturnValue : 1
+----> ConditionalOperatorReplacement : 1
+----> NullifyInputVariable : 2
+----> RemoveMethod : 3
+
+(36/49) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/handlers/columns/FloatColumnHandler.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  7
+----> NullifyReturnValue : 1
+----> ConditionalOperatorReplacement : 1
+----> NullifyInputVariable : 2
+----> RemoveMethod : 3
+
+(37/49) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/handlers/columns/IntegerColumnHandler.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  7
+----> NullifyReturnValue : 1
+----> ConditionalOperatorReplacement : 1
+----> NullifyInputVariable : 2
+----> RemoveMethod : 3
+
+(38/49) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/handlers/columns/LongColumnHandler.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  7
+----> NullifyReturnValue : 1
+----> ConditionalOperatorReplacement : 1
+----> NullifyInputVariable : 2
+----> RemoveMethod : 3
+
+(39/49) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/handlers/columns/package-info.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  0
+
+(40/49) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/handlers/columns/ShortColumnHandler.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  7
+----> NullifyReturnValue : 1
+----> ConditionalOperatorReplacement : 1
+----> NullifyInputVariable : 2
+----> RemoveMethod : 3
+
+(41/49) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/handlers/columns/SQLXMLColumnHandler.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  6
+----> NullifyReturnValue : 1
+----> NullifyInputVariable : 2
+----> RemoveMethod : 3
+
+(42/49) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/handlers/columns/StringColumnHandler.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  7
+----> NullifyReturnValue : 1
+----> NullifyInputVariable : 2
+----> RemoveMethod : 4
+
+(43/49) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/handlers/columns/TimestampColumnHandler.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  6
+----> NullifyReturnValue : 1
+----> NullifyInputVariable : 2
+----> RemoveMethod : 3
+
+(44/49) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/handlers/properties/DatePropertyHandler.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  13
+----> NullifyReturnValue : 1
+----> ConditionalOperatorDeletion : 1
+----> ConditionalOperatorReplacement : 1
+----> NullifyInputVariable : 4
+----> NullifyObjectInitialization : 3
+----> RemoveMethod : 3
+
+(45/49) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/handlers/properties/package-info.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  0
+
+(46/49) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/handlers/properties/StringEnumPropertyHandler.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  9
+----> NullifyReturnValue : 1
+----> ConditionalOperatorReplacement : 1
+----> NullifyInputVariable : 4
+----> RemoveMethod : 3
+
+(47/49) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/wrappers/package-info.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  0
+
+(48/49) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/wrappers/SqlNullCheckedResultSet.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  113
+----> NullifyReturnValue : 16
+----> RemoveNullCheck : 9
+----> ConditionalOperatorReplacement : 1
+----> NullifyInputVariable : 17
+----> NullifyObjectInitialization : 8
+----> RemoveMethod : 53
+----> RelationalOperatorReplacement : 9
+
+(49/49) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/wrappers/StringTrimmedResultSet.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  11
+----> NullifyReturnValue : 2
+----> ConditionalOperatorReplacement : 2
+----> NullifyInputVariable : 4
+----> NullifyObjectInitialization : 1
+----> RemoveMethod : 2
+
+Total mutations found:  1525
+--> NullifyReturnValue: 202
+--> RemoveNullCheck: 83
+--> ConditionalOperatorDeletion: 13
+--> ConditionalOperatorReplacement: 28
+--> ArithmeticOperatorReplacementBinary: 8
+--> NullifyInputVariable: 462
+--> NullifyObjectInitialization: 75
+--> RemoveMethod: 535
+--> ArithmeticOperatorReplacementShortcut: 11
+--> ArithmeticOperatorReplacementUnary: 2
+--> RelationalOperatorReplacement: 106
+
+Comparing mutation operators: commons-dbutils -> operator_comparisons/commons-dbutils/
+Extracted 1525 mutants -> operator_comparisons/commons-dbutils/littledarwin.csv
+Extracted 1066 mutants -> operator_comparisons/commons-dbutils/mediumdarwin.csv
+Comparison written to /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/operator_comparisons/commons-dbutils
+  Original (LD): 1525
+  MediumDarwin: 1066
+  Reduced: 468  Added: 9  delta: -30.10%
+  (strict diff would show removed=475, added=24 — see strict_*.csv)
+Mutant comparison for commons-dbutils:
+  === Paper Table I (refined mutation operators) ===
+  Original (LittleDarwin): 1525
+  MediumDarwin: 1066
+  Reduced: 468
+  Added: 9
+  delta_percent: -30.10
+  check MD = Original - Reduced + Added: 1066 (should equal 1066)
+  
+  in_both_strict_match: 1042
+  ld_only_sites: 460
+  md_only_sites: 9
+  
+    Reduced categories:
+      reduced_nullify_final_param_non_compilable: 427
+      reduced_nullify_input_other_filter: 33
+      reduced_remove_method_other: 8
+    Reduced by operator:
+      NullifyInputVariable: 460
+      RemoveMethod: 8
+  
+    Added categories:
+      added_other: 9
+    Added by operator:
+      NullifyReturnValue: 9
+  
+  === Strict before/after diff (misleading for relational ops) ===
+  strict_removed: 475
+  strict_added: 24
+    (LD uses '<'->'>='; MD uses '<'->'<=' — same site, not Reduced+Added)
+  
+  # Listing 1 examples:
+  #   reduced_nullify_final_param_non_compilable -> MUT0 (final param nullify)
+  #   added_remove_method_array_return -> MUT1 (array return RemoveMethod)
+  Details: operator_comparisons/commons-dbutils/added_in_mediumdarwin.csv
+           operator_comparisons/commons-dbutils/removed_in_mediumdarwin.csv
+========== commons-dbutils finished at Tue May 19 19:39:51 JST 2026 ==========

@@ -1,0 +1,3060 @@
+========== jackson-core started at Tue May 19 17:19:29 JST 2026 ==========
+
+Cloning jackson-core...
+Cloning into 'jackson-core'...
+Updating files:  15% (73/470)Updating files:  16% (76/470)Updating files:  17% (80/470)Updating files:  18% (85/470)Updating files:  19% (90/470)Updating files:  20% (94/470)Updating files:  21% (99/470)Updating files:  22% (104/470)Updating files:  23% (109/470)Updating files:  24% (113/470)Updating files:  25% (118/470)Updating files:  26% (123/470)Updating files:  27% (127/470)Updating files:  28% (132/470)Updating files:  29% (137/470)Updating files:  30% (141/470)Updating files:  31% (146/470)Updating files:  32% (151/470)Updating files:  33% (156/470)Updating files:  34% (160/470)Updating files:  34% (164/470)Updating files:  35% (165/470)Updating files:  36% (170/470)Updating files:  37% (174/470)Updating files:  38% (179/470)Updating files:  39% (184/470)Updating files:  40% (188/470)Updating files:  41% (193/470)Updating files:  42% (198/470)Updating files:  43% (203/470)Updating files:  44% (207/470)Updating files:  45% (212/470)Updating files:  45% (213/470)Updating files:  46% (217/470)Updating files:  47% (221/470)Updating files:  48% (226/470)Updating files:  49% (231/470)Updating files:  50% (235/470)Updating files:  51% (240/470)Updating files:  52% (245/470)Updating files:  53% (250/470)Updating files:  53% (252/470)Updating files:  54% (254/470)Updating files:  55% (259/470)Updating files:  56% (264/470)Updating files:  57% (268/470)Updating files:  58% (273/470)Updating files:  59% (278/470)Updating files:  60% (282/470)Updating files:  61% (287/470)Updating files:  61% (291/470)Updating files:  62% (292/470)Updating files:  63% (297/470)Updating files:  64% (301/470)Updating files:  65% (306/470)Updating files:  66% (311/470)Updating files:  67% (315/470)Updating files:  68% (320/470)Updating files:  69% (325/470)Updating files:  70% (329/470)Updating files:  71% (334/470)Updating files:  71% (337/470)Updating files:  72% (339/470)Updating files:  73% (344/470)Updating files:  74% (348/470)Updating files:  75% (353/470)Updating files:  76% (358/470)Updating files:  77% (362/470)Updating files:  78% (367/470)Updating files:  79% (372/470)Updating files:  80% (376/470)Updating files:  81% (381/470)Updating files:  81% (383/470)Updating files:  82% (386/470)Updating files:  83% (391/470)Updating files:  84% (395/470)Updating files:  85% (400/470)Updating files:  86% (405/470)Updating files:  87% (409/470)Updating files:  88% (414/470)Updating files:  89% (419/470)Updating files:  90% (423/470)Updating files:  90% (424/470)Updating files:  91% (428/470)Updating files:  92% (433/470)Updating files:  93% (438/470)Updating files:  94% (442/470)Updating files:  95% (447/470)Updating files:  96% (452/470)Updating files:  97% (456/470)Updating files:  98% (461/470)Updating files:  98% (465/470)Updating files:  99% (466/470)Updating files: 100% (470/470)Updating files: 100% (470/470), done.
+Note: switching to 'tags/jackson-core-2.18.2'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by switching back to a branch.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -c with the switch command. Example:
+
+  git switch -c <new-branch-name>
+
+Or undo this operation with:
+
+  git switch -
+
+Turn off this advice by setting config variable advice.detachedHead to false
+
+HEAD is now at fc1bc938 [maven-release-plugin] prepare release jackson-core-2.18.2
+
+Processing jackson-core (Java 11)...
+----------------------------------------
+JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64
+Using Java 11:
+openjdk version "11.0.30" 2026-01-20
+OpenJDK Runtime Environment (build 11.0.30+7-post-Ubuntu-1ubuntu124.04)
+OpenJDK 64-Bit Server VM (build 11.0.30+7-post-Ubuntu-1ubuntu124.04, mixed mode, sharing)
+----------------------------------------
+python3 ../../MediumDarwin.py -m --all --build-command "mvn,compile" -q -t . -p ./src/main/java
+
+        __       __                  __  __                          _______                                     __
+       |  \     /  \                |  \|  \                        |       \                                   |  \
+       | $$\   /  $$  ______    ____| $$ \$$ __    __  ______ ____  | $$$$$$$\  ______    ______   __   __   __  \$$ _______
+       | $$$\ /  $$$ /      \  /      $$|  \|  \  |  \|      \    \ | $$  | $$ |      \  /      \ |  \ |  \ |  \|  \|       \
+       | $$$$\  $$$$|  $$$$$$\|  $$$$$$$| $$| $$  | $$| $$$$$$\$$$$\| $$  | $$  \$$$$$$\|  $$$$$$\| $$ | $$ | $$| $$| $$$$$$$\
+       | $$\$$ $$ $$| $$    $$| $$  | $$| $$| $$  | $$| $$ | $$ | $$| $$  | $$ /      $$| $$   \$$| $$ | $$ | $$| $$| $$  | $$
+       | $$ \$$$| $$| $$$$$$$$| $$__| $$| $$| $$__/ $$| $$ | $$ | $$| $$__/ $$|  $$$$$$$| $$      | $$_/ $$_/ $$| $$| $$  | $$
+       | $$  \$ | $$ \$$     \ \$$    $$| $$ \$$    $$| $$ | $$ | $$| $$    $$ \$$    $$| $$       \$$   $$   $$| $$| $$  | $$
+        \$$      \$$  \$$$$$$$  \$$$$$$$ \$$  \$$$$$$  \$$  \$$  \$$ \$$$$$$$   \$$$$$$$ \$$        \$$$$$\$$$$  \$$ \$$   \$$
+
+       Copyright (c) 2014 2022 Ali Parsai
+       Copyright (c) 2025      MediumDarwin Contributors
+
+       This project builds upon the original work of Ali Parsai and the LittleDarwin mutation testing framework.
+       We gratefully acknowledge his foundational contributions, which made this extended version possible.
+
+       This program is free software: you can redistribute it and/or modify it under the terms of the GNU
+       General Public License as published by the Free Software Foundation, version 3  of the License, or
+       (at your option) any later version.
+
+       This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied
+       warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the  GNU General Public License for more details.
+
+       You should have received a copy of the GNU General Public License along with this program.
+       If not, see <https://www.gnu.org/licenses/>.
+
+       Original author:
+       Ali Parsai — https://www.parsai.net/
+        
+
+        __       __                  __  __                          _______                                     __            
+       |  \     /  \                |  \|  \                        |       \                                   |  \           
+       | $$\   /  $$  ______    ____| $$ \$$ __    __  ______ ____  | $$$$$$$\  ______    ______   __   __   __  \$$ _______   
+       | $$$\ /  $$$ /      \  /      $$|  \|  \  |  \|      \    \ | $$  | $$ |      \  /      \ |  \ |  \ |  \|  \|       \  
+       | $$$$\  $$$$|  $$$$$$\|  $$$$$$$| $$| $$  | $$| $$$$$$\$$$$\| $$  | $$  \$$$$$$\|  $$$$$$\| $$ | $$ | $$| $$| $$$$$$$\ 
+       | $$\$$ $$ $$| $$    $$| $$  | $$| $$| $$  | $$| $$ | $$ | $$| $$  | $$ /      $$| $$   \$$| $$ | $$ | $$| $$| $$  | $$ 
+       | $$ \$$$| $$| $$$$$$$$| $$__| $$| $$| $$__/ $$| $$ | $$ | $$| $$__/ $$|  $$$$$$$| $$      | $$_/ $$_/ $$| $$| $$  | $$ 
+       | $$  \$ | $$ \$$     \ \$$    $$| $$ \$$    $$| $$ | $$ | $$| $$    $$ \$$    $$| $$       \$$   $$   $$| $$| $$  | $$ 
+        \$$      \$$  \$$$$$$$  \$$$$$$$ \$$  \$$$$$$  \$$  \$$  \$$ \$$$$$$$   \$$$$$$$ \$$        \$$$$$\$$$$  \$$ \$$   \$$ 
+                                                                                                                            
+       Copyright (c) 2014 2022 Ali Parsai                                                                                      
+       Copyright (c) 2025      MediumDarwin Contributors                                                                       
+                                                                                                                            
+       This project builds upon the original work of Ali Parsai and the LittleDarwin mutation testing framework.               
+       We gratefully acknowledge his foundational contributions, which made this extended version possible.                    
+                                                                                                                                
+       This program is free software: you can redistribute it and/or modify it under the terms of the GNU                      
+       General Public License as published by the Free Software Foundation, version 3  of the License, or                      
+       (at your option) any later version.                                                                                     
+                                                                                                                            
+       This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied       
+       warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the  GNU General Public License for more details.   
+                                                                                                                                
+       You should have received a copy of the GNU General Public License along with this program.                              
+       If not, see <https://www.gnu.org/licenses/>.                                                                             
+                                                                                                                                
+       Original author:                                                                                                         
+       Ali Parsai — https://www.parsai.net/                                                                                     
+        
+Source Path:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java
+Target Path:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/LittleDarwinResults
+Creating Mutation Database:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/LittleDarwinResults/mutationdatabase
+
+(1/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/Base64Variant.java
+--> Mutations found:  300
+----> ArithmeticOperatorReplacementBinary : 11
+----> ArithmeticOperatorReplacementShortcut : 36
+----> ArithmeticOperatorReplacementUnary : 2
+----> AssignmentOperatorReplacementShortcut : 8
+----> ConditionalOperatorDeletion : 6
+----> ConditionalOperatorReplacement : 9
+----> LogicalOperatorReplacement : 35
+----> NullifyInputVariable : 9
+----> NullifyObjectInitialization : 10
+----> NullifyReturnValue : 16
+----> RelationalOperatorReplacement : 50
+----> RemoveMethod : 66
+----> RemoveNullCheck : 2
+----> ShiftOperatorReplacement : 40
+
+(2/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/Base64Variants.java
+--> Mutations found:  16
+----> NullifyInputVariable : 1
+----> NullifyObjectInitialization : 6
+----> NullifyReturnValue : 5
+----> RelationalOperatorReplacement : 1
+----> RemoveMethod : 2
+----> RemoveNullCheck : 1
+
+(3/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/ErrorReportConfiguration.java
+--> Mutations found:  30
+----> NullifyObjectInitialization : 7
+----> NullifyReturnValue : 6
+----> RelationalOperatorReplacement : 3
+----> RemoveMethod : 13
+----> RemoveNullCheck : 1
+
+(4/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/FormatFeature.java
+--> Mutations found:  0
+
+(5/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/FormatSchema.java
+--> Mutations found:  0
+
+(6/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/JacksonException.java
+--> Mutations found:  0
+
+(7/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/JsonEncoding.java
+--> Mutations found:  7
+----> NullifyReturnValue : 1
+----> RemoveMethod : 6
+
+(8/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/JsonFactory.java
+--> Mutations found:  437
+----> ArithmeticOperatorReplacementBinary : 1
+----> AssignmentOperatorReplacementShortcut : 7
+----> ConditionalOperatorDeletion : 5
+----> ConditionalOperatorReplacement : 3
+----> LogicalOperatorReplacement : 6
+----> NullifyInputVariable : 84
+----> NullifyObjectInitialization : 25
+----> NullifyReturnValue : 101
+----> RelationalOperatorReplacement : 46
+----> RemoveMethod : 131
+----> RemoveNullCheck : 27
+----> ShiftOperatorReplacement : 1
+
+(9/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/JsonFactoryBuilder.java
+--> Mutations found:  66
+----> NullifyInputVariable : 17
+----> NullifyObjectInitialization : 3
+----> NullifyReturnValue : 18
+----> RelationalOperatorReplacement : 4
+----> RemoveMethod : 22
+----> RemoveNullCheck : 2
+
+(10/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/JsonGenerationException.java
+--> Mutations found:  5
+----> NullifyInputVariable : 1
+----> NullifyReturnValue : 2
+----> RemoveMethod : 2
+
+(11/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/JsonGenerator.java
+--> Mutations found:  278
+----> ArithmeticOperatorReplacementBinary : 5
+----> ArithmeticOperatorReplacementShortcut : 8
+----> ArithmeticOperatorReplacementUnary : 1
+----> AssignmentOperatorReplacementShortcut : 1
+----> ConditionalOperatorReplacement : 2
+----> LogicalOperatorReplacement : 4
+----> NullifyInputVariable : 65
+----> NullifyObjectInitialization : 19
+----> NullifyReturnValue : 21
+----> RelationalOperatorReplacement : 32
+----> RemoveMethod : 106
+----> RemoveNullCheck : 13
+----> ShiftOperatorReplacement : 1
+
+(12/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/JsonLocation.java
+--> Mutations found:  73
+----> ArithmeticOperatorReplacementBinary : 1
+----> ArithmeticOperatorReplacementUnary : 5
+----> AssignmentOperatorReplacementShortcut : 4
+----> ConditionalOperatorDeletion : 2
+----> ConditionalOperatorReplacement : 3
+----> NullifyInputVariable : 3
+----> NullifyObjectInitialization : 3
+----> NullifyReturnValue : 8
+----> RelationalOperatorReplacement : 16
+----> RemoveMethod : 22
+----> RemoveNullCheck : 6
+
+(13/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/JsonParseException.java
+--> Mutations found:  16
+----> NullifyInputVariable : 2
+----> NullifyReturnValue : 6
+----> RemoveMethod : 8
+
+(14/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/JsonParser.java
+--> Mutations found:  274
+----> ArithmeticOperatorReplacementUnary : 3
+----> AssignmentOperatorReplacementShortcut : 3
+----> ConditionalOperatorReplacement : 3
+----> LogicalOperatorReplacement : 4
+----> NullifyInputVariable : 38
+----> NullifyObjectInitialization : 11
+----> NullifyReturnValue : 46
+----> RelationalOperatorReplacement : 28
+----> RemoveMethod : 129
+----> RemoveNullCheck : 8
+----> ShiftOperatorReplacement : 1
+
+(15/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/JsonPointer.java
+--> Mutations found:  263
+----> ArithmeticOperatorReplacementBinary : 16
+----> ArithmeticOperatorReplacementShortcut : 10
+----> ArithmeticOperatorReplacementUnary : 9
+----> AssignmentOperatorReplacementShortcut : 2
+----> ConditionalOperatorDeletion : 3
+----> ConditionalOperatorReplacement : 13
+----> NullifyInputVariable : 21
+----> NullifyObjectInitialization : 18
+----> NullifyReturnValue : 35
+----> RelationalOperatorReplacement : 67
+----> RemoveMethod : 51
+----> RemoveNullCheck : 18
+
+(16/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/JsonProcessingException.java
+--> Mutations found:  30
+----> ArithmeticOperatorReplacementBinary : 1
+----> ConditionalOperatorReplacement : 1
+----> NullifyObjectInitialization : 1
+----> NullifyReturnValue : 6
+----> RelationalOperatorReplacement : 5
+----> RemoveMethod : 11
+----> RemoveNullCheck : 5
+
+(17/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/JsonStreamContext.java
+--> Mutations found:  60
+----> ArithmeticOperatorReplacementBinary : 1
+----> NullifyInputVariable : 3
+----> NullifyObjectInitialization : 1
+----> NullifyReturnValue : 14
+----> RelationalOperatorReplacement : 9
+----> RemoveMethod : 30
+----> RemoveNullCheck : 2
+
+(18/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/JsonToken.java
+--> Mutations found:  57
+----> ArithmeticOperatorReplacementShortcut : 1
+----> ConditionalOperatorDeletion : 2
+----> ConditionalOperatorReplacement : 7
+----> NullifyInputVariable : 1
+----> NullifyReturnValue : 13
+----> RelationalOperatorReplacement : 13
+----> RemoveMethod : 18
+----> RemoveNullCheck : 2
+
+(19/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/JsonTokenId.java
+--> Mutations found:  1
+----> ArithmeticOperatorReplacementUnary : 1
+
+(20/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/JsonpCharacterEscapes.java
+--> Mutations found:  11
+----> NullifyObjectInitialization : 3
+----> NullifyReturnValue : 5
+----> RemoveMethod : 3
+
+(21/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/ObjectCodec.java
+--> Mutations found:  4
+----> NullifyReturnValue : 2
+----> RemoveMethod : 2
+
+(22/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/PrettyPrinter.java
+--> Mutations found:  1
+----> NullifyObjectInitialization : 1
+
+(23/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/SerializableString.java
+--> Mutations found:  0
+
+(24/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/StreamReadCapability.java
+--> Mutations found:  9
+----> LogicalOperatorReplacement : 1
+----> RelationalOperatorReplacement : 1
+----> RemoveMethod : 6
+----> ShiftOperatorReplacement : 1
+
+(25/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/StreamReadConstraints.java
+--> Mutations found:  86
+----> ArithmeticOperatorReplacementUnary : 4
+----> ConditionalOperatorReplacement : 1
+----> NullifyInputVariable : 3
+----> NullifyObjectInitialization : 10
+----> NullifyReturnValue : 11
+----> RelationalOperatorReplacement : 18
+----> RemoveMethod : 38
+----> RemoveNullCheck : 1
+
+(26/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/StreamReadFeature.java
+--> Mutations found:  13
+----> AssignmentOperatorReplacementShortcut : 1
+----> LogicalOperatorReplacement : 1
+----> NullifyReturnValue : 1
+----> RelationalOperatorReplacement : 1
+----> RemoveMethod : 9
+
+(27/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/StreamWriteCapability.java
+--> Mutations found:  9
+----> LogicalOperatorReplacement : 1
+----> RelationalOperatorReplacement : 1
+----> RemoveMethod : 6
+----> ShiftOperatorReplacement : 1
+
+(28/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/StreamWriteConstraints.java
+--> Mutations found:  32
+----> NullifyInputVariable : 3
+----> NullifyObjectInitialization : 7
+----> NullifyReturnValue : 6
+----> RelationalOperatorReplacement : 3
+----> RemoveMethod : 12
+----> RemoveNullCheck : 1
+
+(29/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/StreamWriteFeature.java
+--> Mutations found:  13
+----> AssignmentOperatorReplacementShortcut : 1
+----> LogicalOperatorReplacement : 1
+----> NullifyReturnValue : 1
+----> RelationalOperatorReplacement : 1
+----> RemoveMethod : 9
+
+(30/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/TSFBuilder.java
+--> Mutations found:  159
+----> AssignmentOperatorReplacementShortcut : 18
+----> NullifyInputVariable : 44
+----> NullifyObjectInitialization : 3
+----> NullifyReturnValue : 36
+----> RelationalOperatorReplacement : 6
+----> RemoveMethod : 46
+----> RemoveNullCheck : 6
+
+(31/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/TokenStreamFactory.java
+--> Mutations found:  43
+----> ArithmeticOperatorReplacementBinary : 4
+----> ConditionalOperatorReplacement : 1
+----> LogicalOperatorReplacement : 6
+----> NullifyInputVariable : 5
+----> NullifyObjectInitialization : 5
+----> NullifyReturnValue : 5
+----> RelationalOperatorReplacement : 7
+----> RemoveMethod : 7
+----> RemoveNullCheck : 3
+
+(32/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/TreeCodec.java
+--> Mutations found:  4
+----> NullifyReturnValue : 2
+----> RemoveMethod : 2
+
+(33/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/TreeNode.java
+--> Mutations found:  0
+
+(34/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/Version.java
+--> Mutations found:  76
+----> ArithmeticOperatorReplacementBinary : 10
+----> ArithmeticOperatorReplacementUnary : 1
+----> ConditionalOperatorDeletion : 1
+----> ConditionalOperatorReplacement : 6
+----> LogicalOperatorReplacement : 2
+----> NullifyInputVariable : 2
+----> NullifyObjectInitialization : 2
+----> NullifyReturnValue : 5
+----> RelationalOperatorReplacement : 16
+----> RemoveMethod : 27
+----> RemoveNullCheck : 4
+
+(35/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/Versioned.java
+--> Mutations found:  0
+
+(36/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/async/ByteArrayFeeder.java
+--> Mutations found:  0
+
+(37/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/async/ByteBufferFeeder.java
+--> Mutations found:  0
+
+(38/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/async/NonBlockingInputFeeder.java
+--> Mutations found:  0
+
+(39/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/async/package-info.java
+--> Mutations found:  0
+
+(40/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/base/GeneratorBase.java
+--> Mutations found:  153
+----> ArithmeticOperatorReplacementBinary : 8
+----> ArithmeticOperatorReplacementUnary : 1
+----> AssignmentOperatorReplacementShortcut : 2
+----> ConditionalOperatorDeletion : 1
+----> ConditionalOperatorReplacement : 2
+----> LogicalOperatorReplacement : 20
+----> NullifyInputVariable : 17
+----> NullifyObjectInitialization : 2
+----> NullifyReturnValue : 15
+----> RelationalOperatorReplacement : 32
+----> RemoveMethod : 39
+----> RemoveNullCheck : 13
+----> ShiftOperatorReplacement : 1
+
+(41/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/base/ParserBase.java
+--> Mutations found:  491
+----> ArithmeticOperatorReplacementBinary : 10
+----> ArithmeticOperatorReplacementShortcut : 1
+----> ArithmeticOperatorReplacementUnary : 5
+----> AssignmentOperatorReplacementShortcut : 8
+----> ConditionalOperatorDeletion : 5
+----> ConditionalOperatorReplacement : 16
+----> LogicalOperatorReplacement : 68
+----> NullifyInputVariable : 15
+----> NullifyObjectInitialization : 10
+----> NullifyReturnValue : 66
+----> RelationalOperatorReplacement : 164
+----> RemoveMethod : 98
+----> RemoveNullCheck : 24
+----> ShiftOperatorReplacement : 1
+
+(42/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/base/ParserMinimalBase.java
+--> Mutations found:  234
+----> ArithmeticOperatorReplacementShortcut : 5
+----> AssignmentOperatorReplacementShortcut : 4
+----> ConditionalOperatorDeletion : 1
+----> ConditionalOperatorReplacement : 9
+----> NullifyInputVariable : 35
+----> NullifyObjectInitialization : 7
+----> NullifyReturnValue : 29
+----> RelationalOperatorReplacement : 47
+----> RemoveMethod : 81
+----> RemoveNullCheck : 16
+
+(43/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/base/package-info.java
+--> Mutations found:  0
+
+(44/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/exc/InputCoercionException.java
+--> Mutations found:  10
+----> NullifyInputVariable : 2
+----> NullifyReturnValue : 4
+----> RemoveMethod : 4
+
+(45/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/exc/StreamConstraintsException.java
+--> Mutations found:  0
+
+(46/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/exc/StreamReadException.java
+--> Mutations found:  20
+----> AssignmentOperatorReplacementShortcut : 1
+----> NullifyInputVariable : 1
+----> NullifyReturnValue : 5
+----> RelationalOperatorReplacement : 3
+----> RemoveMethod : 7
+----> RemoveNullCheck : 3
+
+(47/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/exc/StreamWriteException.java
+--> Mutations found:  2
+----> NullifyReturnValue : 1
+----> RemoveMethod : 1
+
+(48/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/exc/package-info.java
+--> Mutations found:  0
+
+(49/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/filter/FilteringGeneratorDelegate.java
+--> Mutations found:  298
+----> ArithmeticOperatorReplacementShortcut : 2
+----> ArithmeticOperatorReplacementUnary : 1
+----> ConditionalOperatorDeletion : 17
+----> ConditionalOperatorReplacement : 7
+----> NullifyInputVariable : 24
+----> NullifyObjectInitialization : 1
+----> NullifyReturnValue : 3
+----> RelationalOperatorReplacement : 127
+----> RemoveMethod : 56
+----> RemoveNullCheck : 60
+
+(50/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/filter/FilteringParserDelegate.java
+--> Mutations found:  420
+----> ArithmeticOperatorReplacementShortcut : 3
+----> ConditionalOperatorDeletion : 2
+----> ConditionalOperatorReplacement : 28
+----> NullifyInputVariable : 7
+----> NullifyObjectInitialization : 1
+----> NullifyReturnValue : 89
+----> RelationalOperatorReplacement : 139
+----> RemoveMethod : 91
+----> RemoveNullCheck : 60
+
+(51/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/filter/JsonPointerBasedFilter.java
+--> Mutations found:  28
+----> ConditionalOperatorDeletion : 1
+----> ConditionalOperatorReplacement : 1
+----> NullifyInputVariable : 2
+----> NullifyObjectInitialization : 1
+----> NullifyReturnValue : 10
+----> RelationalOperatorReplacement : 2
+----> RemoveMethod : 9
+----> RemoveNullCheck : 2
+
+(52/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/filter/TokenFilter.java
+--> Mutations found:  59
+----> NullifyInputVariable : 7
+----> NullifyObjectInitialization : 1
+----> NullifyReturnValue : 7
+----> RelationalOperatorReplacement : 1
+----> RemoveMethod : 43
+
+(53/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/filter/TokenFilterContext.java
+--> Mutations found:  135
+----> ArithmeticOperatorReplacementBinary : 1
+----> ArithmeticOperatorReplacementShortcut : 1
+----> ArithmeticOperatorReplacementUnary : 2
+----> ConditionalOperatorDeletion : 1
+----> ConditionalOperatorReplacement : 7
+----> NullifyInputVariable : 14
+----> NullifyObjectInitialization : 4
+----> NullifyReturnValue : 24
+----> RelationalOperatorReplacement : 36
+----> RemoveMethod : 27
+----> RemoveNullCheck : 18
+
+(54/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/format/DataFormatDetector.java
+--> Mutations found:  45
+----> ArithmeticOperatorReplacementShortcut : 1
+----> ConditionalOperatorReplacement : 1
+----> NullifyInputVariable : 4
+----> NullifyObjectInitialization : 7
+----> NullifyReturnValue : 11
+----> RelationalOperatorReplacement : 10
+----> RemoveMethod : 9
+----> RemoveNullCheck : 2
+
+(55/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/format/DataFormatMatcher.java
+--> Mutations found:  34
+----> ArithmeticOperatorReplacementBinary : 1
+----> ConditionalOperatorReplacement : 1
+----> LogicalOperatorReplacement : 1
+----> NullifyObjectInitialization : 3
+----> NullifyReturnValue : 8
+----> RelationalOperatorReplacement : 7
+----> RemoveMethod : 8
+----> RemoveNullCheck : 5
+
+(56/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/format/InputAccessor.java
+--> Mutations found:  23
+----> ArithmeticOperatorReplacementBinary : 3
+----> ArithmeticOperatorReplacementShortcut : 1
+----> AssignmentOperatorReplacementShortcut : 1
+----> ConditionalOperatorDeletion : 1
+----> NullifyInputVariable : 2
+----> NullifyObjectInitialization : 2
+----> NullifyReturnValue : 1
+----> RelationalOperatorReplacement : 5
+----> RemoveMethod : 6
+----> RemoveNullCheck : 1
+
+(57/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/format/MatchStrength.java
+--> Mutations found:  0
+
+(58/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/format/package-info.java
+--> Mutations found:  0
+
+(59/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/io/BigDecimalParser.java
+--> Mutations found:  44
+----> NullifyInputVariable : 3
+----> NullifyObjectInitialization : 6
+----> NullifyReturnValue : 14
+----> RelationalOperatorReplacement : 6
+----> RemoveMethod : 13
+----> RemoveNullCheck : 2
+
+(60/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/io/BigIntegerParser.java
+--> Mutations found:  8
+----> NullifyObjectInitialization : 2
+----> NullifyReturnValue : 2
+----> RelationalOperatorReplacement : 2
+----> RemoveMethod : 2
+
+(61/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/io/CharTypes.java
+--> Mutations found:  90
+----> ArithmeticOperatorReplacementBinary : 5
+----> ArithmeticOperatorReplacementShortcut : 8
+----> ArithmeticOperatorReplacementUnary : 6
+----> ConditionalOperatorDeletion : 1
+----> ConditionalOperatorReplacement : 1
+----> LogicalOperatorReplacement : 5
+----> NullifyInputVariable : 2
+----> NullifyObjectInitialization : 1
+----> NullifyReturnValue : 19
+----> RelationalOperatorReplacement : 19
+----> RemoveMethod : 20
+----> RemoveNullCheck : 2
+----> ShiftOperatorReplacement : 1
+
+(62/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/io/CharacterEscapes.java
+--> Mutations found:  4
+----> ArithmeticOperatorReplacementUnary : 2
+----> NullifyReturnValue : 1
+----> RemoveMethod : 1
+
+(63/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/io/ContentReference.java
+--> Mutations found:  131
+----> ArithmeticOperatorReplacementBinary : 3
+----> ArithmeticOperatorReplacementShortcut : 1
+----> ArithmeticOperatorReplacementUnary : 4
+----> ConditionalOperatorDeletion : 3
+----> ConditionalOperatorReplacement : 6
+----> LogicalOperatorReplacement : 4
+----> NullifyInputVariable : 16
+----> NullifyObjectInitialization : 10
+----> NullifyReturnValue : 17
+----> RelationalOperatorReplacement : 20
+----> RemoveMethod : 38
+----> RemoveNullCheck : 6
+----> ShiftOperatorReplacement : 3
+
+(64/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/io/DataOutputAsStream.java
+--> Mutations found:  3
+----> RemoveMethod : 3
+
+(65/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/io/IOContext.java
+--> Mutations found:  85
+----> ConditionalOperatorDeletion : 1
+----> ConditionalOperatorReplacement : 2
+----> NullifyInputVariable : 3
+----> NullifyObjectInitialization : 4
+----> NullifyReturnValue : 22
+----> RelationalOperatorReplacement : 11
+----> RemoveMethod : 35
+----> RemoveNullCheck : 7
+
+(66/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/io/InputDecorator.java
+--> Mutations found:  4
+----> NullifyInputVariable : 2
+----> NullifyObjectInitialization : 1
+----> RemoveMethod : 1
+
+(67/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/io/JsonEOFException.java
+--> Mutations found:  2
+----> NullifyReturnValue : 1
+----> RemoveMethod : 1
+
+(68/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/io/JsonStringEncoder.java
+--> Mutations found:  288
+----> ArithmeticOperatorReplacementBinary : 12
+----> ArithmeticOperatorReplacementShortcut : 41
+----> AssignmentOperatorReplacementShortcut : 3
+----> ConditionalOperatorReplacement : 8
+----> LogicalOperatorReplacement : 40
+----> NullifyInputVariable : 8
+----> NullifyObjectInitialization : 9
+----> NullifyReturnValue : 13
+----> RelationalOperatorReplacement : 90
+----> RemoveMethod : 21
+----> RemoveNullCheck : 18
+----> ShiftOperatorReplacement : 25
+
+(69/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/io/MergedStream.java
+--> Mutations found:  50
+----> ArithmeticOperatorReplacementBinary : 3
+----> ArithmeticOperatorReplacementShortcut : 1
+----> AssignmentOperatorReplacementShortcut : 5
+----> ConditionalOperatorReplacement : 1
+----> LogicalOperatorReplacement : 1
+----> RelationalOperatorReplacement : 14
+----> RemoveMethod : 16
+----> RemoveNullCheck : 9
+
+(70/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/io/NumberInput.java
+--> Mutations found:  205
+----> ArithmeticOperatorReplacementBinary : 40
+----> ArithmeticOperatorReplacementShortcut : 18
+----> ArithmeticOperatorReplacementUnary : 2
+----> AssignmentOperatorReplacementShortcut : 8
+----> ConditionalOperatorReplacement : 11
+----> NullifyInputVariable : 6
+----> NullifyObjectInitialization : 4
+----> NullifyReturnValue : 14
+----> RelationalOperatorReplacement : 49
+----> RemoveMethod : 49
+----> RemoveNullCheck : 4
+
+(71/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/io/NumberOutput.java
+--> Mutations found:  305
+----> ArithmeticOperatorReplacementBinary : 44
+----> ArithmeticOperatorReplacementShortcut : 71
+----> ArithmeticOperatorReplacementUnary : 5
+----> AssignmentOperatorReplacementShortcut : 14
+----> ConditionalOperatorDeletion : 2
+----> ConditionalOperatorReplacement : 1
+----> LogicalOperatorReplacement : 20
+----> NullifyReturnValue : 9
+----> RelationalOperatorReplacement : 46
+----> RemoveMethod : 54
+----> ShiftOperatorReplacement : 39
+
+(72/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/io/OutputDecorator.java
+--> Mutations found:  0
+
+(73/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/io/SegmentedStringWriter.java
+--> Mutations found:  23
+----> NullifyInputVariable : 4
+----> NullifyObjectInitialization : 1
+----> NullifyReturnValue : 5
+----> RemoveMethod : 13
+
+(74/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/io/SerializedString.java
+--> Mutations found:  87
+----> ArithmeticOperatorReplacementBinary : 4
+----> ArithmeticOperatorReplacementUnary : 6
+----> ConditionalOperatorReplacement : 1
+----> NullifyInputVariable : 7
+----> NullifyObjectInitialization : 1
+----> NullifyReturnValue : 6
+----> RelationalOperatorReplacement : 19
+----> RemoveMethod : 32
+----> RemoveNullCheck : 11
+
+(75/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/io/UTF32Reader.java
+--> Mutations found:  107
+----> ArithmeticOperatorReplacementBinary : 21
+----> ArithmeticOperatorReplacementShortcut : 3
+----> ArithmeticOperatorReplacementUnary : 3
+----> AssignmentOperatorReplacementShortcut : 5
+----> ConditionalOperatorDeletion : 1
+----> ConditionalOperatorReplacement : 3
+----> LogicalOperatorReplacement : 13
+----> NullifyInputVariable : 1
+----> NullifyObjectInitialization : 4
+----> RelationalOperatorReplacement : 27
+----> RemoveMethod : 12
+----> RemoveNullCheck : 8
+----> ShiftOperatorReplacement : 6
+
+(76/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/io/UTF8Writer.java
+--> Mutations found:  199
+----> ArithmeticOperatorReplacementBinary : 9
+----> ArithmeticOperatorReplacementShortcut : 42
+----> AssignmentOperatorReplacementShortcut : 4
+----> ConditionalOperatorReplacement : 4
+----> LogicalOperatorReplacement : 45
+----> NullifyInputVariable : 2
+----> NullifyObjectInitialization : 2
+----> NullifyReturnValue : 5
+----> RelationalOperatorReplacement : 50
+----> RemoveMethod : 13
+----> RemoveNullCheck : 3
+----> ShiftOperatorReplacement : 20
+
+(77/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/io/schubfach/DoubleToDecimal.java
+--> Mutations found:  206
+----> ArithmeticOperatorReplacementBinary : 59
+----> ArithmeticOperatorReplacementShortcut : 8
+----> ArithmeticOperatorReplacementUnary : 10
+----> AssignmentOperatorReplacementShortcut : 4
+----> ConditionalOperatorReplacement : 4
+----> LogicalOperatorReplacement : 12
+----> NullifyObjectInitialization : 2
+----> NullifyReturnValue : 8
+----> RelationalOperatorReplacement : 38
+----> RemoveMethod : 28
+----> ShiftOperatorReplacement : 33
+
+(78/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/io/schubfach/FloatToDecimal.java
+--> Mutations found:  194
+----> ArithmeticOperatorReplacementBinary : 54
+----> ArithmeticOperatorReplacementShortcut : 8
+----> ArithmeticOperatorReplacementUnary : 10
+----> AssignmentOperatorReplacementShortcut : 3
+----> ConditionalOperatorReplacement : 4
+----> LogicalOperatorReplacement : 12
+----> NullifyObjectInitialization : 2
+----> NullifyReturnValue : 8
+----> RelationalOperatorReplacement : 36
+----> RemoveMethod : 27
+----> ShiftOperatorReplacement : 30
+
+(79/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/io/schubfach/MathUtils.java
+--> Mutations found:  43
+----> ArithmeticOperatorReplacementBinary : 15
+----> ArithmeticOperatorReplacementUnary : 2
+----> LogicalOperatorReplacement : 3
+----> RemoveMethod : 14
+----> ShiftOperatorReplacement : 9
+
+(80/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/json/ByteSourceJsonBootstrapper.java
+--> Mutations found:  182
+----> ArithmeticOperatorReplacementBinary : 9
+----> ArithmeticOperatorReplacementShortcut : 1
+----> ArithmeticOperatorReplacementUnary : 3
+----> AssignmentOperatorReplacementShortcut : 7
+----> ConditionalOperatorDeletion : 9
+----> ConditionalOperatorReplacement : 7
+----> LogicalOperatorReplacement : 15
+----> NullifyInputVariable : 11
+----> NullifyObjectInitialization : 11
+----> NullifyReturnValue : 32
+----> RelationalOperatorReplacement : 47
+----> RemoveMethod : 20
+----> RemoveNullCheck : 2
+----> ShiftOperatorReplacement : 8
+
+(81/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/json/DupDetector.java
+--> Mutations found:  28
+----> ConditionalOperatorDeletion : 1
+----> NullifyInputVariable : 3
+----> NullifyObjectInitialization : 4
+----> NullifyReturnValue : 6
+----> RelationalOperatorReplacement : 3
+----> RemoveMethod : 8
+----> RemoveNullCheck : 3
+
+(82/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/json/JsonGeneratorImpl.java
+--> Mutations found:  38
+----> ConditionalOperatorDeletion : 2
+----> NullifyInputVariable : 6
+----> NullifyReturnValue : 9
+----> RelationalOperatorReplacement : 6
+----> RemoveMethod : 14
+----> RemoveNullCheck : 1
+
+(83/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/json/JsonParserBase.java
+--> Mutations found:  12
+----> NullifyInputVariable : 1
+----> NullifyReturnValue : 5
+----> RemoveMethod : 6
+
+(84/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/json/JsonReadContext.java
+--> Mutations found:  76
+----> ArithmeticOperatorReplacementBinary : 3
+----> ArithmeticOperatorReplacementShortcut : 1
+----> ArithmeticOperatorReplacementUnary : 4
+----> ConditionalOperatorReplacement : 1
+----> NullifyInputVariable : 9
+----> NullifyObjectInitialization : 6
+----> NullifyReturnValue : 13
+----> RelationalOperatorReplacement : 10
+----> RemoveMethod : 21
+----> RemoveNullCheck : 8
+
+(85/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/json/JsonReadFeature.java
+--> Mutations found:  14
+----> AssignmentOperatorReplacementShortcut : 1
+----> LogicalOperatorReplacement : 1
+----> NullifyReturnValue : 1
+----> RelationalOperatorReplacement : 1
+----> RemoveMethod : 9
+----> ShiftOperatorReplacement : 1
+
+(86/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/json/JsonWriteContext.java
+--> Mutations found:  101
+----> ArithmeticOperatorReplacementBinary : 2
+----> ArithmeticOperatorReplacementShortcut : 3
+----> ArithmeticOperatorReplacementUnary : 4
+----> ConditionalOperatorDeletion : 1
+----> ConditionalOperatorReplacement : 1
+----> NullifyInputVariable : 9
+----> NullifyObjectInitialization : 6
+----> NullifyReturnValue : 18
+----> RelationalOperatorReplacement : 20
+----> RemoveMethod : 23
+----> RemoveNullCheck : 14
+
+(87/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/json/JsonWriteFeature.java
+--> Mutations found:  14
+----> AssignmentOperatorReplacementShortcut : 1
+----> LogicalOperatorReplacement : 1
+----> NullifyReturnValue : 1
+----> RelationalOperatorReplacement : 1
+----> RemoveMethod : 9
+----> ShiftOperatorReplacement : 1
+
+(88/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/json/ReaderBasedJsonParser.java
+--> Mutations found:  1047
+----> ArithmeticOperatorReplacementBinary : 57
+----> ArithmeticOperatorReplacementShortcut : 136
+----> ArithmeticOperatorReplacementUnary : 8
+----> AssignmentOperatorReplacementShortcut : 14
+----> ConditionalOperatorDeletion : 45
+----> ConditionalOperatorReplacement : 77
+----> LogicalOperatorReplacement : 32
+----> NullifyInputVariable : 21
+----> NullifyObjectInitialization : 6
+----> NullifyReturnValue : 103
+----> RelationalOperatorReplacement : 410
+----> RemoveMethod : 115
+----> RemoveNullCheck : 12
+----> ShiftOperatorReplacement : 11
+
+(89/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/json/UTF8DataInputJsonParser.java
+--> Mutations found:  1049
+----> ArithmeticOperatorReplacementBinary : 14
+----> ArithmeticOperatorReplacementShortcut : 67
+----> ArithmeticOperatorReplacementUnary : 12
+----> AssignmentOperatorReplacementShortcut : 18
+----> ConditionalOperatorDeletion : 17
+----> ConditionalOperatorReplacement : 38
+----> LogicalOperatorReplacement : 145
+----> NullifyInputVariable : 15
+----> NullifyObjectInitialization : 4
+----> NullifyReturnValue : 147
+----> RelationalOperatorReplacement : 354
+----> RemoveMethod : 133
+----> RemoveNullCheck : 15
+----> ShiftOperatorReplacement : 70
+
+(90/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/json/UTF8JsonGenerator.java
+--> Mutations found:  840
+----> ArithmeticOperatorReplacementBinary : 77
+----> ArithmeticOperatorReplacementShortcut : 164
+----> ArithmeticOperatorReplacementUnary : 2
+----> AssignmentOperatorReplacementShortcut : 39
+----> ConditionalOperatorDeletion : 3
+----> ConditionalOperatorReplacement : 19
+----> LogicalOperatorReplacement : 73
+----> NullifyInputVariable : 34
+----> NullifyReturnValue : 2
+----> RelationalOperatorReplacement : 254
+----> RemoveMethod : 94
+----> RemoveNullCheck : 30
+----> ShiftOperatorReplacement : 49
+
+(91/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/json/UTF8StreamJsonParser.java
+--> Mutations found:  1556
+----> ArithmeticOperatorReplacementBinary : 56
+----> ArithmeticOperatorReplacementShortcut : 194
+----> ArithmeticOperatorReplacementUnary : 7
+----> AssignmentOperatorReplacementShortcut : 23
+----> ConditionalOperatorDeletion : 37
+----> ConditionalOperatorReplacement : 73
+----> LogicalOperatorReplacement : 219
+----> NullifyInputVariable : 19
+----> NullifyObjectInitialization : 7
+----> NullifyReturnValue : 156
+----> RelationalOperatorReplacement : 514
+----> RemoveMethod : 161
+----> RemoveNullCheck : 18
+----> ShiftOperatorReplacement : 72
+
+(92/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/json/WriterBasedJsonGenerator.java
+--> Mutations found:  695
+----> ArithmeticOperatorReplacementBinary : 67
+----> ArithmeticOperatorReplacementShortcut : 120
+----> ArithmeticOperatorReplacementUnary : 2
+----> AssignmentOperatorReplacementShortcut : 37
+----> ConditionalOperatorDeletion : 2
+----> ConditionalOperatorReplacement : 14
+----> LogicalOperatorReplacement : 31
+----> NullifyInputVariable : 35
+----> NullifyReturnValue : 4
+----> RelationalOperatorReplacement : 228
+----> RemoveMethod : 83
+----> RemoveNullCheck : 37
+----> ShiftOperatorReplacement : 35
+
+(93/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/json/async/NonBlockingByteBufferJsonParser.java
+--> Mutations found:  23
+----> ArithmeticOperatorReplacementBinary : 5
+----> ArithmeticOperatorReplacementShortcut : 2
+----> AssignmentOperatorReplacementShortcut : 1
+----> LogicalOperatorReplacement : 1
+----> NullifyReturnValue : 1
+----> RelationalOperatorReplacement : 3
+----> RemoveMethod : 10
+
+(94/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/json/async/NonBlockingJsonParser.java
+--> Mutations found:  23
+----> ArithmeticOperatorReplacementBinary : 5
+----> ArithmeticOperatorReplacementShortcut : 2
+----> AssignmentOperatorReplacementShortcut : 1
+----> LogicalOperatorReplacement : 1
+----> NullifyReturnValue : 1
+----> RelationalOperatorReplacement : 3
+----> RemoveMethod : 10
+
+(95/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/json/async/NonBlockingJsonParserBase.java
+--> Mutations found:  256
+----> ArithmeticOperatorReplacementBinary : 24
+----> ArithmeticOperatorReplacementShortcut : 6
+----> ArithmeticOperatorReplacementUnary : 8
+----> AssignmentOperatorReplacementShortcut : 4
+----> ConditionalOperatorDeletion : 6
+----> LogicalOperatorReplacement : 21
+----> NullifyInputVariable : 10
+----> NullifyObjectInitialization : 5
+----> NullifyReturnValue : 43
+----> RelationalOperatorReplacement : 41
+----> RemoveMethod : 57
+----> RemoveNullCheck : 10
+----> ShiftOperatorReplacement : 21
+
+(96/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/json/async/NonBlockingUtf8JsonParserBase.java
+--> Mutations found:  1215
+----> ArithmeticOperatorReplacementBinary : 29
+----> ArithmeticOperatorReplacementShortcut : 129
+----> ArithmeticOperatorReplacementUnary : 8
+----> AssignmentOperatorReplacementShortcut : 9
+----> ConditionalOperatorDeletion : 15
+----> ConditionalOperatorReplacement : 24
+----> LogicalOperatorReplacement : 162
+----> NullifyInputVariable : 5
+----> NullifyReturnValue : 326
+----> RelationalOperatorReplacement : 370
+----> RemoveMethod : 83
+----> RemoveNullCheck : 5
+----> ShiftOperatorReplacement : 50
+
+(97/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/json/async/package-info.java
+--> Mutations found:  0
+
+(98/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/json/package-info.java
+--> Mutations found:  0
+
+(99/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/package-info.java
+--> Mutations found:  0
+
+(100/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/sym/ByteQuadsCanonicalizer.java
+--> Mutations found:  585
+----> ArithmeticOperatorReplacementBinary : 105
+----> ArithmeticOperatorReplacementShortcut : 28
+----> ArithmeticOperatorReplacementUnary : 1
+----> AssignmentOperatorReplacementShortcut : 48
+----> ConditionalOperatorDeletion : 1
+----> ConditionalOperatorReplacement : 24
+----> LogicalOperatorReplacement : 7
+----> NullifyInputVariable : 5
+----> NullifyObjectInitialization : 12
+----> NullifyReturnValue : 50
+----> RelationalOperatorReplacement : 120
+----> RemoveMethod : 85
+----> RemoveNullCheck : 8
+----> ShiftOperatorReplacement : 91
+
+(101/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/sym/CharsToNameCanonicalizer.java
+--> Mutations found:  192
+----> ArithmeticOperatorReplacementBinary : 13
+----> ArithmeticOperatorReplacementShortcut : 13
+----> ArithmeticOperatorReplacementUnary : 1
+----> AssignmentOperatorReplacementShortcut : 5
+----> ConditionalOperatorDeletion : 3
+----> ConditionalOperatorReplacement : 1
+----> LogicalOperatorReplacement : 1
+----> NullifyInputVariable : 6
+----> NullifyObjectInitialization : 14
+----> NullifyReturnValue : 19
+----> RelationalOperatorReplacement : 42
+----> RemoveMethod : 42
+----> RemoveNullCheck : 19
+----> ShiftOperatorReplacement : 13
+
+(102/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/sym/Name.java
+--> Mutations found:  12
+----> NullifyInputVariable : 1
+----> NullifyReturnValue : 2
+----> RelationalOperatorReplacement : 1
+----> RemoveMethod : 8
+
+(103/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/sym/Name1.java
+--> Mutations found:  18
+----> ConditionalOperatorReplacement : 2
+----> NullifyObjectInitialization : 1
+----> NullifyReturnValue : 1
+----> RelationalOperatorReplacement : 5
+----> RemoveMethod : 9
+
+(104/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/sym/Name2.java
+--> Mutations found:  16
+----> ConditionalOperatorReplacement : 3
+----> RelationalOperatorReplacement : 5
+----> RemoveMethod : 8
+
+(105/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/sym/Name3.java
+--> Mutations found:  20
+----> ConditionalOperatorReplacement : 5
+----> RelationalOperatorReplacement : 7
+----> RemoveMethod : 8
+
+(106/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/sym/NameN.java
+--> Mutations found:  32
+----> ArithmeticOperatorReplacementBinary : 3
+----> ArithmeticOperatorReplacementShortcut : 1
+----> NullifyInputVariable : 1
+----> NullifyObjectInitialization : 2
+----> NullifyReturnValue : 1
+----> RelationalOperatorReplacement : 13
+----> RemoveMethod : 11
+
+(107/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/sym/package-info.java
+--> Mutations found:  0
+
+(108/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/type/ResolvedType.java
+--> Mutations found:  6
+----> NullifyReturnValue : 1
+----> RelationalOperatorReplacement : 1
+----> RemoveMethod : 3
+----> RemoveNullCheck : 1
+
+(109/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/type/TypeReference.java
+--> Mutations found:  6
+----> NullifyInputVariable : 1
+----> NullifyObjectInitialization : 1
+----> NullifyReturnValue : 1
+----> RemoveMethod : 3
+
+(110/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/type/WritableTypeId.java
+--> Mutations found:  5
+----> ConditionalOperatorReplacement : 1
+----> RelationalOperatorReplacement : 2
+----> RemoveMethod : 2
+
+(111/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/type/package-info.java
+--> Mutations found:  0
+
+(112/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/util/BufferRecycler.java
+--> Mutations found:  51
+----> ConditionalOperatorReplacement : 4
+----> NullifyInputVariable : 1
+----> NullifyObjectInitialization : 3
+----> NullifyReturnValue : 7
+----> RelationalOperatorReplacement : 13
+----> RemoveMethod : 16
+----> RemoveNullCheck : 7
+
+(113/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/util/BufferRecyclers.java
+--> Mutations found:  30
+----> ArithmeticOperatorReplacementUnary : 1
+----> NullifyInputVariable : 5
+----> NullifyObjectInitialization : 3
+----> NullifyReturnValue : 5
+----> RelationalOperatorReplacement : 4
+----> RemoveMethod : 8
+----> RemoveNullCheck : 4
+
+(114/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/util/ByteArrayBuilder.java
+--> Mutations found:  95
+----> ArithmeticOperatorReplacementBinary : 8
+----> ArithmeticOperatorReplacementShortcut : 10
+----> AssignmentOperatorReplacementShortcut : 5
+----> ConditionalOperatorDeletion : 2
+----> ConditionalOperatorReplacement : 1
+----> NullifyObjectInitialization : 4
+----> NullifyReturnValue : 9
+----> RelationalOperatorReplacement : 14
+----> RemoveMethod : 25
+----> RemoveNullCheck : 3
+----> ShiftOperatorReplacement : 14
+
+(115/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/util/DefaultIndenter.java
+--> Mutations found:  30
+----> ArithmeticOperatorReplacementBinary : 1
+----> ArithmeticOperatorReplacementShortcut : 1
+----> AssignmentOperatorReplacementShortcut : 3
+----> NullifyInputVariable : 3
+----> NullifyObjectInitialization : 4
+----> NullifyReturnValue : 6
+----> RelationalOperatorReplacement : 3
+----> RemoveMethod : 9
+
+(116/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/util/DefaultPrettyPrinter.java
+--> Mutations found:  111
+----> ArithmeticOperatorReplacementShortcut : 4
+----> ConditionalOperatorDeletion : 4
+----> ConditionalOperatorReplacement : 2
+----> NullifyInputVariable : 19
+----> NullifyObjectInitialization : 13
+----> NullifyReturnValue : 13
+----> RelationalOperatorReplacement : 18
+----> RemoveMethod : 27
+----> RemoveNullCheck : 11
+
+(117/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/util/Instantiatable.java
+--> Mutations found:  0
+
+(118/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/util/InternCache.java
+--> Mutations found:  11
+----> NullifyInputVariable : 1
+----> NullifyObjectInitialization : 2
+----> NullifyReturnValue : 2
+----> RelationalOperatorReplacement : 3
+----> RemoveMethod : 2
+----> RemoveNullCheck : 1
+
+(119/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/util/InternalJacksonUtil.java
+--> Mutations found:  4
+----> ArithmeticOperatorReplacementBinary : 1
+----> RelationalOperatorReplacement : 1
+----> RemoveMethod : 2
+
+(120/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/util/JacksonFeature.java
+--> Mutations found:  0
+
+(121/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/util/JacksonFeatureSet.java
+--> Mutations found:  29
+----> AssignmentOperatorReplacementShortcut : 1
+----> LogicalOperatorReplacement : 3
+----> NullifyInputVariable : 4
+----> NullifyObjectInitialization : 5
+----> NullifyReturnValue : 4
+----> RelationalOperatorReplacement : 4
+----> RemoveMethod : 8
+
+(122/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/util/JsonGeneratorDecorator.java
+--> Mutations found:  0
+
+(123/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/util/JsonGeneratorDelegate.java
+--> Mutations found:  180
+----> NullifyInputVariable : 42
+----> NullifyObjectInitialization : 1
+----> NullifyReturnValue : 24
+----> RelationalOperatorReplacement : 4
+----> RemoveMethod : 105
+----> RemoveNullCheck : 4
+
+(124/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/util/JsonParserDelegate.java
+--> Mutations found:  190
+----> NullifyInputVariable : 15
+----> NullifyReturnValue : 43
+----> RemoveMethod : 132
+
+(125/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/util/JsonParserSequence.java
+--> Mutations found:  57
+----> ArithmeticOperatorReplacementBinary : 1
+----> ArithmeticOperatorReplacementShortcut : 5
+----> ConditionalOperatorDeletion : 1
+----> ConditionalOperatorReplacement : 4
+----> NullifyInputVariable : 5
+----> NullifyObjectInitialization : 3
+----> NullifyReturnValue : 13
+----> RelationalOperatorReplacement : 10
+----> RemoveMethod : 11
+----> RemoveNullCheck : 4
+
+(126/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/util/JsonRecyclerPools.java
+--> Mutations found:  58
+----> NullifyObjectInitialization : 13
+----> NullifyReturnValue : 22
+----> RelationalOperatorReplacement : 1
+----> RemoveMethod : 22
+
+(127/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/util/MinimalPrettyPrinter.java
+--> Mutations found:  27
+----> NullifyInputVariable : 12
+----> NullifyReturnValue : 1
+----> RelationalOperatorReplacement : 1
+----> RemoveMethod : 12
+----> RemoveNullCheck : 1
+
+(128/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/util/ReadConstrainedTextBuffer.java
+--> Mutations found:  1
+----> RemoveMethod : 1
+
+(129/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/util/RecyclerPool.java
+--> Mutations found:  76
+----> ArithmeticOperatorReplacementShortcut : 3
+----> ArithmeticOperatorReplacementUnary : 3
+----> NullifyInputVariable : 6
+----> NullifyObjectInitialization : 4
+----> NullifyReturnValue : 10
+----> RelationalOperatorReplacement : 8
+----> RemoveMethod : 38
+----> RemoveNullCheck : 4
+
+(130/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/util/RequestPayload.java
+--> Mutations found:  22
+----> ConditionalOperatorReplacement : 1
+----> NullifyObjectInitialization : 4
+----> NullifyReturnValue : 4
+----> RelationalOperatorReplacement : 5
+----> RemoveMethod : 3
+----> RemoveNullCheck : 5
+
+(131/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/util/Separators.java
+--> Mutations found:  74
+----> ArithmeticOperatorReplacementBinary : 2
+----> NullifyInputVariable : 6
+----> NullifyObjectInitialization : 10
+----> NullifyReturnValue : 19
+----> RelationalOperatorReplacement : 6
+----> RemoveMethod : 31
+
+(132/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/util/TextBuffer.java
+--> Mutations found:  324
+----> ArithmeticOperatorReplacementBinary : 27
+----> ArithmeticOperatorReplacementShortcut : 5
+----> ArithmeticOperatorReplacementUnary : 13
+----> AssignmentOperatorReplacementShortcut : 17
+----> ConditionalOperatorDeletion : 4
+----> ConditionalOperatorReplacement : 6
+----> NullifyInputVariable : 4
+----> NullifyObjectInitialization : 12
+----> NullifyReturnValue : 40
+----> RelationalOperatorReplacement : 91
+----> RemoveMethod : 65
+----> RemoveNullCheck : 36
+----> ShiftOperatorReplacement : 4
+
+(133/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/util/ThreadLocalBufferManager.java
+--> Mutations found:  16
+----> ArithmeticOperatorReplacementShortcut : 1
+----> NullifyInputVariable : 1
+----> NullifyObjectInitialization : 5
+----> NullifyReturnValue : 2
+----> RelationalOperatorReplacement : 1
+----> RemoveMethod : 5
+----> RemoveNullCheck : 1
+
+(134/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/util/VersionUtil.java
+--> Mutations found:  51
+----> ArithmeticOperatorReplacementBinary : 3
+----> ArithmeticOperatorReplacementShortcut : 1
+----> ConditionalOperatorReplacement : 2
+----> NullifyInputVariable : 10
+----> NullifyObjectInitialization : 5
+----> NullifyReturnValue : 7
+----> RelationalOperatorReplacement : 10
+----> RemoveMethod : 10
+----> RemoveNullCheck : 3
+
+(135/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/util/package-info.java
+--> Mutations found:  0
+
+Total mutations found:  15901
+Total mutant found:  15901
+--> ArithmeticOperatorReplacementBinary: 854
+--> ArithmeticOperatorReplacementShortcut: 1167
+--> ArithmeticOperatorReplacementUnary: 162
+--> AssignmentOperatorReplacementShortcut: 341
+--> ConditionalOperatorDeletion: 209
+--> ConditionalOperatorReplacement: 477
+--> LogicalOperatorReplacement: 1018
+--> NullifyInputVariable: 812
+--> NullifyObjectInitialization: 393
+--> NullifyReturnValue: 1963
+--> RelationalOperatorReplacement: 3986
+--> RemoveMethod: 3223
+--> RemoveNullCheck: 643
+--> ShiftOperatorReplacement: 653
+Cleanup MediumDarwin...
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/Base64Variant.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/Base64Variants.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/ErrorReportConfiguration.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/JsonEncoding.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/JsonFactory.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/JsonFactoryBuilder.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/JsonGenerationException.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/JsonGenerator.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/JsonLocation.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/JsonParseException.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/JsonParser.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/JsonPointer.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/JsonProcessingException.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/JsonStreamContext.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/JsonToken.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/JsonTokenId.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/JsonpCharacterEscapes.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/ObjectCodec.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/PrettyPrinter.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/StreamReadCapability.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/StreamReadConstraints.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/StreamReadFeature.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/StreamWriteCapability.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/StreamWriteConstraints.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/StreamWriteFeature.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/TSFBuilder.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/TokenStreamFactory.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/TreeCodec.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/Version.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/base/GeneratorBase.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/base/ParserBase.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/base/ParserMinimalBase.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/exc/InputCoercionException.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/exc/StreamReadException.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/exc/StreamWriteException.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/filter/FilteringGeneratorDelegate.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/filter/FilteringParserDelegate.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/filter/JsonPointerBasedFilter.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/filter/TokenFilter.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/filter/TokenFilterContext.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/format/DataFormatDetector.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/format/DataFormatMatcher.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/format/InputAccessor.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/io/BigDecimalParser.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/io/BigIntegerParser.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/io/CharTypes.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/io/CharacterEscapes.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/io/ContentReference.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/io/DataOutputAsStream.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/io/IOContext.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/io/InputDecorator.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/io/JsonEOFException.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/io/JsonStringEncoder.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/io/MergedStream.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/io/NumberInput.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/io/NumberOutput.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/io/SegmentedStringWriter.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/io/SerializedString.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/io/UTF32Reader.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/io/UTF8Writer.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/io/schubfach/DoubleToDecimal.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/io/schubfach/FloatToDecimal.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/io/schubfach/MathUtils.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/json/ByteSourceJsonBootstrapper.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/json/DupDetector.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/json/JsonGeneratorImpl.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/json/JsonParserBase.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/json/JsonReadContext.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/json/JsonReadFeature.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/json/JsonWriteContext.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/json/JsonWriteFeature.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/json/ReaderBasedJsonParser.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/json/UTF8DataInputJsonParser.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/json/UTF8JsonGenerator.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/json/UTF8StreamJsonParser.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/json/WriterBasedJsonGenerator.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/json/async/NonBlockingByteBufferJsonParser.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/json/async/NonBlockingJsonParser.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/json/async/NonBlockingJsonParserBase.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/json/async/NonBlockingUtf8JsonParserBase.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/sym/ByteQuadsCanonicalizer.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/sym/CharsToNameCanonicalizer.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/sym/Name.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/sym/Name1.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/sym/Name2.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/sym/Name3.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/sym/NameN.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/type/ResolvedType.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/type/TypeReference.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/type/WritableTypeId.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/util/BufferRecycler.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/util/BufferRecyclers.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/util/ByteArrayBuilder.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/util/DefaultIndenter.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/util/DefaultPrettyPrinter.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/util/InternCache.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/util/InternalJacksonUtil.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/util/JacksonFeatureSet.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/util/JsonGeneratorDelegate.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/util/JsonParserDelegate.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/util/JsonParserSequence.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/util/JsonRecyclerPools.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/util/MinimalPrettyPrinter.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/util/ReadConstrainedTextBuffer.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/util/RecyclerPool.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/util/RequestPayload.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/util/Separators.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/util/TextBuffer.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/util/ThreadLocalBufferManager.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/util/VersionUtil.java
+elapsed: 0:24:37
+python3 ../littledarwin/LittleDarwin.py -m --all --build-command "mvn,compile" -t . -p ./src/main/java
+
+    __     _  __   __   __       ____                          _
+   / /    (_)/ /_ / /_ / /___   / __ \ ____ _ _____ _      __ (_)____
+  / /    / // __// __// // _ \ / / / // __ `// ___/| | /| / // // __ \
+ / /___ / // /_ / /_ / //  __// /_/ // /_/ // /    | |/ |/ // // / / /
+/_____//_/ \__/ \__//_/ \___//_____/ \__,_//_/     |__/|__//_//_/ /_/
+
+      _                     _                 ___
+     /_|  /|/|  _/__/'     /_|   _ /   _ ' _ (_  _ _ _  _      _ /
+    (  | /   |(//(///()/) (  |/)(/((/_) /_)  /  / (///)(-((/()/ /(
+                                  /
+
+
+    LittleDarwin version 0.10.9 Copyright (C) 2014-2022 Ali Parsai
+
+    LittleDarwin comes with ABSOLUTELY NO WARRANTY.
+    This is free software, and you are welcome to redistribute it
+    under certain conditions; run LittleDarwin --license for details.
+
+
+    
+Source Path:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java
+Target Path:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/LittleDarwinResults
+Creating Mutation Database:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/LittleDarwinResults/mutationdatabase
+
+(1/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/Base64Variant.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  300
+----> NullifyReturnValue : 15
+----> RemoveNullCheck : 2
+----> ShiftOperatorReplacement : 40
+----> ConditionalOperatorDeletion : 6
+----> AssignmentOperatorReplacementShortcut : 8
+----> ConditionalOperatorReplacement : 9
+----> ArithmeticOperatorReplacementBinary : 11
+----> NullifyInputVariable : 9
+----> NullifyObjectInitialization : 10
+----> RemoveMethod : 67
+----> ArithmeticOperatorReplacementShortcut : 36
+----> ArithmeticOperatorReplacementUnary : 2
+----> LogicalOperatorReplacement : 35
+----> RelationalOperatorReplacement : 50
+
+(2/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/Base64Variants.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  16
+----> NullifyReturnValue : 5
+----> RemoveNullCheck : 1
+----> NullifyInputVariable : 1
+----> NullifyObjectInitialization : 6
+----> RemoveMethod : 2
+----> RelationalOperatorReplacement : 1
+
+(3/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/ErrorReportConfiguration.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  31
+----> NullifyReturnValue : 6
+----> RemoveNullCheck : 1
+----> NullifyInputVariable : 1
+----> NullifyObjectInitialization : 7
+----> RemoveMethod : 13
+----> RelationalOperatorReplacement : 3
+
+(4/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/FormatFeature.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  0
+
+(5/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/FormatSchema.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  0
+
+(6/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/JacksonException.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  0
+
+(7/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/JsonEncoding.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  7
+----> NullifyReturnValue : 1
+----> RemoveMethod : 6
+
+(8/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/JsonFactory.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  437
+----> NullifyReturnValue : 101
+----> RemoveNullCheck : 27
+----> ShiftOperatorReplacement : 1
+----> ConditionalOperatorDeletion : 5
+----> AssignmentOperatorReplacementShortcut : 7
+----> ConditionalOperatorReplacement : 3
+----> ArithmeticOperatorReplacementBinary : 1
+----> NullifyInputVariable : 84
+----> NullifyObjectInitialization : 25
+----> RemoveMethod : 131
+----> LogicalOperatorReplacement : 6
+----> RelationalOperatorReplacement : 46
+
+(9/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/JsonFactoryBuilder.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  66
+----> NullifyReturnValue : 18
+----> RemoveNullCheck : 2
+----> NullifyInputVariable : 17
+----> NullifyObjectInitialization : 3
+----> RemoveMethod : 22
+----> RelationalOperatorReplacement : 4
+
+(10/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/JsonGenerationException.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  5
+----> NullifyReturnValue : 2
+----> NullifyInputVariable : 1
+----> RemoveMethod : 2
+
+(11/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/JsonGenerator.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  278
+----> NullifyReturnValue : 21
+----> RemoveNullCheck : 13
+----> ShiftOperatorReplacement : 1
+----> AssignmentOperatorReplacementShortcut : 1
+----> ConditionalOperatorReplacement : 2
+----> ArithmeticOperatorReplacementBinary : 5
+----> NullifyInputVariable : 65
+----> NullifyObjectInitialization : 19
+----> RemoveMethod : 106
+----> ArithmeticOperatorReplacementShortcut : 8
+----> ArithmeticOperatorReplacementUnary : 1
+----> LogicalOperatorReplacement : 4
+----> RelationalOperatorReplacement : 32
+
+(12/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/JsonLocation.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  73
+----> NullifyReturnValue : 8
+----> RemoveNullCheck : 6
+----> ConditionalOperatorDeletion : 2
+----> AssignmentOperatorReplacementShortcut : 4
+----> ConditionalOperatorReplacement : 3
+----> ArithmeticOperatorReplacementBinary : 1
+----> NullifyInputVariable : 3
+----> NullifyObjectInitialization : 3
+----> RemoveMethod : 22
+----> ArithmeticOperatorReplacementUnary : 5
+----> RelationalOperatorReplacement : 16
+
+(13/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/JsonParseException.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  16
+----> NullifyReturnValue : 6
+----> NullifyInputVariable : 2
+----> RemoveMethod : 8
+
+(14/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/JsonParser.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  274
+----> NullifyReturnValue : 45
+----> RemoveNullCheck : 8
+----> ShiftOperatorReplacement : 1
+----> AssignmentOperatorReplacementShortcut : 3
+----> ConditionalOperatorReplacement : 3
+----> NullifyInputVariable : 38
+----> NullifyObjectInitialization : 11
+----> RemoveMethod : 130
+----> ArithmeticOperatorReplacementUnary : 3
+----> LogicalOperatorReplacement : 4
+----> RelationalOperatorReplacement : 28
+
+(15/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/JsonpCharacterEscapes.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  11
+----> NullifyReturnValue : 4
+----> NullifyObjectInitialization : 3
+----> RemoveMethod : 4
+
+(16/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/JsonPointer.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  265
+----> NullifyReturnValue : 35
+----> RemoveNullCheck : 18
+----> ConditionalOperatorDeletion : 3
+----> AssignmentOperatorReplacementShortcut : 2
+----> ConditionalOperatorReplacement : 13
+----> ArithmeticOperatorReplacementBinary : 16
+----> NullifyInputVariable : 23
+----> NullifyObjectInitialization : 18
+----> RemoveMethod : 51
+----> ArithmeticOperatorReplacementShortcut : 10
+----> ArithmeticOperatorReplacementUnary : 9
+----> RelationalOperatorReplacement : 67
+
+(17/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/JsonProcessingException.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  30
+----> NullifyReturnValue : 6
+----> RemoveNullCheck : 5
+----> ConditionalOperatorReplacement : 1
+----> ArithmeticOperatorReplacementBinary : 1
+----> NullifyObjectInitialization : 1
+----> RemoveMethod : 11
+----> RelationalOperatorReplacement : 5
+
+(18/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/JsonStreamContext.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  60
+----> NullifyReturnValue : 14
+----> RemoveNullCheck : 2
+----> ArithmeticOperatorReplacementBinary : 1
+----> NullifyInputVariable : 3
+----> NullifyObjectInitialization : 1
+----> RemoveMethod : 30
+----> RelationalOperatorReplacement : 9
+
+(19/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/JsonToken.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  57
+----> NullifyReturnValue : 11
+----> RemoveNullCheck : 2
+----> ConditionalOperatorDeletion : 2
+----> ConditionalOperatorReplacement : 7
+----> NullifyInputVariable : 1
+----> RemoveMethod : 20
+----> ArithmeticOperatorReplacementShortcut : 1
+----> RelationalOperatorReplacement : 13
+
+(20/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/JsonTokenId.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  1
+----> ArithmeticOperatorReplacementUnary : 1
+
+(21/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/ObjectCodec.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  4
+----> NullifyReturnValue : 2
+----> RemoveMethod : 2
+
+(22/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/package-info.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  0
+
+(23/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/PrettyPrinter.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  1
+----> NullifyObjectInitialization : 1
+
+(24/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/SerializableString.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  0
+
+(25/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/StreamReadCapability.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  9
+----> ShiftOperatorReplacement : 1
+----> RemoveMethod : 6
+----> LogicalOperatorReplacement : 1
+----> RelationalOperatorReplacement : 1
+
+(26/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/StreamReadConstraints.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  87
+----> NullifyReturnValue : 11
+----> RemoveNullCheck : 1
+----> ConditionalOperatorReplacement : 1
+----> NullifyInputVariable : 4
+----> NullifyObjectInitialization : 10
+----> RemoveMethod : 38
+----> ArithmeticOperatorReplacementUnary : 4
+----> RelationalOperatorReplacement : 18
+
+(27/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/StreamReadFeature.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  13
+----> NullifyReturnValue : 1
+----> AssignmentOperatorReplacementShortcut : 1
+----> RemoveMethod : 9
+----> LogicalOperatorReplacement : 1
+----> RelationalOperatorReplacement : 1
+
+(28/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/StreamWriteCapability.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  9
+----> ShiftOperatorReplacement : 1
+----> RemoveMethod : 6
+----> LogicalOperatorReplacement : 1
+----> RelationalOperatorReplacement : 1
+
+(29/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/StreamWriteConstraints.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  33
+----> NullifyReturnValue : 6
+----> RemoveNullCheck : 1
+----> NullifyInputVariable : 4
+----> NullifyObjectInitialization : 7
+----> RemoveMethod : 12
+----> RelationalOperatorReplacement : 3
+
+(30/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/StreamWriteFeature.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  13
+----> NullifyReturnValue : 1
+----> AssignmentOperatorReplacementShortcut : 1
+----> RemoveMethod : 9
+----> LogicalOperatorReplacement : 1
+----> RelationalOperatorReplacement : 1
+
+(31/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/TokenStreamFactory.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  43
+----> NullifyReturnValue : 5
+----> RemoveNullCheck : 3
+----> ConditionalOperatorReplacement : 1
+----> ArithmeticOperatorReplacementBinary : 4
+----> NullifyInputVariable : 5
+----> NullifyObjectInitialization : 5
+----> RemoveMethod : 7
+----> LogicalOperatorReplacement : 6
+----> RelationalOperatorReplacement : 7
+
+(32/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/TreeCodec.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  4
+----> NullifyReturnValue : 2
+----> RemoveMethod : 2
+
+(33/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/TreeNode.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  0
+
+(34/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/TSFBuilder.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  159
+----> NullifyReturnValue : 36
+----> RemoveNullCheck : 6
+----> AssignmentOperatorReplacementShortcut : 18
+----> NullifyInputVariable : 44
+----> NullifyObjectInitialization : 3
+----> RemoveMethod : 46
+----> RelationalOperatorReplacement : 6
+
+(35/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/Version.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  76
+----> NullifyReturnValue : 5
+----> RemoveNullCheck : 4
+----> ConditionalOperatorDeletion : 1
+----> ConditionalOperatorReplacement : 6
+----> ArithmeticOperatorReplacementBinary : 10
+----> NullifyInputVariable : 2
+----> NullifyObjectInitialization : 2
+----> RemoveMethod : 27
+----> ArithmeticOperatorReplacementUnary : 1
+----> LogicalOperatorReplacement : 2
+----> RelationalOperatorReplacement : 16
+
+(36/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/Versioned.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  0
+
+(37/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/async/ByteArrayFeeder.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  0
+
+(38/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/async/ByteBufferFeeder.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  0
+
+(39/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/async/NonBlockingInputFeeder.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  0
+
+(40/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/async/package-info.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  0
+
+(41/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/base/GeneratorBase.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  153
+----> NullifyReturnValue : 15
+----> RemoveNullCheck : 13
+----> ShiftOperatorReplacement : 1
+----> ConditionalOperatorDeletion : 1
+----> AssignmentOperatorReplacementShortcut : 2
+----> ConditionalOperatorReplacement : 2
+----> ArithmeticOperatorReplacementBinary : 8
+----> NullifyInputVariable : 17
+----> NullifyObjectInitialization : 2
+----> RemoveMethod : 39
+----> ArithmeticOperatorReplacementUnary : 1
+----> LogicalOperatorReplacement : 20
+----> RelationalOperatorReplacement : 32
+
+(42/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/base/package-info.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  0
+
+(43/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/base/ParserBase.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  490
+----> NullifyReturnValue : 62
+----> RemoveNullCheck : 24
+----> ShiftOperatorReplacement : 1
+----> ConditionalOperatorDeletion : 5
+----> AssignmentOperatorReplacementShortcut : 8
+----> ConditionalOperatorReplacement : 16
+----> ArithmeticOperatorReplacementBinary : 10
+----> NullifyInputVariable : 15
+----> NullifyObjectInitialization : 10
+----> RemoveMethod : 101
+----> ArithmeticOperatorReplacementShortcut : 1
+----> ArithmeticOperatorReplacementUnary : 5
+----> LogicalOperatorReplacement : 68
+----> RelationalOperatorReplacement : 164
+
+(44/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/base/ParserMinimalBase.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  236
+----> NullifyReturnValue : 28
+----> RemoveNullCheck : 16
+----> ConditionalOperatorDeletion : 1
+----> AssignmentOperatorReplacementShortcut : 4
+----> ConditionalOperatorReplacement : 9
+----> NullifyInputVariable : 37
+----> NullifyObjectInitialization : 7
+----> RemoveMethod : 82
+----> ArithmeticOperatorReplacementShortcut : 5
+----> RelationalOperatorReplacement : 47
+
+(45/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/exc/InputCoercionException.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  10
+----> NullifyReturnValue : 4
+----> NullifyInputVariable : 2
+----> RemoveMethod : 4
+
+(46/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/exc/package-info.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  0
+
+(47/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/exc/StreamConstraintsException.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  0
+
+(48/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/exc/StreamReadException.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  20
+----> NullifyReturnValue : 5
+----> RemoveNullCheck : 3
+----> AssignmentOperatorReplacementShortcut : 1
+----> NullifyInputVariable : 1
+----> RemoveMethod : 7
+----> RelationalOperatorReplacement : 3
+
+(49/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/exc/StreamWriteException.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  2
+----> NullifyReturnValue : 1
+----> RemoveMethod : 1
+
+(50/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/filter/FilteringGeneratorDelegate.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  298
+----> NullifyReturnValue : 3
+----> RemoveNullCheck : 60
+----> ConditionalOperatorDeletion : 17
+----> ConditionalOperatorReplacement : 7
+----> NullifyInputVariable : 24
+----> NullifyObjectInitialization : 1
+----> RemoveMethod : 56
+----> ArithmeticOperatorReplacementShortcut : 2
+----> ArithmeticOperatorReplacementUnary : 1
+----> RelationalOperatorReplacement : 127
+
+(51/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/filter/FilteringParserDelegate.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  420
+----> NullifyReturnValue : 86
+----> RemoveNullCheck : 60
+----> ConditionalOperatorDeletion : 2
+----> ConditionalOperatorReplacement : 28
+----> NullifyInputVariable : 8
+----> NullifyObjectInitialization : 1
+----> RemoveMethod : 93
+----> ArithmeticOperatorReplacementShortcut : 3
+----> RelationalOperatorReplacement : 139
+
+(52/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/filter/JsonPointerBasedFilter.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  28
+----> NullifyReturnValue : 10
+----> RemoveNullCheck : 2
+----> ConditionalOperatorDeletion : 1
+----> ConditionalOperatorReplacement : 1
+----> NullifyInputVariable : 2
+----> NullifyObjectInitialization : 1
+----> RemoveMethod : 9
+----> RelationalOperatorReplacement : 2
+
+(53/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/filter/TokenFilter.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  59
+----> NullifyReturnValue : 7
+----> NullifyInputVariable : 7
+----> NullifyObjectInitialization : 1
+----> RemoveMethod : 43
+----> RelationalOperatorReplacement : 1
+
+(54/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/filter/TokenFilterContext.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  135
+----> NullifyReturnValue : 24
+----> RemoveNullCheck : 18
+----> ConditionalOperatorDeletion : 1
+----> ConditionalOperatorReplacement : 7
+----> ArithmeticOperatorReplacementBinary : 1
+----> NullifyInputVariable : 14
+----> NullifyObjectInitialization : 4
+----> RemoveMethod : 27
+----> ArithmeticOperatorReplacementShortcut : 1
+----> ArithmeticOperatorReplacementUnary : 2
+----> RelationalOperatorReplacement : 36
+
+(55/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/format/DataFormatDetector.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  45
+----> NullifyReturnValue : 11
+----> RemoveNullCheck : 2
+----> ConditionalOperatorReplacement : 1
+----> NullifyInputVariable : 4
+----> NullifyObjectInitialization : 7
+----> RemoveMethod : 9
+----> ArithmeticOperatorReplacementShortcut : 1
+----> RelationalOperatorReplacement : 10
+
+(56/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/format/DataFormatMatcher.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  34
+----> NullifyReturnValue : 8
+----> RemoveNullCheck : 5
+----> ConditionalOperatorReplacement : 1
+----> ArithmeticOperatorReplacementBinary : 1
+----> NullifyObjectInitialization : 3
+----> RemoveMethod : 8
+----> LogicalOperatorReplacement : 1
+----> RelationalOperatorReplacement : 7
+
+(57/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/format/InputAccessor.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  23
+----> NullifyReturnValue : 1
+----> RemoveNullCheck : 1
+----> ConditionalOperatorDeletion : 1
+----> AssignmentOperatorReplacementShortcut : 1
+----> ArithmeticOperatorReplacementBinary : 3
+----> NullifyInputVariable : 2
+----> NullifyObjectInitialization : 2
+----> RemoveMethod : 6
+----> ArithmeticOperatorReplacementShortcut : 1
+----> RelationalOperatorReplacement : 5
+
+(58/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/format/MatchStrength.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  0
+
+(59/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/format/package-info.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  0
+
+(60/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/io/BigDecimalParser.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  49
+----> NullifyReturnValue : 14
+----> RemoveNullCheck : 2
+----> NullifyInputVariable : 8
+----> NullifyObjectInitialization : 6
+----> RemoveMethod : 13
+----> RelationalOperatorReplacement : 6
+
+(61/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/io/BigIntegerParser.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  10
+----> NullifyReturnValue : 2
+----> NullifyInputVariable : 2
+----> NullifyObjectInitialization : 2
+----> RemoveMethod : 2
+----> RelationalOperatorReplacement : 2
+
+(62/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/io/CharacterEscapes.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  4
+----> RemoveMethod : 2
+----> ArithmeticOperatorReplacementUnary : 2
+
+(63/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/io/CharTypes.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  86
+----> RemoveNullCheck : 2
+----> ShiftOperatorReplacement : 1
+----> ConditionalOperatorDeletion : 1
+----> ConditionalOperatorReplacement : 1
+----> ArithmeticOperatorReplacementBinary : 5
+----> NullifyInputVariable : 2
+----> NullifyObjectInitialization : 1
+----> RemoveMethod : 35
+----> ArithmeticOperatorReplacementShortcut : 8
+----> ArithmeticOperatorReplacementUnary : 6
+----> LogicalOperatorReplacement : 5
+----> RelationalOperatorReplacement : 19
+
+(64/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/io/ContentReference.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  131
+----> NullifyReturnValue : 17
+----> RemoveNullCheck : 6
+----> ShiftOperatorReplacement : 3
+----> ConditionalOperatorDeletion : 3
+----> ConditionalOperatorReplacement : 6
+----> ArithmeticOperatorReplacementBinary : 3
+----> NullifyInputVariable : 16
+----> NullifyObjectInitialization : 10
+----> RemoveMethod : 38
+----> ArithmeticOperatorReplacementShortcut : 1
+----> ArithmeticOperatorReplacementUnary : 4
+----> LogicalOperatorReplacement : 4
+----> RelationalOperatorReplacement : 20
+
+(65/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/io/DataOutputAsStream.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  3
+----> RemoveMethod : 3
+
+(66/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/io/InputDecorator.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  4
+----> NullifyInputVariable : 2
+----> NullifyObjectInitialization : 1
+----> RemoveMethod : 1
+
+(67/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/io/IOContext.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  85
+----> NullifyReturnValue : 12
+----> RemoveNullCheck : 7
+----> ConditionalOperatorDeletion : 1
+----> ConditionalOperatorReplacement : 2
+----> NullifyInputVariable : 3
+----> NullifyObjectInitialization : 4
+----> RemoveMethod : 45
+----> RelationalOperatorReplacement : 11
+
+(68/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/io/JsonEOFException.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  2
+----> NullifyReturnValue : 1
+----> RemoveMethod : 1
+
+(69/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/io/JsonStringEncoder.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  282
+----> NullifyReturnValue : 1
+----> RemoveNullCheck : 18
+----> ShiftOperatorReplacement : 25
+----> AssignmentOperatorReplacementShortcut : 3
+----> ConditionalOperatorReplacement : 8
+----> ArithmeticOperatorReplacementBinary : 12
+----> NullifyInputVariable : 8
+----> NullifyObjectInitialization : 9
+----> RemoveMethod : 27
+----> ArithmeticOperatorReplacementShortcut : 41
+----> LogicalOperatorReplacement : 40
+----> RelationalOperatorReplacement : 90
+
+(70/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/io/MergedStream.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  50
+----> RemoveNullCheck : 9
+----> AssignmentOperatorReplacementShortcut : 5
+----> ConditionalOperatorReplacement : 1
+----> ArithmeticOperatorReplacementBinary : 3
+----> RemoveMethod : 16
+----> ArithmeticOperatorReplacementShortcut : 1
+----> LogicalOperatorReplacement : 1
+----> RelationalOperatorReplacement : 14
+
+(71/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/io/NumberInput.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  216
+----> NullifyReturnValue : 14
+----> RemoveNullCheck : 4
+----> AssignmentOperatorReplacementShortcut : 8
+----> ConditionalOperatorReplacement : 11
+----> ArithmeticOperatorReplacementBinary : 40
+----> NullifyInputVariable : 17
+----> NullifyObjectInitialization : 4
+----> RemoveMethod : 49
+----> ArithmeticOperatorReplacementShortcut : 18
+----> ArithmeticOperatorReplacementUnary : 2
+----> RelationalOperatorReplacement : 49
+
+(72/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/io/NumberOutput.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  305
+----> NullifyReturnValue : 9
+----> ShiftOperatorReplacement : 39
+----> ConditionalOperatorDeletion : 2
+----> AssignmentOperatorReplacementShortcut : 14
+----> ConditionalOperatorReplacement : 1
+----> ArithmeticOperatorReplacementBinary : 44
+----> RemoveMethod : 54
+----> ArithmeticOperatorReplacementShortcut : 71
+----> ArithmeticOperatorReplacementUnary : 5
+----> LogicalOperatorReplacement : 20
+----> RelationalOperatorReplacement : 46
+
+(73/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/io/OutputDecorator.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  0
+
+(74/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/io/SegmentedStringWriter.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  23
+----> NullifyReturnValue : 5
+----> NullifyInputVariable : 4
+----> NullifyObjectInitialization : 1
+----> RemoveMethod : 13
+
+(75/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/io/SerializedString.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  87
+----> NullifyReturnValue : 3
+----> RemoveNullCheck : 11
+----> ConditionalOperatorReplacement : 1
+----> ArithmeticOperatorReplacementBinary : 4
+----> NullifyInputVariable : 7
+----> NullifyObjectInitialization : 1
+----> RemoveMethod : 35
+----> ArithmeticOperatorReplacementUnary : 6
+----> RelationalOperatorReplacement : 19
+
+(76/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/io/UTF32Reader.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  107
+----> RemoveNullCheck : 8
+----> ShiftOperatorReplacement : 6
+----> ConditionalOperatorDeletion : 1
+----> AssignmentOperatorReplacementShortcut : 5
+----> ConditionalOperatorReplacement : 3
+----> ArithmeticOperatorReplacementBinary : 21
+----> NullifyInputVariable : 1
+----> NullifyObjectInitialization : 4
+----> RemoveMethod : 12
+----> ArithmeticOperatorReplacementShortcut : 3
+----> ArithmeticOperatorReplacementUnary : 3
+----> LogicalOperatorReplacement : 13
+----> RelationalOperatorReplacement : 27
+
+(77/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/io/UTF8Writer.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  199
+----> NullifyReturnValue : 5
+----> RemoveNullCheck : 3
+----> ShiftOperatorReplacement : 20
+----> AssignmentOperatorReplacementShortcut : 4
+----> ConditionalOperatorReplacement : 4
+----> ArithmeticOperatorReplacementBinary : 9
+----> NullifyInputVariable : 2
+----> NullifyObjectInitialization : 2
+----> RemoveMethod : 13
+----> ArithmeticOperatorReplacementShortcut : 42
+----> LogicalOperatorReplacement : 45
+----> RelationalOperatorReplacement : 50
+
+(78/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/io/schubfach/DoubleToDecimal.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  206
+----> NullifyReturnValue : 8
+----> ShiftOperatorReplacement : 33
+----> AssignmentOperatorReplacementShortcut : 4
+----> ConditionalOperatorReplacement : 4
+----> ArithmeticOperatorReplacementBinary : 59
+----> NullifyObjectInitialization : 2
+----> RemoveMethod : 28
+----> ArithmeticOperatorReplacementShortcut : 8
+----> ArithmeticOperatorReplacementUnary : 10
+----> LogicalOperatorReplacement : 12
+----> RelationalOperatorReplacement : 38
+
+(79/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/io/schubfach/FloatToDecimal.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  194
+----> NullifyReturnValue : 8
+----> ShiftOperatorReplacement : 30
+----> AssignmentOperatorReplacementShortcut : 3
+----> ConditionalOperatorReplacement : 4
+----> ArithmeticOperatorReplacementBinary : 54
+----> NullifyObjectInitialization : 2
+----> RemoveMethod : 27
+----> ArithmeticOperatorReplacementShortcut : 8
+----> ArithmeticOperatorReplacementUnary : 10
+----> LogicalOperatorReplacement : 12
+----> RelationalOperatorReplacement : 36
+
+(80/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/io/schubfach/MathUtils.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  43
+----> ShiftOperatorReplacement : 9
+----> ArithmeticOperatorReplacementBinary : 15
+----> RemoveMethod : 14
+----> ArithmeticOperatorReplacementUnary : 2
+----> LogicalOperatorReplacement : 3
+
+(81/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/json/ByteSourceJsonBootstrapper.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  182
+----> NullifyReturnValue : 32
+----> RemoveNullCheck : 2
+----> ShiftOperatorReplacement : 8
+----> ConditionalOperatorDeletion : 9
+----> AssignmentOperatorReplacementShortcut : 7
+----> ConditionalOperatorReplacement : 7
+----> ArithmeticOperatorReplacementBinary : 9
+----> NullifyInputVariable : 11
+----> NullifyObjectInitialization : 11
+----> RemoveMethod : 20
+----> ArithmeticOperatorReplacementShortcut : 1
+----> ArithmeticOperatorReplacementUnary : 3
+----> LogicalOperatorReplacement : 15
+----> RelationalOperatorReplacement : 47
+
+(82/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/json/DupDetector.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  28
+----> NullifyReturnValue : 6
+----> RemoveNullCheck : 3
+----> ConditionalOperatorDeletion : 1
+----> NullifyInputVariable : 3
+----> NullifyObjectInitialization : 4
+----> RemoveMethod : 8
+----> RelationalOperatorReplacement : 3
+
+(83/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/json/JsonGeneratorImpl.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  38
+----> NullifyReturnValue : 9
+----> RemoveNullCheck : 1
+----> ConditionalOperatorDeletion : 2
+----> NullifyInputVariable : 6
+----> RemoveMethod : 14
+----> RelationalOperatorReplacement : 6
+
+(84/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/json/JsonParserBase.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  12
+----> NullifyReturnValue : 5
+----> NullifyInputVariable : 1
+----> RemoveMethod : 6
+
+(85/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/json/JsonReadContext.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  76
+----> NullifyReturnValue : 13
+----> RemoveNullCheck : 8
+----> ConditionalOperatorReplacement : 1
+----> ArithmeticOperatorReplacementBinary : 3
+----> NullifyInputVariable : 9
+----> NullifyObjectInitialization : 6
+----> RemoveMethod : 21
+----> ArithmeticOperatorReplacementShortcut : 1
+----> ArithmeticOperatorReplacementUnary : 4
+----> RelationalOperatorReplacement : 10
+
+(86/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/json/JsonReadFeature.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  14
+----> NullifyReturnValue : 1
+----> ShiftOperatorReplacement : 1
+----> AssignmentOperatorReplacementShortcut : 1
+----> RemoveMethod : 9
+----> LogicalOperatorReplacement : 1
+----> RelationalOperatorReplacement : 1
+
+(87/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/json/JsonWriteContext.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  101
+----> NullifyReturnValue : 18
+----> RemoveNullCheck : 14
+----> ConditionalOperatorDeletion : 1
+----> ConditionalOperatorReplacement : 1
+----> ArithmeticOperatorReplacementBinary : 2
+----> NullifyInputVariable : 9
+----> NullifyObjectInitialization : 6
+----> RemoveMethod : 23
+----> ArithmeticOperatorReplacementShortcut : 3
+----> ArithmeticOperatorReplacementUnary : 4
+----> RelationalOperatorReplacement : 20
+
+(88/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/json/JsonWriteFeature.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  14
+----> NullifyReturnValue : 1
+----> ShiftOperatorReplacement : 1
+----> AssignmentOperatorReplacementShortcut : 1
+----> RemoveMethod : 9
+----> LogicalOperatorReplacement : 1
+----> RelationalOperatorReplacement : 1
+
+(89/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/json/package-info.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  0
+
+(90/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/json/ReaderBasedJsonParser.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  1041
+----> NullifyReturnValue : 94
+----> RemoveNullCheck : 12
+----> ShiftOperatorReplacement : 11
+----> ConditionalOperatorDeletion : 45
+----> AssignmentOperatorReplacementShortcut : 14
+----> ConditionalOperatorReplacement : 77
+----> ArithmeticOperatorReplacementBinary : 57
+----> NullifyInputVariable : 21
+----> NullifyObjectInitialization : 6
+----> RemoveMethod : 118
+----> ArithmeticOperatorReplacementShortcut : 136
+----> ArithmeticOperatorReplacementUnary : 8
+----> LogicalOperatorReplacement : 32
+----> RelationalOperatorReplacement : 410
+
+(91/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/json/UTF8DataInputJsonParser.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  1044
+----> NullifyReturnValue : 139
+----> RemoveNullCheck : 15
+----> ShiftOperatorReplacement : 70
+----> ConditionalOperatorDeletion : 17
+----> AssignmentOperatorReplacementShortcut : 18
+----> ConditionalOperatorReplacement : 38
+----> ArithmeticOperatorReplacementBinary : 14
+----> NullifyInputVariable : 15
+----> NullifyObjectInitialization : 4
+----> RemoveMethod : 136
+----> ArithmeticOperatorReplacementShortcut : 67
+----> ArithmeticOperatorReplacementUnary : 12
+----> LogicalOperatorReplacement : 145
+----> RelationalOperatorReplacement : 354
+
+(92/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/json/UTF8JsonGenerator.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  843
+----> NullifyReturnValue : 1
+----> RemoveNullCheck : 30
+----> ShiftOperatorReplacement : 49
+----> ConditionalOperatorDeletion : 3
+----> AssignmentOperatorReplacementShortcut : 39
+----> ConditionalOperatorReplacement : 19
+----> ArithmeticOperatorReplacementBinary : 77
+----> NullifyInputVariable : 37
+----> RemoveMethod : 95
+----> ArithmeticOperatorReplacementShortcut : 164
+----> ArithmeticOperatorReplacementUnary : 2
+----> LogicalOperatorReplacement : 73
+----> RelationalOperatorReplacement : 254
+
+(93/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/json/UTF8StreamJsonParser.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  1551
+----> NullifyReturnValue : 148
+----> RemoveNullCheck : 18
+----> ShiftOperatorReplacement : 72
+----> ConditionalOperatorDeletion : 37
+----> AssignmentOperatorReplacementShortcut : 23
+----> ConditionalOperatorReplacement : 73
+----> ArithmeticOperatorReplacementBinary : 56
+----> NullifyInputVariable : 19
+----> NullifyObjectInitialization : 7
+----> RemoveMethod : 164
+----> ArithmeticOperatorReplacementShortcut : 194
+----> ArithmeticOperatorReplacementUnary : 7
+----> LogicalOperatorReplacement : 219
+----> RelationalOperatorReplacement : 514
+
+(94/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/json/WriterBasedJsonGenerator.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  695
+----> NullifyReturnValue : 1
+----> RemoveNullCheck : 37
+----> ShiftOperatorReplacement : 35
+----> ConditionalOperatorDeletion : 2
+----> AssignmentOperatorReplacementShortcut : 37
+----> ConditionalOperatorReplacement : 14
+----> ArithmeticOperatorReplacementBinary : 67
+----> NullifyInputVariable : 35
+----> RemoveMethod : 86
+----> ArithmeticOperatorReplacementShortcut : 120
+----> ArithmeticOperatorReplacementUnary : 2
+----> LogicalOperatorReplacement : 31
+----> RelationalOperatorReplacement : 228
+
+(95/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/json/async/NonBlockingByteBufferJsonParser.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  25
+----> NullifyReturnValue : 1
+----> AssignmentOperatorReplacementShortcut : 1
+----> ArithmeticOperatorReplacementBinary : 5
+----> NullifyInputVariable : 2
+----> RemoveMethod : 10
+----> ArithmeticOperatorReplacementShortcut : 2
+----> LogicalOperatorReplacement : 1
+----> RelationalOperatorReplacement : 3
+
+(96/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/json/async/NonBlockingJsonParser.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  24
+----> NullifyReturnValue : 1
+----> AssignmentOperatorReplacementShortcut : 1
+----> ArithmeticOperatorReplacementBinary : 5
+----> NullifyInputVariable : 1
+----> RemoveMethod : 10
+----> ArithmeticOperatorReplacementShortcut : 2
+----> LogicalOperatorReplacement : 1
+----> RelationalOperatorReplacement : 3
+
+(97/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/json/async/NonBlockingJsonParserBase.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  253
+----> NullifyReturnValue : 38
+----> RemoveNullCheck : 10
+----> ShiftOperatorReplacement : 21
+----> ConditionalOperatorDeletion : 6
+----> AssignmentOperatorReplacementShortcut : 4
+----> ArithmeticOperatorReplacementBinary : 24
+----> NullifyInputVariable : 10
+----> NullifyObjectInitialization : 5
+----> RemoveMethod : 59
+----> ArithmeticOperatorReplacementShortcut : 6
+----> ArithmeticOperatorReplacementUnary : 8
+----> LogicalOperatorReplacement : 21
+----> RelationalOperatorReplacement : 41
+
+(98/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/json/async/NonBlockingUtf8JsonParserBase.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  1215
+----> NullifyReturnValue : 326
+----> RemoveNullCheck : 5
+----> ShiftOperatorReplacement : 50
+----> ConditionalOperatorDeletion : 15
+----> AssignmentOperatorReplacementShortcut : 9
+----> ConditionalOperatorReplacement : 24
+----> ArithmeticOperatorReplacementBinary : 29
+----> NullifyInputVariable : 5
+----> RemoveMethod : 83
+----> ArithmeticOperatorReplacementShortcut : 129
+----> ArithmeticOperatorReplacementUnary : 8
+----> LogicalOperatorReplacement : 162
+----> RelationalOperatorReplacement : 370
+
+(99/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/json/async/package-info.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  0
+
+(100/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/sym/ByteQuadsCanonicalizer.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  585
+----> NullifyReturnValue : 50
+----> RemoveNullCheck : 8
+----> ShiftOperatorReplacement : 91
+----> ConditionalOperatorDeletion : 1
+----> AssignmentOperatorReplacementShortcut : 48
+----> ConditionalOperatorReplacement : 24
+----> ArithmeticOperatorReplacementBinary : 105
+----> NullifyInputVariable : 5
+----> NullifyObjectInitialization : 12
+----> RemoveMethod : 85
+----> ArithmeticOperatorReplacementShortcut : 28
+----> ArithmeticOperatorReplacementUnary : 1
+----> LogicalOperatorReplacement : 7
+----> RelationalOperatorReplacement : 120
+
+(101/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/sym/CharsToNameCanonicalizer.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  192
+----> NullifyReturnValue : 19
+----> RemoveNullCheck : 19
+----> ShiftOperatorReplacement : 13
+----> ConditionalOperatorDeletion : 3
+----> AssignmentOperatorReplacementShortcut : 5
+----> ConditionalOperatorReplacement : 1
+----> ArithmeticOperatorReplacementBinary : 13
+----> NullifyInputVariable : 6
+----> NullifyObjectInitialization : 14
+----> RemoveMethod : 42
+----> ArithmeticOperatorReplacementShortcut : 13
+----> ArithmeticOperatorReplacementUnary : 1
+----> LogicalOperatorReplacement : 1
+----> RelationalOperatorReplacement : 42
+
+(102/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/sym/Name.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  12
+----> NullifyReturnValue : 2
+----> NullifyInputVariable : 1
+----> RemoveMethod : 8
+----> RelationalOperatorReplacement : 1
+
+(103/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/sym/Name1.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  18
+----> NullifyReturnValue : 1
+----> ConditionalOperatorReplacement : 2
+----> NullifyObjectInitialization : 1
+----> RemoveMethod : 9
+----> RelationalOperatorReplacement : 5
+
+(104/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/sym/Name2.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  16
+----> ConditionalOperatorReplacement : 3
+----> RemoveMethod : 8
+----> RelationalOperatorReplacement : 5
+
+(105/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/sym/Name3.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  20
+----> ConditionalOperatorReplacement : 5
+----> RemoveMethod : 8
+----> RelationalOperatorReplacement : 7
+
+(106/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/sym/NameN.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  32
+----> NullifyReturnValue : 1
+----> ArithmeticOperatorReplacementBinary : 3
+----> NullifyInputVariable : 1
+----> NullifyObjectInitialization : 2
+----> RemoveMethod : 11
+----> ArithmeticOperatorReplacementShortcut : 1
+----> RelationalOperatorReplacement : 13
+
+(107/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/sym/package-info.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  0
+
+(108/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/type/package-info.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  0
+
+(109/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/type/ResolvedType.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  6
+----> NullifyReturnValue : 1
+----> RemoveNullCheck : 1
+----> RemoveMethod : 3
+----> RelationalOperatorReplacement : 1
+
+(110/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/type/TypeReference.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  6
+----> NullifyReturnValue : 1
+----> NullifyInputVariable : 1
+----> NullifyObjectInitialization : 1
+----> RemoveMethod : 3
+
+(111/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/type/WritableTypeId.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  5
+----> ConditionalOperatorReplacement : 1
+----> RemoveMethod : 2
+----> RelationalOperatorReplacement : 2
+
+(112/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/util/BufferRecycler.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  51
+----> NullifyReturnValue : 1
+----> RemoveNullCheck : 7
+----> ConditionalOperatorReplacement : 4
+----> NullifyInputVariable : 1
+----> NullifyObjectInitialization : 3
+----> RemoveMethod : 22
+----> RelationalOperatorReplacement : 13
+
+(113/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/util/BufferRecyclers.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  30
+----> NullifyReturnValue : 2
+----> RemoveNullCheck : 4
+----> NullifyInputVariable : 5
+----> NullifyObjectInitialization : 3
+----> RemoveMethod : 11
+----> ArithmeticOperatorReplacementUnary : 1
+----> RelationalOperatorReplacement : 4
+
+(114/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/util/ByteArrayBuilder.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  94
+----> NullifyReturnValue : 2
+----> RemoveNullCheck : 3
+----> ShiftOperatorReplacement : 14
+----> ConditionalOperatorDeletion : 2
+----> AssignmentOperatorReplacementShortcut : 5
+----> ConditionalOperatorReplacement : 1
+----> ArithmeticOperatorReplacementBinary : 8
+----> NullifyObjectInitialization : 4
+----> RemoveMethod : 31
+----> ArithmeticOperatorReplacementShortcut : 10
+----> RelationalOperatorReplacement : 14
+
+(115/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/util/DefaultIndenter.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  30
+----> NullifyReturnValue : 6
+----> AssignmentOperatorReplacementShortcut : 3
+----> ArithmeticOperatorReplacementBinary : 1
+----> NullifyInputVariable : 3
+----> NullifyObjectInitialization : 4
+----> RemoveMethod : 9
+----> ArithmeticOperatorReplacementShortcut : 1
+----> RelationalOperatorReplacement : 3
+
+(116/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/util/DefaultPrettyPrinter.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  111
+----> NullifyReturnValue : 13
+----> RemoveNullCheck : 11
+----> ConditionalOperatorDeletion : 4
+----> ConditionalOperatorReplacement : 2
+----> NullifyInputVariable : 19
+----> NullifyObjectInitialization : 13
+----> RemoveMethod : 27
+----> ArithmeticOperatorReplacementShortcut : 4
+----> RelationalOperatorReplacement : 18
+
+(117/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/util/Instantiatable.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  0
+
+(118/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/util/InternalJacksonUtil.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  4
+----> ArithmeticOperatorReplacementBinary : 1
+----> RemoveMethod : 2
+----> RelationalOperatorReplacement : 1
+
+(119/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/util/InternCache.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  11
+----> NullifyReturnValue : 2
+----> RemoveNullCheck : 1
+----> NullifyInputVariable : 1
+----> NullifyObjectInitialization : 2
+----> RemoveMethod : 2
+----> RelationalOperatorReplacement : 3
+
+(120/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/util/JacksonFeature.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  0
+
+(121/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/util/JacksonFeatureSet.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  29
+----> NullifyReturnValue : 4
+----> AssignmentOperatorReplacementShortcut : 1
+----> NullifyInputVariable : 4
+----> NullifyObjectInitialization : 5
+----> RemoveMethod : 8
+----> LogicalOperatorReplacement : 3
+----> RelationalOperatorReplacement : 4
+
+(122/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/util/JsonGeneratorDecorator.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  0
+
+(123/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/util/JsonGeneratorDelegate.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  180
+----> NullifyReturnValue : 24
+----> RemoveNullCheck : 4
+----> NullifyInputVariable : 42
+----> NullifyObjectInitialization : 1
+----> RemoveMethod : 105
+----> RelationalOperatorReplacement : 4
+
+(124/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/util/JsonParserDelegate.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  190
+----> NullifyReturnValue : 41
+----> NullifyInputVariable : 15
+----> RemoveMethod : 134
+
+(125/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/util/JsonParserSequence.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  57
+----> NullifyReturnValue : 13
+----> RemoveNullCheck : 4
+----> ConditionalOperatorDeletion : 1
+----> ConditionalOperatorReplacement : 4
+----> ArithmeticOperatorReplacementBinary : 1
+----> NullifyInputVariable : 5
+----> NullifyObjectInitialization : 3
+----> RemoveMethod : 11
+----> ArithmeticOperatorReplacementShortcut : 5
+----> RelationalOperatorReplacement : 10
+
+(126/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/util/JsonRecyclerPools.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  58
+----> NullifyReturnValue : 22
+----> NullifyObjectInitialization : 13
+----> RemoveMethod : 22
+----> RelationalOperatorReplacement : 1
+
+(127/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/util/MinimalPrettyPrinter.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  27
+----> NullifyReturnValue : 1
+----> RemoveNullCheck : 1
+----> NullifyInputVariable : 12
+----> RemoveMethod : 12
+----> RelationalOperatorReplacement : 1
+
+(128/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/util/package-info.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  0
+
+(129/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/util/ReadConstrainedTextBuffer.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  1
+----> RemoveMethod : 1
+
+(130/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/util/RecyclerPool.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  76
+----> NullifyReturnValue : 10
+----> RemoveNullCheck : 4
+----> NullifyInputVariable : 6
+----> NullifyObjectInitialization : 4
+----> RemoveMethod : 38
+----> ArithmeticOperatorReplacementShortcut : 3
+----> ArithmeticOperatorReplacementUnary : 3
+----> RelationalOperatorReplacement : 8
+
+(131/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/util/RequestPayload.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  22
+----> NullifyReturnValue : 4
+----> RemoveNullCheck : 5
+----> ConditionalOperatorReplacement : 1
+----> NullifyObjectInitialization : 4
+----> RemoveMethod : 3
+----> RelationalOperatorReplacement : 5
+
+(132/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/util/Separators.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  74
+----> NullifyReturnValue : 19
+----> ArithmeticOperatorReplacementBinary : 2
+----> NullifyInputVariable : 6
+----> NullifyObjectInitialization : 10
+----> RemoveMethod : 31
+----> RelationalOperatorReplacement : 6
+
+(133/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/util/TextBuffer.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  313
+----> NullifyReturnValue : 18
+----> RemoveNullCheck : 36
+----> ShiftOperatorReplacement : 4
+----> ConditionalOperatorDeletion : 4
+----> AssignmentOperatorReplacementShortcut : 17
+----> ConditionalOperatorReplacement : 6
+----> ArithmeticOperatorReplacementBinary : 27
+----> NullifyInputVariable : 4
+----> NullifyObjectInitialization : 12
+----> RemoveMethod : 76
+----> ArithmeticOperatorReplacementShortcut : 5
+----> ArithmeticOperatorReplacementUnary : 13
+----> RelationalOperatorReplacement : 91
+
+(134/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/util/ThreadLocalBufferManager.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  16
+----> NullifyReturnValue : 2
+----> RemoveNullCheck : 1
+----> NullifyInputVariable : 1
+----> NullifyObjectInitialization : 5
+----> RemoveMethod : 5
+----> ArithmeticOperatorReplacementShortcut : 1
+----> RelationalOperatorReplacement : 1
+
+(135/135) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jackson-core/src/main/java/com/fasterxml/jackson/core/util/VersionUtil.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  51
+----> NullifyReturnValue : 7
+----> RemoveNullCheck : 3
+----> ConditionalOperatorReplacement : 2
+----> ArithmeticOperatorReplacementBinary : 3
+----> NullifyInputVariable : 10
+----> NullifyObjectInitialization : 5
+----> RemoveMethod : 10
+----> ArithmeticOperatorReplacementShortcut : 1
+----> RelationalOperatorReplacement : 10
+
+Total mutations found:  15890
+--> NullifyReturnValue: 1831
+--> RemoveNullCheck: 643
+--> ShiftOperatorReplacement: 653
+--> ConditionalOperatorDeletion: 209
+--> AssignmentOperatorReplacementShortcut: 341
+--> ConditionalOperatorReplacement: 477
+--> ArithmeticOperatorReplacementBinary: 854
+--> NullifyInputVariable: 844
+--> NullifyObjectInitialization: 393
+--> RemoveMethod: 3312
+--> ArithmeticOperatorReplacementShortcut: 1167
+--> ArithmeticOperatorReplacementUnary: 162
+--> LogicalOperatorReplacement: 1018
+--> RelationalOperatorReplacement: 3986
+
+Comparing mutation operators: jackson-core -> operator_comparisons/jackson-core/
+Extracted 15890 mutants -> operator_comparisons/jackson-core/littledarwin.csv
+Extracted 15901 mutants -> operator_comparisons/jackson-core/mediumdarwin.csv
+Comparison written to /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/operator_comparisons/jackson-core
+  Original (LD): 15890
+  MediumDarwin: 15901
+  Reduced: 121  Added: 132  delta: 0.07%
+  (strict diff would show removed=1637, added=1737 — see strict_*.csv)
+Mutant comparison for jackson-core:
+  === Paper Table I (refined mutation operators) ===
+  Original (LittleDarwin): 15890
+  MediumDarwin: 15901
+  Reduced: 121
+  Added: 132
+  delta_percent: 0.07
+  check MD = Original - Reduced + Added: 15901 (should equal 15901)
+  
+  in_both_strict_match: 14164
+  ld_only_sites: 32
+  md_only_sites: 132
+  
+    Reduced categories:
+      reduced_remove_method_other: 89
+      reduced_nullify_final_param_non_compilable: 25
+      reduced_nullify_input_other_filter: 7
+    Reduced by operator:
+      RemoveMethod: 89
+      NullifyInputVariable: 32
+  
+    Added categories:
+      added_other: 132
+    Added by operator:
+      NullifyReturnValue: 132
+  
+  === Strict before/after diff (misleading for relational ops) ===
+  strict_removed: 1637
+  strict_added: 1737
+    (LD uses '<'->'>='; MD uses '<'->'<=' — same site, not Reduced+Added)
+  
+  # Listing 1 examples:
+  #   reduced_nullify_final_param_non_compilable -> MUT0 (final param nullify)
+  #   added_remove_method_array_return -> MUT1 (array return RemoveMethod)
+  Details: operator_comparisons/jackson-core/added_in_mediumdarwin.csv
+           operator_comparisons/jackson-core/removed_in_mediumdarwin.csv
+========== jackson-core finished at Wed May 20 14:52:09 JST 2026 ==========

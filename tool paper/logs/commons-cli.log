@@ -1,0 +1,698 @@
+========== commons-cli started at Tue May 19 19:16:32 JST 2026 ==========
+Directory commons-cli already exists, skipping clone
+
+Processing commons-cli (Java 11)...
+----------------------------------------
+JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64
+Using Java 11:
+openjdk version "11.0.30" 2026-01-20
+OpenJDK Runtime Environment (build 11.0.30+7-post-Ubuntu-1ubuntu124.04)
+OpenJDK 64-Bit Server VM (build 11.0.30+7-post-Ubuntu-1ubuntu124.04, mixed mode, sharing)
+----------------------------------------
+python3 ../../MediumDarwin.py -m --all --build-command "mvn,compile" -q -t . -p ./src/main/java
+
+        __       __                  __  __                          _______                                     __
+       |  \     /  \                |  \|  \                        |       \                                   |  \
+       | $$\   /  $$  ______    ____| $$ \$$ __    __  ______ ____  | $$$$$$$\  ______    ______   __   __   __  \$$ _______
+       | $$$\ /  $$$ /      \  /      $$|  \|  \  |  \|      \    \ | $$  | $$ |      \  /      \ |  \ |  \ |  \|  \|       \
+       | $$$$\  $$$$|  $$$$$$\|  $$$$$$$| $$| $$  | $$| $$$$$$\$$$$\| $$  | $$  \$$$$$$\|  $$$$$$\| $$ | $$ | $$| $$| $$$$$$$\
+       | $$\$$ $$ $$| $$    $$| $$  | $$| $$| $$  | $$| $$ | $$ | $$| $$  | $$ /      $$| $$   \$$| $$ | $$ | $$| $$| $$  | $$
+       | $$ \$$$| $$| $$$$$$$$| $$__| $$| $$| $$__/ $$| $$ | $$ | $$| $$__/ $$|  $$$$$$$| $$      | $$_/ $$_/ $$| $$| $$  | $$
+       | $$  \$ | $$ \$$     \ \$$    $$| $$ \$$    $$| $$ | $$ | $$| $$    $$ \$$    $$| $$       \$$   $$   $$| $$| $$  | $$
+        \$$      \$$  \$$$$$$$  \$$$$$$$ \$$  \$$$$$$  \$$  \$$  \$$ \$$$$$$$   \$$$$$$$ \$$        \$$$$$\$$$$  \$$ \$$   \$$
+
+       Copyright (c) 2014 2022 Ali Parsai
+       Copyright (c) 2025      MediumDarwin Contributors
+
+       This project builds upon the original work of Ali Parsai and the LittleDarwin mutation testing framework.
+       We gratefully acknowledge his foundational contributions, which made this extended version possible.
+
+       This program is free software: you can redistribute it and/or modify it under the terms of the GNU
+       General Public License as published by the Free Software Foundation, version 3  of the License, or
+       (at your option) any later version.
+
+       This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied
+       warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the  GNU General Public License for more details.
+
+       You should have received a copy of the GNU General Public License along with this program.
+       If not, see <https://www.gnu.org/licenses/>.
+
+       Original author:
+       Ali Parsai — https://www.parsai.net/
+        
+
+        __       __                  __  __                          _______                                     __            
+       |  \     /  \                |  \|  \                        |       \                                   |  \           
+       | $$\   /  $$  ______    ____| $$ \$$ __    __  ______ ____  | $$$$$$$\  ______    ______   __   __   __  \$$ _______   
+       | $$$\ /  $$$ /      \  /      $$|  \|  \  |  \|      \    \ | $$  | $$ |      \  /      \ |  \ |  \ |  \|  \|       \  
+       | $$$$\  $$$$|  $$$$$$\|  $$$$$$$| $$| $$  | $$| $$$$$$\$$$$\| $$  | $$  \$$$$$$\|  $$$$$$\| $$ | $$ | $$| $$| $$$$$$$\ 
+       | $$\$$ $$ $$| $$    $$| $$  | $$| $$| $$  | $$| $$ | $$ | $$| $$  | $$ /      $$| $$   \$$| $$ | $$ | $$| $$| $$  | $$ 
+       | $$ \$$$| $$| $$$$$$$$| $$__| $$| $$| $$__/ $$| $$ | $$ | $$| $$__/ $$|  $$$$$$$| $$      | $$_/ $$_/ $$| $$| $$  | $$ 
+       | $$  \$ | $$ \$$     \ \$$    $$| $$ \$$    $$| $$ | $$ | $$| $$    $$ \$$    $$| $$       \$$   $$   $$| $$| $$  | $$ 
+        \$$      \$$  \$$$$$$$  \$$$$$$$ \$$  \$$$$$$  \$$  \$$  \$$ \$$$$$$$   \$$$$$$$ \$$        \$$$$$\$$$$  \$$ \$$   \$$ 
+                                                                                                                            
+       Copyright (c) 2014 2022 Ali Parsai                                                                                      
+       Copyright (c) 2025      MediumDarwin Contributors                                                                       
+                                                                                                                            
+       This project builds upon the original work of Ali Parsai and the LittleDarwin mutation testing framework.               
+       We gratefully acknowledge his foundational contributions, which made this extended version possible.                    
+                                                                                                                                
+       This program is free software: you can redistribute it and/or modify it under the terms of the GNU                      
+       General Public License as published by the Free Software Foundation, version 3  of the License, or                      
+       (at your option) any later version.                                                                                     
+                                                                                                                            
+       This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied       
+       warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the  GNU General Public License for more details.   
+                                                                                                                                
+       You should have received a copy of the GNU General Public License along with this program.                              
+       If not, see <https://www.gnu.org/licenses/>.                                                                             
+                                                                                                                                
+       Original author:                                                                                                         
+       Ali Parsai — https://www.parsai.net/                                                                                     
+        
+Source Path:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-cli/src/main/java
+Target Path:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-cli/LittleDarwinResults
+Creating Mutation Database:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-cli/LittleDarwinResults/mutationdatabase
+
+(1/26) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-cli/src/main/java/org/apache/commons/cli/AlreadySelectedException.java
+--> Mutations found:  4
+----> NullifyReturnValue : 2
+----> RemoveMethod : 2
+
+(2/26) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-cli/src/main/java/org/apache/commons/cli/AmbiguousOptionException.java
+--> Mutations found:  6
+----> NullifyObjectInitialization : 1
+----> NullifyReturnValue : 2
+----> RemoveMethod : 3
+
+(3/26) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-cli/src/main/java/org/apache/commons/cli/BasicParser.java
+--> Mutations found:  2
+----> NullifyReturnValue : 1
+----> RemoveMethod : 1
+
+(4/26) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-cli/src/main/java/org/apache/commons/cli/Char.java
+--> Mutations found:  0
+
+(5/26) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-cli/src/main/java/org/apache/commons/cli/CommandLine.java
+--> Mutations found:  174
+----> ArithmeticOperatorReplacementBinary : 2
+----> AssignmentOperatorReplacementShortcut : 1
+----> ConditionalOperatorDeletion : 3
+----> ConditionalOperatorReplacement : 6
+----> NullifyObjectInitialization : 9
+----> NullifyReturnValue : 50
+----> RelationalOperatorReplacement : 19
+----> RemoveMethod : 67
+----> RemoveNullCheck : 17
+
+(6/26) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-cli/src/main/java/org/apache/commons/cli/CommandLineParser.java
+--> Mutations found:  0
+
+(7/26) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-cli/src/main/java/org/apache/commons/cli/Converter.java
+--> Mutations found:  3
+----> ArithmeticOperatorReplacementUnary : 1
+----> NullifyObjectInitialization : 1
+----> RelationalOperatorReplacement : 1
+
+(8/26) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-cli/src/main/java/org/apache/commons/cli/DefaultParser.java
+--> Mutations found:  180
+----> ArithmeticOperatorReplacementBinary : 5
+----> ArithmeticOperatorReplacementShortcut : 2
+----> ArithmeticOperatorReplacementUnary : 4
+----> ConditionalOperatorDeletion : 17
+----> ConditionalOperatorReplacement : 30
+----> NullifyObjectInitialization : 10
+----> NullifyReturnValue : 16
+----> RelationalOperatorReplacement : 36
+----> RemoveMethod : 42
+----> RemoveNullCheck : 18
+
+(9/26) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-cli/src/main/java/org/apache/commons/cli/DeprecatedAttributes.java
+--> Mutations found:  32
+----> ConditionalOperatorDeletion : 2
+----> NullifyObjectInitialization : 4
+----> NullifyReturnValue : 9
+----> RelationalOperatorReplacement : 1
+----> RemoveMethod : 15
+----> RemoveNullCheck : 1
+
+(10/26) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-cli/src/main/java/org/apache/commons/cli/GnuParser.java
+--> Mutations found:  14
+----> ArithmeticOperatorReplacementBinary : 1
+----> ArithmeticOperatorReplacementShortcut : 3
+----> ArithmeticOperatorReplacementUnary : 1
+----> ConditionalOperatorReplacement : 1
+----> NullifyObjectInitialization : 1
+----> NullifyReturnValue : 1
+----> RelationalOperatorReplacement : 4
+----> RemoveMethod : 1
+----> RemoveNullCheck : 1
+
+(11/26) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-cli/src/main/java/org/apache/commons/cli/HelpFormatter.java
+--> Mutations found:  223
+----> ArithmeticOperatorReplacementBinary : 22
+----> ArithmeticOperatorReplacementShortcut : 3
+----> ArithmeticOperatorReplacementUnary : 6
+----> ConditionalOperatorDeletion : 9
+----> ConditionalOperatorReplacement : 12
+----> NullifyObjectInitialization : 22
+----> NullifyReturnValue : 24
+----> RelationalOperatorReplacement : 38
+----> RemoveMethod : 68
+----> RemoveNullCheck : 19
+
+(12/26) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-cli/src/main/java/org/apache/commons/cli/MissingArgumentException.java
+--> Mutations found:  3
+----> ArithmeticOperatorReplacementUnary : 1
+----> NullifyReturnValue : 1
+----> RemoveMethod : 1
+
+(13/26) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-cli/src/main/java/org/apache/commons/cli/MissingOptionException.java
+--> Mutations found:  7
+----> NullifyObjectInitialization : 1
+----> NullifyReturnValue : 2
+----> RelationalOperatorReplacement : 1
+----> RemoveMethod : 3
+
+(14/26) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-cli/src/main/java/org/apache/commons/cli/Option.java
+--> Mutations found:  202
+----> ArithmeticOperatorReplacementBinary : 2
+----> ArithmeticOperatorReplacementUnary : 3
+----> ConditionalOperatorDeletion : 4
+----> ConditionalOperatorReplacement : 10
+----> NullifyObjectInitialization : 11
+----> NullifyReturnValue : 40
+----> RelationalOperatorReplacement : 24
+----> RemoveMethod : 97
+----> RemoveNullCheck : 11
+
+(15/26) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-cli/src/main/java/org/apache/commons/cli/OptionBuilder.java
+--> Mutations found:  44
+----> NullifyObjectInitialization : 3
+----> NullifyReturnValue : 19
+----> RelationalOperatorReplacement : 1
+----> RemoveMethod : 20
+----> RemoveNullCheck : 1
+
+(16/26) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-cli/src/main/java/org/apache/commons/cli/OptionGroup.java
+--> Mutations found:  33
+----> ConditionalOperatorDeletion : 1
+----> ConditionalOperatorReplacement : 1
+----> NullifyObjectInitialization : 3
+----> NullifyReturnValue : 5
+----> RelationalOperatorReplacement : 5
+----> RemoveMethod : 13
+----> RemoveNullCheck : 5
+
+(17/26) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-cli/src/main/java/org/apache/commons/cli/OptionValidator.java
+--> Mutations found:  23
+----> ArithmeticOperatorReplacementShortcut : 1
+----> ConditionalOperatorDeletion : 2
+----> ConditionalOperatorReplacement : 2
+----> NullifyObjectInitialization : 3
+----> NullifyReturnValue : 2
+----> RelationalOperatorReplacement : 4
+----> RemoveMethod : 8
+----> RemoveNullCheck : 1
+
+(18/26) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-cli/src/main/java/org/apache/commons/cli/Options.java
+--> Mutations found:  52
+----> ConditionalOperatorReplacement : 1
+----> NullifyObjectInitialization : 11
+----> NullifyReturnValue : 16
+----> RelationalOperatorReplacement : 1
+----> RemoveMethod : 22
+----> RemoveNullCheck : 1
+
+(19/26) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-cli/src/main/java/org/apache/commons/cli/ParseException.java
+--> Mutations found:  4
+----> NullifyObjectInitialization : 1
+----> NullifyReturnValue : 2
+----> RemoveMethod : 1
+
+(20/26) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-cli/src/main/java/org/apache/commons/cli/Parser.java
+--> Mutations found:  52
+----> ConditionalOperatorDeletion : 8
+----> ConditionalOperatorReplacement : 7
+----> NullifyObjectInitialization : 5
+----> NullifyReturnValue : 6
+----> RelationalOperatorReplacement : 7
+----> RemoveMethod : 12
+----> RemoveNullCheck : 7
+
+(21/26) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-cli/src/main/java/org/apache/commons/cli/PatternOptionBuilder.java
+--> Mutations found:  51
+----> ArithmeticOperatorReplacementShortcut : 1
+----> ConditionalOperatorDeletion : 1
+----> ConditionalOperatorReplacement : 9
+----> NullifyObjectInitialization : 3
+----> NullifyReturnValue : 13
+----> RelationalOperatorReplacement : 16
+----> RemoveMethod : 6
+----> RemoveNullCheck : 2
+
+(22/26) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-cli/src/main/java/org/apache/commons/cli/PosixParser.java
+--> Mutations found:  37
+----> ArithmeticOperatorReplacementBinary : 3
+----> ArithmeticOperatorReplacementShortcut : 1
+----> ArithmeticOperatorReplacementUnary : 2
+----> ConditionalOperatorDeletion : 4
+----> ConditionalOperatorReplacement : 6
+----> NullifyObjectInitialization : 3
+----> NullifyReturnValue : 1
+----> RelationalOperatorReplacement : 9
+----> RemoveMethod : 6
+----> RemoveNullCheck : 2
+
+(23/26) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-cli/src/main/java/org/apache/commons/cli/TypeHandler.java
+--> Mutations found:  33
+----> NullifyObjectInitialization : 4
+----> NullifyReturnValue : 14
+----> RemoveMethod : 15
+
+(24/26) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-cli/src/main/java/org/apache/commons/cli/UnrecognizedOptionException.java
+--> Mutations found:  4
+----> ArithmeticOperatorReplacementUnary : 1
+----> NullifyReturnValue : 1
+----> RemoveMethod : 2
+
+(25/26) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-cli/src/main/java/org/apache/commons/cli/Util.java
+--> Mutations found:  30
+----> ArithmeticOperatorReplacementBinary : 2
+----> ArithmeticOperatorReplacementUnary : 1
+----> ConditionalOperatorReplacement : 5
+----> NullifyReturnValue : 7
+----> RelationalOperatorReplacement : 5
+----> RemoveMethod : 8
+----> RemoveNullCheck : 2
+
+(26/26) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-cli/src/main/java/org/apache/commons/cli/package-info.java
+--> Mutations found:  0
+
+Total mutations found:  1213
+Total mutant found:  1213
+--> ArithmeticOperatorReplacementBinary: 37
+--> ArithmeticOperatorReplacementShortcut: 11
+--> ArithmeticOperatorReplacementUnary: 20
+--> AssignmentOperatorReplacementShortcut: 1
+--> ConditionalOperatorDeletion: 51
+--> ConditionalOperatorReplacement: 90
+--> NullifyObjectInitialization: 96
+--> NullifyReturnValue: 234
+--> RelationalOperatorReplacement: 172
+--> RemoveMethod: 413
+--> RemoveNullCheck: 88
+Cleanup MediumDarwin...
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-cli/src/main/java/org/apache/commons/cli/AlreadySelectedException.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-cli/src/main/java/org/apache/commons/cli/AmbiguousOptionException.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-cli/src/main/java/org/apache/commons/cli/BasicParser.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-cli/src/main/java/org/apache/commons/cli/CommandLine.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-cli/src/main/java/org/apache/commons/cli/Converter.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-cli/src/main/java/org/apache/commons/cli/DefaultParser.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-cli/src/main/java/org/apache/commons/cli/DeprecatedAttributes.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-cli/src/main/java/org/apache/commons/cli/GnuParser.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-cli/src/main/java/org/apache/commons/cli/HelpFormatter.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-cli/src/main/java/org/apache/commons/cli/MissingArgumentException.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-cli/src/main/java/org/apache/commons/cli/MissingOptionException.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-cli/src/main/java/org/apache/commons/cli/Option.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-cli/src/main/java/org/apache/commons/cli/OptionBuilder.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-cli/src/main/java/org/apache/commons/cli/OptionGroup.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-cli/src/main/java/org/apache/commons/cli/OptionValidator.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-cli/src/main/java/org/apache/commons/cli/Options.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-cli/src/main/java/org/apache/commons/cli/ParseException.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-cli/src/main/java/org/apache/commons/cli/Parser.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-cli/src/main/java/org/apache/commons/cli/PatternOptionBuilder.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-cli/src/main/java/org/apache/commons/cli/PosixParser.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-cli/src/main/java/org/apache/commons/cli/TypeHandler.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-cli/src/main/java/org/apache/commons/cli/UnrecognizedOptionException.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-cli/src/main/java/org/apache/commons/cli/Util.java
+elapsed: 0:01:34
+python3 ../littledarwin/LittleDarwin.py -m --all --build-command "mvn,compile" -t . -p ./src/main/java
+
+    __     _  __   __   __       ____                          _
+   / /    (_)/ /_ / /_ / /___   / __ \ ____ _ _____ _      __ (_)____
+  / /    / // __// __// // _ \ / / / // __ `// ___/| | /| / // // __ \
+ / /___ / // /_ / /_ / //  __// /_/ // /_/ // /    | |/ |/ // // / / /
+/_____//_/ \__/ \__//_/ \___//_____/ \__,_//_/     |__/|__//_//_/ /_/
+
+      _                     _                 ___
+     /_|  /|/|  _/__/'     /_|   _ /   _ ' _ (_  _ _ _  _      _ /
+    (  | /   |(//(///()/) (  |/)(/((/_) /_)  /  / (///)(-((/()/ /(
+                                  /
+
+
+    LittleDarwin version 0.10.9 Copyright (C) 2014-2022 Ali Parsai
+
+    LittleDarwin comes with ABSOLUTELY NO WARRANTY.
+    This is free software, and you are welcome to redistribute it
+    under certain conditions; run LittleDarwin --license for details.
+
+
+    
+Source Path:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-cli/src/main/java
+Target Path:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-cli/LittleDarwinResults
+Creating Mutation Database:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-cli/LittleDarwinResults/mutationdatabase
+
+(1/26) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-cli/src/main/java/org/apache/commons/cli/AlreadySelectedException.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  4
+----> RemoveMethod : 2
+----> NullifyReturnValue : 2
+
+(2/26) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-cli/src/main/java/org/apache/commons/cli/AmbiguousOptionException.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  8
+----> NullifyInputVariable : 2
+----> NullifyObjectInitialization : 1
+----> RemoveMethod : 3
+----> NullifyReturnValue : 2
+
+(3/26) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-cli/src/main/java/org/apache/commons/cli/BasicParser.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  5
+----> NullifyInputVariable : 2
+----> RemoveMethod : 2
+----> NullifyReturnValue : 1
+
+(4/26) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-cli/src/main/java/org/apache/commons/cli/Char.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  0
+
+(5/26) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-cli/src/main/java/org/apache/commons/cli/CommandLine.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  232
+----> RemoveNullCheck : 17
+----> ConditionalOperatorDeletion : 3
+----> AssignmentOperatorReplacementShortcut : 1
+----> ConditionalOperatorReplacement : 6
+----> ArithmeticOperatorReplacementBinary : 2
+----> NullifyInputVariable : 53
+----> NullifyObjectInitialization : 9
+----> RemoveMethod : 72
+----> RelationalOperatorReplacement : 19
+----> NullifyReturnValue : 50
+
+(6/26) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-cli/src/main/java/org/apache/commons/cli/CommandLineParser.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  0
+
+(7/26) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-cli/src/main/java/org/apache/commons/cli/Converter.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  3
+----> NullifyObjectInitialization : 1
+----> ArithmeticOperatorReplacementUnary : 1
+----> RelationalOperatorReplacement : 1
+
+(8/26) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-cli/src/main/java/org/apache/commons/cli/DefaultParser.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  213
+----> RemoveNullCheck : 18
+----> ConditionalOperatorDeletion : 17
+----> ConditionalOperatorReplacement : 30
+----> ArithmeticOperatorReplacementBinary : 5
+----> NullifyInputVariable : 33
+----> NullifyObjectInitialization : 10
+----> RemoveMethod : 42
+----> ArithmeticOperatorReplacementShortcut : 2
+----> ArithmeticOperatorReplacementUnary : 4
+----> RelationalOperatorReplacement : 36
+----> NullifyReturnValue : 16
+
+(9/26) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-cli/src/main/java/org/apache/commons/cli/DeprecatedAttributes.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  35
+----> RemoveNullCheck : 1
+----> ConditionalOperatorDeletion : 2
+----> NullifyInputVariable : 3
+----> NullifyObjectInitialization : 4
+----> RemoveMethod : 15
+----> RelationalOperatorReplacement : 1
+----> NullifyReturnValue : 9
+
+(10/26) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-cli/src/main/java/org/apache/commons/cli/GnuParser.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  17
+----> RemoveNullCheck : 1
+----> ConditionalOperatorReplacement : 1
+----> ArithmeticOperatorReplacementBinary : 1
+----> NullifyInputVariable : 2
+----> NullifyObjectInitialization : 1
+----> RemoveMethod : 2
+----> ArithmeticOperatorReplacementShortcut : 3
+----> ArithmeticOperatorReplacementUnary : 1
+----> RelationalOperatorReplacement : 4
+----> NullifyReturnValue : 1
+
+(11/26) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-cli/src/main/java/org/apache/commons/cli/HelpFormatter.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  293
+----> RemoveNullCheck : 19
+----> ConditionalOperatorDeletion : 9
+----> ConditionalOperatorReplacement : 12
+----> ArithmeticOperatorReplacementBinary : 22
+----> NullifyInputVariable : 70
+----> NullifyObjectInitialization : 22
+----> RemoveMethod : 68
+----> ArithmeticOperatorReplacementShortcut : 3
+----> ArithmeticOperatorReplacementUnary : 6
+----> RelationalOperatorReplacement : 38
+----> NullifyReturnValue : 24
+
+(12/26) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-cli/src/main/java/org/apache/commons/cli/MissingArgumentException.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  3
+----> RemoveMethod : 1
+----> ArithmeticOperatorReplacementUnary : 1
+----> NullifyReturnValue : 1
+
+(13/26) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-cli/src/main/java/org/apache/commons/cli/MissingOptionException.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  8
+----> NullifyInputVariable : 1
+----> NullifyObjectInitialization : 1
+----> RemoveMethod : 3
+----> RelationalOperatorReplacement : 1
+----> NullifyReturnValue : 2
+
+(14/26) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-cli/src/main/java/org/apache/commons/cli/Option.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  224
+----> RemoveNullCheck : 11
+----> ConditionalOperatorDeletion : 4
+----> ConditionalOperatorReplacement : 10
+----> ArithmeticOperatorReplacementBinary : 2
+----> NullifyInputVariable : 21
+----> NullifyObjectInitialization : 11
+----> RemoveMethod : 98
+----> ArithmeticOperatorReplacementUnary : 3
+----> RelationalOperatorReplacement : 24
+----> NullifyReturnValue : 40
+
+(15/26) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-cli/src/main/java/org/apache/commons/cli/OptionBuilder.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  50
+----> RemoveNullCheck : 1
+----> NullifyInputVariable : 6
+----> NullifyObjectInitialization : 3
+----> RemoveMethod : 20
+----> RelationalOperatorReplacement : 1
+----> NullifyReturnValue : 19
+
+(16/26) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-cli/src/main/java/org/apache/commons/cli/OptionGroup.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  35
+----> RemoveNullCheck : 5
+----> ConditionalOperatorDeletion : 1
+----> ConditionalOperatorReplacement : 1
+----> NullifyInputVariable : 2
+----> NullifyObjectInitialization : 3
+----> RemoveMethod : 13
+----> RelationalOperatorReplacement : 5
+----> NullifyReturnValue : 5
+
+(17/26) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-cli/src/main/java/org/apache/commons/cli/Options.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  71
+----> RemoveNullCheck : 1
+----> ConditionalOperatorReplacement : 1
+----> NullifyInputVariable : 19
+----> NullifyObjectInitialization : 11
+----> RemoveMethod : 22
+----> RelationalOperatorReplacement : 1
+----> NullifyReturnValue : 16
+
+(18/26) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-cli/src/main/java/org/apache/commons/cli/OptionValidator.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  24
+----> RemoveNullCheck : 1
+----> ConditionalOperatorDeletion : 2
+----> ConditionalOperatorReplacement : 2
+----> NullifyInputVariable : 1
+----> NullifyObjectInitialization : 3
+----> RemoveMethod : 8
+----> ArithmeticOperatorReplacementShortcut : 1
+----> RelationalOperatorReplacement : 4
+----> NullifyReturnValue : 2
+
+(19/26) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-cli/src/main/java/org/apache/commons/cli/package-info.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  0
+
+(20/26) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-cli/src/main/java/org/apache/commons/cli/ParseException.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  5
+----> NullifyInputVariable : 1
+----> NullifyObjectInitialization : 1
+----> RemoveMethod : 1
+----> NullifyReturnValue : 2
+
+(21/26) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-cli/src/main/java/org/apache/commons/cli/Parser.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  69
+----> RemoveNullCheck : 7
+----> ConditionalOperatorDeletion : 8
+----> ConditionalOperatorReplacement : 7
+----> NullifyInputVariable : 17
+----> NullifyObjectInitialization : 5
+----> RemoveMethod : 12
+----> RelationalOperatorReplacement : 7
+----> NullifyReturnValue : 6
+
+(22/26) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-cli/src/main/java/org/apache/commons/cli/PatternOptionBuilder.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  52
+----> RemoveNullCheck : 2
+----> ConditionalOperatorDeletion : 1
+----> ConditionalOperatorReplacement : 9
+----> NullifyInputVariable : 1
+----> NullifyObjectInitialization : 3
+----> RemoveMethod : 6
+----> ArithmeticOperatorReplacementShortcut : 1
+----> RelationalOperatorReplacement : 16
+----> NullifyReturnValue : 13
+
+(23/26) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-cli/src/main/java/org/apache/commons/cli/PosixParser.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  44
+----> RemoveNullCheck : 2
+----> ConditionalOperatorDeletion : 4
+----> ConditionalOperatorReplacement : 6
+----> ArithmeticOperatorReplacementBinary : 3
+----> NullifyInputVariable : 6
+----> NullifyObjectInitialization : 3
+----> RemoveMethod : 7
+----> ArithmeticOperatorReplacementShortcut : 1
+----> ArithmeticOperatorReplacementUnary : 2
+----> RelationalOperatorReplacement : 9
+----> NullifyReturnValue : 1
+
+(24/26) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-cli/src/main/java/org/apache/commons/cli/TypeHandler.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  49
+----> NullifyInputVariable : 16
+----> NullifyObjectInitialization : 4
+----> RemoveMethod : 15
+----> NullifyReturnValue : 14
+
+(25/26) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-cli/src/main/java/org/apache/commons/cli/UnrecognizedOptionException.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  4
+----> RemoveMethod : 2
+----> ArithmeticOperatorReplacementUnary : 1
+----> NullifyReturnValue : 1
+
+(26/26) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-cli/src/main/java/org/apache/commons/cli/Util.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  34
+----> RemoveNullCheck : 2
+----> ConditionalOperatorReplacement : 5
+----> ArithmeticOperatorReplacementBinary : 2
+----> NullifyInputVariable : 4
+----> RemoveMethod : 8
+----> ArithmeticOperatorReplacementUnary : 1
+----> RelationalOperatorReplacement : 5
+----> NullifyReturnValue : 7
+
+Total mutations found:  1482
+--> RemoveNullCheck: 88
+--> ConditionalOperatorDeletion: 51
+--> AssignmentOperatorReplacementShortcut: 1
+--> ConditionalOperatorReplacement: 90
+--> ArithmeticOperatorReplacementBinary: 37
+--> NullifyInputVariable: 260
+--> NullifyObjectInitialization: 96
+--> RemoveMethod: 422
+--> ArithmeticOperatorReplacementShortcut: 11
+--> ArithmeticOperatorReplacementUnary: 20
+--> RelationalOperatorReplacement: 172
+--> NullifyReturnValue: 234
+
+Comparing mutation operators: commons-cli -> operator_comparisons/commons-cli/
+Extracted 1482 mutants -> operator_comparisons/commons-cli/littledarwin.csv
+Extracted 1213 mutants -> operator_comparisons/commons-cli/mediumdarwin.csv
+Comparison written to /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/operator_comparisons/commons-cli
+  Original (LD): 1482
+  MediumDarwin: 1213
+  Reduced: 269  Added: 0  delta: -18.15%
+  (strict diff would show removed=293, added=33 — see strict_*.csv)
+Mutant comparison for commons-cli:
+  === Paper Table I (refined mutation operators) ===
+  Original (LittleDarwin): 1482
+  MediumDarwin: 1213
+  Reduced: 269
+  Added: 0
+  delta_percent: -18.15
+  check MD = Original - Reduced + Added: 1213 (should equal 1213)
+  
+  in_both_strict_match: 1180
+  ld_only_sites: 260
+  md_only_sites: 0
+  
+    Reduced categories:
+      reduced_nullify_final_param_non_compilable: 254
+      reduced_remove_method_other: 9
+      reduced_nullify_input_other_filter: 6
+    Reduced by operator:
+      NullifyInputVariable: 260
+      RemoveMethod: 9
+  
+    Added categories: (none)
+    Added by operator: (none)
+  
+  === Strict before/after diff (misleading for relational ops) ===
+  strict_removed: 293
+  strict_added: 33
+    (LD uses '<'->'>='; MD uses '<'->'<=' — same site, not Reduced+Added)
+  
+  # Listing 1 examples:
+  #   reduced_nullify_final_param_non_compilable -> MUT0 (final param nullify)
+  #   added_remove_method_array_return -> MUT1 (array return RemoveMethod)
+  Details: operator_comparisons/commons-cli/added_in_mediumdarwin.csv
+           operator_comparisons/commons-cli/removed_in_mediumdarwin.csv
+========== commons-cli finished at Tue May 19 19:37:15 JST 2026 ==========

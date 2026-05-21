@@ -1,0 +1,424 @@
+========== antomology started at Tue May 19 17:52:51 JST 2026 ==========
+
+Cloning antomology...
+Cloning into 'antomology'...
+error: pathspec 'tags/557775e1f893dc30b689ee9469344eea6d4dc58b' did not match any file(s) known to git
+
+Processing antomology (Java 8)...
+----------------------------------------
+JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
+Using Java 8:
+openjdk version "1.8.0_482"
+OpenJDK Runtime Environment (build 1.8.0_482-8u482-ga~us1-0ubuntu1~24.04-b08)
+OpenJDK 64-Bit Server VM (build 25.482-b08, mixed mode)
+----------------------------------------
+python3 ../../MediumDarwin.py -m --all --build-command "mvn,compile" -q -t . -p ./src/main/java
+
+        __       __                  __  __                          _______                                     __
+       |  \     /  \                |  \|  \                        |       \                                   |  \
+       | $$\   /  $$  ______    ____| $$ \$$ __    __  ______ ____  | $$$$$$$\  ______    ______   __   __   __  \$$ _______
+       | $$$\ /  $$$ /      \  /      $$|  \|  \  |  \|      \    \ | $$  | $$ |      \  /      \ |  \ |  \ |  \|  \|       \
+       | $$$$\  $$$$|  $$$$$$\|  $$$$$$$| $$| $$  | $$| $$$$$$\$$$$\| $$  | $$  \$$$$$$\|  $$$$$$\| $$ | $$ | $$| $$| $$$$$$$\
+       | $$\$$ $$ $$| $$    $$| $$  | $$| $$| $$  | $$| $$ | $$ | $$| $$  | $$ /      $$| $$   \$$| $$ | $$ | $$| $$| $$  | $$
+       | $$ \$$$| $$| $$$$$$$$| $$__| $$| $$| $$__/ $$| $$ | $$ | $$| $$__/ $$|  $$$$$$$| $$      | $$_/ $$_/ $$| $$| $$  | $$
+       | $$  \$ | $$ \$$     \ \$$    $$| $$ \$$    $$| $$ | $$ | $$| $$    $$ \$$    $$| $$       \$$   $$   $$| $$| $$  | $$
+        \$$      \$$  \$$$$$$$  \$$$$$$$ \$$  \$$$$$$  \$$  \$$  \$$ \$$$$$$$   \$$$$$$$ \$$        \$$$$$\$$$$  \$$ \$$   \$$
+
+       Copyright (c) 2014 2022 Ali Parsai
+       Copyright (c) 2025      MediumDarwin Contributors
+
+       This project builds upon the original work of Ali Parsai and the LittleDarwin mutation testing framework.
+       We gratefully acknowledge his foundational contributions, which made this extended version possible.
+
+       This program is free software: you can redistribute it and/or modify it under the terms of the GNU
+       General Public License as published by the Free Software Foundation, version 3  of the License, or
+       (at your option) any later version.
+
+       This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied
+       warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the  GNU General Public License for more details.
+
+       You should have received a copy of the GNU General Public License along with this program.
+       If not, see <https://www.gnu.org/licenses/>.
+
+       Original author:
+       Ali Parsai — https://www.parsai.net/
+        
+
+        __       __                  __  __                          _______                                     __            
+       |  \     /  \                |  \|  \                        |       \                                   |  \           
+       | $$\   /  $$  ______    ____| $$ \$$ __    __  ______ ____  | $$$$$$$\  ______    ______   __   __   __  \$$ _______   
+       | $$$\ /  $$$ /      \  /      $$|  \|  \  |  \|      \    \ | $$  | $$ |      \  /      \ |  \ |  \ |  \|  \|       \  
+       | $$$$\  $$$$|  $$$$$$\|  $$$$$$$| $$| $$  | $$| $$$$$$\$$$$\| $$  | $$  \$$$$$$\|  $$$$$$\| $$ | $$ | $$| $$| $$$$$$$\ 
+       | $$\$$ $$ $$| $$    $$| $$  | $$| $$| $$  | $$| $$ | $$ | $$| $$  | $$ /      $$| $$   \$$| $$ | $$ | $$| $$| $$  | $$ 
+       | $$ \$$$| $$| $$$$$$$$| $$__| $$| $$| $$__/ $$| $$ | $$ | $$| $$__/ $$|  $$$$$$$| $$      | $$_/ $$_/ $$| $$| $$  | $$ 
+       | $$  \$ | $$ \$$     \ \$$    $$| $$ \$$    $$| $$ | $$ | $$| $$    $$ \$$    $$| $$       \$$   $$   $$| $$| $$  | $$ 
+        \$$      \$$  \$$$$$$$  \$$$$$$$ \$$  \$$$$$$  \$$  \$$  \$$ \$$$$$$$   \$$$$$$$ \$$        \$$$$$\$$$$  \$$ \$$   \$$ 
+                                                                                                                            
+       Copyright (c) 2014 2022 Ali Parsai                                                                                      
+       Copyright (c) 2025      MediumDarwin Contributors                                                                       
+                                                                                                                            
+       This project builds upon the original work of Ali Parsai and the LittleDarwin mutation testing framework.               
+       We gratefully acknowledge his foundational contributions, which made this extended version possible.                    
+                                                                                                                                
+       This program is free software: you can redistribute it and/or modify it under the terms of the GNU                      
+       General Public License as published by the Free Software Foundation, version 3  of the License, or                      
+       (at your option) any later version.                                                                                     
+                                                                                                                            
+       This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied       
+       warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the  GNU General Public License for more details.   
+                                                                                                                                
+       You should have received a copy of the GNU General Public License along with this program.                              
+       If not, see <https://www.gnu.org/licenses/>.                                                                             
+                                                                                                                                
+       Original author:                                                                                                         
+       Ali Parsai — https://www.parsai.net/                                                                                     
+        
+Source Path:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/antomology/src/main/java
+Target Path:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/antomology/LittleDarwinResults
+Creating Mutation Database:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/antomology/LittleDarwinResults/mutationdatabase
+
+(1/14) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/antomology/src/main/java/antomology/Clock.java
+--> Mutations found:  0
+
+(2/14) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/antomology/src/main/java/antomology/DefaultClock.java
+--> Mutations found:  3
+----> NullifyObjectInitialization : 1
+----> RemoveMethod : 2
+
+(3/14) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/antomology/src/main/java/antomology/Duration.java
+--> Mutations found:  5
+----> ArithmeticOperatorReplacementBinary : 1
+----> RemoveMethod : 4
+
+(4/14) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/antomology/src/main/java/antomology/ProjectTimer.java
+--> Mutations found:  12
+----> NullifyInputVariable : 2
+----> NullifyObjectInitialization : 2
+----> NullifyReturnValue : 4
+----> RemoveMethod : 4
+
+(5/14) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/antomology/src/main/java/antomology/ProjectTimerMap.java
+--> Mutations found:  12
+----> NullifyInputVariable : 5
+----> NullifyObjectInitialization : 1
+----> NullifyReturnValue : 3
+----> RemoveMethod : 3
+
+(6/14) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/antomology/src/main/java/antomology/Series.java
+--> Mutations found:  22
+----> ArithmeticOperatorReplacementBinary : 1
+----> ArithmeticOperatorReplacementShortcut : 2
+----> AssignmentOperatorReplacementShortcut : 1
+----> NullifyInputVariable : 1
+----> NullifyObjectInitialization : 2
+----> NullifyReturnValue : 2
+----> RelationalOperatorReplacement : 3
+----> RemoveMethod : 10
+
+(7/14) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/antomology/src/main/java/antomology/SeriesMap.java
+--> Mutations found:  9
+----> NullifyInputVariable : 3
+----> NullifyObjectInitialization : 1
+----> NullifyReturnValue : 2
+----> RemoveMethod : 3
+
+(8/14) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/antomology/src/main/java/antomology/StatisticsListener.java
+--> Mutations found:  36
+----> NullifyInputVariable : 14
+----> NullifyObjectInitialization : 3
+----> NullifyReturnValue : 4
+----> RemoveMethod : 15
+
+(9/14) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/antomology/src/main/java/antomology/StatisticsReport.java
+--> Mutations found:  60
+----> ArithmeticOperatorReplacementBinary : 8
+----> ArithmeticOperatorReplacementShortcut : 5
+----> AssignmentOperatorReplacementShortcut : 2
+----> ConditionalOperatorDeletion : 1
+----> NullifyInputVariable : 9
+----> NullifyObjectInitialization : 7
+----> NullifyReturnValue : 6
+----> RelationalOperatorReplacement : 6
+----> RemoveMethod : 16
+
+(10/14) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/antomology/src/main/java/antomology/StringFormatter.java
+--> Mutations found:  27
+----> ArithmeticOperatorReplacementBinary : 7
+----> ArithmeticOperatorReplacementShortcut : 1
+----> NullifyInputVariable : 3
+----> NullifyObjectInitialization : 1
+----> NullifyReturnValue : 4
+----> RelationalOperatorReplacement : 1
+----> RemoveMethod : 10
+
+(11/14) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/antomology/src/main/java/antomology/Table.java
+--> Mutations found:  25
+----> ArithmeticOperatorReplacementBinary : 1
+----> ArithmeticOperatorReplacementShortcut : 2
+----> NullifyInputVariable : 1
+----> NullifyReturnValue : 3
+----> RelationalOperatorReplacement : 5
+----> RemoveMethod : 11
+----> RemoveNullCheck : 2
+
+(12/14) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/antomology/src/main/java/antomology/TimeFormatter.java
+--> Mutations found:  5
+----> NullifyObjectInitialization : 2
+----> NullifyReturnValue : 1
+----> RemoveMethod : 2
+
+(13/14) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/antomology/src/main/java/antomology/Timer.java
+--> Mutations found:  11
+----> NullifyObjectInitialization : 2
+----> NullifyReturnValue : 2
+----> RemoveMethod : 7
+
+(14/14) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/antomology/src/main/java/antomology/TimerMap.java
+--> Mutations found:  18
+----> NullifyInputVariable : 5
+----> NullifyObjectInitialization : 3
+----> NullifyReturnValue : 4
+----> RelationalOperatorReplacement : 1
+----> RemoveMethod : 4
+----> RemoveNullCheck : 1
+
+Total mutations found:  245
+Total mutant found:  245
+--> ArithmeticOperatorReplacementBinary: 18
+--> ArithmeticOperatorReplacementShortcut: 10
+--> AssignmentOperatorReplacementShortcut: 3
+--> ConditionalOperatorDeletion: 1
+--> NullifyInputVariable: 43
+--> NullifyObjectInitialization: 25
+--> NullifyReturnValue: 35
+--> RelationalOperatorReplacement: 16
+--> RemoveMethod: 91
+--> RemoveNullCheck: 3
+Cleanup MediumDarwin...
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/antomology/src/main/java/antomology/DefaultClock.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/antomology/src/main/java/antomology/Duration.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/antomology/src/main/java/antomology/ProjectTimer.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/antomology/src/main/java/antomology/ProjectTimerMap.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/antomology/src/main/java/antomology/Series.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/antomology/src/main/java/antomology/SeriesMap.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/antomology/src/main/java/antomology/StatisticsListener.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/antomology/src/main/java/antomology/StatisticsReport.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/antomology/src/main/java/antomology/StringFormatter.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/antomology/src/main/java/antomology/Table.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/antomology/src/main/java/antomology/TimeFormatter.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/antomology/src/main/java/antomology/Timer.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/antomology/src/main/java/antomology/TimerMap.java
+elapsed: 0:00:22
+python3 ../littledarwin/LittleDarwin.py -m --all --build-command "mvn,compile" -t . -p ./src/main/java
+
+    __     _  __   __   __       ____                          _
+   / /    (_)/ /_ / /_ / /___   / __ \ ____ _ _____ _      __ (_)____
+  / /    / // __// __// // _ \ / / / // __ `// ___/| | /| / // // __ \
+ / /___ / // /_ / /_ / //  __// /_/ // /_/ // /    | |/ |/ // // / / /
+/_____//_/ \__/ \__//_/ \___//_____/ \__,_//_/     |__/|__//_//_/ /_/
+
+      _                     _                 ___
+     /_|  /|/|  _/__/'     /_|   _ /   _ ' _ (_  _ _ _  _      _ /
+    (  | /   |(//(///()/) (  |/)(/((/_) /_)  /  / (///)(-((/()/ /(
+                                  /
+
+
+    LittleDarwin version 0.10.9 Copyright (C) 2014-2022 Ali Parsai
+
+    LittleDarwin comes with ABSOLUTELY NO WARRANTY.
+    This is free software, and you are welcome to redistribute it
+    under certain conditions; run LittleDarwin --license for details.
+
+
+    
+Source Path:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/antomology/src/main/java
+Target Path:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/antomology/LittleDarwinResults
+Creating Mutation Database:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/antomology/LittleDarwinResults/mutationdatabase
+
+(1/14) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/antomology/src/main/java/antomology/Clock.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  0
+
+(2/14) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/antomology/src/main/java/antomology/DefaultClock.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  3
+----> NullifyObjectInitialization : 1
+----> RemoveMethod : 2
+
+(3/14) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/antomology/src/main/java/antomology/Duration.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  5
+----> ArithmeticOperatorReplacementBinary : 1
+----> RemoveMethod : 4
+
+(4/14) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/antomology/src/main/java/antomology/ProjectTimer.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  12
+----> NullifyInputVariable : 2
+----> NullifyObjectInitialization : 2
+----> RemoveMethod : 4
+----> NullifyReturnValue : 4
+
+(5/14) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/antomology/src/main/java/antomology/ProjectTimerMap.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  12
+----> NullifyInputVariable : 5
+----> NullifyObjectInitialization : 1
+----> RemoveMethod : 3
+----> NullifyReturnValue : 3
+
+(6/14) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/antomology/src/main/java/antomology/Series.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  22
+----> AssignmentOperatorReplacementShortcut : 1
+----> ArithmeticOperatorReplacementBinary : 1
+----> NullifyInputVariable : 1
+----> NullifyObjectInitialization : 2
+----> RemoveMethod : 11
+----> ArithmeticOperatorReplacementShortcut : 2
+----> RelationalOperatorReplacement : 3
+----> NullifyReturnValue : 1
+
+(7/14) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/antomology/src/main/java/antomology/SeriesMap.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  10
+----> NullifyInputVariable : 3
+----> NullifyObjectInitialization : 1
+----> RemoveMethod : 4
+----> NullifyReturnValue : 2
+
+(8/14) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/antomology/src/main/java/antomology/StatisticsListener.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  36
+----> NullifyInputVariable : 14
+----> NullifyObjectInitialization : 3
+----> RemoveMethod : 15
+----> NullifyReturnValue : 4
+
+(9/14) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/antomology/src/main/java/antomology/StatisticsReport.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  60
+----> ConditionalOperatorDeletion : 1
+----> AssignmentOperatorReplacementShortcut : 2
+----> ArithmeticOperatorReplacementBinary : 8
+----> NullifyInputVariable : 9
+----> NullifyObjectInitialization : 7
+----> RemoveMethod : 16
+----> ArithmeticOperatorReplacementShortcut : 5
+----> RelationalOperatorReplacement : 6
+----> NullifyReturnValue : 6
+
+(10/14) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/antomology/src/main/java/antomology/StringFormatter.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  27
+----> ArithmeticOperatorReplacementBinary : 7
+----> NullifyInputVariable : 3
+----> NullifyObjectInitialization : 1
+----> RemoveMethod : 10
+----> ArithmeticOperatorReplacementShortcut : 1
+----> RelationalOperatorReplacement : 1
+----> NullifyReturnValue : 4
+
+(11/14) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/antomology/src/main/java/antomology/Table.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  25
+----> RemoveNullCheck : 2
+----> ArithmeticOperatorReplacementBinary : 1
+----> NullifyInputVariable : 1
+----> RemoveMethod : 13
+----> ArithmeticOperatorReplacementShortcut : 2
+----> RelationalOperatorReplacement : 5
+----> NullifyReturnValue : 1
+
+(12/14) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/antomology/src/main/java/antomology/TimeFormatter.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  5
+----> NullifyObjectInitialization : 2
+----> RemoveMethod : 2
+----> NullifyReturnValue : 1
+
+(13/14) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/antomology/src/main/java/antomology/Timer.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  11
+----> NullifyObjectInitialization : 2
+----> RemoveMethod : 7
+----> NullifyReturnValue : 2
+
+(14/14) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/antomology/src/main/java/antomology/TimerMap.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  18
+----> RemoveNullCheck : 1
+----> NullifyInputVariable : 5
+----> NullifyObjectInitialization : 3
+----> RemoveMethod : 4
+----> RelationalOperatorReplacement : 1
+----> NullifyReturnValue : 4
+
+Total mutations found:  246
+--> RemoveNullCheck: 3
+--> ConditionalOperatorDeletion: 1
+--> AssignmentOperatorReplacementShortcut: 3
+--> ArithmeticOperatorReplacementBinary: 18
+--> NullifyInputVariable: 43
+--> NullifyObjectInitialization: 25
+--> RemoveMethod: 95
+--> ArithmeticOperatorReplacementShortcut: 10
+--> RelationalOperatorReplacement: 16
+--> NullifyReturnValue: 32
+
+Comparing mutation operators: antomology -> operator_comparisons/antomology/
+Extracted 246 mutants -> operator_comparisons/antomology/littledarwin.csv
+Extracted 245 mutants -> operator_comparisons/antomology/mediumdarwin.csv
+Comparison written to /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/operator_comparisons/antomology
+  Original (LD): 246
+  MediumDarwin: 245
+  Reduced: 4  Added: 3  delta: -0.41%
+  (strict diff would show removed=11, added=14 — see strict_*.csv)
+Mutant comparison for antomology:
+  === Paper Table I (refined mutation operators) ===
+  Original (LittleDarwin): 246
+  MediumDarwin: 245
+  Reduced: 4
+  Added: 3
+  delta_percent: -0.41
+  check MD = Original - Reduced + Added: 245 (should equal 245)
+  
+  in_both_strict_match: 231
+  ld_only_sites: 0
+  md_only_sites: 3
+  
+    Reduced categories:
+      reduced_remove_method_other: 4
+    Reduced by operator:
+      RemoveMethod: 4
+  
+    Added categories:
+      added_other: 3
+    Added by operator:
+      NullifyReturnValue: 3
+  
+  === Strict before/after diff (misleading for relational ops) ===
+  strict_removed: 11
+  strict_added: 14
+    (LD uses '<'->'>='; MD uses '<'->'<=' — same site, not Reduced+Added)
+  
+  # Listing 1 examples:
+  #   reduced_nullify_final_param_non_compilable -> MUT0 (final param nullify)
+  #   added_remove_method_array_return -> MUT1 (array return RemoveMethod)
+  Details: operator_comparisons/antomology/added_in_mediumdarwin.csv
+           operator_comparisons/antomology/removed_in_mediumdarwin.csv
+========== antomology finished at Tue May 19 17:54:02 JST 2026 ==========

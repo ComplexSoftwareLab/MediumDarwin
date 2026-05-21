@@ -1,0 +1,392 @@
+========== jterminal started at Tue May 19 19:21:24 JST 2026 ==========
+
+Cloning jterminal...
+Cloning into 'jterminal'...
+error: pathspec 'tags/751142d9d2cafbde0ec36a80f73bb25bf297f2f3' did not match any file(s) known to git
+
+Processing jterminal (Java 11)...
+----------------------------------------
+JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64
+Using Java 11:
+openjdk version "11.0.30" 2026-01-20
+OpenJDK Runtime Environment (build 11.0.30+7-post-Ubuntu-1ubuntu124.04)
+OpenJDK 64-Bit Server VM (build 11.0.30+7-post-Ubuntu-1ubuntu124.04, mixed mode, sharing)
+----------------------------------------
+python3 ../../MediumDarwin.py -m --all --build-command "mvn,compile" -q -t . -p ./src/main/java
+
+        __       __                  __  __                          _______                                     __
+       |  \     /  \                |  \|  \                        |       \                                   |  \
+       | $$\   /  $$  ______    ____| $$ \$$ __    __  ______ ____  | $$$$$$$\  ______    ______   __   __   __  \$$ _______
+       | $$$\ /  $$$ /      \  /      $$|  \|  \  |  \|      \    \ | $$  | $$ |      \  /      \ |  \ |  \ |  \|  \|       \
+       | $$$$\  $$$$|  $$$$$$\|  $$$$$$$| $$| $$  | $$| $$$$$$\$$$$\| $$  | $$  \$$$$$$\|  $$$$$$\| $$ | $$ | $$| $$| $$$$$$$\
+       | $$\$$ $$ $$| $$    $$| $$  | $$| $$| $$  | $$| $$ | $$ | $$| $$  | $$ /      $$| $$   \$$| $$ | $$ | $$| $$| $$  | $$
+       | $$ \$$$| $$| $$$$$$$$| $$__| $$| $$| $$__/ $$| $$ | $$ | $$| $$__/ $$|  $$$$$$$| $$      | $$_/ $$_/ $$| $$| $$  | $$
+       | $$  \$ | $$ \$$     \ \$$    $$| $$ \$$    $$| $$ | $$ | $$| $$    $$ \$$    $$| $$       \$$   $$   $$| $$| $$  | $$
+        \$$      \$$  \$$$$$$$  \$$$$$$$ \$$  \$$$$$$  \$$  \$$  \$$ \$$$$$$$   \$$$$$$$ \$$        \$$$$$\$$$$  \$$ \$$   \$$
+
+       Copyright (c) 2014 2022 Ali Parsai
+       Copyright (c) 2025      MediumDarwin Contributors
+
+       This project builds upon the original work of Ali Parsai and the LittleDarwin mutation testing framework.
+       We gratefully acknowledge his foundational contributions, which made this extended version possible.
+
+       This program is free software: you can redistribute it and/or modify it under the terms of the GNU
+       General Public License as published by the Free Software Foundation, version 3  of the License, or
+       (at your option) any later version.
+
+       This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied
+       warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the  GNU General Public License for more details.
+
+       You should have received a copy of the GNU General Public License along with this program.
+       If not, see <https://www.gnu.org/licenses/>.
+
+       Original author:
+       Ali Parsai — https://www.parsai.net/
+        
+
+        __       __                  __  __                          _______                                     __            
+       |  \     /  \                |  \|  \                        |       \                                   |  \           
+       | $$\   /  $$  ______    ____| $$ \$$ __    __  ______ ____  | $$$$$$$\  ______    ______   __   __   __  \$$ _______   
+       | $$$\ /  $$$ /      \  /      $$|  \|  \  |  \|      \    \ | $$  | $$ |      \  /      \ |  \ |  \ |  \|  \|       \  
+       | $$$$\  $$$$|  $$$$$$\|  $$$$$$$| $$| $$  | $$| $$$$$$\$$$$\| $$  | $$  \$$$$$$\|  $$$$$$\| $$ | $$ | $$| $$| $$$$$$$\ 
+       | $$\$$ $$ $$| $$    $$| $$  | $$| $$| $$  | $$| $$ | $$ | $$| $$  | $$ /      $$| $$   \$$| $$ | $$ | $$| $$| $$  | $$ 
+       | $$ \$$$| $$| $$$$$$$$| $$__| $$| $$| $$__/ $$| $$ | $$ | $$| $$__/ $$|  $$$$$$$| $$      | $$_/ $$_/ $$| $$| $$  | $$ 
+       | $$  \$ | $$ \$$     \ \$$    $$| $$ \$$    $$| $$ | $$ | $$| $$    $$ \$$    $$| $$       \$$   $$   $$| $$| $$  | $$ 
+        \$$      \$$  \$$$$$$$  \$$$$$$$ \$$  \$$$$$$  \$$  \$$  \$$ \$$$$$$$   \$$$$$$$ \$$        \$$$$$\$$$$  \$$ \$$   \$$ 
+                                                                                                                            
+       Copyright (c) 2014 2022 Ali Parsai                                                                                      
+       Copyright (c) 2025      MediumDarwin Contributors                                                                       
+                                                                                                                            
+       This project builds upon the original work of Ali Parsai and the LittleDarwin mutation testing framework.               
+       We gratefully acknowledge his foundational contributions, which made this extended version possible.                    
+                                                                                                                                
+       This program is free software: you can redistribute it and/or modify it under the terms of the GNU                      
+       General Public License as published by the Free Software Foundation, version 3  of the License, or                      
+       (at your option) any later version.                                                                                     
+                                                                                                                            
+       This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied       
+       warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the  GNU General Public License for more details.   
+                                                                                                                                
+       You should have received a copy of the GNU General Public License along with this program.                              
+       If not, see <https://www.gnu.org/licenses/>.                                                                             
+                                                                                                                                
+       Original author:                                                                                                         
+       Ali Parsai — https://www.parsai.net/                                                                                     
+        
+Source Path:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jterminal/src/main/java
+Target Path:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jterminal/LittleDarwinResults
+Creating Mutation Database:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jterminal/LittleDarwinResults/mutationdatabase
+
+(1/15) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jterminal/src/main/java/com/grahamedgecombe/jterminal/AbstractTerminalModel.java
+--> Mutations found:  27
+----> ArithmeticOperatorReplacementBinary : 6
+----> ArithmeticOperatorReplacementShortcut : 2
+----> NullifyObjectInitialization : 4
+----> RelationalOperatorReplacement : 10
+----> RemoveMethod : 5
+
+(2/15) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jterminal/src/main/java/com/grahamedgecombe/jterminal/JTerminal.java
+--> Mutations found:  56
+----> ArithmeticOperatorReplacementBinary : 9
+----> ArithmeticOperatorReplacementShortcut : 2
+----> ConditionalOperatorReplacement : 2
+----> NullifyInputVariable : 5
+----> NullifyObjectInitialization : 9
+----> NullifyReturnValue : 4
+----> RelationalOperatorReplacement : 10
+----> RemoveMethod : 10
+----> RemoveNullCheck : 5
+
+(3/15) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jterminal/src/main/java/com/grahamedgecombe/jterminal/TerminalCell.java
+--> Mutations found:  12
+----> NullifyObjectInitialization : 2
+----> NullifyReturnValue : 2
+----> RelationalOperatorReplacement : 2
+----> RemoveMethod : 4
+----> RemoveNullCheck : 2
+
+(4/15) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jterminal/src/main/java/com/grahamedgecombe/jterminal/TerminalModel.java
+--> Mutations found:  0
+
+(5/15) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jterminal/src/main/java/com/grahamedgecombe/jterminal/bell/BeepBellStrategy.java
+--> Mutations found:  1
+----> RemoveMethod : 1
+
+(6/15) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jterminal/src/main/java/com/grahamedgecombe/jterminal/bell/BellStrategy.java
+--> Mutations found:  0
+
+(7/15) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jterminal/src/main/java/com/grahamedgecombe/jterminal/bell/NopBellStrategy.java
+--> Mutations found:  1
+----> RemoveMethod : 1
+
+(8/15) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jterminal/src/main/java/com/grahamedgecombe/jterminal/bell/package-info.java
+--> Mutations found:  0
+
+(9/15) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jterminal/src/main/java/com/grahamedgecombe/jterminal/package-info.java
+--> Mutations found:  0
+
+(10/15) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jterminal/src/main/java/com/grahamedgecombe/jterminal/vt100/AnsiControlSequence.java
+--> Mutations found:  9
+----> ConditionalOperatorReplacement : 1
+----> NullifyObjectInitialization : 1
+----> NullifyReturnValue : 1
+----> RelationalOperatorReplacement : 2
+----> RemoveMethod : 3
+----> RemoveNullCheck : 1
+
+(11/15) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jterminal/src/main/java/com/grahamedgecombe/jterminal/vt100/AnsiControlSequenceListener.java
+--> Mutations found:  0
+
+(12/15) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jterminal/src/main/java/com/grahamedgecombe/jterminal/vt100/AnsiControlSequenceParser.java
+--> Mutations found:  33
+----> ArithmeticOperatorReplacementUnary : 3
+----> ConditionalOperatorDeletion : 1
+----> ConditionalOperatorReplacement : 3
+----> NullifyInputVariable : 3
+----> NullifyObjectInitialization : 7
+----> RelationalOperatorReplacement : 13
+----> RemoveMethod : 3
+
+(13/15) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jterminal/src/main/java/com/grahamedgecombe/jterminal/vt100/SgrColor.java
+--> Mutations found:  17
+----> NullifyObjectInitialization : 17
+
+(14/15) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jterminal/src/main/java/com/grahamedgecombe/jterminal/vt100/Vt100TerminalModel.java
+--> Mutations found:  138
+----> ArithmeticOperatorReplacementBinary : 7
+----> ArithmeticOperatorReplacementShortcut : 15
+----> ArithmeticOperatorReplacementUnary : 4
+----> ConditionalOperatorReplacement : 13
+----> NullifyInputVariable : 5
+----> NullifyObjectInitialization : 11
+----> NullifyReturnValue : 4
+----> RelationalOperatorReplacement : 55
+----> RemoveMethod : 22
+----> RemoveNullCheck : 2
+
+(15/15) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jterminal/src/main/java/com/grahamedgecombe/jterminal/vt100/package-info.java
+--> Mutations found:  0
+
+Total mutations found:  294
+Total mutant found:  294
+--> ArithmeticOperatorReplacementBinary: 22
+--> ArithmeticOperatorReplacementShortcut: 19
+--> ArithmeticOperatorReplacementUnary: 7
+--> ConditionalOperatorDeletion: 1
+--> ConditionalOperatorReplacement: 19
+--> NullifyInputVariable: 13
+--> NullifyObjectInitialization: 51
+--> NullifyReturnValue: 11
+--> RelationalOperatorReplacement: 92
+--> RemoveMethod: 49
+--> RemoveNullCheck: 10
+Cleanup MediumDarwin...
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jterminal/src/main/java/com/grahamedgecombe/jterminal/AbstractTerminalModel.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jterminal/src/main/java/com/grahamedgecombe/jterminal/JTerminal.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jterminal/src/main/java/com/grahamedgecombe/jterminal/TerminalCell.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jterminal/src/main/java/com/grahamedgecombe/jterminal/bell/BeepBellStrategy.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jterminal/src/main/java/com/grahamedgecombe/jterminal/bell/NopBellStrategy.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jterminal/src/main/java/com/grahamedgecombe/jterminal/vt100/AnsiControlSequence.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jterminal/src/main/java/com/grahamedgecombe/jterminal/vt100/AnsiControlSequenceParser.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jterminal/src/main/java/com/grahamedgecombe/jterminal/vt100/SgrColor.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jterminal/src/main/java/com/grahamedgecombe/jterminal/vt100/Vt100TerminalModel.java
+elapsed: 0:00:54
+python3 ../littledarwin/LittleDarwin.py -m --all --build-command "mvn,compile" -t . -p ./src/main/java
+
+    __     _  __   __   __       ____                          _
+   / /    (_)/ /_ / /_ / /___   / __ \ ____ _ _____ _      __ (_)____
+  / /    / // __// __// // _ \ / / / // __ `// ___/| | /| / // // __ \
+ / /___ / // /_ / /_ / //  __// /_/ // /_/ // /    | |/ |/ // // / / /
+/_____//_/ \__/ \__//_/ \___//_____/ \__,_//_/     |__/|__//_//_/ /_/
+
+      _                     _                 ___
+     /_|  /|/|  _/__/'     /_|   _ /   _ ' _ (_  _ _ _  _      _ /
+    (  | /   |(//(///()/) (  |/)(/((/_) /_)  /  / (///)(-((/()/ /(
+                                  /
+
+
+    LittleDarwin version 0.10.9 Copyright (C) 2014-2022 Ali Parsai
+
+    LittleDarwin comes with ABSOLUTELY NO WARRANTY.
+    This is free software, and you are welcome to redistribute it
+    under certain conditions; run LittleDarwin --license for details.
+
+
+    
+Source Path:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jterminal/src/main/java
+Target Path:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jterminal/LittleDarwinResults
+Creating Mutation Database:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jterminal/LittleDarwinResults/mutationdatabase
+
+(1/15) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jterminal/src/main/java/com/grahamedgecombe/jterminal/AbstractTerminalModel.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  27
+----> ArithmeticOperatorReplacementBinary : 6
+----> NullifyObjectInitialization : 4
+----> RemoveMethod : 5
+----> ArithmeticOperatorReplacementShortcut : 2
+----> RelationalOperatorReplacement : 10
+
+(2/15) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jterminal/src/main/java/com/grahamedgecombe/jterminal/JTerminal.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  56
+----> RemoveNullCheck : 5
+----> ConditionalOperatorReplacement : 2
+----> ArithmeticOperatorReplacementBinary : 9
+----> NullifyInputVariable : 5
+----> NullifyObjectInitialization : 9
+----> RemoveMethod : 10
+----> ArithmeticOperatorReplacementShortcut : 2
+----> RelationalOperatorReplacement : 10
+----> NullifyReturnValue : 4
+
+(3/15) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jterminal/src/main/java/com/grahamedgecombe/jterminal/package-info.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  0
+
+(4/15) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jterminal/src/main/java/com/grahamedgecombe/jterminal/TerminalCell.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  12
+----> RemoveNullCheck : 2
+----> NullifyObjectInitialization : 2
+----> RemoveMethod : 4
+----> RelationalOperatorReplacement : 2
+----> NullifyReturnValue : 2
+
+(5/15) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jterminal/src/main/java/com/grahamedgecombe/jterminal/TerminalModel.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  0
+
+(6/15) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jterminal/src/main/java/com/grahamedgecombe/jterminal/bell/BeepBellStrategy.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  1
+----> RemoveMethod : 1
+
+(7/15) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jterminal/src/main/java/com/grahamedgecombe/jterminal/bell/BellStrategy.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  0
+
+(8/15) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jterminal/src/main/java/com/grahamedgecombe/jterminal/bell/NopBellStrategy.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  1
+----> RemoveMethod : 1
+
+(9/15) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jterminal/src/main/java/com/grahamedgecombe/jterminal/bell/package-info.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  0
+
+(10/15) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jterminal/src/main/java/com/grahamedgecombe/jterminal/vt100/AnsiControlSequence.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  10
+----> RemoveNullCheck : 1
+----> ConditionalOperatorReplacement : 1
+----> NullifyObjectInitialization : 1
+----> RemoveMethod : 4
+----> RelationalOperatorReplacement : 2
+----> NullifyReturnValue : 1
+
+(11/15) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jterminal/src/main/java/com/grahamedgecombe/jterminal/vt100/AnsiControlSequenceListener.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  0
+
+(12/15) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jterminal/src/main/java/com/grahamedgecombe/jterminal/vt100/AnsiControlSequenceParser.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  33
+----> ConditionalOperatorDeletion : 1
+----> ConditionalOperatorReplacement : 3
+----> NullifyInputVariable : 3
+----> NullifyObjectInitialization : 7
+----> RemoveMethod : 3
+----> ArithmeticOperatorReplacementUnary : 3
+----> RelationalOperatorReplacement : 13
+
+(13/15) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jterminal/src/main/java/com/grahamedgecombe/jterminal/vt100/package-info.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  0
+
+(14/15) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jterminal/src/main/java/com/grahamedgecombe/jterminal/vt100/SgrColor.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  17
+----> NullifyObjectInitialization : 17
+
+(15/15) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/jterminal/src/main/java/com/grahamedgecombe/jterminal/vt100/Vt100TerminalModel.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  138
+----> RemoveNullCheck : 2
+----> ConditionalOperatorReplacement : 13
+----> ArithmeticOperatorReplacementBinary : 7
+----> NullifyInputVariable : 5
+----> NullifyObjectInitialization : 11
+----> RemoveMethod : 22
+----> ArithmeticOperatorReplacementShortcut : 15
+----> ArithmeticOperatorReplacementUnary : 4
+----> RelationalOperatorReplacement : 55
+----> NullifyReturnValue : 4
+
+Total mutations found:  295
+--> RemoveNullCheck: 10
+--> ConditionalOperatorDeletion: 1
+--> ConditionalOperatorReplacement: 19
+--> ArithmeticOperatorReplacementBinary: 22
+--> NullifyInputVariable: 13
+--> NullifyObjectInitialization: 51
+--> RemoveMethod: 50
+--> ArithmeticOperatorReplacementShortcut: 19
+--> ArithmeticOperatorReplacementUnary: 7
+--> RelationalOperatorReplacement: 92
+--> NullifyReturnValue: 11
+
+Comparing mutation operators: jterminal -> operator_comparisons/jterminal/
+Extracted 295 mutants -> operator_comparisons/jterminal/littledarwin.csv
+Extracted 294 mutants -> operator_comparisons/jterminal/mediumdarwin.csv
+Comparison written to /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/operator_comparisons/jterminal
+  Original (LD): 295
+  MediumDarwin: 294
+  Reduced: 1  Added: 0  delta: -0.34%
+  (strict diff would show removed=50, added=50 — see strict_*.csv)
+Mutant comparison for jterminal:
+  === Paper Table I (refined mutation operators) ===
+  Original (LittleDarwin): 295
+  MediumDarwin: 294
+  Reduced: 1
+  Added: 0
+  delta_percent: -0.34
+  check MD = Original - Reduced + Added: 294 (should equal 294)
+  
+  in_both_strict_match: 244
+  ld_only_sites: 0
+  md_only_sites: 0
+  
+    Reduced categories:
+      reduced_remove_method_other: 1
+    Reduced by operator:
+      RemoveMethod: 1
+  
+    Added categories: (none)
+    Added by operator: (none)
+  
+  === Strict before/after diff (misleading for relational ops) ===
+  strict_removed: 50
+  strict_added: 50
+    (LD uses '<'->'>='; MD uses '<'->'<=' — same site, not Reduced+Added)
+  
+  # Listing 1 examples:
+  #   reduced_nullify_final_param_non_compilable -> MUT0 (final param nullify)
+  #   added_remove_method_array_return -> MUT1 (array return RemoveMethod)
+  Details: operator_comparisons/jterminal/added_in_mediumdarwin.csv
+           operator_comparisons/jterminal/removed_in_mediumdarwin.csv
+========== jterminal finished at Tue May 19 19:25:38 JST 2026 ==========

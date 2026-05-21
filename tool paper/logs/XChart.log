@@ -1,0 +1,3240 @@
+========== XChart started at Tue May 19 20:50:19 JST 2026 ==========
+Directory XChart already exists, skipping clone
+
+Processing XChart (Java 11)...
+  source path: xchart/src/main/java
+  build command: mvn, -pl, xchart, -am, compile
+----------------------------------------
+JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64
+Using Java 11:
+openjdk version "11.0.30" 2026-01-20
+OpenJDK Runtime Environment (build 11.0.30+7-post-Ubuntu-1ubuntu124.04)
+OpenJDK 64-Bit Server VM (build 11.0.30+7-post-Ubuntu-1ubuntu124.04, mixed mode, sharing)
+----------------------------------------
+python3 ../../MediumDarwin.py -m --all --build-command "mvn, -pl, xchart, -am, compile" -q -t . -p xchart/src/main/java
+
+        __       __                  __  __                          _______                                     __
+       |  \     /  \                |  \|  \                        |       \                                   |  \
+       | $$\   /  $$  ______    ____| $$ \$$ __    __  ______ ____  | $$$$$$$\  ______    ______   __   __   __  \$$ _______
+       | $$$\ /  $$$ /      \  /      $$|  \|  \  |  \|      \    \ | $$  | $$ |      \  /      \ |  \ |  \ |  \|  \|       \
+       | $$$$\  $$$$|  $$$$$$\|  $$$$$$$| $$| $$  | $$| $$$$$$\$$$$\| $$  | $$  \$$$$$$\|  $$$$$$\| $$ | $$ | $$| $$| $$$$$$$\
+       | $$\$$ $$ $$| $$    $$| $$  | $$| $$| $$  | $$| $$ | $$ | $$| $$  | $$ /      $$| $$   \$$| $$ | $$ | $$| $$| $$  | $$
+       | $$ \$$$| $$| $$$$$$$$| $$__| $$| $$| $$__/ $$| $$ | $$ | $$| $$__/ $$|  $$$$$$$| $$      | $$_/ $$_/ $$| $$| $$  | $$
+       | $$  \$ | $$ \$$     \ \$$    $$| $$ \$$    $$| $$ | $$ | $$| $$    $$ \$$    $$| $$       \$$   $$   $$| $$| $$  | $$
+        \$$      \$$  \$$$$$$$  \$$$$$$$ \$$  \$$$$$$  \$$  \$$  \$$ \$$$$$$$   \$$$$$$$ \$$        \$$$$$\$$$$  \$$ \$$   \$$
+
+       Copyright (c) 2014 2022 Ali Parsai
+       Copyright (c) 2025      MediumDarwin Contributors
+
+       This project builds upon the original work of Ali Parsai and the LittleDarwin mutation testing framework.
+       We gratefully acknowledge his foundational contributions, which made this extended version possible.
+
+       This program is free software: you can redistribute it and/or modify it under the terms of the GNU
+       General Public License as published by the Free Software Foundation, version 3  of the License, or
+       (at your option) any later version.
+
+       This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied
+       warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the  GNU General Public License for more details.
+
+       You should have received a copy of the GNU General Public License along with this program.
+       If not, see <https://www.gnu.org/licenses/>.
+
+       Original author:
+       Ali Parsai — https://www.parsai.net/
+        
+
+        __       __                  __  __                          _______                                     __            
+       |  \     /  \                |  \|  \                        |       \                                   |  \           
+       | $$\   /  $$  ______    ____| $$ \$$ __    __  ______ ____  | $$$$$$$\  ______    ______   __   __   __  \$$ _______   
+       | $$$\ /  $$$ /      \  /      $$|  \|  \  |  \|      \    \ | $$  | $$ |      \  /      \ |  \ |  \ |  \|  \|       \  
+       | $$$$\  $$$$|  $$$$$$\|  $$$$$$$| $$| $$  | $$| $$$$$$\$$$$\| $$  | $$  \$$$$$$\|  $$$$$$\| $$ | $$ | $$| $$| $$$$$$$\ 
+       | $$\$$ $$ $$| $$    $$| $$  | $$| $$| $$  | $$| $$ | $$ | $$| $$  | $$ /      $$| $$   \$$| $$ | $$ | $$| $$| $$  | $$ 
+       | $$ \$$$| $$| $$$$$$$$| $$__| $$| $$| $$__/ $$| $$ | $$ | $$| $$__/ $$|  $$$$$$$| $$      | $$_/ $$_/ $$| $$| $$  | $$ 
+       | $$  \$ | $$ \$$     \ \$$    $$| $$ \$$    $$| $$ | $$ | $$| $$    $$ \$$    $$| $$       \$$   $$   $$| $$| $$  | $$ 
+        \$$      \$$  \$$$$$$$  \$$$$$$$ \$$  \$$$$$$  \$$  \$$  \$$ \$$$$$$$   \$$$$$$$ \$$        \$$$$$\$$$$  \$$ \$$   \$$ 
+                                                                                                                            
+       Copyright (c) 2014 2022 Ali Parsai                                                                                      
+       Copyright (c) 2025      MediumDarwin Contributors                                                                       
+                                                                                                                            
+       This project builds upon the original work of Ali Parsai and the LittleDarwin mutation testing framework.               
+       We gratefully acknowledge his foundational contributions, which made this extended version possible.                    
+                                                                                                                                
+       This program is free software: you can redistribute it and/or modify it under the terms of the GNU                      
+       General Public License as published by the Free Software Foundation, version 3  of the License, or                      
+       (at your option) any later version.                                                                                     
+                                                                                                                            
+       This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied       
+       warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the  GNU General Public License for more details.   
+                                                                                                                                
+       You should have received a copy of the GNU General Public License along with this program.                              
+       If not, see <https://www.gnu.org/licenses/>.                                                                             
+                                                                                                                                
+       Original author:                                                                                                         
+       Ali Parsai — https://www.parsai.net/                                                                                     
+        
+Source Path:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java
+Target Path:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/LittleDarwinResults
+Creating Mutation Database:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/LittleDarwinResults/mutationdatabase
+
+(1/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/AnnotationImage.java
+--> Mutations found:  21
+----> ArithmeticOperatorReplacementBinary : 11
+----> ConditionalOperatorDeletion : 1
+----> NullifyInputVariable : 3
+----> NullifyObjectInitialization : 1
+----> RemoveMethod : 5
+
+(2/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/AnnotationLine.java
+--> Mutations found:  16
+----> ArithmeticOperatorReplacementBinary : 11
+----> ConditionalOperatorDeletion : 1
+----> NullifyInputVariable : 1
+----> NullifyObjectInitialization : 1
+----> RemoveMethod : 2
+
+(3/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/AnnotationText.java
+--> Mutations found:  19
+----> ArithmeticOperatorReplacementBinary : 9
+----> ConditionalOperatorDeletion : 1
+----> NullifyInputVariable : 2
+----> NullifyObjectInitialization : 3
+----> RemoveMethod : 4
+
+(4/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/AnnotationTextPanel.java
+--> Mutations found:  41
+----> ArithmeticOperatorReplacementBinary : 18
+----> AssignmentOperatorReplacementShortcut : 4
+----> ConditionalOperatorDeletion : 1
+----> NullifyInputVariable : 4
+----> NullifyObjectInitialization : 7
+----> NullifyReturnValue : 1
+----> RemoveMethod : 6
+
+(5/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/BitmapEncoder.java
+--> Mutations found:  87
+----> ArithmeticOperatorReplacementBinary : 14
+----> ArithmeticOperatorReplacementShortcut : 2
+----> ConditionalOperatorDeletion : 2
+----> ConditionalOperatorReplacement : 2
+----> NullifyInputVariable : 30
+----> NullifyObjectInitialization : 18
+----> NullifyReturnValue : 4
+----> RelationalOperatorReplacement : 3
+----> RemoveMethod : 12
+
+(6/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/BoxChart.java
+--> Mutations found:  54
+----> NullifyInputVariable : 11
+----> NullifyObjectInitialization : 12
+----> NullifyReturnValue : 6
+----> RelationalOperatorReplacement : 8
+----> RemoveMethod : 10
+----> RemoveNullCheck : 7
+
+(7/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/BoxChartBuilder.java
+--> Mutations found:  9
+----> NullifyInputVariable : 2
+----> NullifyObjectInitialization : 1
+----> NullifyReturnValue : 3
+----> RemoveMethod : 3
+
+(8/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/BoxSeries.java
+--> Mutations found:  2
+----> NullifyReturnValue : 1
+----> RemoveMethod : 1
+
+(9/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/BubbleChart.java
+--> Mutations found:  64
+----> ConditionalOperatorReplacement : 1
+----> NullifyInputVariable : 11
+----> NullifyObjectInitialization : 16
+----> NullifyReturnValue : 4
+----> RelationalOperatorReplacement : 15
+----> RemoveMethod : 7
+----> RemoveNullCheck : 10
+
+(10/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/BubbleChartBuilder.java
+--> Mutations found:  9
+----> NullifyInputVariable : 2
+----> NullifyObjectInitialization : 1
+----> NullifyReturnValue : 3
+----> RemoveMethod : 3
+
+(11/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/BubbleSeries.java
+--> Mutations found:  8
+----> NullifyInputVariable : 1
+----> NullifyReturnValue : 3
+----> RemoveMethod : 4
+
+(12/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/CSVExporter.java
+--> Mutations found:  46
+----> ArithmeticOperatorReplacementBinary : 6
+----> ArithmeticOperatorReplacementShortcut : 2
+----> NullifyInputVariable : 9
+----> NullifyObjectInitialization : 10
+----> NullifyReturnValue : 1
+----> RelationalOperatorReplacement : 7
+----> RemoveMethod : 6
+----> RemoveNullCheck : 5
+
+(13/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/CSVImporter.java
+--> Mutations found:  71
+----> ArithmeticOperatorReplacementShortcut : 1
+----> AssignmentOperatorReplacementShortcut : 3
+----> ConditionalOperatorReplacement : 1
+----> NullifyInputVariable : 13
+----> NullifyObjectInitialization : 12
+----> NullifyReturnValue : 12
+----> RelationalOperatorReplacement : 10
+----> RemoveMethod : 12
+----> RemoveNullCheck : 7
+
+(14/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/CategoryChart.java
+--> Mutations found:  89
+----> ArithmeticOperatorReplacementShortcut : 1
+----> ConditionalOperatorReplacement : 2
+----> NullifyInputVariable : 21
+----> NullifyObjectInitialization : 15
+----> NullifyReturnValue : 9
+----> RelationalOperatorReplacement : 17
+----> RemoveMethod : 12
+----> RemoveNullCheck : 12
+
+(15/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/CategoryChartBuilder.java
+--> Mutations found:  9
+----> NullifyInputVariable : 2
+----> NullifyObjectInitialization : 1
+----> NullifyReturnValue : 3
+----> RemoveMethod : 3
+
+(16/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/CategorySeries.java
+--> Mutations found:  13
+----> NullifyInputVariable : 1
+----> NullifyReturnValue : 5
+----> RemoveMethod : 7
+
+(17/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/DialChart.java
+--> Mutations found:  19
+----> ConditionalOperatorReplacement : 1
+----> NullifyInputVariable : 4
+----> NullifyObjectInitialization : 6
+----> NullifyReturnValue : 2
+----> RelationalOperatorReplacement : 2
+----> RemoveMethod : 4
+
+(18/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/DialChartBuilder.java
+--> Mutations found:  3
+----> NullifyObjectInitialization : 1
+----> NullifyReturnValue : 1
+----> RemoveMethod : 1
+
+(19/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/DialSeries.java
+--> Mutations found:  8
+----> NullifyReturnValue : 2
+----> RemoveMethod : 6
+
+(20/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/GifEncoder.java
+--> Mutations found:  7
+----> NullifyInputVariable : 4
+----> NullifyObjectInitialization : 1
+----> RemoveMethod : 2
+
+(21/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/HeatMapChart.java
+--> Mutations found:  83
+----> ArithmeticOperatorReplacementShortcut : 2
+----> ConditionalOperatorReplacement : 3
+----> NullifyInputVariable : 13
+----> NullifyObjectInitialization : 18
+----> NullifyReturnValue : 7
+----> RelationalOperatorReplacement : 20
+----> RemoveMethod : 10
+----> RemoveNullCheck : 10
+
+(22/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/HeatMapChartBuilder.java
+--> Mutations found:  9
+----> NullifyInputVariable : 2
+----> NullifyObjectInitialization : 1
+----> NullifyReturnValue : 3
+----> RemoveMethod : 3
+
+(23/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/HeatMapSeries.java
+--> Mutations found:  41
+----> ConditionalOperatorDeletion : 2
+----> ConditionalOperatorReplacement : 2
+----> NullifyInputVariable : 6
+----> NullifyObjectInitialization : 1
+----> NullifyReturnValue : 7
+----> RelationalOperatorReplacement : 4
+----> RemoveMethod : 17
+----> RemoveNullCheck : 2
+
+(24/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/Histogram.java
+--> Mutations found:  48
+----> ArithmeticOperatorReplacementBinary : 11
+----> ArithmeticOperatorReplacementShortcut : 1
+----> ArithmeticOperatorReplacementUnary : 1
+----> AssignmentOperatorReplacementShortcut : 2
+----> ConditionalOperatorReplacement : 1
+----> NullifyInputVariable : 1
+----> NullifyObjectInitialization : 7
+----> NullifyReturnValue : 3
+----> RelationalOperatorReplacement : 9
+----> RemoveMethod : 11
+----> RemoveNullCheck : 1
+
+(25/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/OHLCChart.java
+--> Mutations found:  189
+----> ArithmeticOperatorReplacementBinary : 4
+----> ConditionalOperatorReplacement : 2
+----> NullifyInputVariable : 63
+----> NullifyObjectInitialization : 20
+----> NullifyReturnValue : 32
+----> RelationalOperatorReplacement : 21
+----> RemoveMethod : 30
+----> RemoveNullCheck : 17
+
+(26/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/OHLCChartBuilder.java
+--> Mutations found:  9
+----> NullifyInputVariable : 2
+----> NullifyObjectInitialization : 1
+----> NullifyReturnValue : 3
+----> RemoveMethod : 3
+
+(27/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/OHLCSeries.java
+--> Mutations found:  60
+----> ArithmeticOperatorReplacementShortcut : 1
+----> ArithmeticOperatorReplacementUnary : 1
+----> ConditionalOperatorDeletion : 2
+----> ConditionalOperatorReplacement : 4
+----> NullifyInputVariable : 3
+----> NullifyObjectInitialization : 2
+----> NullifyReturnValue : 16
+----> RelationalOperatorReplacement : 8
+----> RemoveMethod : 20
+----> RemoveNullCheck : 3
+
+(28/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/PdfboxGraphicsEncoder.java
+--> Mutations found:  39
+----> ArithmeticOperatorReplacementBinary : 2
+----> ConditionalOperatorDeletion : 1
+----> ConditionalOperatorReplacement : 1
+----> NullifyInputVariable : 13
+----> NullifyObjectInitialization : 12
+----> NullifyReturnValue : 1
+----> RelationalOperatorReplacement : 1
+----> RemoveMethod : 8
+
+(29/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/PieChart.java
+--> Mutations found:  23
+----> NullifyInputVariable : 4
+----> NullifyObjectInitialization : 7
+----> NullifyReturnValue : 2
+----> RelationalOperatorReplacement : 3
+----> RemoveMethod : 4
+----> RemoveNullCheck : 3
+
+(30/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/PieChartBuilder.java
+--> Mutations found:  3
+----> NullifyObjectInitialization : 1
+----> NullifyReturnValue : 1
+----> RemoveMethod : 1
+
+(31/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/PieSeries.java
+--> Mutations found:  13
+----> NullifyInputVariable : 3
+----> NullifyReturnValue : 4
+----> RemoveMethod : 6
+
+(32/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/QuickChart.java
+--> Mutations found:  29
+----> ArithmeticOperatorReplacementShortcut : 1
+----> NullifyInputVariable : 14
+----> NullifyObjectInitialization : 2
+----> NullifyReturnValue : 4
+----> RelationalOperatorReplacement : 3
+----> RemoveMethod : 3
+----> RemoveNullCheck : 2
+
+(33/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/RadarChart.java
+--> Mutations found:  49
+----> ConditionalOperatorReplacement : 2
+----> NullifyInputVariable : 6
+----> NullifyObjectInitialization : 11
+----> NullifyReturnValue : 3
+----> RelationalOperatorReplacement : 12
+----> RemoveMethod : 7
+----> RemoveNullCheck : 8
+
+(34/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/RadarChartBuilder.java
+--> Mutations found:  3
+----> NullifyObjectInitialization : 1
+----> NullifyReturnValue : 1
+----> RemoveMethod : 1
+
+(35/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/RadarSeries.java
+--> Mutations found:  36
+----> NullifyInputVariable : 5
+----> NullifyObjectInitialization : 1
+----> NullifyReturnValue : 12
+----> RelationalOperatorReplacement : 1
+----> RemoveMethod : 17
+
+(36/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/SwingWrapper.java
+--> Mutations found:  30
+----> ArithmeticOperatorReplacementBinary : 3
+----> NullifyInputVariable : 1
+----> NullifyObjectInitialization : 8
+----> NullifyReturnValue : 6
+----> RelationalOperatorReplacement : 1
+----> RemoveMethod : 10
+----> RemoveNullCheck : 1
+
+(37/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/VectorGraphicsEncoder.java
+--> Mutations found:  33
+----> ArithmeticOperatorReplacementBinary : 2
+----> ConditionalOperatorDeletion : 1
+----> ConditionalOperatorReplacement : 1
+----> NullifyInputVariable : 12
+----> NullifyObjectInitialization : 7
+----> NullifyReturnValue : 2
+----> RelationalOperatorReplacement : 2
+----> RemoveMethod : 6
+
+(38/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/XChartPanel.java
+--> Mutations found:  122
+----> ArithmeticOperatorReplacementBinary : 3
+----> ConditionalOperatorReplacement : 3
+----> NullifyInputVariable : 33
+----> NullifyObjectInitialization : 25
+----> NullifyReturnValue : 4
+----> RelationalOperatorReplacement : 7
+----> RemoveMethod : 44
+----> RemoveNullCheck : 3
+
+(39/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/XYChart.java
+--> Mutations found:  113
+----> ConditionalOperatorReplacement : 3
+----> NullifyInputVariable : 27
+----> NullifyObjectInitialization : 15
+----> NullifyReturnValue : 19
+----> RelationalOperatorReplacement : 17
+----> RemoveMethod : 19
+----> RemoveNullCheck : 13
+
+(40/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/XYChartBuilder.java
+--> Mutations found:  9
+----> NullifyInputVariable : 2
+----> NullifyObjectInitialization : 1
+----> NullifyReturnValue : 3
+----> RemoveMethod : 3
+
+(41/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/XYSeries.java
+--> Mutations found:  12
+----> NullifyInputVariable : 1
+----> NullifyReturnValue : 4
+----> RemoveMethod : 7
+
+(42/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/internal/ChartBuilder.java
+--> Mutations found:  10
+----> NullifyInputVariable : 2
+----> NullifyReturnValue : 4
+----> RemoveMethod : 4
+
+(43/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/internal/Utils.java
+--> Mutations found:  98
+----> ArithmeticOperatorReplacementBinary : 8
+----> ArithmeticOperatorReplacementShortcut : 11
+----> ArithmeticOperatorReplacementUnary : 1
+----> ConditionalOperatorDeletion : 1
+----> ConditionalOperatorReplacement : 1
+----> NullifyInputVariable : 5
+----> NullifyObjectInitialization : 3
+----> NullifyReturnValue : 21
+----> RelationalOperatorReplacement : 19
+----> RemoveMethod : 17
+----> RemoveNullCheck : 11
+
+(44/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/internal/chartpart/Annotation.java
+--> Mutations found:  17
+----> NullifyInputVariable : 1
+----> NullifyReturnValue : 1
+----> RemoveMethod : 15
+
+(45/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/internal/chartpart/Axis.java
+--> Mutations found:  226
+----> ArithmeticOperatorReplacementBinary : 58
+----> ArithmeticOperatorReplacementShortcut : 3
+----> ArithmeticOperatorReplacementUnary : 2
+----> ConditionalOperatorDeletion : 7
+----> ConditionalOperatorReplacement : 16
+----> NullifyInputVariable : 2
+----> NullifyObjectInitialization : 32
+----> NullifyReturnValue : 22
+----> RelationalOperatorReplacement : 42
+----> RemoveMethod : 34
+----> RemoveNullCheck : 8
+
+(46/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/internal/chartpart/AxisPair.java
+--> Mutations found:  164
+----> ArithmeticOperatorReplacementBinary : 23
+----> ArithmeticOperatorReplacementShortcut : 10
+----> ArithmeticOperatorReplacementUnary : 2
+----> AssignmentOperatorReplacementShortcut : 17
+----> ConditionalOperatorDeletion : 8
+----> ConditionalOperatorReplacement : 9
+----> NullifyInputVariable : 2
+----> NullifyObjectInitialization : 12
+----> NullifyReturnValue : 8
+----> RelationalOperatorReplacement : 48
+----> RemoveMethod : 13
+----> RemoveNullCheck : 12
+
+(47/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/internal/chartpart/AxisTick.java
+--> Mutations found:  19
+----> ArithmeticOperatorReplacementBinary : 4
+----> ConditionalOperatorReplacement : 2
+----> NullifyInputVariable : 1
+----> NullifyObjectInitialization : 5
+----> NullifyReturnValue : 2
+----> RelationalOperatorReplacement : 2
+----> RemoveMethod : 3
+
+(48/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/internal/chartpart/AxisTickCalculator.java
+--> Mutations found:  0
+
+(49/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/internal/chartpart/AxisTickCalculator_.java
+--> Mutations found:  136
+----> ArithmeticOperatorReplacementBinary : 51
+----> ArithmeticOperatorReplacementShortcut : 3
+----> ArithmeticOperatorReplacementUnary : 2
+----> AssignmentOperatorReplacementShortcut : 3
+----> ConditionalOperatorDeletion : 4
+----> ConditionalOperatorReplacement : 9
+----> NullifyInputVariable : 2
+----> NullifyObjectInitialization : 9
+----> NullifyReturnValue : 3
+----> RelationalOperatorReplacement : 32
+----> RemoveMethod : 15
+----> RemoveNullCheck : 3
+
+(50/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/internal/chartpart/AxisTickCalculator_Callback.java
+--> Mutations found:  2
+----> NullifyObjectInitialization : 2
+
+(51/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/internal/chartpart/AxisTickCalculator_Category.java
+--> Mutations found:  36
+----> ArithmeticOperatorReplacementBinary : 11
+----> ArithmeticOperatorReplacementShortcut : 1
+----> AssignmentOperatorReplacementShortcut : 1
+----> ConditionalOperatorReplacement : 1
+----> NullifyInputVariable : 2
+----> NullifyObjectInitialization : 7
+----> RelationalOperatorReplacement : 11
+----> RemoveMethod : 1
+----> RemoveNullCheck : 1
+
+(52/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/internal/chartpart/AxisTickCalculator_Date.java
+--> Mutations found:  116
+----> ArithmeticOperatorReplacementBinary : 30
+----> ArithmeticOperatorReplacementShortcut : 4
+----> ConditionalOperatorDeletion : 2
+----> ConditionalOperatorReplacement : 4
+----> NullifyObjectInitialization : 49
+----> NullifyReturnValue : 2
+----> RelationalOperatorReplacement : 14
+----> RemoveMethod : 9
+----> RemoveNullCheck : 2
+
+(53/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/internal/chartpart/AxisTickCalculator_Logarithmic.java
+--> Mutations found:  30
+----> ArithmeticOperatorReplacementBinary : 12
+----> ArithmeticOperatorReplacementShortcut : 2
+----> ConditionalOperatorDeletion : 1
+----> ConditionalOperatorReplacement : 2
+----> NullifyObjectInitialization : 2
+----> RelationalOperatorReplacement : 10
+----> RemoveMethod : 1
+
+(54/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/internal/chartpart/AxisTickCalculator_Number.java
+--> Mutations found:  3
+----> NullifyObjectInitialization : 3
+
+(55/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/internal/chartpart/AxisTickLabels.java
+--> Mutations found:  88
+----> ArithmeticOperatorReplacementBinary : 36
+----> ArithmeticOperatorReplacementShortcut : 3
+----> ArithmeticOperatorReplacementUnary : 4
+----> ConditionalOperatorReplacement : 9
+----> NullifyInputVariable : 1
+----> NullifyObjectInitialization : 9
+----> NullifyReturnValue : 1
+----> RelationalOperatorReplacement : 20
+----> RemoveMethod : 2
+----> RemoveNullCheck : 3
+
+(56/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/internal/chartpart/AxisTickMarks.java
+--> Mutations found:  44
+----> ArithmeticOperatorReplacementBinary : 19
+----> ArithmeticOperatorReplacementShortcut : 2
+----> ConditionalOperatorReplacement : 4
+----> NullifyInputVariable : 1
+----> NullifyObjectInitialization : 6
+----> NullifyReturnValue : 1
+----> RelationalOperatorReplacement : 9
+----> RemoveMethod : 2
+
+(57/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/internal/chartpart/AxisTitle.java
+--> Mutations found:  50
+----> ArithmeticOperatorReplacementBinary : 20
+----> ArithmeticOperatorReplacementUnary : 1
+----> ConditionalOperatorDeletion : 2
+----> ConditionalOperatorReplacement : 4
+----> NullifyInputVariable : 1
+----> NullifyObjectInitialization : 9
+----> NullifyReturnValue : 1
+----> RelationalOperatorReplacement : 6
+----> RemoveMethod : 2
+----> RemoveNullCheck : 4
+
+(58/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/internal/chartpart/BoxPlotData.java
+--> Mutations found:  0
+
+(59/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/internal/chartpart/BoxPlotDataCalculator.java
+--> Mutations found:  73
+----> ArithmeticOperatorReplacementBinary : 48
+----> ConditionalOperatorDeletion : 1
+----> NullifyInputVariable : 6
+----> NullifyObjectInitialization : 3
+----> NullifyReturnValue : 2
+----> RelationalOperatorReplacement : 8
+----> RemoveMethod : 4
+----> RemoveNullCheck : 1
+
+(60/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/internal/chartpart/Chart.java
+--> Mutations found:  100
+----> ArithmeticOperatorReplacementBinary : 1
+----> NullifyInputVariable : 10
+----> NullifyObjectInitialization : 6
+----> NullifyReturnValue : 18
+----> RelationalOperatorReplacement : 8
+----> RemoveMethod : 49
+----> RemoveNullCheck : 8
+
+(61/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/internal/chartpart/ChartButton.java
+--> Mutations found:  68
+----> ArithmeticOperatorReplacementBinary : 38
+----> AssignmentOperatorReplacementShortcut : 1
+----> ConditionalOperatorDeletion : 2
+----> NullifyInputVariable : 6
+----> NullifyObjectInitialization : 5
+----> NullifyReturnValue : 1
+----> RelationalOperatorReplacement : 4
+----> RemoveMethod : 9
+----> RemoveNullCheck : 2
+
+(62/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/internal/chartpart/ChartPart.java
+--> Mutations found:  1
+----> NullifyObjectInitialization : 1
+
+(63/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/internal/chartpart/ChartTitle.java
+--> Mutations found:  41
+----> ArithmeticOperatorReplacementBinary : 18
+----> ConditionalOperatorDeletion : 1
+----> ConditionalOperatorReplacement : 2
+----> NullifyInputVariable : 1
+----> NullifyObjectInitialization : 9
+----> NullifyReturnValue : 3
+----> RelationalOperatorReplacement : 3
+----> RemoveMethod : 3
+----> RemoveNullCheck : 1
+
+(64/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/internal/chartpart/ChartZoom.java
+--> Mutations found:  67
+----> ArithmeticOperatorReplacementBinary : 3
+----> ArithmeticOperatorReplacementUnary : 13
+----> ConditionalOperatorDeletion : 4
+----> ConditionalOperatorReplacement : 7
+----> NullifyInputVariable : 6
+----> NullifyObjectInitialization : 1
+----> NullifyReturnValue : 1
+----> RelationalOperatorReplacement : 12
+----> RemoveMethod : 19
+----> RemoveNullCheck : 1
+
+(65/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/internal/chartpart/Cursor.java
+--> Mutations found:  95
+----> ArithmeticOperatorReplacementBinary : 38
+----> ArithmeticOperatorReplacementUnary : 2
+----> ConditionalOperatorDeletion : 1
+----> ConditionalOperatorReplacement : 2
+----> NullifyInputVariable : 11
+----> NullifyObjectInitialization : 19
+----> NullifyReturnValue : 1
+----> RelationalOperatorReplacement : 10
+----> RemoveMethod : 10
+----> RemoveNullCheck : 1
+
+(66/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/internal/chartpart/Formatter_Custom.java
+--> Mutations found:  9
+----> NullifyInputVariable : 5
+----> NullifyReturnValue : 2
+----> RemoveMethod : 2
+
+(67/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/internal/chartpart/Formatter_LogNumber.java
+--> Mutations found:  27
+----> ConditionalOperatorReplacement : 4
+----> NullifyInputVariable : 5
+----> NullifyReturnValue : 2
+----> RelationalOperatorReplacement : 9
+----> RemoveMethod : 2
+----> RemoveNullCheck : 5
+
+(68/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/internal/chartpart/Formatter_Number.java
+--> Mutations found:  59
+----> ArithmeticOperatorReplacementBinary : 6
+----> ArithmeticOperatorReplacementShortcut : 1
+----> ArithmeticOperatorReplacementUnary : 2
+----> ConditionalOperatorReplacement : 7
+----> NullifyInputVariable : 5
+----> NullifyObjectInitialization : 1
+----> NullifyReturnValue : 6
+----> RelationalOperatorReplacement : 20
+----> RemoveMethod : 6
+----> RemoveNullCheck : 5
+
+(69/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/internal/chartpart/Formatter_String.java
+--> Mutations found:  9
+----> NullifyInputVariable : 5
+----> NullifyReturnValue : 2
+----> RemoveMethod : 2
+
+(70/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/internal/chartpart/Legend_.java
+--> Mutations found:  120
+----> ArithmeticOperatorReplacementBinary : 65
+----> AssignmentOperatorReplacementShortcut : 9
+----> ConditionalOperatorDeletion : 8
+----> NullifyInputVariable : 6
+----> NullifyObjectInitialization : 10
+----> NullifyReturnValue : 7
+----> RelationalOperatorReplacement : 5
+----> RemoveMethod : 10
+
+(71/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/internal/chartpart/Legend_Bubble.java
+--> Mutations found:  19
+----> ArithmeticOperatorReplacementBinary : 6
+----> AssignmentOperatorReplacementShortcut : 2
+----> ConditionalOperatorDeletion : 2
+----> NullifyInputVariable : 2
+----> NullifyObjectInitialization : 1
+----> RelationalOperatorReplacement : 3
+----> RemoveMethod : 3
+
+(72/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/internal/chartpart/Legend_HeatMap.java
+--> Mutations found:  202
+----> ArithmeticOperatorReplacementBinary : 121
+----> ArithmeticOperatorReplacementShortcut : 3
+----> AssignmentOperatorReplacementShortcut : 6
+----> ConditionalOperatorDeletion : 1
+----> NullifyInputVariable : 9
+----> NullifyObjectInitialization : 29
+----> NullifyReturnValue : 1
+----> RelationalOperatorReplacement : 22
+----> RemoveMethod : 8
+----> RemoveNullCheck : 2
+
+(73/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/internal/chartpart/Legend_Marker.java
+--> Mutations found:  64
+----> ArithmeticOperatorReplacementBinary : 31
+----> AssignmentOperatorReplacementShortcut : 2
+----> ConditionalOperatorDeletion : 2
+----> ConditionalOperatorReplacement : 5
+----> NullifyInputVariable : 2
+----> NullifyObjectInitialization : 4
+----> RelationalOperatorReplacement : 14
+----> RemoveMethod : 3
+----> RemoveNullCheck : 1
+
+(74/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/internal/chartpart/Legend_OHLC.java
+--> Mutations found:  46
+----> ArithmeticOperatorReplacementBinary : 19
+----> AssignmentOperatorReplacementShortcut : 2
+----> ConditionalOperatorDeletion : 2
+----> ConditionalOperatorReplacement : 4
+----> NullifyInputVariable : 2
+----> NullifyObjectInitialization : 2
+----> RelationalOperatorReplacement : 10
+----> RemoveMethod : 3
+----> RemoveNullCheck : 2
+
+(75/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/internal/chartpart/Legend_Pie.java
+--> Mutations found:  18
+----> ArithmeticOperatorReplacementBinary : 6
+----> AssignmentOperatorReplacementShortcut : 2
+----> ConditionalOperatorDeletion : 2
+----> NullifyInputVariable : 2
+----> NullifyObjectInitialization : 1
+----> RelationalOperatorReplacement : 2
+----> RemoveMethod : 3
+
+(76/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/internal/chartpart/PlotContent_.java
+--> Mutations found:  27
+----> ArithmeticOperatorReplacementBinary : 2
+----> ConditionalOperatorReplacement : 3
+----> NullifyInputVariable : 6
+----> NullifyObjectInitialization : 1
+----> NullifyReturnValue : 1
+----> RelationalOperatorReplacement : 5
+----> RemoveMethod : 5
+----> RemoveNullCheck : 4
+
+(77/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/internal/chartpart/PlotContent_Box.java
+--> Mutations found:  116
+----> ArithmeticOperatorReplacementBinary : 84
+----> ArithmeticOperatorReplacementShortcut : 1
+----> ArithmeticOperatorReplacementUnary : 1
+----> ConditionalOperatorDeletion : 1
+----> ConditionalOperatorReplacement : 1
+----> NullifyInputVariable : 4
+----> NullifyObjectInitialization : 19
+----> RelationalOperatorReplacement : 3
+----> RemoveMethod : 2
+
+(78/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/internal/chartpart/PlotContent_Bubble.java
+--> Mutations found:  35
+----> ArithmeticOperatorReplacementBinary : 25
+----> ArithmeticOperatorReplacementShortcut : 1
+----> ConditionalOperatorDeletion : 1
+----> NullifyInputVariable : 1
+----> NullifyObjectInitialization : 1
+----> RelationalOperatorReplacement : 4
+----> RemoveMethod : 1
+----> RemoveNullCheck : 1
+
+(79/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/internal/chartpart/PlotContent_Category_Bar.java
+--> Mutations found:  275
+----> ArithmeticOperatorReplacementBinary : 118
+----> ArithmeticOperatorReplacementShortcut : 6
+----> ArithmeticOperatorReplacementUnary : 11
+----> AssignmentOperatorReplacementShortcut : 13
+----> ConditionalOperatorDeletion : 6
+----> ConditionalOperatorReplacement : 21
+----> NullifyInputVariable : 14
+----> NullifyObjectInitialization : 21
+----> RelationalOperatorReplacement : 49
+----> RemoveMethod : 5
+----> RemoveNullCheck : 11
+
+(80/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/internal/chartpart/PlotContent_Dial.java
+--> Mutations found:  196
+----> ArithmeticOperatorReplacementBinary : 132
+----> ArithmeticOperatorReplacementShortcut : 2
+----> ArithmeticOperatorReplacementUnary : 5
+----> AssignmentOperatorReplacementShortcut : 12
+----> ConditionalOperatorDeletion : 3
+----> ConditionalOperatorReplacement : 3
+----> NullifyInputVariable : 1
+----> NullifyObjectInitialization : 14
+----> NullifyReturnValue : 1
+----> RelationalOperatorReplacement : 17
+----> RemoveMethod : 2
+----> RemoveNullCheck : 4
+
+(81/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/internal/chartpart/PlotContent_HeatMap.java
+--> Mutations found:  102
+----> ArithmeticOperatorReplacementBinary : 62
+----> ArithmeticOperatorReplacementShortcut : 1
+----> ConditionalOperatorDeletion : 1
+----> ConditionalOperatorReplacement : 1
+----> NullifyInputVariable : 7
+----> NullifyObjectInitialization : 7
+----> NullifyReturnValue : 3
+----> RelationalOperatorReplacement : 13
+----> RemoveMethod : 5
+----> RemoveNullCheck : 2
+
+(82/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/internal/chartpart/PlotContent_OHLC.java
+--> Mutations found:  135
+----> ArithmeticOperatorReplacementBinary : 80
+----> ArithmeticOperatorReplacementShortcut : 2
+----> ArithmeticOperatorReplacementUnary : 11
+----> ConditionalOperatorDeletion : 1
+----> ConditionalOperatorReplacement : 5
+----> NullifyInputVariable : 3
+----> NullifyObjectInitialization : 7
+----> RelationalOperatorReplacement : 21
+----> RemoveMethod : 2
+----> RemoveNullCheck : 3
+
+(83/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/internal/chartpart/PlotContent_Pie.java
+--> Mutations found:  230
+----> ArithmeticOperatorReplacementBinary : 143
+----> ArithmeticOperatorReplacementUnary : 2
+----> AssignmentOperatorReplacementShortcut : 6
+----> ConditionalOperatorDeletion : 4
+----> ConditionalOperatorReplacement : 6
+----> NullifyInputVariable : 8
+----> NullifyObjectInitialization : 19
+----> NullifyReturnValue : 1
+----> RelationalOperatorReplacement : 26
+----> RemoveMethod : 5
+----> RemoveNullCheck : 10
+
+(84/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/internal/chartpart/PlotContent_Radar.java
+--> Mutations found:  117
+----> ArithmeticOperatorReplacementBinary : 74
+----> ArithmeticOperatorReplacementShortcut : 6
+----> AssignmentOperatorReplacementShortcut : 4
+----> ConditionalOperatorDeletion : 1
+----> ConditionalOperatorReplacement : 1
+----> NullifyInputVariable : 1
+----> NullifyObjectInitialization : 8
+----> RelationalOperatorReplacement : 17
+----> RemoveMethod : 1
+----> RemoveNullCheck : 4
+
+(85/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/internal/chartpart/PlotContent_XY.java
+--> Mutations found:  138
+----> ArithmeticOperatorReplacementBinary : 58
+----> ArithmeticOperatorReplacementShortcut : 1
+----> ArithmeticOperatorReplacementUnary : 11
+----> ConditionalOperatorDeletion : 1
+----> ConditionalOperatorReplacement : 10
+----> NullifyInputVariable : 4
+----> NullifyObjectInitialization : 6
+----> RelationalOperatorReplacement : 35
+----> RemoveMethod : 3
+----> RemoveNullCheck : 9
+
+(86/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/internal/chartpart/PlotSurface_.java
+--> Mutations found:  2
+----> NullifyReturnValue : 1
+----> RemoveMethod : 1
+
+(87/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/internal/chartpart/PlotSurface_AxesChart.java
+--> Mutations found:  43
+----> ArithmeticOperatorReplacementBinary : 21
+----> ConditionalOperatorReplacement : 5
+----> NullifyInputVariable : 1
+----> NullifyObjectInitialization : 7
+----> RelationalOperatorReplacement : 8
+----> RemoveMethod : 1
+
+(88/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/internal/chartpart/PlotSurface_Pie.java
+--> Mutations found:  3
+----> NullifyInputVariable : 1
+----> NullifyObjectInitialization : 1
+----> RemoveMethod : 1
+
+(89/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/internal/chartpart/Plot_.java
+--> Mutations found:  4
+----> NullifyInputVariable : 1
+----> NullifyReturnValue : 1
+----> RemoveMethod : 2
+
+(90/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/internal/chartpart/Plot_AxesChart.java
+--> Mutations found:  4
+----> NullifyInputVariable : 1
+----> NullifyObjectInitialization : 2
+----> RemoveMethod : 1
+
+(91/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/internal/chartpart/Plot_Box.java
+--> Mutations found:  1
+----> NullifyObjectInitialization : 1
+
+(92/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/internal/chartpart/Plot_Bubble.java
+--> Mutations found:  1
+----> NullifyObjectInitialization : 1
+
+(93/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/internal/chartpart/Plot_Category.java
+--> Mutations found:  1
+----> NullifyObjectInitialization : 1
+
+(94/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/internal/chartpart/Plot_Circular.java
+--> Mutations found:  16
+----> ArithmeticOperatorReplacementBinary : 9
+----> ConditionalOperatorReplacement : 1
+----> NullifyInputVariable : 1
+----> NullifyObjectInitialization : 1
+----> RelationalOperatorReplacement : 3
+----> RemoveMethod : 1
+
+(95/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/internal/chartpart/Plot_Dial.java
+--> Mutations found:  4
+----> NullifyInputVariable : 1
+----> NullifyObjectInitialization : 2
+----> RemoveMethod : 1
+
+(96/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/internal/chartpart/Plot_HeatMap.java
+--> Mutations found:  1
+----> NullifyObjectInitialization : 1
+
+(97/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/internal/chartpart/Plot_OHLC.java
+--> Mutations found:  1
+----> NullifyObjectInitialization : 1
+
+(98/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/internal/chartpart/Plot_Pie.java
+--> Mutations found:  4
+----> NullifyInputVariable : 1
+----> NullifyObjectInitialization : 2
+----> RemoveMethod : 1
+
+(99/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/internal/chartpart/Plot_Radar.java
+--> Mutations found:  4
+----> NullifyInputVariable : 1
+----> NullifyObjectInitialization : 2
+----> RemoveMethod : 1
+
+(100/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/internal/chartpart/Plot_XY.java
+--> Mutations found:  1
+----> NullifyObjectInitialization : 1
+
+(101/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/internal/chartpart/RenderableSeries.java
+--> Mutations found:  0
+
+(102/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/internal/chartpart/ToolTips.java
+--> Mutations found:  122
+----> ArithmeticOperatorReplacementBinary : 47
+----> AssignmentOperatorReplacementShortcut : 1
+----> ConditionalOperatorReplacement : 3
+----> NullifyInputVariable : 16
+----> NullifyObjectInitialization : 13
+----> NullifyReturnValue : 7
+----> RelationalOperatorReplacement : 11
+----> RemoveMethod : 19
+----> RemoveNullCheck : 5
+
+(103/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/internal/package-info.java
+--> Mutations found:  0
+
+(104/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/internal/series/AxesChartSeries.java
+--> Mutations found:  29
+----> ArithmeticOperatorReplacementUnary : 1
+----> NullifyInputVariable : 2
+----> NullifyObjectInitialization : 1
+----> NullifyReturnValue : 7
+----> RelationalOperatorReplacement : 1
+----> RemoveMethod : 17
+
+(105/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/internal/series/AxesChartSeriesCategory.java
+--> Mutations found:  46
+----> ArithmeticOperatorReplacementBinary : 4
+----> ArithmeticOperatorReplacementUnary : 2
+----> ConditionalOperatorReplacement : 1
+----> NullifyInputVariable : 8
+----> NullifyObjectInitialization : 2
+----> NullifyReturnValue : 6
+----> RelationalOperatorReplacement : 12
+----> RemoveMethod : 8
+----> RemoveNullCheck : 3
+
+(106/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/internal/series/AxesChartSeriesNumericalNoErrorBars.java
+--> Mutations found:  55
+----> ArithmeticOperatorReplacementBinary : 4
+----> ArithmeticOperatorReplacementShortcut : 5
+----> ArithmeticOperatorReplacementUnary : 2
+----> ConditionalOperatorDeletion : 1
+----> ConditionalOperatorReplacement : 2
+----> NullifyObjectInitialization : 2
+----> NullifyReturnValue : 5
+----> RelationalOperatorReplacement : 17
+----> RemoveMethod : 13
+----> RemoveNullCheck : 4
+
+(107/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/internal/series/MarkerSeries.java
+--> Mutations found:  10
+----> NullifyInputVariable : 2
+----> NullifyReturnValue : 4
+----> RemoveMethod : 4
+
+(108/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/internal/series/NoMarkersSeries.java
+--> Mutations found:  1
+----> RemoveMethod : 1
+
+(109/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/internal/series/Series.java
+--> Mutations found:  37
+----> ConditionalOperatorReplacement : 1
+----> NullifyInputVariable : 3
+----> NullifyObjectInitialization : 1
+----> NullifyReturnValue : 10
+----> RelationalOperatorReplacement : 2
+----> RemoveMethod : 19
+----> RemoveNullCheck : 1
+
+(110/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/internal/style/SeriesColorMarkerLineStyle.java
+--> Mutations found:  6
+----> NullifyReturnValue : 3
+----> RemoveMethod : 3
+
+(111/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/internal/style/SeriesColorMarkerLineStyleCycler.java
+--> Mutations found:  9
+----> ArithmeticOperatorReplacementShortcut : 3
+----> NullifyObjectInitialization : 1
+----> NullifyReturnValue : 1
+----> RelationalOperatorReplacement : 3
+----> RemoveMethod : 1
+
+(112/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/style/AxesChartStyler.java
+--> Mutations found:  282
+----> ConditionalOperatorReplacement : 1
+----> NullifyInputVariable : 35
+----> NullifyObjectInitialization : 6
+----> NullifyReturnValue : 90
+----> RelationalOperatorReplacement : 7
+----> RemoveMethod : 137
+----> RemoveNullCheck : 6
+
+(113/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/style/BoxStyler.java
+--> Mutations found:  7
+----> NullifyInputVariable : 2
+----> NullifyReturnValue : 2
+----> RemoveMethod : 3
+
+(114/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/style/BubbleStyler.java
+--> Mutations found:  8
+----> NullifyInputVariable : 2
+----> NullifyReturnValue : 2
+----> RemoveMethod : 4
+
+(115/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/style/CategoryStyler.java
+--> Mutations found:  67
+----> ConditionalOperatorReplacement : 1
+----> NullifyInputVariable : 7
+----> NullifyObjectInitialization : 1
+----> NullifyReturnValue : 19
+----> RelationalOperatorReplacement : 2
+----> RemoveMethod : 37
+
+(116/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/style/DialStyler.java
+--> Mutations found:  122
+----> ConditionalOperatorReplacement : 1
+----> NullifyInputVariable : 10
+----> NullifyReturnValue : 38
+----> RemoveMethod : 73
+
+(117/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/style/HeatMapStyler.java
+--> Mutations found:  84
+----> ConditionalOperatorDeletion : 2
+----> ConditionalOperatorReplacement : 2
+----> NullifyInputVariable : 7
+----> NullifyObjectInitialization : 7
+----> NullifyReturnValue : 20
+----> RelationalOperatorReplacement : 4
+----> RemoveMethod : 41
+----> RemoveNullCheck : 1
+
+(118/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/style/OHLCStyler.java
+--> Mutations found:  8
+----> NullifyInputVariable : 2
+----> NullifyReturnValue : 2
+----> RemoveMethod : 4
+
+(119/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/style/PieStyler.java
+--> Mutations found:  91
+----> NullifyInputVariable : 11
+----> NullifyReturnValue : 30
+----> RemoveMethod : 50
+
+(120/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/style/RadarStyler.java
+--> Mutations found:  57
+----> ConditionalOperatorReplacement : 1
+----> NullifyInputVariable : 5
+----> NullifyReturnValue : 17
+----> RemoveMethod : 34
+
+(121/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/style/Styler.java
+--> Mutations found:  285
+----> ConditionalOperatorReplacement : 1
+----> NullifyInputVariable : 40
+----> NullifyObjectInitialization : 7
+----> NullifyReturnValue : 100
+----> RelationalOperatorReplacement : 3
+----> RemoveMethod : 133
+----> RemoveNullCheck : 1
+
+(122/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/style/XYStyler.java
+--> Mutations found:  63
+----> NullifyInputVariable : 9
+----> NullifyReturnValue : 21
+----> RemoveMethod : 33
+
+(123/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/style/colors/BaseSeriesColors.java
+--> Mutations found:  14
+----> NullifyObjectInitialization : 12
+----> NullifyReturnValue : 1
+----> RemoveMethod : 1
+
+(124/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/style/colors/ChartColor.java
+--> Mutations found:  13
+----> NullifyObjectInitialization : 9
+----> NullifyReturnValue : 2
+----> RemoveMethod : 2
+
+(125/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/style/colors/ColorBlindFriendlySeriesColors.java
+--> Mutations found:  10
+----> NullifyObjectInitialization : 8
+----> NullifyReturnValue : 1
+----> RemoveMethod : 1
+
+(126/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/style/colors/FontColorDetector.java
+--> Mutations found:  11
+----> ArithmeticOperatorReplacementBinary : 5
+----> NullifyInputVariable : 3
+----> NullifyReturnValue : 1
+----> RelationalOperatorReplacement : 1
+----> RemoveMethod : 1
+
+(127/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/style/colors/GGPlot2SeriesColors.java
+--> Mutations found:  7
+----> NullifyObjectInitialization : 5
+----> NullifyReturnValue : 1
+----> RemoveMethod : 1
+
+(128/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/style/colors/MatlabSeriesColors.java
+--> Mutations found:  9
+----> NullifyObjectInitialization : 7
+----> NullifyReturnValue : 1
+----> RemoveMethod : 1
+
+(129/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/style/colors/PrinterFriendlySeriesColors.java
+--> Mutations found:  7
+----> NullifyObjectInitialization : 5
+----> NullifyReturnValue : 1
+----> RemoveMethod : 1
+
+(130/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/style/colors/SeriesColors.java
+--> Mutations found:  0
+
+(131/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/style/colors/XChartSeriesColors.java
+--> Mutations found:  14
+----> NullifyObjectInitialization : 12
+----> NullifyReturnValue : 1
+----> RemoveMethod : 1
+
+(132/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/style/lines/BaseSeriesLines.java
+--> Mutations found:  2
+----> NullifyReturnValue : 1
+----> RemoveMethod : 1
+
+(133/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/style/lines/GGPlot2SeriesLines.java
+--> Mutations found:  2
+----> NullifyReturnValue : 1
+----> RemoveMethod : 1
+
+(134/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/style/lines/MatlabSeriesLines.java
+--> Mutations found:  2
+----> NullifyReturnValue : 1
+----> RemoveMethod : 1
+
+(135/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/style/lines/NoneStroke.java
+--> Mutations found:  0
+
+(136/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/style/lines/SeriesLines.java
+--> Mutations found:  5
+----> NullifyObjectInitialization : 5
+
+(137/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/style/lines/XChartSeriesLines.java
+--> Mutations found:  2
+----> NullifyReturnValue : 1
+----> RemoveMethod : 1
+
+(138/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/style/markers/BaseSeriesMarkers.java
+--> Mutations found:  2
+----> NullifyReturnValue : 1
+----> RemoveMethod : 1
+
+(139/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/style/markers/Circle.java
+--> Mutations found:  6
+----> ArithmeticOperatorReplacementBinary : 3
+----> NullifyInputVariable : 1
+----> NullifyObjectInitialization : 1
+----> RemoveMethod : 1
+
+(140/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/style/markers/Cross.java
+--> Mutations found:  12
+----> ArithmeticOperatorReplacementBinary : 9
+----> NullifyInputVariable : 1
+----> NullifyObjectInitialization : 1
+----> RemoveMethod : 1
+
+(141/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/style/markers/Diamond.java
+--> Mutations found:  9
+----> ArithmeticOperatorReplacementBinary : 6
+----> NullifyInputVariable : 1
+----> NullifyObjectInitialization : 1
+----> RemoveMethod : 1
+
+(142/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/style/markers/GGPlot2SeriesMarkers.java
+--> Mutations found:  2
+----> NullifyReturnValue : 1
+----> RemoveMethod : 1
+
+(143/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/style/markers/Marker.java
+--> Mutations found:  1
+----> NullifyObjectInitialization : 1
+
+(144/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/style/markers/MatlabSeriesMarkers.java
+--> Mutations found:  2
+----> NullifyReturnValue : 1
+----> RemoveMethod : 1
+
+(145/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/style/markers/None.java
+--> Mutations found:  2
+----> NullifyInputVariable : 1
+----> RemoveMethod : 1
+
+(146/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/style/markers/Oval.java
+--> Mutations found:  8
+----> ArithmeticOperatorReplacementBinary : 5
+----> NullifyInputVariable : 1
+----> NullifyObjectInitialization : 1
+----> RemoveMethod : 1
+
+(147/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/style/markers/Plus.java
+--> Mutations found:  8
+----> ArithmeticOperatorReplacementBinary : 5
+----> NullifyInputVariable : 1
+----> NullifyObjectInitialization : 1
+----> RemoveMethod : 1
+
+(148/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/style/markers/Rectangle.java
+--> Mutations found:  7
+----> ArithmeticOperatorReplacementBinary : 4
+----> NullifyInputVariable : 1
+----> NullifyObjectInitialization : 1
+----> RemoveMethod : 1
+
+(149/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/style/markers/SeriesMarkers.java
+--> Mutations found:  11
+----> NullifyObjectInitialization : 11
+
+(150/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/style/markers/Square.java
+--> Mutations found:  6
+----> ArithmeticOperatorReplacementBinary : 3
+----> NullifyInputVariable : 1
+----> NullifyObjectInitialization : 1
+----> RemoveMethod : 1
+
+(151/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/style/markers/Trapezoid.java
+--> Mutations found:  20
+----> ArithmeticOperatorReplacementBinary : 15
+----> ArithmeticOperatorReplacementShortcut : 1
+----> NullifyInputVariable : 1
+----> NullifyObjectInitialization : 1
+----> RelationalOperatorReplacement : 1
+----> RemoveMethod : 1
+
+(152/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/style/markers/TriangleDown.java
+--> Mutations found:  14
+----> ArithmeticOperatorReplacementBinary : 11
+----> NullifyInputVariable : 1
+----> NullifyObjectInitialization : 1
+----> RemoveMethod : 1
+
+(153/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/style/markers/TriangleUp.java
+--> Mutations found:  15
+----> ArithmeticOperatorReplacementBinary : 12
+----> NullifyInputVariable : 1
+----> NullifyObjectInitialization : 1
+----> RemoveMethod : 1
+
+(154/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/style/markers/XChartSeriesMarkers.java
+--> Mutations found:  2
+----> NullifyReturnValue : 1
+----> RemoveMethod : 1
+
+(155/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/style/theme/AbstractBaseTheme.java
+--> Mutations found:  137
+----> NullifyObjectInitialization : 5
+----> NullifyReturnValue : 30
+----> RemoveMethod : 102
+
+(156/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/style/theme/GGPlot2Theme.java
+--> Mutations found:  61
+----> NullifyObjectInitialization : 5
+----> NullifyReturnValue : 21
+----> RemoveMethod : 35
+
+(157/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/style/theme/MatlabTheme.java
+--> Mutations found:  44
+----> NullifyObjectInitialization : 6
+----> NullifyReturnValue : 14
+----> RemoveMethod : 24
+
+(158/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/style/theme/Theme.java
+--> Mutations found:  56
+----> NullifyObjectInitialization : 4
+----> NullifyReturnValue : 20
+----> RemoveMethod : 32
+
+(159/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/style/theme/XChartTheme.java
+--> Mutations found:  19
+----> NullifyObjectInitialization : 3
+----> NullifyReturnValue : 6
+----> RemoveMethod : 10
+
+Total mutations found:  6997
+Total mutant found:  6997
+--> ArithmeticOperatorReplacementBinary: 1707
+--> ArithmeticOperatorReplacementShortcut: 83
+--> ArithmeticOperatorReplacementUnary: 77
+--> AssignmentOperatorReplacementShortcut: 90
+--> ConditionalOperatorDeletion: 85
+--> ConditionalOperatorReplacement: 192
+--> NullifyInputVariable: 667
+--> NullifyObjectInitialization: 762
+--> NullifyReturnValue: 809
+--> RelationalOperatorReplacement: 779
+--> RemoveMethod: 1500
+--> RemoveNullCheck: 246
+Cleanup MediumDarwin...
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/AnnotationImage.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/AnnotationLine.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/AnnotationText.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/AnnotationTextPanel.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/BitmapEncoder.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/BoxChart.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/BoxChartBuilder.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/BoxSeries.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/BubbleChart.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/BubbleChartBuilder.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/BubbleSeries.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/CSVExporter.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/CSVImporter.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/CategoryChart.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/CategoryChartBuilder.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/CategorySeries.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/DialChart.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/DialChartBuilder.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/DialSeries.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/GifEncoder.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/HeatMapChart.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/HeatMapChartBuilder.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/HeatMapSeries.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/Histogram.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/OHLCChart.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/OHLCChartBuilder.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/OHLCSeries.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/PdfboxGraphicsEncoder.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/PieChart.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/PieChartBuilder.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/PieSeries.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/QuickChart.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/RadarChart.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/RadarChartBuilder.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/RadarSeries.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/SwingWrapper.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/VectorGraphicsEncoder.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/XChartPanel.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/XYChart.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/XYChartBuilder.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/XYSeries.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/internal/ChartBuilder.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/internal/Utils.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/internal/chartpart/Annotation.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/internal/chartpart/Axis.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/internal/chartpart/AxisPair.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/internal/chartpart/AxisTick.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/internal/chartpart/AxisTickCalculator_.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/internal/chartpart/AxisTickCalculator_Callback.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/internal/chartpart/AxisTickCalculator_Category.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/internal/chartpart/AxisTickCalculator_Date.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/internal/chartpart/AxisTickCalculator_Logarithmic.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/internal/chartpart/AxisTickCalculator_Number.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/internal/chartpart/AxisTickLabels.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/internal/chartpart/AxisTickMarks.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/internal/chartpart/AxisTitle.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/internal/chartpart/BoxPlotDataCalculator.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/internal/chartpart/Chart.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/internal/chartpart/ChartButton.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/internal/chartpart/ChartPart.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/internal/chartpart/ChartTitle.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/internal/chartpart/ChartZoom.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/internal/chartpart/Cursor.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/internal/chartpart/Formatter_Custom.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/internal/chartpart/Formatter_LogNumber.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/internal/chartpart/Formatter_Number.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/internal/chartpart/Formatter_String.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/internal/chartpart/Legend_.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/internal/chartpart/Legend_Bubble.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/internal/chartpart/Legend_HeatMap.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/internal/chartpart/Legend_Marker.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/internal/chartpart/Legend_OHLC.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/internal/chartpart/Legend_Pie.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/internal/chartpart/PlotContent_.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/internal/chartpart/PlotContent_Box.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/internal/chartpart/PlotContent_Bubble.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/internal/chartpart/PlotContent_Category_Bar.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/internal/chartpart/PlotContent_Dial.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/internal/chartpart/PlotContent_HeatMap.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/internal/chartpart/PlotContent_OHLC.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/internal/chartpart/PlotContent_Pie.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/internal/chartpart/PlotContent_Radar.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/internal/chartpart/PlotContent_XY.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/internal/chartpart/PlotSurface_.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/internal/chartpart/PlotSurface_AxesChart.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/internal/chartpart/PlotSurface_Pie.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/internal/chartpart/Plot_.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/internal/chartpart/Plot_AxesChart.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/internal/chartpart/Plot_Box.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/internal/chartpart/Plot_Bubble.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/internal/chartpart/Plot_Category.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/internal/chartpart/Plot_Circular.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/internal/chartpart/Plot_Dial.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/internal/chartpart/Plot_HeatMap.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/internal/chartpart/Plot_OHLC.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/internal/chartpart/Plot_Pie.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/internal/chartpart/Plot_Radar.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/internal/chartpart/Plot_XY.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/internal/chartpart/ToolTips.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/internal/series/AxesChartSeries.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/internal/series/AxesChartSeriesCategory.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/internal/series/AxesChartSeriesNumericalNoErrorBars.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/internal/series/MarkerSeries.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/internal/series/NoMarkersSeries.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/internal/series/Series.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/internal/style/SeriesColorMarkerLineStyle.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/internal/style/SeriesColorMarkerLineStyleCycler.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/style/AxesChartStyler.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/style/BoxStyler.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/style/BubbleStyler.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/style/CategoryStyler.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/style/DialStyler.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/style/HeatMapStyler.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/style/OHLCStyler.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/style/PieStyler.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/style/RadarStyler.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/style/Styler.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/style/XYStyler.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/style/colors/BaseSeriesColors.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/style/colors/ChartColor.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/style/colors/ColorBlindFriendlySeriesColors.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/style/colors/FontColorDetector.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/style/colors/GGPlot2SeriesColors.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/style/colors/MatlabSeriesColors.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/style/colors/PrinterFriendlySeriesColors.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/style/colors/XChartSeriesColors.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/style/lines/BaseSeriesLines.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/style/lines/GGPlot2SeriesLines.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/style/lines/MatlabSeriesLines.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/style/lines/SeriesLines.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/style/lines/XChartSeriesLines.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/style/markers/BaseSeriesMarkers.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/style/markers/Circle.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/style/markers/Cross.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/style/markers/Diamond.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/style/markers/GGPlot2SeriesMarkers.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/style/markers/Marker.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/style/markers/MatlabSeriesMarkers.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/style/markers/None.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/style/markers/Oval.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/style/markers/Plus.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/style/markers/Rectangle.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/style/markers/SeriesMarkers.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/style/markers/Square.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/style/markers/Trapezoid.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/style/markers/TriangleDown.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/style/markers/TriangleUp.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/style/markers/XChartSeriesMarkers.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/style/theme/AbstractBaseTheme.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/style/theme/GGPlot2Theme.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/style/theme/MatlabTheme.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/style/theme/Theme.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/style/theme/XChartTheme.java
+elapsed: 0:10:17
+python3 ../littledarwin/LittleDarwin.py -m --all --build-command "mvn, -pl, xchart, -am, compile" -t . -p xchart/src/main/java
+
+    __     _  __   __   __       ____                          _
+   / /    (_)/ /_ / /_ / /___   / __ \ ____ _ _____ _      __ (_)____
+  / /    / // __// __// // _ \ / / / // __ `// ___/| | /| / // // __ \
+ / /___ / // /_ / /_ / //  __// /_/ // /_/ // /    | |/ |/ // // / / /
+/_____//_/ \__/ \__//_/ \___//_____/ \__,_//_/     |__/|__//_//_/ /_/
+
+      _                     _                 ___
+     /_|  /|/|  _/__/'     /_|   _ /   _ ' _ (_  _ _ _  _      _ /
+    (  | /   |(//(///()/) (  |/)(/((/_) /_)  /  / (///)(-((/()/ /(
+                                  /
+
+
+    LittleDarwin version 0.10.9 Copyright (C) 2014-2022 Ali Parsai
+
+    LittleDarwin comes with ABSOLUTELY NO WARRANTY.
+    This is free software, and you are welcome to redistribute it
+    under certain conditions; run LittleDarwin --license for details.
+
+
+    
+Source Path:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java
+Target Path:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/LittleDarwinResults
+Creating Mutation Database:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/LittleDarwinResults/mutationdatabase
+
+(1/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/AnnotationImage.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  21
+----> ConditionalOperatorDeletion : 1
+----> ArithmeticOperatorReplacementBinary : 11
+----> NullifyInputVariable : 3
+----> NullifyObjectInitialization : 1
+----> RemoveMethod : 5
+
+(2/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/AnnotationLine.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  16
+----> ConditionalOperatorDeletion : 1
+----> ArithmeticOperatorReplacementBinary : 11
+----> NullifyInputVariable : 1
+----> NullifyObjectInitialization : 1
+----> RemoveMethod : 2
+
+(3/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/AnnotationText.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  19
+----> ConditionalOperatorDeletion : 1
+----> ArithmeticOperatorReplacementBinary : 9
+----> NullifyInputVariable : 2
+----> NullifyObjectInitialization : 3
+----> RemoveMethod : 4
+
+(4/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/AnnotationTextPanel.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  41
+----> ConditionalOperatorDeletion : 1
+----> AssignmentOperatorReplacementShortcut : 4
+----> ArithmeticOperatorReplacementBinary : 18
+----> NullifyInputVariable : 4
+----> NullifyObjectInitialization : 7
+----> RemoveMethod : 6
+----> NullifyReturnValue : 1
+
+(5/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/BitmapEncoder.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  87
+----> ConditionalOperatorDeletion : 2
+----> ConditionalOperatorReplacement : 2
+----> ArithmeticOperatorReplacementBinary : 14
+----> NullifyInputVariable : 30
+----> NullifyObjectInitialization : 18
+----> RemoveMethod : 13
+----> ArithmeticOperatorReplacementShortcut : 2
+----> RelationalOperatorReplacement : 3
+----> NullifyReturnValue : 3
+
+(6/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/BoxChart.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  55
+----> NullifyInputVariable : 12
+----> NullifyObjectInitialization : 12
+----> RemoveMethod : 10
+----> RelationalOperatorReplacement : 8
+----> NullifyReturnValue : 6
+----> RemoveNullCheck : 7
+
+(7/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/BoxChartBuilder.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  9
+----> NullifyInputVariable : 2
+----> NullifyObjectInitialization : 1
+----> RemoveMethod : 3
+----> NullifyReturnValue : 3
+
+(8/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/BoxSeries.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  2
+----> RemoveMethod : 1
+----> NullifyReturnValue : 1
+
+(9/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/BubbleChart.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  65
+----> ConditionalOperatorReplacement : 1
+----> NullifyInputVariable : 12
+----> NullifyObjectInitialization : 16
+----> RemoveMethod : 7
+----> RelationalOperatorReplacement : 15
+----> NullifyReturnValue : 4
+----> RemoveNullCheck : 10
+
+(10/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/BubbleChartBuilder.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  9
+----> NullifyInputVariable : 2
+----> NullifyObjectInitialization : 1
+----> RemoveMethod : 3
+----> NullifyReturnValue : 3
+
+(11/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/BubbleSeries.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  8
+----> NullifyInputVariable : 1
+----> RemoveMethod : 4
+----> NullifyReturnValue : 3
+
+(12/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/CategoryChart.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  90
+----> ConditionalOperatorReplacement : 2
+----> NullifyInputVariable : 22
+----> NullifyObjectInitialization : 15
+----> RemoveMethod : 12
+----> ArithmeticOperatorReplacementShortcut : 1
+----> RelationalOperatorReplacement : 17
+----> NullifyReturnValue : 9
+----> RemoveNullCheck : 12
+
+(13/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/CategoryChartBuilder.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  9
+----> NullifyInputVariable : 2
+----> NullifyObjectInitialization : 1
+----> RemoveMethod : 3
+----> NullifyReturnValue : 3
+
+(14/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/CategorySeries.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  13
+----> NullifyInputVariable : 1
+----> RemoveMethod : 7
+----> NullifyReturnValue : 5
+
+(15/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/CSVExporter.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  46
+----> ArithmeticOperatorReplacementBinary : 6
+----> NullifyInputVariable : 9
+----> NullifyObjectInitialization : 10
+----> RemoveMethod : 6
+----> ArithmeticOperatorReplacementShortcut : 2
+----> RelationalOperatorReplacement : 7
+----> NullifyReturnValue : 1
+----> RemoveNullCheck : 5
+
+(16/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/CSVImporter.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  73
+----> AssignmentOperatorReplacementShortcut : 3
+----> ConditionalOperatorReplacement : 1
+----> NullifyInputVariable : 13
+----> NullifyObjectInitialization : 12
+----> RemoveMethod : 14
+----> ArithmeticOperatorReplacementShortcut : 1
+----> RelationalOperatorReplacement : 10
+----> NullifyReturnValue : 12
+----> RemoveNullCheck : 7
+
+(17/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/DialChart.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  20
+----> ConditionalOperatorReplacement : 1
+----> NullifyInputVariable : 5
+----> NullifyObjectInitialization : 6
+----> RemoveMethod : 4
+----> RelationalOperatorReplacement : 2
+----> NullifyReturnValue : 2
+
+(18/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/DialChartBuilder.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  3
+----> NullifyObjectInitialization : 1
+----> RemoveMethod : 1
+----> NullifyReturnValue : 1
+
+(19/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/DialSeries.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  8
+----> RemoveMethod : 6
+----> NullifyReturnValue : 2
+
+(20/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/GifEncoder.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  7
+----> NullifyInputVariable : 4
+----> NullifyObjectInitialization : 1
+----> RemoveMethod : 2
+
+(21/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/HeatMapChart.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  84
+----> ConditionalOperatorReplacement : 3
+----> NullifyInputVariable : 14
+----> NullifyObjectInitialization : 18
+----> RemoveMethod : 10
+----> ArithmeticOperatorReplacementShortcut : 2
+----> RelationalOperatorReplacement : 20
+----> NullifyReturnValue : 7
+----> RemoveNullCheck : 10
+
+(22/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/HeatMapChartBuilder.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  9
+----> NullifyInputVariable : 2
+----> NullifyObjectInitialization : 1
+----> RemoveMethod : 3
+----> NullifyReturnValue : 3
+
+(23/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/HeatMapSeries.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  41
+----> ConditionalOperatorDeletion : 2
+----> ConditionalOperatorReplacement : 2
+----> NullifyInputVariable : 6
+----> NullifyObjectInitialization : 1
+----> RemoveMethod : 17
+----> RelationalOperatorReplacement : 4
+----> NullifyReturnValue : 7
+----> RemoveNullCheck : 2
+
+(24/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/Histogram.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  48
+----> AssignmentOperatorReplacementShortcut : 2
+----> ConditionalOperatorReplacement : 1
+----> ArithmeticOperatorReplacementBinary : 11
+----> NullifyInputVariable : 1
+----> NullifyObjectInitialization : 7
+----> RemoveMethod : 11
+----> ArithmeticOperatorReplacementShortcut : 1
+----> ArithmeticOperatorReplacementUnary : 1
+----> RelationalOperatorReplacement : 9
+----> NullifyReturnValue : 3
+----> RemoveNullCheck : 1
+
+(25/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/OHLCChart.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  190
+----> ConditionalOperatorReplacement : 2
+----> ArithmeticOperatorReplacementBinary : 4
+----> NullifyInputVariable : 64
+----> NullifyObjectInitialization : 20
+----> RemoveMethod : 30
+----> RelationalOperatorReplacement : 21
+----> NullifyReturnValue : 32
+----> RemoveNullCheck : 17
+
+(26/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/OHLCChartBuilder.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  9
+----> NullifyInputVariable : 2
+----> NullifyObjectInitialization : 1
+----> RemoveMethod : 3
+----> NullifyReturnValue : 3
+
+(27/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/OHLCSeries.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  60
+----> ConditionalOperatorDeletion : 2
+----> ConditionalOperatorReplacement : 4
+----> NullifyInputVariable : 3
+----> NullifyObjectInitialization : 2
+----> RemoveMethod : 28
+----> ArithmeticOperatorReplacementShortcut : 1
+----> ArithmeticOperatorReplacementUnary : 1
+----> RelationalOperatorReplacement : 8
+----> NullifyReturnValue : 8
+----> RemoveNullCheck : 3
+
+(28/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/PdfboxGraphicsEncoder.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  39
+----> ConditionalOperatorDeletion : 1
+----> ConditionalOperatorReplacement : 1
+----> ArithmeticOperatorReplacementBinary : 2
+----> NullifyInputVariable : 13
+----> NullifyObjectInitialization : 12
+----> RemoveMethod : 8
+----> RelationalOperatorReplacement : 1
+----> NullifyReturnValue : 1
+
+(29/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/PieChart.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  24
+----> NullifyInputVariable : 5
+----> NullifyObjectInitialization : 7
+----> RemoveMethod : 4
+----> RelationalOperatorReplacement : 3
+----> NullifyReturnValue : 2
+----> RemoveNullCheck : 3
+
+(30/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/PieChartBuilder.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  3
+----> NullifyObjectInitialization : 1
+----> RemoveMethod : 1
+----> NullifyReturnValue : 1
+
+(31/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/PieSeries.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  13
+----> NullifyInputVariable : 3
+----> RemoveMethod : 6
+----> NullifyReturnValue : 4
+
+(32/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/QuickChart.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  29
+----> NullifyInputVariable : 14
+----> NullifyObjectInitialization : 2
+----> RemoveMethod : 3
+----> ArithmeticOperatorReplacementShortcut : 1
+----> RelationalOperatorReplacement : 3
+----> NullifyReturnValue : 4
+----> RemoveNullCheck : 2
+
+(33/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/RadarChart.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  51
+----> ConditionalOperatorReplacement : 2
+----> NullifyInputVariable : 7
+----> NullifyObjectInitialization : 11
+----> RemoveMethod : 8
+----> RelationalOperatorReplacement : 12
+----> NullifyReturnValue : 3
+----> RemoveNullCheck : 8
+
+(34/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/RadarChartBuilder.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  3
+----> NullifyObjectInitialization : 1
+----> RemoveMethod : 1
+----> NullifyReturnValue : 1
+
+(35/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/RadarSeries.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  37
+----> NullifyInputVariable : 5
+----> NullifyObjectInitialization : 1
+----> RemoveMethod : 19
+----> RelationalOperatorReplacement : 1
+----> NullifyReturnValue : 11
+
+(36/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/SwingWrapper.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  30
+----> ArithmeticOperatorReplacementBinary : 3
+----> NullifyInputVariable : 1
+----> NullifyObjectInitialization : 8
+----> RemoveMethod : 10
+----> RelationalOperatorReplacement : 1
+----> NullifyReturnValue : 6
+----> RemoveNullCheck : 1
+
+(37/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/VectorGraphicsEncoder.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  33
+----> ConditionalOperatorDeletion : 1
+----> ConditionalOperatorReplacement : 1
+----> ArithmeticOperatorReplacementBinary : 2
+----> NullifyInputVariable : 12
+----> NullifyObjectInitialization : 7
+----> RemoveMethod : 6
+----> RelationalOperatorReplacement : 2
+----> NullifyReturnValue : 2
+
+(38/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/XChartPanel.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  122
+----> ConditionalOperatorReplacement : 3
+----> ArithmeticOperatorReplacementBinary : 3
+----> NullifyInputVariable : 33
+----> NullifyObjectInitialization : 25
+----> RemoveMethod : 44
+----> RelationalOperatorReplacement : 7
+----> NullifyReturnValue : 4
+----> RemoveNullCheck : 3
+
+(39/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/XYChart.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  114
+----> ConditionalOperatorReplacement : 3
+----> NullifyInputVariable : 28
+----> NullifyObjectInitialization : 15
+----> RemoveMethod : 19
+----> RelationalOperatorReplacement : 17
+----> NullifyReturnValue : 19
+----> RemoveNullCheck : 13
+
+(40/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/XYChartBuilder.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  9
+----> NullifyInputVariable : 2
+----> NullifyObjectInitialization : 1
+----> RemoveMethod : 3
+----> NullifyReturnValue : 3
+
+(41/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/XYSeries.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  12
+----> NullifyInputVariable : 1
+----> RemoveMethod : 7
+----> NullifyReturnValue : 4
+
+(42/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/internal/ChartBuilder.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  10
+----> NullifyInputVariable : 2
+----> RemoveMethod : 4
+----> NullifyReturnValue : 4
+
+(43/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/internal/package-info.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  0
+
+(44/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/internal/Utils.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  91
+----> ConditionalOperatorDeletion : 1
+----> ConditionalOperatorReplacement : 1
+----> ArithmeticOperatorReplacementBinary : 8
+----> NullifyInputVariable : 5
+----> NullifyObjectInitialization : 3
+----> RemoveMethod : 25
+----> ArithmeticOperatorReplacementShortcut : 11
+----> ArithmeticOperatorReplacementUnary : 1
+----> RelationalOperatorReplacement : 19
+----> NullifyReturnValue : 6
+----> RemoveNullCheck : 11
+
+(45/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/internal/chartpart/Annotation.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  17
+----> NullifyInputVariable : 1
+----> RemoveMethod : 15
+----> NullifyReturnValue : 1
+
+(46/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/internal/chartpart/Axis.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  226
+----> ConditionalOperatorDeletion : 7
+----> ConditionalOperatorReplacement : 16
+----> ArithmeticOperatorReplacementBinary : 58
+----> NullifyInputVariable : 2
+----> NullifyObjectInitialization : 32
+----> RemoveMethod : 34
+----> ArithmeticOperatorReplacementShortcut : 3
+----> ArithmeticOperatorReplacementUnary : 2
+----> RelationalOperatorReplacement : 42
+----> NullifyReturnValue : 22
+----> RemoveNullCheck : 8
+
+(47/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/internal/chartpart/AxisPair.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  164
+----> ConditionalOperatorDeletion : 8
+----> AssignmentOperatorReplacementShortcut : 17
+----> ConditionalOperatorReplacement : 9
+----> ArithmeticOperatorReplacementBinary : 23
+----> NullifyInputVariable : 2
+----> NullifyObjectInitialization : 12
+----> RemoveMethod : 13
+----> ArithmeticOperatorReplacementShortcut : 10
+----> ArithmeticOperatorReplacementUnary : 2
+----> RelationalOperatorReplacement : 48
+----> NullifyReturnValue : 8
+----> RemoveNullCheck : 12
+
+(48/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/internal/chartpart/AxisTick.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  19
+----> ConditionalOperatorReplacement : 2
+----> ArithmeticOperatorReplacementBinary : 4
+----> NullifyInputVariable : 1
+----> NullifyObjectInitialization : 5
+----> RemoveMethod : 3
+----> RelationalOperatorReplacement : 2
+----> NullifyReturnValue : 2
+
+(49/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/internal/chartpart/AxisTickCalculator.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  0
+
+(50/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/internal/chartpart/AxisTickCalculator_.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  137
+----> ConditionalOperatorDeletion : 4
+----> AssignmentOperatorReplacementShortcut : 3
+----> ConditionalOperatorReplacement : 9
+----> ArithmeticOperatorReplacementBinary : 51
+----> NullifyInputVariable : 3
+----> NullifyObjectInitialization : 9
+----> RemoveMethod : 15
+----> ArithmeticOperatorReplacementShortcut : 3
+----> ArithmeticOperatorReplacementUnary : 2
+----> RelationalOperatorReplacement : 32
+----> NullifyReturnValue : 3
+----> RemoveNullCheck : 3
+
+(51/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/internal/chartpart/AxisTickCalculator_Callback.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  2
+----> NullifyObjectInitialization : 2
+
+(52/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/internal/chartpart/AxisTickCalculator_Category.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  36
+----> AssignmentOperatorReplacementShortcut : 1
+----> ConditionalOperatorReplacement : 1
+----> ArithmeticOperatorReplacementBinary : 11
+----> NullifyInputVariable : 2
+----> NullifyObjectInitialization : 7
+----> RemoveMethod : 1
+----> ArithmeticOperatorReplacementShortcut : 1
+----> RelationalOperatorReplacement : 11
+----> RemoveNullCheck : 1
+
+(53/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/internal/chartpart/AxisTickCalculator_Date.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  116
+----> ConditionalOperatorDeletion : 2
+----> ConditionalOperatorReplacement : 4
+----> ArithmeticOperatorReplacementBinary : 30
+----> NullifyObjectInitialization : 49
+----> RemoveMethod : 9
+----> ArithmeticOperatorReplacementShortcut : 4
+----> RelationalOperatorReplacement : 14
+----> NullifyReturnValue : 2
+----> RemoveNullCheck : 2
+
+(54/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/internal/chartpart/AxisTickCalculator_Logarithmic.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  30
+----> ConditionalOperatorDeletion : 1
+----> ConditionalOperatorReplacement : 2
+----> ArithmeticOperatorReplacementBinary : 12
+----> NullifyObjectInitialization : 2
+----> RemoveMethod : 1
+----> ArithmeticOperatorReplacementShortcut : 2
+----> RelationalOperatorReplacement : 10
+
+(55/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/internal/chartpart/AxisTickCalculator_Number.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  3
+----> NullifyObjectInitialization : 3
+
+(56/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/internal/chartpart/AxisTickLabels.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  88
+----> ConditionalOperatorReplacement : 9
+----> ArithmeticOperatorReplacementBinary : 36
+----> NullifyInputVariable : 1
+----> NullifyObjectInitialization : 9
+----> RemoveMethod : 2
+----> ArithmeticOperatorReplacementShortcut : 3
+----> ArithmeticOperatorReplacementUnary : 4
+----> RelationalOperatorReplacement : 20
+----> NullifyReturnValue : 1
+----> RemoveNullCheck : 3
+
+(57/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/internal/chartpart/AxisTickMarks.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  44
+----> ConditionalOperatorReplacement : 4
+----> ArithmeticOperatorReplacementBinary : 19
+----> NullifyInputVariable : 1
+----> NullifyObjectInitialization : 6
+----> RemoveMethod : 2
+----> ArithmeticOperatorReplacementShortcut : 2
+----> RelationalOperatorReplacement : 9
+----> NullifyReturnValue : 1
+
+(58/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/internal/chartpart/AxisTitle.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  50
+----> ConditionalOperatorDeletion : 2
+----> ConditionalOperatorReplacement : 4
+----> ArithmeticOperatorReplacementBinary : 20
+----> NullifyInputVariable : 1
+----> NullifyObjectInitialization : 9
+----> RemoveMethod : 2
+----> ArithmeticOperatorReplacementUnary : 1
+----> RelationalOperatorReplacement : 6
+----> NullifyReturnValue : 1
+----> RemoveNullCheck : 4
+
+(59/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/internal/chartpart/BoxPlotData.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  0
+
+(60/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/internal/chartpart/BoxPlotDataCalculator.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  73
+----> ConditionalOperatorDeletion : 1
+----> ArithmeticOperatorReplacementBinary : 48
+----> NullifyInputVariable : 6
+----> NullifyObjectInitialization : 3
+----> RemoveMethod : 4
+----> RelationalOperatorReplacement : 8
+----> NullifyReturnValue : 2
+----> RemoveNullCheck : 1
+
+(61/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/internal/chartpart/Chart.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  100
+----> ArithmeticOperatorReplacementBinary : 1
+----> NullifyInputVariable : 10
+----> NullifyObjectInitialization : 6
+----> RemoveMethod : 49
+----> RelationalOperatorReplacement : 8
+----> NullifyReturnValue : 18
+----> RemoveNullCheck : 8
+
+(62/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/internal/chartpart/ChartButton.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  68
+----> ConditionalOperatorDeletion : 2
+----> AssignmentOperatorReplacementShortcut : 1
+----> ArithmeticOperatorReplacementBinary : 38
+----> NullifyInputVariable : 6
+----> NullifyObjectInitialization : 5
+----> RemoveMethod : 9
+----> RelationalOperatorReplacement : 4
+----> NullifyReturnValue : 1
+----> RemoveNullCheck : 2
+
+(63/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/internal/chartpart/ChartPart.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  1
+----> NullifyObjectInitialization : 1
+
+(64/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/internal/chartpart/ChartTitle.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  41
+----> ConditionalOperatorDeletion : 1
+----> ConditionalOperatorReplacement : 2
+----> ArithmeticOperatorReplacementBinary : 18
+----> NullifyInputVariable : 1
+----> NullifyObjectInitialization : 9
+----> RemoveMethod : 3
+----> RelationalOperatorReplacement : 3
+----> NullifyReturnValue : 3
+----> RemoveNullCheck : 1
+
+(65/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/internal/chartpart/ChartZoom.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  67
+----> ConditionalOperatorDeletion : 4
+----> ConditionalOperatorReplacement : 7
+----> ArithmeticOperatorReplacementBinary : 3
+----> NullifyInputVariable : 6
+----> NullifyObjectInitialization : 1
+----> RemoveMethod : 19
+----> ArithmeticOperatorReplacementUnary : 13
+----> RelationalOperatorReplacement : 12
+----> NullifyReturnValue : 1
+----> RemoveNullCheck : 1
+
+(66/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/internal/chartpart/Cursor.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  95
+----> ConditionalOperatorDeletion : 1
+----> ConditionalOperatorReplacement : 2
+----> ArithmeticOperatorReplacementBinary : 38
+----> NullifyInputVariable : 11
+----> NullifyObjectInitialization : 19
+----> RemoveMethod : 10
+----> ArithmeticOperatorReplacementUnary : 2
+----> RelationalOperatorReplacement : 10
+----> NullifyReturnValue : 1
+----> RemoveNullCheck : 1
+
+(67/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/internal/chartpart/Formatter_Custom.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  9
+----> NullifyInputVariable : 5
+----> RemoveMethod : 2
+----> NullifyReturnValue : 2
+
+(68/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/internal/chartpart/Formatter_LogNumber.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  27
+----> ConditionalOperatorReplacement : 4
+----> NullifyInputVariable : 5
+----> RemoveMethod : 2
+----> RelationalOperatorReplacement : 9
+----> NullifyReturnValue : 2
+----> RemoveNullCheck : 5
+
+(69/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/internal/chartpart/Formatter_Number.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  59
+----> ConditionalOperatorReplacement : 7
+----> ArithmeticOperatorReplacementBinary : 6
+----> NullifyInputVariable : 5
+----> NullifyObjectInitialization : 1
+----> RemoveMethod : 6
+----> ArithmeticOperatorReplacementShortcut : 1
+----> ArithmeticOperatorReplacementUnary : 2
+----> RelationalOperatorReplacement : 20
+----> NullifyReturnValue : 6
+----> RemoveNullCheck : 5
+
+(70/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/internal/chartpart/Formatter_String.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  9
+----> NullifyInputVariable : 5
+----> RemoveMethod : 2
+----> NullifyReturnValue : 2
+
+(71/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/internal/chartpart/Legend_.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  120
+----> ConditionalOperatorDeletion : 8
+----> AssignmentOperatorReplacementShortcut : 9
+----> ArithmeticOperatorReplacementBinary : 65
+----> NullifyInputVariable : 6
+----> NullifyObjectInitialization : 10
+----> RemoveMethod : 10
+----> RelationalOperatorReplacement : 5
+----> NullifyReturnValue : 7
+
+(72/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/internal/chartpart/Legend_Bubble.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  19
+----> ConditionalOperatorDeletion : 2
+----> AssignmentOperatorReplacementShortcut : 2
+----> ArithmeticOperatorReplacementBinary : 6
+----> NullifyInputVariable : 2
+----> NullifyObjectInitialization : 1
+----> RemoveMethod : 3
+----> RelationalOperatorReplacement : 3
+
+(73/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/internal/chartpart/Legend_HeatMap.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  202
+----> ConditionalOperatorDeletion : 1
+----> AssignmentOperatorReplacementShortcut : 6
+----> ArithmeticOperatorReplacementBinary : 121
+----> NullifyInputVariable : 9
+----> NullifyObjectInitialization : 29
+----> RemoveMethod : 8
+----> ArithmeticOperatorReplacementShortcut : 3
+----> RelationalOperatorReplacement : 22
+----> NullifyReturnValue : 1
+----> RemoveNullCheck : 2
+
+(74/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/internal/chartpart/Legend_Marker.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  64
+----> ConditionalOperatorDeletion : 2
+----> AssignmentOperatorReplacementShortcut : 2
+----> ConditionalOperatorReplacement : 5
+----> ArithmeticOperatorReplacementBinary : 31
+----> NullifyInputVariable : 2
+----> NullifyObjectInitialization : 4
+----> RemoveMethod : 3
+----> RelationalOperatorReplacement : 14
+----> RemoveNullCheck : 1
+
+(75/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/internal/chartpart/Legend_OHLC.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  46
+----> ConditionalOperatorDeletion : 2
+----> AssignmentOperatorReplacementShortcut : 2
+----> ConditionalOperatorReplacement : 4
+----> ArithmeticOperatorReplacementBinary : 19
+----> NullifyInputVariable : 2
+----> NullifyObjectInitialization : 2
+----> RemoveMethod : 3
+----> RelationalOperatorReplacement : 10
+----> RemoveNullCheck : 2
+
+(76/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/internal/chartpart/Legend_Pie.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  18
+----> ConditionalOperatorDeletion : 2
+----> AssignmentOperatorReplacementShortcut : 2
+----> ArithmeticOperatorReplacementBinary : 6
+----> NullifyInputVariable : 2
+----> NullifyObjectInitialization : 1
+----> RemoveMethod : 3
+----> RelationalOperatorReplacement : 2
+
+(77/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/internal/chartpart/PlotContent_.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  27
+----> ConditionalOperatorReplacement : 3
+----> ArithmeticOperatorReplacementBinary : 2
+----> NullifyInputVariable : 6
+----> NullifyObjectInitialization : 1
+----> RemoveMethod : 5
+----> RelationalOperatorReplacement : 5
+----> NullifyReturnValue : 1
+----> RemoveNullCheck : 4
+
+(78/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/internal/chartpart/PlotContent_Box.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  116
+----> ConditionalOperatorDeletion : 1
+----> ConditionalOperatorReplacement : 1
+----> ArithmeticOperatorReplacementBinary : 84
+----> NullifyInputVariable : 4
+----> NullifyObjectInitialization : 19
+----> RemoveMethod : 2
+----> ArithmeticOperatorReplacementShortcut : 1
+----> ArithmeticOperatorReplacementUnary : 1
+----> RelationalOperatorReplacement : 3
+
+(79/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/internal/chartpart/PlotContent_Bubble.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  35
+----> ConditionalOperatorDeletion : 1
+----> ArithmeticOperatorReplacementBinary : 25
+----> NullifyInputVariable : 1
+----> NullifyObjectInitialization : 1
+----> RemoveMethod : 1
+----> ArithmeticOperatorReplacementShortcut : 1
+----> RelationalOperatorReplacement : 4
+----> RemoveNullCheck : 1
+
+(80/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/internal/chartpart/PlotContent_Category_Bar.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  275
+----> ConditionalOperatorDeletion : 6
+----> AssignmentOperatorReplacementShortcut : 13
+----> ConditionalOperatorReplacement : 21
+----> ArithmeticOperatorReplacementBinary : 118
+----> NullifyInputVariable : 14
+----> NullifyObjectInitialization : 21
+----> RemoveMethod : 5
+----> ArithmeticOperatorReplacementShortcut : 6
+----> ArithmeticOperatorReplacementUnary : 11
+----> RelationalOperatorReplacement : 49
+----> RemoveNullCheck : 11
+
+(81/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/internal/chartpart/PlotContent_Dial.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  196
+----> ConditionalOperatorDeletion : 3
+----> AssignmentOperatorReplacementShortcut : 12
+----> ConditionalOperatorReplacement : 3
+----> ArithmeticOperatorReplacementBinary : 132
+----> NullifyInputVariable : 1
+----> NullifyObjectInitialization : 14
+----> RemoveMethod : 2
+----> ArithmeticOperatorReplacementShortcut : 2
+----> ArithmeticOperatorReplacementUnary : 5
+----> RelationalOperatorReplacement : 17
+----> NullifyReturnValue : 1
+----> RemoveNullCheck : 4
+
+(82/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/internal/chartpart/PlotContent_HeatMap.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  102
+----> ConditionalOperatorDeletion : 1
+----> ConditionalOperatorReplacement : 1
+----> ArithmeticOperatorReplacementBinary : 62
+----> NullifyInputVariable : 7
+----> NullifyObjectInitialization : 7
+----> RemoveMethod : 5
+----> ArithmeticOperatorReplacementShortcut : 1
+----> RelationalOperatorReplacement : 13
+----> NullifyReturnValue : 3
+----> RemoveNullCheck : 2
+
+(83/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/internal/chartpart/PlotContent_OHLC.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  135
+----> ConditionalOperatorDeletion : 1
+----> ConditionalOperatorReplacement : 5
+----> ArithmeticOperatorReplacementBinary : 80
+----> NullifyInputVariable : 3
+----> NullifyObjectInitialization : 7
+----> RemoveMethod : 2
+----> ArithmeticOperatorReplacementShortcut : 2
+----> ArithmeticOperatorReplacementUnary : 11
+----> RelationalOperatorReplacement : 21
+----> RemoveNullCheck : 3
+
+(84/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/internal/chartpart/PlotContent_Pie.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  230
+----> ConditionalOperatorDeletion : 4
+----> AssignmentOperatorReplacementShortcut : 6
+----> ConditionalOperatorReplacement : 6
+----> ArithmeticOperatorReplacementBinary : 143
+----> NullifyInputVariable : 8
+----> NullifyObjectInitialization : 19
+----> RemoveMethod : 5
+----> ArithmeticOperatorReplacementUnary : 2
+----> RelationalOperatorReplacement : 26
+----> NullifyReturnValue : 1
+----> RemoveNullCheck : 10
+
+(85/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/internal/chartpart/PlotContent_Radar.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  117
+----> ConditionalOperatorDeletion : 1
+----> AssignmentOperatorReplacementShortcut : 4
+----> ConditionalOperatorReplacement : 1
+----> ArithmeticOperatorReplacementBinary : 74
+----> NullifyInputVariable : 1
+----> NullifyObjectInitialization : 8
+----> RemoveMethod : 1
+----> ArithmeticOperatorReplacementShortcut : 6
+----> RelationalOperatorReplacement : 17
+----> RemoveNullCheck : 4
+
+(86/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/internal/chartpart/PlotContent_XY.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  138
+----> ConditionalOperatorDeletion : 1
+----> ConditionalOperatorReplacement : 10
+----> ArithmeticOperatorReplacementBinary : 58
+----> NullifyInputVariable : 4
+----> NullifyObjectInitialization : 6
+----> RemoveMethod : 3
+----> ArithmeticOperatorReplacementShortcut : 1
+----> ArithmeticOperatorReplacementUnary : 11
+----> RelationalOperatorReplacement : 35
+----> RemoveNullCheck : 9
+
+(87/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/internal/chartpart/PlotSurface_.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  2
+----> RemoveMethod : 1
+----> NullifyReturnValue : 1
+
+(88/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/internal/chartpart/PlotSurface_AxesChart.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  43
+----> ConditionalOperatorReplacement : 5
+----> ArithmeticOperatorReplacementBinary : 21
+----> NullifyInputVariable : 1
+----> NullifyObjectInitialization : 7
+----> RemoveMethod : 1
+----> RelationalOperatorReplacement : 8
+
+(89/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/internal/chartpart/PlotSurface_Pie.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  3
+----> NullifyInputVariable : 1
+----> NullifyObjectInitialization : 1
+----> RemoveMethod : 1
+
+(90/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/internal/chartpart/Plot_.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  4
+----> NullifyInputVariable : 1
+----> RemoveMethod : 2
+----> NullifyReturnValue : 1
+
+(91/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/internal/chartpart/Plot_AxesChart.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  4
+----> NullifyInputVariable : 1
+----> NullifyObjectInitialization : 2
+----> RemoveMethod : 1
+
+(92/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/internal/chartpart/Plot_Box.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  1
+----> NullifyObjectInitialization : 1
+
+(93/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/internal/chartpart/Plot_Bubble.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  1
+----> NullifyObjectInitialization : 1
+
+(94/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/internal/chartpart/Plot_Category.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  1
+----> NullifyObjectInitialization : 1
+
+(95/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/internal/chartpart/Plot_Circular.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  16
+----> ConditionalOperatorReplacement : 1
+----> ArithmeticOperatorReplacementBinary : 9
+----> NullifyInputVariable : 1
+----> NullifyObjectInitialization : 1
+----> RemoveMethod : 1
+----> RelationalOperatorReplacement : 3
+
+(96/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/internal/chartpart/Plot_Dial.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  4
+----> NullifyInputVariable : 1
+----> NullifyObjectInitialization : 2
+----> RemoveMethod : 1
+
+(97/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/internal/chartpart/Plot_HeatMap.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  1
+----> NullifyObjectInitialization : 1
+
+(98/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/internal/chartpart/Plot_OHLC.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  1
+----> NullifyObjectInitialization : 1
+
+(99/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/internal/chartpart/Plot_Pie.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  4
+----> NullifyInputVariable : 1
+----> NullifyObjectInitialization : 2
+----> RemoveMethod : 1
+
+(100/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/internal/chartpart/Plot_Radar.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  4
+----> NullifyInputVariable : 1
+----> NullifyObjectInitialization : 2
+----> RemoveMethod : 1
+
+(101/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/internal/chartpart/Plot_XY.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  1
+----> NullifyObjectInitialization : 1
+
+(102/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/internal/chartpart/RenderableSeries.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  0
+
+(103/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/internal/chartpart/ToolTips.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  122
+----> AssignmentOperatorReplacementShortcut : 1
+----> ConditionalOperatorReplacement : 3
+----> ArithmeticOperatorReplacementBinary : 47
+----> NullifyInputVariable : 16
+----> NullifyObjectInitialization : 13
+----> RemoveMethod : 19
+----> RelationalOperatorReplacement : 11
+----> NullifyReturnValue : 7
+----> RemoveNullCheck : 5
+
+(104/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/internal/series/AxesChartSeries.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  29
+----> NullifyInputVariable : 2
+----> NullifyObjectInitialization : 1
+----> RemoveMethod : 17
+----> ArithmeticOperatorReplacementUnary : 1
+----> RelationalOperatorReplacement : 1
+----> NullifyReturnValue : 7
+
+(105/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/internal/series/AxesChartSeriesCategory.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  45
+----> ConditionalOperatorReplacement : 1
+----> ArithmeticOperatorReplacementBinary : 4
+----> NullifyInputVariable : 8
+----> NullifyObjectInitialization : 2
+----> RemoveMethod : 10
+----> ArithmeticOperatorReplacementUnary : 2
+----> RelationalOperatorReplacement : 12
+----> NullifyReturnValue : 3
+----> RemoveNullCheck : 3
+
+(106/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/internal/series/AxesChartSeriesNumericalNoErrorBars.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  55
+----> ConditionalOperatorDeletion : 1
+----> ConditionalOperatorReplacement : 2
+----> ArithmeticOperatorReplacementBinary : 4
+----> NullifyObjectInitialization : 2
+----> RemoveMethod : 18
+----> ArithmeticOperatorReplacementShortcut : 5
+----> ArithmeticOperatorReplacementUnary : 2
+----> RelationalOperatorReplacement : 17
+----> RemoveNullCheck : 4
+
+(107/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/internal/series/MarkerSeries.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  10
+----> NullifyInputVariable : 2
+----> RemoveMethod : 4
+----> NullifyReturnValue : 4
+
+(108/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/internal/series/NoMarkersSeries.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  1
+----> RemoveMethod : 1
+
+(109/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/internal/series/Series.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  37
+----> ConditionalOperatorReplacement : 1
+----> NullifyInputVariable : 3
+----> NullifyObjectInitialization : 1
+----> RemoveMethod : 19
+----> RelationalOperatorReplacement : 2
+----> NullifyReturnValue : 10
+----> RemoveNullCheck : 1
+
+(110/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/internal/style/SeriesColorMarkerLineStyle.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  6
+----> RemoveMethod : 3
+----> NullifyReturnValue : 3
+
+(111/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/internal/style/SeriesColorMarkerLineStyleCycler.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  9
+----> NullifyObjectInitialization : 1
+----> RemoveMethod : 1
+----> ArithmeticOperatorReplacementShortcut : 3
+----> RelationalOperatorReplacement : 3
+----> NullifyReturnValue : 1
+
+(112/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/style/AxesChartStyler.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  282
+----> ConditionalOperatorReplacement : 1
+----> NullifyInputVariable : 35
+----> NullifyObjectInitialization : 6
+----> RemoveMethod : 137
+----> RelationalOperatorReplacement : 7
+----> NullifyReturnValue : 90
+----> RemoveNullCheck : 6
+
+(113/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/style/BoxStyler.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  7
+----> NullifyInputVariable : 2
+----> RemoveMethod : 3
+----> NullifyReturnValue : 2
+
+(114/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/style/BubbleStyler.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  8
+----> NullifyInputVariable : 2
+----> RemoveMethod : 4
+----> NullifyReturnValue : 2
+
+(115/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/style/CategoryStyler.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  67
+----> ConditionalOperatorReplacement : 1
+----> NullifyInputVariable : 7
+----> NullifyObjectInitialization : 1
+----> RemoveMethod : 37
+----> RelationalOperatorReplacement : 2
+----> NullifyReturnValue : 19
+
+(116/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/style/DialStyler.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  123
+----> ConditionalOperatorReplacement : 1
+----> NullifyInputVariable : 10
+----> RemoveMethod : 75
+----> NullifyReturnValue : 37
+
+(117/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/style/HeatMapStyler.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  84
+----> ConditionalOperatorDeletion : 2
+----> ConditionalOperatorReplacement : 2
+----> NullifyInputVariable : 7
+----> NullifyObjectInitialization : 7
+----> RemoveMethod : 41
+----> RelationalOperatorReplacement : 4
+----> NullifyReturnValue : 20
+----> RemoveNullCheck : 1
+
+(118/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/style/OHLCStyler.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  8
+----> NullifyInputVariable : 2
+----> RemoveMethod : 4
+----> NullifyReturnValue : 2
+
+(119/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/style/PieStyler.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  91
+----> NullifyInputVariable : 11
+----> RemoveMethod : 50
+----> NullifyReturnValue : 30
+
+(120/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/style/RadarStyler.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  57
+----> ConditionalOperatorReplacement : 1
+----> NullifyInputVariable : 5
+----> RemoveMethod : 34
+----> NullifyReturnValue : 17
+
+(121/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/style/Styler.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  285
+----> ConditionalOperatorReplacement : 1
+----> NullifyInputVariable : 40
+----> NullifyObjectInitialization : 7
+----> RemoveMethod : 133
+----> RelationalOperatorReplacement : 3
+----> NullifyReturnValue : 100
+----> RemoveNullCheck : 1
+
+(122/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/style/XYStyler.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  63
+----> NullifyInputVariable : 9
+----> RemoveMethod : 33
+----> NullifyReturnValue : 21
+
+(123/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/style/colors/BaseSeriesColors.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  14
+----> NullifyObjectInitialization : 12
+----> RemoveMethod : 1
+----> NullifyReturnValue : 1
+
+(124/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/style/colors/ChartColor.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  13
+----> NullifyObjectInitialization : 9
+----> RemoveMethod : 2
+----> NullifyReturnValue : 2
+
+(125/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/style/colors/ColorBlindFriendlySeriesColors.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  10
+----> NullifyObjectInitialization : 8
+----> RemoveMethod : 1
+----> NullifyReturnValue : 1
+
+(126/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/style/colors/FontColorDetector.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  11
+----> ArithmeticOperatorReplacementBinary : 5
+----> NullifyInputVariable : 3
+----> RemoveMethod : 1
+----> RelationalOperatorReplacement : 1
+----> NullifyReturnValue : 1
+
+(127/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/style/colors/GGPlot2SeriesColors.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  7
+----> NullifyObjectInitialization : 5
+----> RemoveMethod : 1
+----> NullifyReturnValue : 1
+
+(128/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/style/colors/MatlabSeriesColors.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  9
+----> NullifyObjectInitialization : 7
+----> RemoveMethod : 1
+----> NullifyReturnValue : 1
+
+(129/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/style/colors/PrinterFriendlySeriesColors.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  7
+----> NullifyObjectInitialization : 5
+----> RemoveMethod : 1
+----> NullifyReturnValue : 1
+
+(130/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/style/colors/SeriesColors.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  0
+
+(131/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/style/colors/XChartSeriesColors.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  14
+----> NullifyObjectInitialization : 12
+----> RemoveMethod : 1
+----> NullifyReturnValue : 1
+
+(132/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/style/lines/BaseSeriesLines.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  2
+----> RemoveMethod : 1
+----> NullifyReturnValue : 1
+
+(133/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/style/lines/GGPlot2SeriesLines.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  2
+----> RemoveMethod : 1
+----> NullifyReturnValue : 1
+
+(134/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/style/lines/MatlabSeriesLines.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  2
+----> RemoveMethod : 1
+----> NullifyReturnValue : 1
+
+(135/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/style/lines/NoneStroke.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  0
+
+(136/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/style/lines/SeriesLines.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  5
+----> NullifyObjectInitialization : 5
+
+(137/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/style/lines/XChartSeriesLines.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  2
+----> RemoveMethod : 1
+----> NullifyReturnValue : 1
+
+(138/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/style/markers/BaseSeriesMarkers.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  2
+----> RemoveMethod : 1
+----> NullifyReturnValue : 1
+
+(139/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/style/markers/Circle.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  6
+----> ArithmeticOperatorReplacementBinary : 3
+----> NullifyInputVariable : 1
+----> NullifyObjectInitialization : 1
+----> RemoveMethod : 1
+
+(140/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/style/markers/Cross.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  12
+----> ArithmeticOperatorReplacementBinary : 9
+----> NullifyInputVariable : 1
+----> NullifyObjectInitialization : 1
+----> RemoveMethod : 1
+
+(141/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/style/markers/Diamond.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  9
+----> ArithmeticOperatorReplacementBinary : 6
+----> NullifyInputVariable : 1
+----> NullifyObjectInitialization : 1
+----> RemoveMethod : 1
+
+(142/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/style/markers/GGPlot2SeriesMarkers.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  2
+----> RemoveMethod : 1
+----> NullifyReturnValue : 1
+
+(143/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/style/markers/Marker.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  1
+----> NullifyObjectInitialization : 1
+
+(144/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/style/markers/MatlabSeriesMarkers.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  2
+----> RemoveMethod : 1
+----> NullifyReturnValue : 1
+
+(145/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/style/markers/None.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  2
+----> NullifyInputVariable : 1
+----> RemoveMethod : 1
+
+(146/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/style/markers/Oval.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  8
+----> ArithmeticOperatorReplacementBinary : 5
+----> NullifyInputVariable : 1
+----> NullifyObjectInitialization : 1
+----> RemoveMethod : 1
+
+(147/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/style/markers/Plus.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  8
+----> ArithmeticOperatorReplacementBinary : 5
+----> NullifyInputVariable : 1
+----> NullifyObjectInitialization : 1
+----> RemoveMethod : 1
+
+(148/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/style/markers/Rectangle.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  7
+----> ArithmeticOperatorReplacementBinary : 4
+----> NullifyInputVariable : 1
+----> NullifyObjectInitialization : 1
+----> RemoveMethod : 1
+
+(149/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/style/markers/SeriesMarkers.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  11
+----> NullifyObjectInitialization : 11
+
+(150/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/style/markers/Square.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  6
+----> ArithmeticOperatorReplacementBinary : 3
+----> NullifyInputVariable : 1
+----> NullifyObjectInitialization : 1
+----> RemoveMethod : 1
+
+(151/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/style/markers/Trapezoid.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  20
+----> ArithmeticOperatorReplacementBinary : 15
+----> NullifyInputVariable : 1
+----> NullifyObjectInitialization : 1
+----> RemoveMethod : 1
+----> ArithmeticOperatorReplacementShortcut : 1
+----> RelationalOperatorReplacement : 1
+
+(152/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/style/markers/TriangleDown.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  14
+----> ArithmeticOperatorReplacementBinary : 11
+----> NullifyInputVariable : 1
+----> NullifyObjectInitialization : 1
+----> RemoveMethod : 1
+
+(153/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/style/markers/TriangleUp.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  15
+----> ArithmeticOperatorReplacementBinary : 12
+----> NullifyInputVariable : 1
+----> NullifyObjectInitialization : 1
+----> RemoveMethod : 1
+
+(154/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/style/markers/XChartSeriesMarkers.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  2
+----> RemoveMethod : 1
+----> NullifyReturnValue : 1
+
+(155/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/style/theme/AbstractBaseTheme.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  137
+----> NullifyObjectInitialization : 5
+----> RemoveMethod : 102
+----> NullifyReturnValue : 30
+
+(156/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/style/theme/GGPlot2Theme.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  61
+----> NullifyObjectInitialization : 5
+----> RemoveMethod : 35
+----> NullifyReturnValue : 21
+
+(157/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/style/theme/MatlabTheme.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  44
+----> NullifyObjectInitialization : 6
+----> RemoveMethod : 24
+----> NullifyReturnValue : 14
+
+(158/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/style/theme/Theme.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  56
+----> NullifyObjectInitialization : 4
+----> RemoveMethod : 32
+----> NullifyReturnValue : 20
+
+(159/159) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/XChart/xchart/src/main/java/org/knowm/xchart/style/theme/XChartTheme.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  19
+----> NullifyObjectInitialization : 3
+----> RemoveMethod : 10
+----> NullifyReturnValue : 6
+
+Total mutations found:  7004
+--> ConditionalOperatorDeletion: 85
+--> AssignmentOperatorReplacementShortcut: 90
+--> ConditionalOperatorReplacement: 192
+--> ArithmeticOperatorReplacementBinary: 1707
+--> NullifyInputVariable: 677
+--> NullifyObjectInitialization: 762
+--> RemoveMethod: 1531
+--> ArithmeticOperatorReplacementShortcut: 83
+--> ArithmeticOperatorReplacementUnary: 77
+--> RelationalOperatorReplacement: 779
+--> NullifyReturnValue: 775
+--> RemoveNullCheck: 246
+
+Comparing mutation operators: XChart -> operator_comparisons/XChart/
+Extracted 7004 mutants -> operator_comparisons/XChart/littledarwin.csv
+Extracted 6997 mutants -> operator_comparisons/XChart/mediumdarwin.csv
+Comparison written to /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/operator_comparisons/XChart
+  Original (LD): 7004
+  MediumDarwin: 6997
+  Reduced: 41  Added: 34  delta: -0.10%
+  (strict diff would show removed=265, added=289 — see strict_*.csv)
+Mutant comparison for XChart:
+  === Paper Table I (refined mutation operators) ===
+  Original (LittleDarwin): 7004
+  MediumDarwin: 6997
+  Reduced: 41
+  Added: 34
+  delta_percent: -0.10
+  check MD = Original - Reduced + Added: 6997 (should equal 6997)
+  
+  in_both_strict_match: 6708
+  ld_only_sites: 10
+  md_only_sites: 34
+  
+    Reduced categories:
+      reduced_remove_method_other: 31
+      reduced_nullify_input_other_filter: 10
+    Reduced by operator:
+      RemoveMethod: 31
+      NullifyInputVariable: 10
+  
+    Added categories:
+      added_other: 34
+    Added by operator:
+      NullifyReturnValue: 34
+  
+  === Strict before/after diff (misleading for relational ops) ===
+  strict_removed: 265
+  strict_added: 289
+    (LD uses '<'->'>='; MD uses '<'->'<=' — same site, not Reduced+Added)
+  
+  # Listing 1 examples:
+  #   reduced_nullify_final_param_non_compilable -> MUT0 (final param nullify)
+  #   added_remove_method_array_return -> MUT1 (array return RemoveMethod)
+  Details: operator_comparisons/XChart/added_in_mediumdarwin.csv
+           operator_comparisons/XChart/removed_in_mediumdarwin.csv
+========== XChart finished at Wed May 20 11:38:55 JST 2026 ==========

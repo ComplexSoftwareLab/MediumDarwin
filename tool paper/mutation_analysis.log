@@ -1,0 +1,7 @@
+Starting mutation analysis at Mon Aug 18 14:30:40 IST 2025
+Checking Java version...
+Java version verified: 1.8.0_462
+Installing system dependencies...
+Starting operator comparison only at Thu May 21 10:36:10 JST 2026
+Parallel jobs: 1
+ERROR: .mediumdarwin_venv not found. Run a full analysis first or create the venv.
