@@ -1,8 +1,9 @@
+"""Mutation representation and operators acting on ANTLR Java parse trees."""
 import copy
 import sys
 from math import log10
 from random import shuffle
-from typing import List, Tuple, Dict
+from typing import List, Dict
 import antlr4
 from antlr4 import Token
 from antlr4.Token import CommonToken
@@ -13,7 +14,6 @@ from mediumdarwin.Database import Database
 from mediumdarwin.SharedFunctions import getAllInstantiableSubclasses
 from mediumdarwin.SharedFunctions import MutationOperator
 from itertools import combinations
-from operator import itemgetter
 
 sys.setrecursionlimit(100000)
 
@@ -84,6 +84,10 @@ class Mutation(object):
                     app_nodes.append(
                         recursiveCloneANTLRNodeAndItsChildren(m_node))
                     Mutation.applied_node_id += 1
+                else:
+                    app_inds.append(m_node.applied_node_id)
+                    app_nodes.append(
+                        recursiveCloneANTLRNodeAndItsChildren(m_node))
                 replaceNodes(m_node, list_nodes[i])
             elif list_styles[i] == Mutation.STYLE_APPEND:
                 m_node = JavaParse.findNodeInSubtree(
@@ -96,7 +100,9 @@ class Mutation(object):
                     app_inds.append(Mutation.applied_node_id)
                     app_nodes.append(None)
                     Mutation.applied_node_id += 1
-
+                else:
+                    app_inds.append(m_node.applied_node_id)
+                    app_nodes.append(None)
                 terminalNodeImpl1 = TerminalNodeImpl(Token())
                 terminalNodeImpl1.symbol.text = "("
                 terminalNodeImpl2 = TerminalNodeImpl(Token())
@@ -337,7 +343,7 @@ class Mutant(object):
     def __str__(self):
         if self.mutatedCode is None:
             self.mutateCode()
-        return self.stub + self.mutatedCode
+        return self.mutatedCode + "\n" + self.stub
 
 
 #################################################
@@ -420,6 +426,17 @@ class RemoveMethod(MutationOperator):
         return blockContext
 
     def generateMutations(self):
+        # Sort mutableNodesWithTypes deterministically by lineNumber, startPos, nodeID
+        self.mutableNodesWithTypes.sort(
+            key=lambda item: (
+                item[0].children[0].start.line if hasattr(item[0], 'children') and len(item[0].children) > 0 and hasattr(
+                    item[0].children[0], 'start') and hasattr(item[0].children[0].start, 'line') else 0,
+                item[0].children[0].start.start if hasattr(item[0], 'children') and len(item[0].children) > 0 and hasattr(
+                    item[0].children[0], 'start') and hasattr(item[0].children[0].start, 'start') else 0,
+                item[0].children[0].nodeIndex if hasattr(item[0], 'children') and len(
+                    item[0].children) > 0 and hasattr(item[0].children[0], 'nodeIndex') else 0
+            )
+        )
         for node, nodeType in self.mutableNodesWithTypes:
             replacementNodeList = []
             replacementTextList = []
@@ -769,6 +786,16 @@ class RemoveNullCheck(MutationOperator):
                 (node, node.children[1].symbol.text))
 
     def generateMutations(self):
+        # Sort mutableNodes_comparison deterministically by lineNumber, startPos, nodeID
+        self.mutableNodes_comparison.sort(
+            key=lambda item: (
+                item[0].start.line if hasattr(item[0], 'start') and hasattr(
+                    item[0].start, 'line') else 0,
+                item[0].start.start if hasattr(item[0], 'start') and hasattr(
+                    item[0].start, 'start') else 0,
+                item[0].nodeIndex if hasattr(item[0], 'nodeIndex') else 0
+            )
+        )
         for (node, text) in self.mutableNodes_comparison:
             replacementText = ""
             if text == "!=":  # node.children[1].symbol.text == "!=":
@@ -899,6 +926,16 @@ class NullifyObjectInitialization(MutationOperator):
             self.mutableNodes.append(node)
 
     def generateMutations(self):
+        # Sort mutableNodes deterministically by lineNumber, startPos, nodeID
+        self.mutableNodes.sort(
+            key=lambda node: (
+                node.start.line if hasattr(node, 'start') and hasattr(
+                    node.start, 'line') else 0,
+                node.start.start if hasattr(node, 'start') and hasattr(
+                    node.start, 'start') else 0,
+                node.nodeIndex if hasattr(node, 'nodeIndex') else 0
+            )
+        )
         for node in self.mutableNodes:
             node = node.parentCtx
             replacementText = "/*MUT" + str(self.mutation_id) + "*/" + "null"
@@ -1013,6 +1050,17 @@ class NullifyReturnValue(MutationOperator):
             self.mutableNodes.append(node)
 
     def generateMutations(self):
+        # Sort mutableNodes deterministically by lineNumber, startPos, nodeID
+        self.mutableNodes.sort(
+            key=lambda node: (
+                node.getParent().start.line if hasattr(node, 'getParent') and node.getParent() and hasattr(
+                    node.getParent(), 'start') and hasattr(node.getParent().start, 'line') else 0,
+                node.symbol.start if hasattr(node, 'symbol') and hasattr(
+                    node.symbol, 'start') else 0,
+                node.getParent().nodeIndex if hasattr(node, 'getParent') and node.getParent(
+                ) and hasattr(node.getParent(), 'nodeIndex') else 0
+            )
+        )
         for node in self.mutableNodes:
             assert isinstance(node.symbol, Token)
             replacementText = "return /*MUT" + \
@@ -1155,11 +1203,11 @@ class NullifyInputVariable(MutationOperator):
                 )
 
                 if ((isInInnerClass(self.javaParseObject, methodDeclaration.methodBody().block(), variablesPerNode.getText())) or
-                            (isInLambda(self.javaParseObject, methodDeclaration, variablesPerNode.getText())) or (
-                            variablesPerNode.parentCtx.getChild(
-                                0, JavaParser.JTypeContext
+                        (isInLambda(self.javaParseObject, methodDeclaration, variablesPerNode.getText())) or (
+                        variablesPerNode.parentCtx.getChild(
+                            0, JavaParser.JTypeContext
                             ).getChild(0, JavaParser.PrimitiveTypeContext)
-                            is not None) or (variablesPerNode.parentCtx.getChild(0, JavaParser.VariableModifierContext) is not None)
+                        is not None) or (variablesPerNode.parentCtx.getChild(0, JavaParser.VariableModifierContext) is not None)
                         ):
                     continue  # primitive typed variable
 
@@ -1230,6 +1278,16 @@ class NullifyInputVariable(MutationOperator):
         return blockContext
 
     def generateMutations(self):
+        # Sort mutableNodes deterministically by lineNumber, startPos, nodeID
+        self.mutableNodes.sort(
+            key=lambda node: (
+                node.start.line if hasattr(node, 'start') and hasattr(
+                    node.start, 'line') else 0,
+                node.methodBody().start.start if hasattr(node, 'methodBody') and hasattr(
+                    node.methodBody(), 'start') and hasattr(node.methodBody().start, 'start') else 0,
+                node.nodeIndex if hasattr(node, 'nodeIndex') else 0
+            )
+        )
         for node in self.mutableNodes:
             for replacementText, mutated_node in zip(self.replacementTextDict[node], self.replacementNodeDict[node]):
                 # ---------------------------------------------
@@ -1407,6 +1465,18 @@ class TraditionalMutationOperator(MutationOperator):
         self.mutatorType = "GenericTraditionalMutationOperator"
         self.mutation_id = mutation_id
 
+    def _sort_mutable_nodes(self):
+        """Sort mutableNodes deterministically by startPos, lineNumber, nodeID."""
+        self.mutableNodes.sort(
+            key=lambda node: (
+                node.start.start if hasattr(node, 'start') and hasattr(
+                    node.start, 'start') else 0,
+                node.start.line if hasattr(node, 'start') and hasattr(
+                    node.start, 'line') else 0,
+                node.nodeIndex if hasattr(node, 'nodeIndex') else 0
+            )
+        )
+
     def findNodes(self, search_children=True):
         """ """
         self.allNodes = self.javaParseObject.seekAllNodes(
@@ -1581,6 +1651,8 @@ class ArithmeticOperatorReplacementBinary(TraditionalMutationOperator):
                 self.mutableNodes.append(node)
 
     def generateMutations(self):
+        # Sort mutableNodes deterministically before generating mutations
+        self._sort_mutable_nodes()
         id = 0
         for node in self.mutableNodes:
             id += 1
@@ -1645,11 +1717,13 @@ class RelationalOperatorReplacement(TraditionalMutationOperator):
                 self.mutableNodes.append(node)
 
     def generateMutations(self):
+        # Sort mutableNodes deterministically before generating mutations
+        self._sort_mutable_nodes()
         for node in self.mutableNodes:
             mutation = self.generateMutationsBinaryExpression(
                 node,
-                {">": "<=", "<": ">=", ">=": "<",
-                    "<=": ">", "!=": "==", "==": "!="},
+                {">": ">=", "<": "<=", ">=": ">",
+                    "<=": "<", "!=": "==", "==": "!="},
             )
             self.mutations.append(mutation)
         self.mutations_searched = True
@@ -1707,6 +1781,8 @@ class ConditionalOperatorReplacement(TraditionalMutationOperator):
                 self.mutableNodes.append(node)
 
     def generateMutations(self):
+        # Sort mutableNodes deterministically before generating mutations
+        self._sort_mutable_nodes()
         for node in self.mutableNodes:
             mutation = self.generateMutationsBinaryExpression(
                 node, {"&&": "||", "||": "&&"}
@@ -1767,6 +1843,8 @@ class LogicalOperatorReplacement(TraditionalMutationOperator):
                 self.mutableNodes.append(node)
 
     def generateMutations(self):
+        # Sort mutableNodes deterministically before generating mutations
+        self._sort_mutable_nodes()
         for node in self.mutableNodes:
             mutation = self.generateMutationsBinaryExpression(
                 node, {"&": "|", "|": "^", "^": "&"}
@@ -1831,6 +1909,8 @@ class AssignmentOperatorReplacementShortcut(TraditionalMutationOperator):
                 self.mutableNodes.append(node)
 
     def generateMutations(self):
+        # Sort mutableNodes deterministically before generating mutations
+        self._sort_mutable_nodes()
         for node in self.mutableNodes:
             mutation = self.generateMutationsBinaryExpression(
                 node,
@@ -1904,6 +1984,8 @@ class ArithmeticOperatorReplacementUnary(TraditionalMutationOperator):
                 self.mutableNodes.append(node)
 
     def generateMutations(self):
+        # Sort mutableNodes deterministically before generating mutations
+        self._sort_mutable_nodes()
         for node in self.mutableNodes:
             mutation = self.generateMutantionsUnaryExpression(
                 node, {"+": "-", "-": "+"}
@@ -1963,6 +2045,8 @@ class ConditionalOperatorDeletion(TraditionalMutationOperator):
                 self.mutableNodes.append(node)
 
     def generateMutations(self):
+        # Sort mutableNodes deterministically before generating mutations
+        self._sort_mutable_nodes()
         for node in self.mutableNodes:
             mutation = self.generateMutantionsUnaryExpression(node, {"!": " "})
             self.mutations.append(mutation)
@@ -2038,6 +2122,8 @@ class ArithmeticOperatorReplacementShortcut(TraditionalMutationOperator):
             self.mutableNodes.append(node)
 
     def generateMutations(self):
+        # Sort mutableNodes deterministically before generating mutations
+        self._sort_mutable_nodes()
         for node in self.mutableNodes:
             replacementText = "/*MUT" + str(self.mutation_id) + "*/"
             if node.children[self.terminalChild[node]].symbol.text == "++":
@@ -2174,6 +2260,8 @@ class ShiftOperatorReplacement(TraditionalMutationOperator):
             self.mutableNodes.append(node)
 
     def generateMutations(self):
+        # Sort mutableNodes deterministically before generating mutations
+        self._sort_mutable_nodes()
         for node in self.mutableNodes:
             replacementText = "/*MUT" + str(self.mutation_id) + "*/"
             if self.threeTerminals[node]:
@@ -2304,7 +2392,12 @@ class JavaMutate(object):
         :type metaTypes:
         """
         self.mutationOperators.clear()
-        for MO in getAllInstantiableSubclasses(mutationOperator):
+        # Sort mutation operator classes by name for deterministic ordering
+        sorted_operators = sorted(
+            getAllInstantiableSubclasses(mutationOperator),
+            key=lambda cls: cls.__name__
+        )
+        for MO in sorted_operators:
             for metaType in metaTypes:
                 if metaType in MO.metaTypes:
                     mO = MO(
