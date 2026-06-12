@@ -19,6 +19,23 @@ Features
     
 *   **Dynamic Subsumption Analysis - This is explained in Section 3.5 to identify redundant mutants.**: Constructs subsumption graphs to analyze mutant relationships.
 
+Variable Tracing & Visualization (`trace_java_variables.py`)
+-----------------------------------------------------------
+MediumDarwin ships with an advanced variable-tracing workflow that records runtime state and produces rich analytics/visualizations for each Java class. The `mutation_research_private/dmsg_homs/scripts/trace_java_variables.py` script can:
+
+- Instrument Maven test runs with a Java agent to log every executed statement and its variable values (`trace.json`) plus statement coverage summaries (`trace_coverage.json`).
+- Compute per-line metrics such as test coverage, per-variable entropy, joint entropy, mutual information, ΔH/ΔMI between lines, and mutation annotations (when a mutation database is provided).
+- Generate interactive Plotly dashboards per class:
+  - `*_test_coverage.html`: coverage heatmap.
+  - `*_variable_entropy.html`: entropy/joint/MI heatmap with summary rows.
+  - `*_combined.html`: coverage × entropy scoring heatmap.
+  - `*_delta_h_heatmaps.html`: dropdown-driven ΔH/ΔH(Joint)/ΔMI matrices showing values only when an execution path exists between lines, with hover tooltips that disclose direct-transition counts.
+  - `*_line_mutual_information.html` and `*_line_mutual_information_graph.html/json`: mutual-information adjacency heatmap plus interactive graph.
+  - `*_execution_order_graph.html` / `*_execution_order_heatmap.html` / JSON: execution flow graph and transition-frequency matrix.
+  - `*_code_report.html`: annotated source view with inline gradients for entropy, mutual information, coverage, and mutation status badges.
+- Export all computed matrices to JSON (`*_heatmap_data.json`) for downstream analysis.
+- Provide CLIs to either trace tests (`--test-command`, `--output`, `--project-root`) or regenerate the visual reports from existing trace files (`--create-heatmaps`, `--create-code-report`, optional coverage and mutation DB hooks).
+
 Installation
 ------------
 To install and run the tool:
