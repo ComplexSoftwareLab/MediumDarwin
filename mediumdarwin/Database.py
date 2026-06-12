@@ -212,7 +212,9 @@ class Database:
             res[0] = res[0].replace("\\", "/")
             if res[0] not in mutants_dict.keys():
                 mutants_dict[res[0]] = dict()
-            mutants_dict[res[0]][res[1]] = eval("set([" + res[3] + "])")
+            mutants_dict[res[0]][res[1]] = {
+                int(x.strip()) for x in res[3].split(",") if x.strip()
+            }
 
         return mutants_dict
 
@@ -341,7 +343,7 @@ class Database:
         query = "SELECT max(id) FROM mutant"
         self.cursor.execute(query)
         res = self.cursor.fetchall()
-        if res is not []:
+        if res:
             res = res[0][0]
         else:
             res = 0
@@ -513,7 +515,7 @@ class Database:
         try:
             self.cursor.execute(query)
             self.conn.commit()
-        except:
+        except Exception:
             return False
 
         if self.cursor.rowcount > 0:
