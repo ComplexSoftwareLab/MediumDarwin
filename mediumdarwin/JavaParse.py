@@ -92,7 +92,7 @@ class JavaParse(object):
             return None
         try:
             tree.in_time = timer[0]
-        except:
+        except Exception:
             assert False
         timer[0] += 1
         if isinstance(tree, JavaParser.ConstantExpressionContext):
@@ -260,7 +260,7 @@ class JavaParse(object):
         """
         try:
             parent = node.parentCtx
-        except:
+        except Exception:
             return None
 
         if isinstance(parent, nodeType):
@@ -796,4 +796,4 @@ class JavaParse(object):
             except KeyError as e:
                 pass
 
-        graph.render("C:/img/tree")
+        graph.render(os.path.join(os.getcwd(), "LittleDarwinResults", "tree"))
