@@ -14,21 +14,18 @@ def main(args):
     )
     if (options.reset):
         from mediumdarwin.Schemata import Schemata
-        schemata = Schemata()
+        schemata = Schemata(mockArgs=args)
         schemata.cleanup_mediumDarwin()
     else:
         from mediumdarwin.Schemata import Schemata
-        schemata = Schemata()
+        schemata = Schemata(mockArgs=args)
         try:
             if options.isSchemataActive:
                 schemata.main()
-            elif options.isCoverageActive:
-                from mediumdarwin.MediumDarwin import MediumDarwin
-                littleDarwin = MediumDarwin()
-                littleDarwin.main()
             else:
-                from mediumdarwin.original import LittleDarwin as LittleDarwin_original
-                LittleDarwin_original.main()
+                from mediumdarwin.MediumDarwin import MediumDarwin
+                mediumDarwin = MediumDarwin()
+                mediumDarwin.main(mockArgs=args)
         finally:
             schemata.cleanup_mediumDarwin()
 
