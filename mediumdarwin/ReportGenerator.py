@@ -1,3 +1,4 @@
+"""HTML/text report generation for mutation testing results."""
 import os
 
 
@@ -18,7 +19,7 @@ class ReportGenerator(object):
         """
 
         :param resultData:
-        :type resultData: 0: file name, 1: survived count, 2: uncovered survived count, 3: killed by build command count, 4: killed by test command, 5: html file name
+        :type resultData: 0: file name, 1: survived count, 2: non-covered survived count, 3: killed by build command count, 4: killed by test command, 5: html file name
         :param reportPath:
         :type reportPath:
         :return:
@@ -140,7 +141,7 @@ class ReportGenerator(object):
         return "\n".join(reportOutput)
 
     def generateHTMLReportPerFile(
-        self, filePath, reportPath, survived, killed, uncovered, buildFailed, testFailed, schemata: str = None
+        self, filePath, reportPath, survived, killed, non_covered, buildFailed, testFailed, timeoutList=None, schemata: str = None
     ):
         """
 
@@ -189,9 +190,9 @@ class ReportGenerator(object):
             + str(len(buildFailed))
             + ")</th><th>killed at build output</th><th>Killed at test ("
             + str(len(testFailed))
-            + ")</th><th>killed at test output</th><th>Uncovered Survived Mutant ("
-            + str(len(uncovered))
-            + ")</th><th>Uncovered Survived Output</th></tr></thead><tbody>"
+            + ")</th><th>killed at test output</th><th>Non-Covered Survived Mutant ("
+            + str(len(non_covered))
+            + ")</th><th>Non-Covered Survived Output</th></tr></thead><tbody>"
         )
 
         reportEnd = (
@@ -203,13 +204,16 @@ class ReportGenerator(object):
         output = list()
         joinedList = list()
         maxIndex = max(len(survived), len(buildFailed),
-                       len(testFailed), len(uncovered))
+                       len(testFailed), len(non_covered))
 
         assert isinstance(survived, list)
         assert isinstance(buildFailed, list)
         assert isinstance(testFailed, list)
-        assert isinstance(uncovered, list)
+        assert isinstance(non_covered, list)
 
+        # Add timeout list balancing for the joined listing table by padding with None
+        if timeoutList is None:
+            timeoutList = []
         for i in range(0, maxIndex):
             try:
                 survivedItem = survived[i]
@@ -227,10 +231,11 @@ class ReportGenerator(object):
                 testFailItem = None
 
             try:
-                uncoveredItem = uncovered[i]
+                nonCoveredItem = non_covered[i]
             except IndexError as e:
-                uncoveredItem = None
+                nonCoveredItem = None
 
+            # Note: timeout entries are listed separately below; joinedList remains as original 4 categories
             joinedList.append(
                 [
                     (
@@ -317,36 +322,36 @@ class ReportGenerator(object):
                     (
                         os.path.relpath(
                             os.path.join(os.path.dirname(
-                                reportPath), uncoveredItem),
+                                reportPath), nonCoveredItem),
                             os.path.dirname(reportPath),
                         )
-                        if uncoveredItem is not None
+                        if nonCoveredItem is not None
                         else None
                     )if schemata is None
                     else schemata,
-                    uncoveredItem,
+                    nonCoveredItem,
                     (
                         os.path.relpath(
                             os.path.join(
                                 os.path.dirname(reportPath),
-                                os.path.splitext(uncoveredItem)[0] + ".txt",
+                                os.path.splitext(nonCoveredItem)[0] + ".txt",
                             ),
                             os.path.dirname(reportPath),
                         )
-                        if uncoveredItem is not None
+                        if nonCoveredItem is not None
                         else None
                     ),
                     (
-                        os.path.splitext(uncoveredItem)[0] + ".txt"
-                        if uncoveredItem is not None
+                        os.path.splitext(nonCoveredItem)[0] + ".txt"
+                        if nonCoveredItem is not None
                         else None
                     ),
                 ]
             )
-        div = (float(len(survived) + len(killed) + len(uncovered))
-               if float(len(survived) + len(killed) + len(uncovered)) != 0 else 1)
+        div = (float(len(survived) + len(killed) + len(non_covered))
+               if float(len(survived) + len(killed) + len(non_covered)) != 0 else 1)
         fileOverallStats = "<tr><td>" + str(
-            str(len(survived) + len(killed) + len(uncovered))
+            str(len(survived) + len(killed) + len(non_covered))
             + " </td> <td> "
             + (
                 "{:3.1f}%".format(
@@ -367,7 +372,7 @@ class ReportGenerator(object):
             + '%"></div><div class="coverage_legend">'
             + str(len(killed))
             + "/"
-            + str(len(killed) + len(survived) + len(uncovered))
+            + str(len(killed) + len(survived) + len(non_covered))
             + "</div></div></td></tr>"
         )
 
@@ -407,6 +412,29 @@ class ReportGenerator(object):
                 + xstr(item[15])
                 + "</a></td></tr>"
             )
+
+        # Append timeout section if any
+        if len(timeoutList) > 0:
+            output.append('<tr><td colspan=8><strong>Killed by Timeout (' +
+                          str(len(timeoutList)) + ")</strong></td></tr>")
+            for t in timeoutList:
+                t_item = [
+                    os.path.relpath(
+                        os.path.join(os.path.dirname(reportPath), t),
+                        os.path.dirname(reportPath),
+                    ),
+                    t,
+                    os.path.relpath(
+                        os.path.join(
+                            os.path.dirname(reportPath), os.path.splitext(t)[
+                                0] + ".txt",
+                        ),
+                        os.path.dirname(reportPath),
+                    ),
+                    os.path.splitext(t)[0] + ".txt",
+                ]
+                output.append('<tr><td colspan=2><a href="' + xstr(t_item[0]) + '">' + xstr(
+                    t_item[1]) + '</a></td><td colspan=2><a href="' + xstr(t_item[2]) + '">' + xstr(t_item[3]) + "</a></td><td colspan=4></td></tr>")
 
         reportOutput = list()
         reportOutput.extend([reportBeginning, fileOverallStats, reportMiddle])
