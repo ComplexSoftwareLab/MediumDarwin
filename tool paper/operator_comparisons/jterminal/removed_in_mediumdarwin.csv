@@ -1,0 +1,2 @@
+file,line,operator,before,after,mutant_id,paper_category
+com/grahamedgecombe/jterminal/vt100/AnsiControlSequence.java,72,RemoveMethod,public String[] getParameters() {,public String[] getParameters() {,5,reduced_remove_method_other

@@ -420,3 +420,50 @@ Mutant comparison for commons-csv:
   Details: operator_comparisons/commons-csv/added_in_mediumdarwin.csv
            operator_comparisons/commons-csv/removed_in_mediumdarwin.csv
 ========== commons-csv finished at Tue May 19 19:51:39 JST 2026 ==========
+========== commons-csv compare-only at Thu May 21 10:37:20 JST 2026 ==========
+
+Comparing mutation operators: commons-csv -> operator_comparisons/commons-csv/
+Extracted 1145 mutants -> operator_comparisons/commons-csv/littledarwin.csv
+Extracted 1026 mutants -> operator_comparisons/commons-csv/mediumdarwin.csv
+Comparison written to /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/operator_comparisons/commons-csv
+  Original (LD): 1145
+  MediumDarwin: 1026
+  Reduced: 120  Added: 1  delta: -10.39%
+  (strict diff would show removed=152, added=38 — see strict_*.csv)
+Mutant comparison for commons-csv:
+  === Paper Table I (refined mutation operators) ===
+  Original (LittleDarwin): 1145
+  MediumDarwin: 1026
+  Reduced: 120
+  Added: 1
+  delta_percent: -10.39
+  check MD = Original - Reduced + Added: 1026 (should equal 1026)
+  
+  in_both_strict_match: 988
+  ld_only_sites: 115
+  md_only_sites: 1
+  
+    Reduced categories:
+      reduced_nullify_final_param_non_compilable: 112
+      reduced_remove_method_other: 5
+      reduced_nullify_input_other_filter: 3
+    Reduced by operator:
+      NullifyInputVariable: 115
+      RemoveMethod: 5
+  
+    Added categories:
+      added_other: 1
+    Added by operator:
+      NullifyReturnValue: 1
+  
+  === Strict before/after diff (misleading for relational ops) ===
+  strict_removed: 152
+  strict_added: 38
+    (LD uses '<'->'>='; MD uses '<'->'<=' — same site, not Reduced+Added)
+  
+  # Listing 1 examples:
+  #   reduced_nullify_final_param_non_compilable -> MUT0 (final param nullify)
+  #   added_remove_method_array_return -> MUT1 (array return RemoveMethod)
+  Details: operator_comparisons/commons-csv/added_in_mediumdarwin.csv
+           operator_comparisons/commons-csv/removed_in_mediumdarwin.csv
+========== commons-csv compare finished at Thu May 21 10:39:23 JST 2026 ==========

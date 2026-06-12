@@ -1,0 +1,2 @@
+file,line,operator,before,after,mutant_id,paper_category
+org/codehaus/jettison/AbstractXMLStreamReader.java,211,NullifyReturnValue,return text != null ? text.toCharArray() : new char[]{};,return null;,252,added_other

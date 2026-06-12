@@ -1,0 +1,495 @@
+LittleDarwin vs MediumDarwin mutant comparison
+Generated: 2026-05-21T11:21:26+09:00
+
+========== XChart ==========
+=== Paper Table I (refined mutation operators) ===
+Original (LittleDarwin): 7004
+MediumDarwin: 6997
+Reduced: 41
+Added: 34
+delta_percent: -0.10
+check MD = Original - Reduced + Added: 6997 (should equal 6997)
+
+in_both_strict_match: 6708
+ld_only_sites: 10
+md_only_sites: 34
+
+  Reduced categories:
+    reduced_remove_method_other: 31
+    reduced_nullify_input_other_filter: 10
+  Reduced by operator:
+    RemoveMethod: 31
+    NullifyInputVariable: 10
+
+  Added categories:
+    added_other: 34
+  Added by operator:
+    NullifyReturnValue: 34
+
+=== Strict before/after diff (misleading for relational ops) ===
+strict_removed: 265
+strict_added: 289
+  (LD uses '<'->'>='; MD uses '<'->'<=' — same site, not Reduced+Added)
+
+# Listing 1 examples:
+#   reduced_nullify_final_param_non_compilable -> MUT0 (final param nullify)
+#   added_remove_method_array_return -> MUT1 (array return RemoveMethod)
+
+========== antomology ==========
+=== Paper Table I (refined mutation operators) ===
+Original (LittleDarwin): 246
+MediumDarwin: 245
+Reduced: 4
+Added: 3
+delta_percent: -0.41
+check MD = Original - Reduced + Added: 245 (should equal 245)
+
+in_both_strict_match: 231
+ld_only_sites: 0
+md_only_sites: 3
+
+  Reduced categories:
+    reduced_remove_method_other: 4
+  Reduced by operator:
+    RemoveMethod: 4
+
+  Added categories:
+    added_other: 3
+  Added by operator:
+    NullifyReturnValue: 3
+
+=== Strict before/after diff (misleading for relational ops) ===
+strict_removed: 11
+strict_added: 14
+  (LD uses '<'->'>='; MD uses '<'->'<=' — same site, not Reduced+Added)
+
+# Listing 1 examples:
+#   reduced_nullify_final_param_non_compilable -> MUT0 (final param nullify)
+#   added_remove_method_array_return -> MUT1 (array return RemoveMethod)
+
+========== commons-cli ==========
+=== Paper Table I (refined mutation operators) ===
+Original (LittleDarwin): 1482
+MediumDarwin: 1213
+Reduced: 269
+Added: 0
+delta_percent: -18.15
+check MD = Original - Reduced + Added: 1213 (should equal 1213)
+
+in_both_strict_match: 1180
+ld_only_sites: 260
+md_only_sites: 0
+
+  Reduced categories:
+    reduced_nullify_final_param_non_compilable: 254
+    reduced_remove_method_other: 9
+    reduced_nullify_input_other_filter: 6
+  Reduced by operator:
+    NullifyInputVariable: 260
+    RemoveMethod: 9
+
+  Added categories: (none)
+  Added by operator: (none)
+
+=== Strict before/after diff (misleading for relational ops) ===
+strict_removed: 293
+strict_added: 33
+  (LD uses '<'->'>='; MD uses '<'->'<=' — same site, not Reduced+Added)
+
+# Listing 1 examples:
+#   reduced_nullify_final_param_non_compilable -> MUT0 (final param nullify)
+#   added_remove_method_array_return -> MUT1 (array return RemoveMethod)
+
+========== commons-csv ==========
+=== Paper Table I (refined mutation operators) ===
+Original (LittleDarwin): 1145
+MediumDarwin: 1026
+Reduced: 120
+Added: 1
+delta_percent: -10.39
+check MD = Original - Reduced + Added: 1026 (should equal 1026)
+
+in_both_strict_match: 988
+ld_only_sites: 115
+md_only_sites: 1
+
+  Reduced categories:
+    reduced_nullify_final_param_non_compilable: 112
+    reduced_remove_method_other: 5
+    reduced_nullify_input_other_filter: 3
+  Reduced by operator:
+    NullifyInputVariable: 115
+    RemoveMethod: 5
+
+  Added categories:
+    added_other: 1
+  Added by operator:
+    NullifyReturnValue: 1
+
+=== Strict before/after diff (misleading for relational ops) ===
+strict_removed: 152
+strict_added: 38
+  (LD uses '<'->'>='; MD uses '<'->'<=' — same site, not Reduced+Added)
+
+# Listing 1 examples:
+#   reduced_nullify_final_param_non_compilable -> MUT0 (final param nullify)
+#   added_remove_method_array_return -> MUT1 (array return RemoveMethod)
+
+========== commons-dbutils ==========
+=== Paper Table I (refined mutation operators) ===
+Original (LittleDarwin): 1525
+MediumDarwin: 1066
+Reduced: 468
+Added: 9
+delta_percent: -30.10
+check MD = Original - Reduced + Added: 1066 (should equal 1066)
+
+in_both_strict_match: 1042
+ld_only_sites: 460
+md_only_sites: 9
+
+  Reduced categories:
+    reduced_nullify_final_param_non_compilable: 427
+    reduced_nullify_input_other_filter: 33
+    reduced_remove_method_other: 8
+  Reduced by operator:
+    NullifyInputVariable: 460
+    RemoveMethod: 8
+
+  Added categories:
+    added_other: 9
+  Added by operator:
+    NullifyReturnValue: 9
+
+=== Strict before/after diff (misleading for relational ops) ===
+strict_removed: 475
+strict_added: 24
+  (LD uses '<'->'>='; MD uses '<'->'<=' — same site, not Reduced+Added)
+
+# Listing 1 examples:
+#   reduced_nullify_final_param_non_compilable -> MUT0 (final param nullify)
+#   added_remove_method_array_return -> MUT1 (array return RemoveMethod)
+
+========== commons-lang ==========
+=== Paper Table I (refined mutation operators) ===
+Original (LittleDarwin): 16832
+MediumDarwin: 14066
+Reduced: 2852
+Added: 86
+delta_percent: -16.43
+check MD = Original - Reduced + Added: 14066 (should equal 14066)
+
+in_both_strict_match: 13155
+ld_only_sites: 2755
+md_only_sites: 86
+
+  Reduced categories:
+    reduced_nullify_final_param_non_compilable: 2701
+    reduced_remove_method_other: 97
+    reduced_nullify_input_other_filter: 54
+  Reduced by operator:
+    NullifyInputVariable: 2755
+    RemoveMethod: 97
+
+  Added categories:
+    added_other: 86
+  Added by operator:
+    NullifyReturnValue: 86
+
+=== Strict before/after diff (misleading for relational ops) ===
+strict_removed: 3580
+strict_added: 911
+  (LD uses '<'->'>='; MD uses '<'->'<=' — same site, not Reduced+Added)
+
+# Listing 1 examples:
+#   reduced_nullify_final_param_non_compilable -> MUT0 (final param nullify)
+#   added_remove_method_array_return -> MUT1 (array return RemoveMethod)
+
+========== commons-net ==========
+=== Paper Table I (refined mutation operators) ===
+Original (LittleDarwin): 7290
+MediumDarwin: 6412
+Reduced: 911
+Added: 33
+delta_percent: -12.04
+check MD = Original - Reduced + Added: 6412 (should equal 6412)
+
+in_both_strict_match: 6061
+ld_only_sites: 856
+md_only_sites: 33
+
+  Reduced categories:
+    reduced_nullify_final_param_non_compilable: 815
+    reduced_remove_method_other: 55
+    reduced_nullify_input_other_filter: 41
+  Reduced by operator:
+    NullifyInputVariable: 856
+    RemoveMethod: 55
+
+  Added categories:
+    added_other: 33
+  Added by operator:
+    NullifyReturnValue: 33
+
+=== Strict before/after diff (misleading for relational ops) ===
+strict_removed: 1174
+strict_added: 351
+  (LD uses '<'->'>='; MD uses '<'->'<=' — same site, not Reduced+Added)
+
+# Listing 1 examples:
+#   reduced_nullify_final_param_non_compilable -> MUT0 (final param nullify)
+#   added_remove_method_array_return -> MUT1 (array return RemoveMethod)
+
+========== commons-validator ==========
+=== Paper Table I (refined mutation operators) ===
+Original (LittleDarwin): 3483
+MediumDarwin: 2890
+Reduced: 593
+Added: 0
+delta_percent: -17.03
+check MD = Original - Reduced + Added: 2890 (should equal 2890)
+
+in_both_strict_match: 2676
+ld_only_sites: 589
+md_only_sites: 0
+
+  Reduced categories:
+    reduced_nullify_final_param_non_compilable: 574
+    reduced_nullify_input_other_filter: 15
+    reduced_remove_method_other: 4
+  Reduced by operator:
+    NullifyInputVariable: 589
+    RemoveMethod: 4
+
+  Added categories: (none)
+  Added by operator: (none)
+
+=== Strict before/after diff (misleading for relational ops) ===
+strict_removed: 803
+strict_added: 214
+  (LD uses '<'->'>='; MD uses '<'->'<=' — same site, not Reduced+Added)
+
+# Listing 1 examples:
+#   reduced_nullify_final_param_non_compilable -> MUT0 (final param nullify)
+#   added_remove_method_array_return -> MUT1 (array return RemoveMethod)
+
+========== jackson-core ==========
+=== Paper Table I (refined mutation operators) ===
+Original (LittleDarwin): 15890
+MediumDarwin: 15901
+Reduced: 121
+Added: 132
+delta_percent: 0.07
+check MD = Original - Reduced + Added: 15901 (should equal 15901)
+
+in_both_strict_match: 14164
+ld_only_sites: 32
+md_only_sites: 132
+
+  Reduced categories:
+    reduced_remove_method_other: 89
+    reduced_nullify_final_param_non_compilable: 25
+    reduced_nullify_input_other_filter: 7
+  Reduced by operator:
+    RemoveMethod: 89
+    NullifyInputVariable: 32
+
+  Added categories:
+    added_other: 132
+  Added by operator:
+    NullifyReturnValue: 132
+
+=== Strict before/after diff (misleading for relational ops) ===
+strict_removed: 1637
+strict_added: 1737
+  (LD uses '<'->'>='; MD uses '<'->'<=' — same site, not Reduced+Added)
+
+# Listing 1 examples:
+#   reduced_nullify_final_param_non_compilable -> MUT0 (final param nullify)
+#   added_remove_method_array_return -> MUT1 (array return RemoveMethod)
+
+========== jackson-databind ==========
+=== Paper Table I (refined mutation operators) ===
+Original (LittleDarwin): 37280
+MediumDarwin: 37206
+Reduced: 152
+Added: 78
+delta_percent: -0.20
+check MD = Original - Reduced + Added: 37206 (should equal 37206)
+
+in_both_strict_match: 36621
+ld_only_sites: 84
+md_only_sites: 78
+
+  Reduced categories:
+    reduced_remove_method_other: 68
+    reduced_nullify_input_other_filter: 60
+    reduced_nullify_final_param_non_compilable: 24
+  Reduced by operator:
+    NullifyInputVariable: 84
+    RemoveMethod: 68
+
+  Added categories:
+    added_other: 78
+  Added by operator:
+    NullifyReturnValue: 78
+
+=== Strict before/after diff (misleading for relational ops) ===
+strict_removed: 591
+strict_added: 585
+  (LD uses '<'->'>='; MD uses '<'->'<=' — same site, not Reduced+Added)
+
+# Listing 1 examples:
+#   reduced_nullify_final_param_non_compilable -> MUT0 (final param nullify)
+#   added_remove_method_array_return -> MUT1 (array return RemoveMethod)
+
+========== jackson-dataformat-xml ==========
+=== Paper Table I (refined mutation operators) ===
+Original (LittleDarwin): 2572
+MediumDarwin: 2573
+Reduced: 5
+Added: 6
+delta_percent: 0.04
+check MD = Original - Reduced + Added: 2573 (should equal 2573)
+
+in_both_strict_match: 2513
+ld_only_sites: 0
+md_only_sites: 6
+
+  Reduced categories:
+    reduced_remove_method_other: 5
+  Reduced by operator:
+    RemoveMethod: 5
+
+  Added categories:
+    added_other: 6
+  Added by operator:
+    NullifyReturnValue: 6
+
+=== Strict before/after diff (misleading for relational ops) ===
+strict_removed: 54
+strict_added: 60
+  (LD uses '<'->'>='; MD uses '<'->'<=' — same site, not Reduced+Added)
+
+# Listing 1 examples:
+#   reduced_nullify_final_param_non_compilable -> MUT0 (final param nullify)
+#   added_remove_method_array_return -> MUT1 (array return RemoveMethod)
+
+========== jettison ==========
+=== Paper Table I (refined mutation operators) ===
+Original (LittleDarwin): 2211
+MediumDarwin: 2211
+Reduced: 1
+Added: 1
+delta_percent: 0.00
+check MD = Original - Reduced + Added: 2211 (should equal 2211)
+
+in_both_strict_match: 2104
+ld_only_sites: 0
+md_only_sites: 1
+
+  Reduced categories:
+    reduced_remove_method_other: 1
+  Reduced by operator:
+    RemoveMethod: 1
+
+  Added categories:
+    added_other: 1
+  Added by operator:
+    NullifyReturnValue: 1
+
+=== Strict before/after diff (misleading for relational ops) ===
+strict_removed: 106
+strict_added: 107
+  (LD uses '<'->'>='; MD uses '<'->'<=' — same site, not Reduced+Added)
+
+# Listing 1 examples:
+#   reduced_nullify_final_param_non_compilable -> MUT0 (final param nullify)
+#   added_remove_method_array_return -> MUT1 (array return RemoveMethod)
+
+========== jra ==========
+=== Paper Table I (refined mutation operators) ===
+Original (LittleDarwin): 46
+MediumDarwin: 46
+Reduced: 0
+Added: 0
+delta_percent: 0.00
+check MD = Original - Reduced + Added: 46 (should equal 46)
+
+in_both_strict_match: 42
+ld_only_sites: 0
+md_only_sites: 0
+
+  Reduced categories: (none)
+  Reduced by operator: (none)
+
+  Added categories: (none)
+  Added by operator: (none)
+
+=== Strict before/after diff (misleading for relational ops) ===
+strict_removed: 4
+strict_added: 4
+  (LD uses '<'->'>='; MD uses '<'->'<=' — same site, not Reduced+Added)
+
+# Listing 1 examples:
+#   reduced_nullify_final_param_non_compilable -> MUT0 (final param nullify)
+#   added_remove_method_array_return -> MUT1 (array return RemoveMethod)
+
+========== jterminal ==========
+=== Paper Table I (refined mutation operators) ===
+Original (LittleDarwin): 295
+MediumDarwin: 294
+Reduced: 1
+Added: 0
+delta_percent: -0.34
+check MD = Original - Reduced + Added: 294 (should equal 294)
+
+in_both_strict_match: 244
+ld_only_sites: 0
+md_only_sites: 0
+
+  Reduced categories:
+    reduced_remove_method_other: 1
+  Reduced by operator:
+    RemoveMethod: 1
+
+  Added categories: (none)
+  Added by operator: (none)
+
+=== Strict before/after diff (misleading for relational ops) ===
+strict_removed: 50
+strict_added: 50
+  (LD uses '<'->'>='; MD uses '<'->'<=' — same site, not Reduced+Added)
+
+# Listing 1 examples:
+#   reduced_nullify_final_param_non_compilable -> MUT0 (final param nullify)
+#   added_remove_method_array_return -> MUT1 (array return RemoveMethod)
+
+========== triangle-example ==========
+=== Paper Table I (refined mutation operators) ===
+Original (LittleDarwin): 42
+MediumDarwin: 42
+Reduced: 0
+Added: 0
+delta_percent: 0.00
+check MD = Original - Reduced + Added: 42 (should equal 42)
+
+in_both_strict_match: 32
+ld_only_sites: 0
+md_only_sites: 0
+
+  Reduced categories: (none)
+  Reduced by operator: (none)
+
+  Added categories: (none)
+  Added by operator: (none)
+
+=== Strict before/after diff (misleading for relational ops) ===
+strict_removed: 10
+strict_added: 10
+  (LD uses '<'->'>='; MD uses '<'->'<=' — same site, not Reduced+Added)
+
+# Listing 1 examples:
+#   reduced_nullify_final_param_non_compilable -> MUT0 (final param nullify)
+#   added_remove_method_array_return -> MUT1 (array return RemoveMethod)
+

@@ -1,0 +1,5 @@
+file,line,operator,before,after,mutant_id,paper_category
+org/codehaus/jra/ResourceUtil.java,29,RelationalOperatorReplacement,for (int i = 0; i < resource.length(); i++) {,for (int i = 0; i <= resource.length(); i++) {,29,
+org/codehaus/jra/ResourceUtil.java,58,RelationalOperatorReplacement,if (reqUri.length() <= reqIdx) {,if (reqUri.length() < reqIdx) {,34,
+org/codehaus/jra/ResourceUtil.java,74,RelationalOperatorReplacement,for (int i = 0; i < resource.length(); i++) {,for (int i = 0; i <= resource.length(); i++) {,36,
+org/codehaus/jra/ResourceUtil.java,106,RelationalOperatorReplacement,if (reqUri.length() <= reqIdx) {,if (reqUri.length() < reqIdx) {,41,

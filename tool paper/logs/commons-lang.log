@@ -4569,3 +4569,50 @@ Mutant comparison for commons-lang:
   Details: operator_comparisons/commons-lang/added_in_mediumdarwin.csv
            operator_comparisons/commons-lang/removed_in_mediumdarwin.csv
 ========== commons-lang finished at Wed May 20 16:30:17 JST 2026 ==========
+========== commons-lang compare-only at Thu May 21 10:37:05 JST 2026 ==========
+
+Comparing mutation operators: commons-lang -> operator_comparisons/commons-lang/
+Extracted 16832 mutants -> operator_comparisons/commons-lang/littledarwin.csv
+Extracted 14066 mutants -> operator_comparisons/commons-lang/mediumdarwin.csv
+Comparison written to /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/operator_comparisons/commons-lang
+  Original (LD): 16832
+  MediumDarwin: 14066
+  Reduced: 2852  Added: 86  delta: -16.43%
+  (strict diff would show removed=3580, added=911 — see strict_*.csv)
+Mutant comparison for commons-lang:
+  === Paper Table I (refined mutation operators) ===
+  Original (LittleDarwin): 16832
+  MediumDarwin: 14066
+  Reduced: 2852
+  Added: 86
+  delta_percent: -16.43
+  check MD = Original - Reduced + Added: 14066 (should equal 14066)
+  
+  in_both_strict_match: 13155
+  ld_only_sites: 2755
+  md_only_sites: 86
+  
+    Reduced categories:
+      reduced_nullify_final_param_non_compilable: 2701
+      reduced_remove_method_other: 97
+      reduced_nullify_input_other_filter: 54
+    Reduced by operator:
+      NullifyInputVariable: 2755
+      RemoveMethod: 97
+  
+    Added categories:
+      added_other: 86
+    Added by operator:
+      NullifyReturnValue: 86
+  
+  === Strict before/after diff (misleading for relational ops) ===
+  strict_removed: 3580
+  strict_added: 911
+    (LD uses '<'->'>='; MD uses '<'->'<=' — same site, not Reduced+Added)
+  
+  # Listing 1 examples:
+  #   reduced_nullify_final_param_non_compilable -> MUT0 (final param nullify)
+  #   added_remove_method_array_return -> MUT1 (array return RemoveMethod)
+  Details: operator_comparisons/commons-lang/added_in_mediumdarwin.csv
+           operator_comparisons/commons-lang/removed_in_mediumdarwin.csv
+========== commons-lang compare finished at Thu May 21 10:58:16 JST 2026 ==========

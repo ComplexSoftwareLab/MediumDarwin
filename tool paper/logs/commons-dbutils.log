@@ -856,3 +856,50 @@ Mutant comparison for commons-dbutils:
   Details: operator_comparisons/commons-dbutils/added_in_mediumdarwin.csv
            operator_comparisons/commons-dbutils/removed_in_mediumdarwin.csv
 ========== commons-dbutils finished at Tue May 19 19:39:51 JST 2026 ==========
+========== commons-dbutils compare-only at Thu May 21 10:37:33 JST 2026 ==========
+
+Comparing mutation operators: commons-dbutils -> operator_comparisons/commons-dbutils/
+Extracted 1525 mutants -> operator_comparisons/commons-dbutils/littledarwin.csv
+Extracted 1066 mutants -> operator_comparisons/commons-dbutils/mediumdarwin.csv
+Comparison written to /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/operator_comparisons/commons-dbutils
+  Original (LD): 1525
+  MediumDarwin: 1066
+  Reduced: 468  Added: 9  delta: -30.10%
+  (strict diff would show removed=475, added=24 — see strict_*.csv)
+Mutant comparison for commons-dbutils:
+  === Paper Table I (refined mutation operators) ===
+  Original (LittleDarwin): 1525
+  MediumDarwin: 1066
+  Reduced: 468
+  Added: 9
+  delta_percent: -30.10
+  check MD = Original - Reduced + Added: 1066 (should equal 1066)
+  
+  in_both_strict_match: 1042
+  ld_only_sites: 460
+  md_only_sites: 9
+  
+    Reduced categories:
+      reduced_nullify_final_param_non_compilable: 427
+      reduced_nullify_input_other_filter: 33
+      reduced_remove_method_other: 8
+    Reduced by operator:
+      NullifyInputVariable: 460
+      RemoveMethod: 8
+  
+    Added categories:
+      added_other: 9
+    Added by operator:
+      NullifyReturnValue: 9
+  
+  === Strict before/after diff (misleading for relational ops) ===
+  strict_removed: 475
+  strict_added: 24
+    (LD uses '<'->'>='; MD uses '<'->'<=' — same site, not Reduced+Added)
+  
+  # Listing 1 examples:
+  #   reduced_nullify_final_param_non_compilable -> MUT0 (final param nullify)
+  #   added_remove_method_array_return -> MUT1 (array return RemoveMethod)
+  Details: operator_comparisons/commons-dbutils/added_in_mediumdarwin.csv
+           operator_comparisons/commons-dbutils/removed_in_mediumdarwin.csv
+========== commons-dbutils compare finished at Thu May 21 10:39:38 JST 2026 ==========

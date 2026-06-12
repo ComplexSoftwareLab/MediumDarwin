@@ -184,3 +184,43 @@ Mutant comparison for triangle-example:
   Details: operator_comparisons/triangle-example/added_in_mediumdarwin.csv
            operator_comparisons/triangle-example/removed_in_mediumdarwin.csv
 ========== triangle-example finished at Tue May 19 17:47:18 JST 2026 ==========
+========== triangle-example compare-only at Thu May 21 10:37:05 JST 2026 ==========
+
+Comparing mutation operators: triangle-example -> operator_comparisons/triangle-example/
+Extracted 42 mutants -> operator_comparisons/triangle-example/littledarwin.csv
+Extracted 42 mutants -> operator_comparisons/triangle-example/mediumdarwin.csv
+Comparison written to /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/operator_comparisons/triangle-example
+  Original (LD): 42
+  MediumDarwin: 42
+  Reduced: 0  Added: 0  delta: 0.00%
+  (strict diff would show removed=10, added=10 — see strict_*.csv)
+Mutant comparison for triangle-example:
+  === Paper Table I (refined mutation operators) ===
+  Original (LittleDarwin): 42
+  MediumDarwin: 42
+  Reduced: 0
+  Added: 0
+  delta_percent: 0.00
+  check MD = Original - Reduced + Added: 42 (should equal 42)
+  
+  in_both_strict_match: 32
+  ld_only_sites: 0
+  md_only_sites: 0
+  
+    Reduced categories: (none)
+    Reduced by operator: (none)
+  
+    Added categories: (none)
+    Added by operator: (none)
+  
+  === Strict before/after diff (misleading for relational ops) ===
+  strict_removed: 10
+  strict_added: 10
+    (LD uses '<'->'>='; MD uses '<'->'<=' — same site, not Reduced+Added)
+  
+  # Listing 1 examples:
+  #   reduced_nullify_final_param_non_compilable -> MUT0 (final param nullify)
+  #   added_remove_method_array_return -> MUT1 (array return RemoveMethod)
+  Details: operator_comparisons/triangle-example/added_in_mediumdarwin.csv
+           operator_comparisons/triangle-example/removed_in_mediumdarwin.csv
+========== triangle-example compare finished at Thu May 21 10:37:08 JST 2026 ==========

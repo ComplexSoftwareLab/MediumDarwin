@@ -1,0 +1,122 @@
+file,line,operator,before,after,mutant_id,paper_category
+com/fasterxml/jackson/core/base/ParserMinimalBase.java,857,NullifyInputVariable,protected final JsonToken _nullSafeUpdateToken(final JsonToken token) throws StreamConstraintsException {,protected final JsonToken _nullSafeUpdateToken(final JsonToken token) throws StreamConstraintsException { token = null;,60,reduced_nullify_final_param_non_compilable
+com/fasterxml/jackson/core/util/BufferRecycler.java,159,RemoveMethod,"public byte[] allocByteBuffer(int ix, int minSize) {","public byte[] allocByteBuffer(int ix, int minSize) {",34,reduced_remove_method_other
+com/fasterxml/jackson/core/json/WriterBasedJsonGenerator.java,2052,RemoveMethod,private char[] _allocateCopyBuffer() {,private char[] _allocateCopyBuffer() {,231,reduced_remove_method_other
+com/fasterxml/jackson/core/util/BufferRecycler.java,231,RemoveMethod,protected byte[] balloc(int size) { return new byte[size]; },protected byte[] balloc(int size) {,22,reduced_remove_method_other
+com/fasterxml/jackson/core/io/CharTypes.java,258,RemoveMethod,"public static int[] get7BitOutputEscapes(int quoteChar, boolean escapeSlash) {","public static int[] get7BitOutputEscapes(int quoteChar, boolean escapeSlash) {",32,reduced_remove_method_other
+com/fasterxml/jackson/core/base/ParserMinimalBase.java,848,NullifyInputVariable,protected final JsonToken _updateToken(final JsonToken token) throws StreamConstraintsException {,protected final JsonToken _updateToken(final JsonToken token) throws StreamConstraintsException { token = null;,61,reduced_nullify_final_param_non_compilable
+com/fasterxml/jackson/core/io/CharTypes.java,332,RemoveMethod,public static char[] copyHexChars(boolean uppercase) {,public static char[] copyHexChars(boolean uppercase) {,23,reduced_remove_method_other
+com/fasterxml/jackson/core/util/BufferRecyclers.java,192,RemoveMethod,public static byte[] quoteAsJsonUTF8(String rawText) {,public static byte[] quoteAsJsonUTF8(String rawText) {,16,reduced_remove_method_other
+com/fasterxml/jackson/core/io/CharTypes.java,239,RemoveMethod,public static int[] get7BitOutputEscapes(int quoteChar) {,public static int[] get7BitOutputEscapes(int quoteChar) {,34,reduced_remove_method_other
+com/fasterxml/jackson/core/util/BufferRecycler.java,155,RemoveMethod,public final byte[] allocByteBuffer(int ix) {,public final byte[] allocByteBuffer(int ix) {,36,reduced_remove_method_other
+com/fasterxml/jackson/core/util/TextBuffer.java,340,RemoveMethod,public char[] getBufferWithoutReset() {,public char[] getBufferWithoutReset() {,196,reduced_remove_method_other
+com/fasterxml/jackson/core/json/async/NonBlockingJsonParserBase.java,549,RemoveMethod,{,{,149,reduced_remove_method_other
+com/fasterxml/jackson/core/util/TextBuffer.java,930,RemoveMethod,{,{,157,reduced_remove_method_other
+com/fasterxml/jackson/core/io/NumberInput.java,598,NullifyInputVariable,"public static BigInteger parseBigInteger(final String s, final boolean useFastParser) throws NumberFormatException {","public static BigInteger parseBigInteger(final String s, final boolean useFastParser) throws NumberFormatException { s = null;",80,reduced_nullify_final_param_non_compilable
+com/fasterxml/jackson/core/json/UTF8StreamJsonParser.java,425,RemoveMethod,{,{,596,reduced_remove_method_other
+com/fasterxml/jackson/core/json/UTF8DataInputJsonParser.java,281,RemoveMethod,{,{,447,reduced_remove_method_other
+com/fasterxml/jackson/core/base/ParserBase.java,1611,RemoveMethod,"protected int[] _growNameDecodeBuffer(int[] arr, int more) throws StreamConstraintsException {","protected int[] _growNameDecodeBuffer(int[] arr, int more) throws StreamConstraintsException {",157,reduced_remove_method_other
+com/fasterxml/jackson/core/io/JsonStringEncoder.java,416,RemoveMethod,{,{,103,reduced_remove_method_other
+com/fasterxml/jackson/core/json/ReaderBasedJsonParser.java,2818,RemoveMethod,{,{,347,reduced_remove_method_other
+com/fasterxml/jackson/core/io/CharTypes.java,226,RemoveMethod,public static int[] get7BitOutputEscapes() { return sOutputEscapes128; },public static int[] get7BitOutputEscapes() {,36,reduced_remove_method_other
+com/fasterxml/jackson/core/util/TextBuffer.java,1235,RemoveMethod,private char[] carr(int len) { return new char[len]; },private char[] carr(int len) {,132,reduced_remove_method_other
+com/fasterxml/jackson/core/util/TextBuffer.java,516,RemoveMethod,public char[] contentsAsArray() throws IOException {,public char[] contentsAsArray() throws IOException {,180,reduced_remove_method_other
+com/fasterxml/jackson/core/util/TextBuffer.java,1087,RemoveMethod,{,{,142,reduced_remove_method_other
+com/fasterxml/jackson/core/filter/FilteringParserDelegate.java,970,RemoveMethod,@Override public char[] getTextCharacters() throws IOException {,@Override public char[] getTextCharacters() throws IOException {,235,reduced_remove_method_other
+com/fasterxml/jackson/core/StreamReadConstraints.java,114,NullifyInputVariable,public static void overrideDefaultStreamReadConstraints(final StreamReadConstraints streamReadConstraints) {,public static void overrideDefaultStreamReadConstraints(final StreamReadConstraints streamReadConstraints) { streamReadConstraints = null;,17,reduced_nullify_final_param_non_compilable
+com/fasterxml/jackson/core/io/IOContext.java,398,RemoveMethod,public char[] allocConcatBuffer() {,public char[] allocConcatBuffer() {,44,reduced_remove_method_other
+com/fasterxml/jackson/core/util/ByteArrayBuilder.java,242,RemoveMethod,public byte[] finishCurrentSegment() {,public byte[] finishCurrentSegment() {,54,reduced_remove_method_other
+com/fasterxml/jackson/core/util/BufferRecyclers.java,142,RemoveMethod,public static byte[] encodeAsUTF8(String text) {,public static byte[] encodeAsUTF8(String text) {,21,reduced_remove_method_other
+com/fasterxml/jackson/core/json/UTF8JsonGenerator.java,2245,RemoveMethod,private byte[] getHexBytes() {,private byte[] getHexBytes() {,259,reduced_remove_method_other
+com/fasterxml/jackson/core/ErrorReportConfiguration.java,66,NullifyInputVariable,public static void overrideDefaultErrorReportConfiguration(final ErrorReportConfiguration errorReportConfiguration) {,public static void overrideDefaultErrorReportConfiguration(final ErrorReportConfiguration errorReportConfiguration) { errorReportConfiguration = null;,8,reduced_nullify_final_param_non_compilable
+com/fasterxml/jackson/core/util/BufferRecyclers.java,159,RemoveMethod,public static char[] quoteAsJsonText(String rawText) {,public static char[] quoteAsJsonText(String rawText) {,19,reduced_remove_method_other
+com/fasterxml/jackson/core/json/UTF8StreamJsonParser.java,3708,RemoveMethod,{,{,463,reduced_remove_method_other
+com/fasterxml/jackson/core/io/IOContext.java,326,RemoveMethod,public byte[] allocReadIOBuffer(int minSize) {,public byte[] allocReadIOBuffer(int minSize) {,58,reduced_remove_method_other
+com/fasterxml/jackson/core/JsonpCharacterEscapes.java,43,RemoveMethod,public int[] getEscapeCodesForAscii() {,public int[] getEscapeCodesForAscii() {,9,reduced_remove_method_other
+com/fasterxml/jackson/core/io/CharTypes.java,214,RemoveMethod,public static int[] getInputCodeComment() { return sInputCodesComment; },public static int[] getInputCodeComment() {,40,reduced_remove_method_other
+com/fasterxml/jackson/core/util/TextBuffer.java,430,RemoveMethod,{,{,184,reduced_remove_method_other
+com/fasterxml/jackson/core/io/NumberInput.java,398,NullifyInputVariable,public static double parseDouble(final String s) throws NumberFormatException {,public static double parseDouble(final String s) throws NumberFormatException { s = null;,87,reduced_nullify_final_param_non_compilable
+com/fasterxml/jackson/core/io/NumberInput.java,501,NullifyInputVariable,public static BigDecimal parseBigDecimal(final String s) throws NumberFormatException {,public static BigDecimal parseBigDecimal(final String s) throws NumberFormatException { s = null;,83,reduced_nullify_final_param_non_compilable
+com/fasterxml/jackson/core/io/CharTypes.java,328,RemoveMethod,public static char[] copyHexChars() {,public static char[] copyHexChars() {,25,reduced_remove_method_other
+com/fasterxml/jackson/core/JsonPointer.java,716,NullifyInputVariable,{,{ fullPath = null;,97,reduced_nullify_input_other_filter
+com/fasterxml/jackson/core/io/BigIntegerParser.java,19,NullifyInputVariable,public static BigInteger parseWithFastParser(final String valueStr) {,public static BigInteger parseWithFastParser(final String valueStr) { valueStr = null;,4,reduced_nullify_final_param_non_compilable
+com/fasterxml/jackson/core/filter/FilteringParserDelegate.java,693,NullifyInputVariable,{,{ buffRoot = null;,182,reduced_nullify_input_other_filter
+com/fasterxml/jackson/core/io/JsonStringEncoder.java,517,RemoveMethod,{,{,101,reduced_remove_method_other
+com/fasterxml/jackson/core/util/ByteArrayBuilder.java,201,RemoveMethod,{,{,59,reduced_remove_method_other
+com/fasterxml/jackson/core/io/JsonStringEncoder.java,613,RemoveMethod,private char[] _qbuf() {,private char[] _qbuf() {,99,reduced_remove_method_other
+com/fasterxml/jackson/core/io/IOContext.java,403,RemoveMethod,public char[] allocNameCopyBuffer(int minSize) {,public char[] allocNameCopyBuffer(int minSize) {,42,reduced_remove_method_other
+com/fasterxml/jackson/core/io/SerializedString.java,102,RemoveMethod,public final char[] asQuotedChars() {,public final char[] asQuotedChars() {,55,reduced_remove_method_other
+com/fasterxml/jackson/core/json/UTF8JsonGenerator.java,1742,NullifyInputVariable,{,{ text = null;,226,reduced_nullify_input_other_filter
+com/fasterxml/jackson/core/util/ByteArrayBuilder.java,256,RemoveMethod,public byte[] completeAndCoalesce(int lastBlockLength) {,public byte[] completeAndCoalesce(int lastBlockLength) {,52,reduced_remove_method_other
+com/fasterxml/jackson/core/io/IOContext.java,387,RemoveMethod,public char[] allocTokenBuffer() {,public char[] allocTokenBuffer() {,48,reduced_remove_method_other
+com/fasterxml/jackson/core/util/TextBuffer.java,1110,RemoveMethod,public char[] expandCurrentSegment(int minSize) {,public char[] expandCurrentSegment(int minSize) {,140,reduced_remove_method_other
+com/fasterxml/jackson/core/json/ReaderBasedJsonParser.java,464,RemoveMethod,{,{,427,reduced_remove_method_other
+com/fasterxml/jackson/core/io/NumberInput.java,587,NullifyInputVariable,public static BigInteger parseBigInteger(final String s) throws NumberFormatException {,public static BigInteger parseBigInteger(final String s) throws NumberFormatException { s = null;,81,reduced_nullify_final_param_non_compilable
+com/fasterxml/jackson/core/io/IOContext.java,311,RemoveMethod,public byte[] allocReadIOBuffer() {,public byte[] allocReadIOBuffer() {,60,reduced_remove_method_other
+com/fasterxml/jackson/core/io/BigIntegerParser.java,30,NullifyInputVariable,"public static BigInteger parseWithFastParser(final String valueStr, final int radix) {","public static BigInteger parseWithFastParser(final String valueStr, final int radix) { valueStr = null;",3,reduced_nullify_final_param_non_compilable
+com/fasterxml/jackson/core/json/async/NonBlockingByteBufferJsonParser.java,40,NullifyInputVariable,public void feedInput(final ByteBuffer byteBuffer) throws IOException {,public void feedInput(final ByteBuffer byteBuffer) throws IOException { byteBuffer = null;,9,reduced_nullify_final_param_non_compilable
+com/fasterxml/jackson/core/io/NumberInput.java,365,NullifyInputVariable,{,{ s = null;,89,reduced_nullify_input_other_filter
+com/fasterxml/jackson/core/util/ByteArrayBuilder.java,159,RemoveMethod,{,{,61,reduced_remove_method_other
+com/fasterxml/jackson/core/io/CharTypes.java,215,RemoveMethod,public static int[] getInputCodeWS() { return sInputCodesWS; },public static int[] getInputCodeWS() {,38,reduced_remove_method_other
+com/fasterxml/jackson/core/io/BigDecimalParser.java,146,NullifyInputVariable,final int len) {,final int len) { e = null;,20,reduced_nullify_final_param_non_compilable
+com/fasterxml/jackson/core/util/BufferRecycler.java,232,RemoveMethod,protected char[] calloc(int size) { return new char[size]; },protected char[] calloc(int size) {,20,reduced_remove_method_other
+com/fasterxml/jackson/core/util/BufferRecycler.java,186,RemoveMethod,public final char[] allocCharBuffer(int ix) {,public final char[] allocCharBuffer(int ix) {,31,reduced_remove_method_other
+com/fasterxml/jackson/core/util/TextBuffer.java,1195,RemoveMethod,{,{,134,reduced_remove_method_other
+com/fasterxml/jackson/core/json/async/NonBlockingJsonParserBase.java,470,RemoveMethod,{,{,155,reduced_remove_method_other
+com/fasterxml/jackson/core/io/SerializedString.java,116,RemoveMethod,public final byte[] asQuotedUTF8() {,public final byte[] asQuotedUTF8() {,53,reduced_remove_method_other
+com/fasterxml/jackson/core/io/NumberInput.java,460,NullifyInputVariable,"public static float parseFloat(final String s, final boolean useFastParser) throws NumberFormatException {","public static float parseFloat(final String s, final boolean useFastParser) throws NumberFormatException { s = null;",84,reduced_nullify_final_param_non_compilable
+com/fasterxml/jackson/core/JsonToken.java,174,RemoveMethod,public final byte[] asByteArray() { return _serializedBytes; },public final byte[] asByteArray() {,37,reduced_remove_method_other
+com/fasterxml/jackson/core/json/UTF8DataInputJsonParser.java,363,RemoveMethod,{,{,441,reduced_remove_method_other
+com/fasterxml/jackson/core/io/JsonStringEncoder.java,79,RemoveMethod,{,{,110,reduced_remove_method_other
+com/fasterxml/jackson/core/json/async/NonBlockingByteBufferJsonParser.java,74,NullifyInputVariable,public int releaseBuffered(final OutputStream out) throws IOException {,public int releaseBuffered(final OutputStream out) throws IOException { out = null;,8,reduced_nullify_final_param_non_compilable
+com/fasterxml/jackson/core/io/NumberInput.java,449,NullifyInputVariable,public static float parseFloat(final String s) throws NumberFormatException {,public static float parseFloat(final String s) throws NumberFormatException { s = null;,85,reduced_nullify_final_param_non_compilable
+com/fasterxml/jackson/core/util/BufferRecycler.java,190,RemoveMethod,"public char[] allocCharBuffer(int ix, int minSize) {","public char[] allocCharBuffer(int ix, int minSize) {",29,reduced_remove_method_other
+com/fasterxml/jackson/core/io/JsonStringEncoder.java,169,RemoveMethod,{,{,108,reduced_remove_method_other
+com/fasterxml/jackson/core/util/TextBuffer.java,347,RemoveMethod,{,{,194,reduced_remove_method_other
+com/fasterxml/jackson/core/io/BigDecimalParser.java,175,NullifyInputVariable,"private static String _generateExceptionMessage(final String valueToReport, final String desc) {","private static String _generateExceptionMessage(final String valueToReport, final String desc) { desc = null;",17,reduced_nullify_final_param_non_compilable
+com/fasterxml/jackson/core/io/NumberInput.java,409,NullifyInputVariable,"public static double parseDouble(final String s, final boolean useFastParser) throws NumberFormatException {","public static double parseDouble(final String s, final boolean useFastParser) throws NumberFormatException { s = null;",86,reduced_nullify_final_param_non_compilable
+com/fasterxml/jackson/core/Base64Variant.java,672,RemoveMethod,{,{,126,reduced_remove_method_other
+com/fasterxml/jackson/core/json/UTF8DataInputJsonParser.java,2823,RemoveMethod,{,{,338,reduced_remove_method_other
+com/fasterxml/jackson/core/json/UTF8JsonGenerator.java,1528,NullifyInputVariable,{,{ text = null;,228,reduced_nullify_input_other_filter
+com/fasterxml/jackson/core/StreamWriteConstraints.java,51,NullifyInputVariable,public static void overrideDefaultStreamWriteConstraints(final StreamWriteConstraints streamWriteConstraints) {,public static void overrideDefaultStreamWriteConstraints(final StreamWriteConstraints streamWriteConstraints) { streamWriteConstraints = null;,11,reduced_nullify_final_param_non_compilable
+com/fasterxml/jackson/core/io/CharTypes.java,346,RemoveMethod,public static byte[] copyHexBytes(boolean uppercase) {,public static byte[] copyHexBytes(boolean uppercase) {,19,reduced_remove_method_other
+com/fasterxml/jackson/core/io/NumberInput.java,512,NullifyInputVariable,"public static BigDecimal parseBigDecimal(final String s, final boolean useFastParser) throws NumberFormatException {","public static BigDecimal parseBigDecimal(final String s, final boolean useFastParser) throws NumberFormatException { s = null;",82,reduced_nullify_final_param_non_compilable
+com/fasterxml/jackson/core/io/IOContext.java,393,RemoveMethod,public char[] allocTokenBuffer(int minSize) {,public char[] allocTokenBuffer(int minSize) {,46,reduced_remove_method_other
+com/fasterxml/jackson/core/io/NumberInput.java,614,NullifyInputVariable,final boolean useFastParser) throws NumberFormatException {,final boolean useFastParser) throws NumberFormatException { s = null;,79,reduced_nullify_final_param_non_compilable
+com/fasterxml/jackson/core/io/CharTypes.java,342,RemoveMethod,public static byte[] copyHexBytes() {,public static byte[] copyHexBytes() {,21,reduced_remove_method_other
+com/fasterxml/jackson/core/filter/FilteringParserDelegate.java,1066,RemoveMethod,@Override public byte[] getBinaryValue(Base64Variant b64variant) throws IOException { return delegate.getBinaryValue(b64variant); },@Override public byte[] getBinaryValue(Base64Variant b64variant) throws IOException {,190,reduced_remove_method_other
+com/fasterxml/jackson/core/io/BigDecimalParser.java,156,NullifyInputVariable,private static String _getValueDesc(final String fullValue) {,private static String _getValueDesc(final String fullValue) { fullValue = null;,19,reduced_nullify_final_param_non_compilable
+com/fasterxml/jackson/core/io/CharTypes.java,211,RemoveMethod,public static int[] getInputCodeLatin1JsNames() { return sInputCodesJsNames; },public static int[] getInputCodeLatin1JsNames() {,44,reduced_remove_method_other
+com/fasterxml/jackson/core/json/UTF8JsonGenerator.java,1630,NullifyInputVariable,{,{ text = null;,227,reduced_nullify_input_other_filter
+com/fasterxml/jackson/core/util/ByteArrayBuilder.java,261,RemoveMethod,public byte[] getCurrentSegment() { return _currBlock; },public byte[] getCurrentSegment() {,50,reduced_remove_method_other
+com/fasterxml/jackson/core/util/TextBuffer.java,950,RemoveMethod,{,{,155,reduced_remove_method_other
+com/fasterxml/jackson/core/io/SerializedString.java,129,RemoveMethod,public final byte[] asUnquotedUTF8() {,public final byte[] asUnquotedUTF8() {,51,reduced_remove_method_other
+com/fasterxml/jackson/core/io/CharTypes.java,209,RemoveMethod,public static int[] getInputCodeUtf8() { return sInputCodesUTF8; },public static int[] getInputCodeUtf8() {,46,reduced_remove_method_other
+com/fasterxml/jackson/core/util/JsonParserDelegate.java,209,RemoveMethod,@Override public char[] getTextCharacters() throws IOException { return delegate.getTextCharacters(); },@Override public char[] getTextCharacters() throws IOException {,121,reduced_remove_method_other
+com/fasterxml/jackson/core/base/ParserBase.java,1596,RemoveMethod,{,{,159,reduced_remove_method_other
+com/fasterxml/jackson/core/io/IOContext.java,367,RemoveMethod,public byte[] allocBase64Buffer() {,public byte[] allocBase64Buffer() {,52,reduced_remove_method_other
+com/fasterxml/jackson/core/io/BigDecimalParser.java,175,NullifyInputVariable,"private static String _generateExceptionMessage(final String valueToReport, final String desc) {","private static String _generateExceptionMessage(final String valueToReport, final String desc) { valueToReport = null;",18,reduced_nullify_final_param_non_compilable
+com/fasterxml/jackson/core/JsonToken.java,173,RemoveMethod,public final char[] asCharArray() { return _serializedChars; },public final char[] asCharArray() {,39,reduced_remove_method_other
+com/fasterxml/jackson/core/util/TextBuffer.java,1005,RemoveMethod,public char[] finishCurrentSegment() throws IOException {,public char[] finishCurrentSegment() throws IOException {,148,reduced_remove_method_other
+com/fasterxml/jackson/core/json/ReaderBasedJsonParser.java,384,RemoveMethod,{,{,433,reduced_remove_method_other
+com/fasterxml/jackson/core/io/CharTypes.java,208,RemoveMethod,public static int[] getInputCodeLatin1() { return sInputCodes; },public static int[] getInputCodeLatin1() {,48,reduced_remove_method_other
+com/fasterxml/jackson/core/json/WriterBasedJsonGenerator.java,25,RemoveMethod,private char[] getHexChars() {,private char[] getHexChars() {,314,reduced_remove_method_other
+com/fasterxml/jackson/core/json/UTF8StreamJsonParser.java,510,RemoveMethod,{,{,590,reduced_remove_method_other
+com/fasterxml/jackson/core/io/IOContext.java,382,RemoveMethod,public byte[] allocBase64Buffer(int minSize) {,public byte[] allocBase64Buffer(int minSize) {,50,reduced_remove_method_other
+com/fasterxml/jackson/core/io/CharTypes.java,365,RemoveMethod,public int[] escapesFor(int quoteChar) {,public int[] escapesFor(int quoteChar) {,17,reduced_remove_method_other
+com/fasterxml/jackson/core/base/ParserMinimalBase.java,874,RemoveMethod,protected static byte[] _asciiBytes(String str) {,protected static byte[] _asciiBytes(String str) {,106,reduced_remove_method_other
+com/fasterxml/jackson/core/util/ByteArrayBuilder.java,230,RemoveMethod,public byte[] resetAndGetFirstSegment() {,public byte[] resetAndGetFirstSegment() {,56,reduced_remove_method_other
+com/fasterxml/jackson/core/json/WriterBasedJsonGenerator.java,2033,RemoveMethod,{,{,233,reduced_remove_method_other
+com/fasterxml/jackson/core/io/CharTypes.java,212,RemoveMethod,public static int[] getInputCodeUtf8JsNames() { return sInputCodesUtf8JsNames; },public static int[] getInputCodeUtf8JsNames() {,42,reduced_remove_method_other
+com/fasterxml/jackson/core/json/async/NonBlockingJsonParser.java,66,NullifyInputVariable,public int releaseBuffered(final OutputStream out) throws IOException {,public int releaseBuffered(final OutputStream out) throws IOException { out = null;,8,reduced_nullify_final_param_non_compilable
+com/fasterxml/jackson/core/io/JsonStringEncoder.java,310,RemoveMethod,{,{,105,reduced_remove_method_other
+com/fasterxml/jackson/core/JsonParser.java,2092,RemoveMethod,public byte[] getBinaryValue() throws IOException {,public byte[] getBinaryValue() throws IOException {,153,reduced_remove_method_other
+com/fasterxml/jackson/core/io/NumberInput.java,646,NullifyInputVariable,public static boolean looksLikeValidNumber(final String s) {,public static boolean looksLikeValidNumber(final String s) { s = null;,78,reduced_nullify_final_param_non_compilable
+com/fasterxml/jackson/core/io/CharacterEscapes.java,74,RemoveMethod,{,{,2,reduced_remove_method_other
+com/fasterxml/jackson/core/io/IOContext.java,339,RemoveMethod,public byte[] allocWriteEncodingBuffer() {,public byte[] allocWriteEncodingBuffer() {,56,reduced_remove_method_other
+com/fasterxml/jackson/core/io/BigDecimalParser.java,107,NullifyInputVariable,public static BigDecimal parseWithFastParser(final String valueStr) {,public static BigDecimal parseWithFastParser(final String valueStr) { valueStr = null;,23,reduced_nullify_final_param_non_compilable
+com/fasterxml/jackson/core/io/CharTypes.java,380,RemoveMethod,{,{,15,reduced_remove_method_other
+com/fasterxml/jackson/core/base/ParserBase.java,463,RemoveMethod,{,{,233,reduced_remove_method_other
+com/fasterxml/jackson/core/util/JsonParserDelegate.java,286,RemoveMethod,@Override public byte[] getBinaryValue(Base64Variant b64variant) throws IOException { return delegate.getBinaryValue(b64variant); },@Override public byte[] getBinaryValue(Base64Variant b64variant) throws IOException {,71,reduced_remove_method_other
+com/fasterxml/jackson/core/JsonPointer.java,756,NullifyInputVariable,"String segment, PointerParent parent) {","String segment, PointerParent parent) { fullPath = null;",96,reduced_nullify_input_other_filter
+com/fasterxml/jackson/core/io/IOContext.java,354,RemoveMethod,public byte[] allocWriteEncodingBuffer(int minSize) {,public byte[] allocWriteEncodingBuffer(int minSize) {,54,reduced_remove_method_other

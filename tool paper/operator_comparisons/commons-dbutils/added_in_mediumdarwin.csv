@@ -1,0 +1,10 @@
+file,line,operator,before,after,mutant_id,paper_category
+org/apache/commons/dbutils/BeanProcessor.java,259,NullifyReturnValue,return columnToProperty;,return null;,485,added_other
+org/apache/commons/dbutils/wrappers/SqlNullCheckedResultSet.java,221,NullifyReturnValue,return null;,return null;,976,added_other
+org/apache/commons/dbutils/AsyncQueryRunner.java,90,NullifyReturnValue,return ret;,return null;,81,added_other
+org/apache/commons/dbutils/wrappers/SqlNullCheckedResultSet.java,223,NullifyReturnValue,return this.nullBytes.clone();,return null;,977,added_other
+org/apache/commons/dbutils/GenerousBeanProcessor.java,71,NullifyReturnValue,return columnToProperty;,return null;,602,added_other
+org/apache/commons/dbutils/BaseResultSetHandler.java,246,NullifyReturnValue,return resultSet.getBytes(columnIndex);,return null;,137,added_other
+org/apache/commons/dbutils/QueryRunner.java,184,NullifyReturnValue,"return this.batch(conn, sql, params);",return null;,684,added_other
+org/apache/commons/dbutils/BaseResultSetHandler.java,253,NullifyReturnValue,return resultSet.getBytes(columnLabel);,return null;,138,added_other
+org/apache/commons/dbutils/QueryRunner.java,166,NullifyReturnValue,return rows;,return null;,683,added_other

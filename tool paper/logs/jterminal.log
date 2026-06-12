@@ -390,3 +390,63 @@ Mutant comparison for jterminal:
   Details: operator_comparisons/jterminal/added_in_mediumdarwin.csv
            operator_comparisons/jterminal/removed_in_mediumdarwin.csv
 ========== jterminal finished at Tue May 19 19:25:38 JST 2026 ==========
+========== jterminal compare-only at Thu May 21 10:36:41 JST 2026 ==========
+
+Comparing mutation operators: jterminal -> operator_comparisons/jterminal/
+Traceback (most recent call last):
+  File "/mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/extract_mutations.py", line 389, in <module>
+    main()
+  File "/mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/extract_mutations.py", line 377, in main
+    rows = extract_results(args.results_dir.resolve())
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/extract_mutations.py", line 170, in extract_results
+    parsed = extract_from_mutant_file(java_path, results_dir)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/extract_mutations.py", line 141, in extract_from_mutant_file
+    text = path.read_text(encoding="utf-8", errors="replace")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/pathlib.py", line 1029, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+KeyboardInterrupt
+========== jterminal compare-only at Thu May 21 10:37:05 JST 2026 ==========
+
+Comparing mutation operators: jterminal -> operator_comparisons/jterminal/
+Extracted 295 mutants -> operator_comparisons/jterminal/littledarwin.csv
+Extracted 294 mutants -> operator_comparisons/jterminal/mediumdarwin.csv
+Comparison written to /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/operator_comparisons/jterminal
+  Original (LD): 295
+  MediumDarwin: 294
+  Reduced: 1  Added: 0  delta: -0.34%
+  (strict diff would show removed=50, added=50 — see strict_*.csv)
+Mutant comparison for jterminal:
+  === Paper Table I (refined mutation operators) ===
+  Original (LittleDarwin): 295
+  MediumDarwin: 294
+  Reduced: 1
+  Added: 0
+  delta_percent: -0.34
+  check MD = Original - Reduced + Added: 294 (should equal 294)
+  
+  in_both_strict_match: 244
+  ld_only_sites: 0
+  md_only_sites: 0
+  
+    Reduced categories:
+      reduced_remove_method_other: 1
+    Reduced by operator:
+      RemoveMethod: 1
+  
+    Added categories: (none)
+    Added by operator: (none)
+  
+  === Strict before/after diff (misleading for relational ops) ===
+  strict_removed: 50
+  strict_added: 50
+    (LD uses '<'->'>='; MD uses '<'->'<=' — same site, not Reduced+Added)
+  
+  # Listing 1 examples:
+  #   reduced_nullify_final_param_non_compilable -> MUT0 (final param nullify)
+  #   added_remove_method_array_return -> MUT1 (array return RemoveMethod)
+  Details: operator_comparisons/jterminal/added_in_mediumdarwin.csv
+           operator_comparisons/jterminal/removed_in_mediumdarwin.csv
+========== jterminal compare finished at Thu May 21 10:37:21 JST 2026 ==========

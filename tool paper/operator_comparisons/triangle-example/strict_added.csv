@@ -1,0 +1,11 @@
+file,line,operator,before,after,mutant_id,paper_category
+com/example/Triangle.java,8,RelationalOperatorReplacement,if ((a <= 0) || (b <= 0) || (c <= 0)) {,if ((a < 0) || (b <= 0) || (c <= 0)) {,24,
+com/example/Triangle.java,8,RelationalOperatorReplacement,if ((a <= 0) || (b <= 0) || (c <= 0)) {,if ((a <= 0) || (b < 0) || (c <= 0)) {,25,
+com/example/Triangle.java,8,RelationalOperatorReplacement,if ((a <= 0) || (b <= 0) || (c <= 0)) {,if ((a <= 0) || (b <= 0) || (c < 0)) {,26,
+com/example/Triangle.java,22,RelationalOperatorReplacement,if (((a + b) < c) || ((a + c) < b) || ((b + c) < a)) {,if (((a + b) <= c) || ((a + c) < b) || ((b + c) < a)) {,31,
+com/example/Triangle.java,22,RelationalOperatorReplacement,if (((a + b) < c) || ((a + c) < b) || ((b + c) < a)) {,if (((a + b) < c) || ((a + c) <= b) || ((b + c) < a)) {,32,
+com/example/Triangle.java,22,RelationalOperatorReplacement,if (((a + b) < c) || ((a + c) < b) || ((b + c) < a)) {,if (((a + b) < c) || ((a + c) < b) || ((b + c) <= a)) {,33,
+com/example/Triangle.java,28,RelationalOperatorReplacement,if (trian > 3) {,if (trian >= 3) {,34,
+com/example/Triangle.java,31,RelationalOperatorReplacement,if ((trian == 1) && ((a + b) > c)) {,if ((trian == 1) && ((a + b) >= c)) {,36,
+com/example/Triangle.java,33,RelationalOperatorReplacement,} else if ((trian == 2) && ((a + c) > b)) {,} else if ((trian == 2) && ((a + c) >= b)) {,38,
+com/example/Triangle.java,35,RelationalOperatorReplacement,} else if ((trian == 3) && ((b + c) > a)) {,} else if ((trian == 3) && ((b + c) >= a)) {,40,

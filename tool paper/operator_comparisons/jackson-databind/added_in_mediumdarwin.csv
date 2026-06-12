@@ -1,0 +1,79 @@
+file,line,operator,before,after,mutant_id,paper_category
+com/fasterxml/jackson/databind/deser/std/PrimitiveArrayDeserializers.java,930,NullifyReturnValue,return result;,return null;,14958,added_other
+com/fasterxml/jackson/databind/deser/std/PrimitiveArrayDeserializers.java,845,NullifyReturnValue,"return builder.completeAndClearBuffer(chunk, ix);",return null;,14950,added_other
+com/fasterxml/jackson/databind/deser/std/PrimitiveArrayDeserializers.java,470,NullifyReturnValue,return p.getBinaryValue(ctxt.getBase64Variant());,return null;,14919,added_other
+com/fasterxml/jackson/databind/deser/std/PrimitiveArrayDeserializers.java,478,NullifyReturnValue,"return (byte[]) ctxt.handleWeirdStringValue(byte[].class,",return null;,14920,added_other
+com/fasterxml/jackson/databind/deser/std/PrimitiveArrayDeserializers.java,890,NullifyReturnValue,"return handleNonArray(p, ctxt);",return null;,14955,added_other
+com/fasterxml/jackson/databind/deser/std/PrimitiveArrayDeserializers.java,369,NullifyReturnValue,return new boolean[0];,return null;,14911,added_other
+com/fasterxml/jackson/databind/deser/std/PrimitiveArrayDeserializers.java,486,NullifyReturnValue,if (ob == null) return null;,if (ob == null) return null;,14921,added_other
+com/fasterxml/jackson/databind/deser/std/PrimitiveArrayDeserializers.java,324,NullifyReturnValue,"return (char[]) ctxt.handleUnexpectedToken(_valueClass, p);",return null;,14907,added_other
+com/fasterxml/jackson/databind/deser/std/PrimitiveArrayDeserializers.java,545,NullifyReturnValue,return null;,return null;,14926,added_other
+com/fasterxml/jackson/databind/deser/std/PrimitiveArrayDeserializers.java,624,NullifyReturnValue,"return new short[] { _parseShortPrimitive(p, ctxt) };",return null;,14933,added_other
+com/fasterxml/jackson/databind/deser/std/PrimitiveArrayDeserializers.java,819,NullifyReturnValue,"return handleNonArray(p, ctxt);",return null;,14949,added_other
+com/fasterxml/jackson/databind/deser/std/PrimitiveArrayDeserializers.java,812,NullifyReturnValue,return new float[0];,return null;,14948,added_other
+com/fasterxml/jackson/databind/JsonNode.java,512,NullifyReturnValue,return null;,return null;,1883,added_other
+com/fasterxml/jackson/databind/util/ArrayBuilders.java,109,NullifyReturnValue,public final short[] _constructArray(int len) { return new short[len]; },public final short[] _constructArray(int len) { return null; },33844,added_other
+com/fasterxml/jackson/databind/deser/std/PrimitiveArrayDeserializers.java,488,NullifyReturnValue,return (byte[]) ob;,return null;,14922,added_other
+com/fasterxml/jackson/databind/deser/std/PrimitiveArrayDeserializers.java,425,NullifyReturnValue,return result;,return null;,14915,added_other
+com/fasterxml/jackson/databind/deser/std/PrimitiveArrayDeserializers.java,696,NullifyReturnValue,"return builder.completeAndClearBuffer(chunk, ix);",return null;,14938,added_other
+com/fasterxml/jackson/databind/deser/std/PrimitiveArrayDeserializers.java,711,NullifyReturnValue,return result;,return null;,14940,added_other
+com/fasterxml/jackson/databind/util/ArrayBuilders.java,116,NullifyReturnValue,public final int[] _constructArray(int len) { return new int[len]; },public final int[] _constructArray(int len) { return null; },33845,added_other
+com/fasterxml/jackson/databind/deser/std/PrimitiveArrayDeserializers.java,743,NullifyReturnValue,"return handleNonArray(p, ctxt);",return null;,14943,added_other
+com/fasterxml/jackson/databind/deser/std/PrimitiveArrayDeserializers.java,526,NullifyReturnValue,"return builder.completeAndClearBuffer(chunk, ix);",return null;,14924,added_other
+com/fasterxml/jackson/databind/deser/std/PrimitiveArrayDeserializers.java,851,NullifyReturnValue,"return new float[] { _parseFloatPrimitive(p, ctxt) };",return null;,14951,added_other
+com/fasterxml/jackson/databind/node/TreeTraversingParser.java,235,NullifyReturnValue,return getText().toCharArray();,return null;,26509,added_other
+com/fasterxml/jackson/databind/deser/std/PrimitiveArrayDeserializers.java,340,NullifyReturnValue,return result;,return null;,14909,added_other
+com/fasterxml/jackson/databind/node/InternalNodeMapper.java,51,NullifyReturnValue,return JSON_MAPPER.writeValueAsBytes(value);,return null;,25591,added_other
+com/fasterxml/jackson/databind/node/TreeTraversingParser.java,376,NullifyReturnValue,return null;,return null;,26523,added_other
+com/fasterxml/jackson/databind/deser/std/PrimitiveArrayDeserializers.java,320,NullifyReturnValue,"return Base64Variants.getDefaultVariant().encode((byte[]) ob, false).toCharArray();",return null;,14906,added_other
+com/fasterxml/jackson/databind/deser/std/PrimitiveArrayDeserializers.java,306,NullifyReturnValue,return sb.toString().toCharArray();,return null;,14902,added_other
+com/fasterxml/jackson/databind/deser/std/PrimitiveArrayDeserializers.java,915,NullifyReturnValue,"return builder.completeAndClearBuffer(chunk, ix);",return null;,14956,added_other
+com/fasterxml/jackson/databind/deser/std/PrimitiveArrayDeserializers.java,736,NullifyReturnValue,return new long[0];,return null;,14942,added_other
+com/fasterxml/jackson/databind/node/POJONode.java,46,NullifyReturnValue,return (byte[]) _value;,return null;,26321,added_other
+com/fasterxml/jackson/databind/node/NodeSerialization.java,61,NullifyReturnValue,return result;,return null;,25890,added_other
+com/fasterxml/jackson/databind/util/ArrayBuilders.java,123,NullifyReturnValue,public final long[] _constructArray(int len) { return new long[len]; },public final long[] _constructArray(int len) { return null; },33846,added_other
+com/fasterxml/jackson/databind/deser/std/PrimitiveArrayDeserializers.java,658,NullifyReturnValue,return new int[0];,return null;,14936,added_other
+com/fasterxml/jackson/databind/deser/std/PrimitiveArrayDeserializers.java,633,NullifyReturnValue,return result;,return null;,14934,added_other
+com/fasterxml/jackson/databind/util/ArrayBuilders.java,138,NullifyReturnValue,public final double[] _constructArray(int len) { return new double[len]; },public final double[] _constructArray(int len) { return null; },33848,added_other
+com/fasterxml/jackson/databind/util/ArrayBuilders.java,102,NullifyReturnValue,public final byte[] _constructArray(int len) { return new byte[len]; },public final byte[] _constructArray(int len) { return null; },33843,added_other
+com/fasterxml/jackson/databind/util/TokenBuffer.java,2092,NullifyReturnValue,return builder.toByteArray();,return null;,36237,added_other
+com/fasterxml/jackson/databind/deser/std/PrimitiveArrayDeserializers.java,780,NullifyReturnValue,"return new long[] { _parseLongPrimitive(p, ctxt) };",return null;,14945,added_other
+com/fasterxml/jackson/databind/util/ArrayBuilders.java,131,NullifyReturnValue,public final float[] _constructArray(int len) { return new float[len]; },public final float[] _constructArray(int len) { return null; },33847,added_other
+com/fasterxml/jackson/databind/deser/std/PrimitiveArrayDeserializers.java,492,NullifyReturnValue,"return handleNonArray(p, ctxt);",return null;,14923,added_other
+com/fasterxml/jackson/databind/deser/std/PrimitiveArrayDeserializers.java,550,NullifyReturnValue,return new byte[] { value };,return null;,14927,added_other
+com/fasterxml/jackson/databind/deser/std/PrimitiveArrayDeserializers.java,702,NullifyReturnValue,"return new int[] { _parseIntPrimitive(p, ctxt) };",return null;,14939,added_other
+com/fasterxml/jackson/databind/deser/std/PrimitiveArrayDeserializers.java,410,NullifyReturnValue,"return builder.completeAndClearBuffer(chunk, ix);",return null;,14913,added_other
+com/fasterxml/jackson/databind/ObjectWriter.java,1166,NullifyReturnValue,return bb.getClearAndRelease();,return null;,4192,added_other
+com/fasterxml/jackson/databind/util/ArrayBuilders.java,94,NullifyReturnValue,public final boolean[] _constructArray(int len) { return new boolean[len]; },public final boolean[] _constructArray(int len) { return null; },33842,added_other
+com/fasterxml/jackson/databind/deser/std/PrimitiveArrayDeserializers.java,921,NullifyReturnValue,"return new double[] { _parseDoublePrimitive(p, ctxt) };",return null;,14957,added_other
+com/fasterxml/jackson/databind/util/TokenBuffer.java,1791,NullifyReturnValue,return (str == null) ? null : str.toCharArray();,return null;,36203,added_other
+com/fasterxml/jackson/databind/util/TokenBuffer.java,2074,NullifyReturnValue,return (byte[]) ob;,return null;,36235,added_other
+com/fasterxml/jackson/databind/deser/std/PrimitiveArrayDeserializers.java,618,NullifyReturnValue,"return builder.completeAndClearBuffer(chunk, ix);",return null;,14932,added_other
+com/fasterxml/jackson/databind/ser/std/UUIDSerializer.java,158,NullifyReturnValue,return buffer;,return null;,31970,added_other
+com/fasterxml/jackson/databind/deser/std/PrimitiveArrayDeserializers.java,582,NullifyReturnValue,return new short[0];,return null;,14930,added_other
+com/fasterxml/jackson/databind/node/TextNode.java,85,NullifyReturnValue,return builder.toByteArray();,return null;,26432,added_other
+com/fasterxml/jackson/databind/deser/std/PrimitiveArrayDeserializers.java,331,NullifyReturnValue,"return (char[]) ctxt.handleUnexpectedToken(_valueClass, p);",return null;,14908,added_other
+com/fasterxml/jackson/databind/deser/std/PrimitiveArrayDeserializers.java,559,NullifyReturnValue,return result;,return null;,14928,added_other
+com/fasterxml/jackson/databind/deser/std/PrimitiveArrayDeserializers.java,665,NullifyReturnValue,"return handleNonArray(p, ctxt);",return null;,14937,added_other
+com/fasterxml/jackson/databind/deser/std/PrimitiveArrayDeserializers.java,789,NullifyReturnValue,return result;,return null;,14946,added_other
+com/fasterxml/jackson/databind/deser/std/PrimitiveArrayDeserializers.java,860,NullifyReturnValue,return result;,return null;,14952,added_other
+com/fasterxml/jackson/databind/node/BinaryNode.java,81,NullifyReturnValue,public byte[] binaryValue() { return _data; },public byte[] binaryValue() { return null; },25169,added_other
+com/fasterxml/jackson/databind/ObjectMapper.java,4080,NullifyReturnValue,return result;,return null;,2841,added_other
+com/fasterxml/jackson/databind/deser/std/PrimitiveArrayDeserializers.java,311,NullifyReturnValue,if (ob == null) return null;,if (ob == null) return null;,14903,added_other
+com/fasterxml/jackson/databind/deser/std/PrimitiveArrayDeserializers.java,589,NullifyReturnValue,"return handleNonArray(p, ctxt);",return null;,14931,added_other
+com/fasterxml/jackson/databind/deser/std/PrimitiveArrayDeserializers.java,774,NullifyReturnValue,"return builder.completeAndClearBuffer(chunk, ix);",return null;,14944,added_other
+com/fasterxml/jackson/databind/util/TokenBuffer.java,2083,NullifyReturnValue,return null;,return null;,36236,added_other
+com/fasterxml/jackson/databind/deser/std/PrimitiveArrayDeserializers.java,261,NullifyReturnValue,return new char[0];,return null;,14900,added_other
+com/fasterxml/jackson/databind/node/TreeTraversingParser.java,371,NullifyReturnValue,return ((TextNode) n).getBinaryValue(b64variant);,return null;,26521,added_other
+com/fasterxml/jackson/databind/node/TreeTraversingParser.java,373,NullifyReturnValue,return n.binaryValue();,return null;,26522,added_other
+com/fasterxml/jackson/databind/deser/std/PrimitiveArrayDeserializers.java,883,NullifyReturnValue,return new double[0];,return null;,14954,added_other
+com/fasterxml/jackson/databind/deser/std/PrimitiveArrayDeserializers.java,377,NullifyReturnValue,"return handleNonArray(p, ctxt);",return null;,14912,added_other
+com/fasterxml/jackson/databind/node/NodeSerialization.java,75,NullifyReturnValue,return bb.completeAndCoalesce(outOffset);,return null;,25891,added_other
+com/fasterxml/jackson/databind/node/TextNode.java,90,NullifyReturnValue,return getBinaryValue(Base64Variants.getDefaultVariant());,return null;,26433,added_other
+com/fasterxml/jackson/databind/deser/std/PrimitiveArrayDeserializers.java,542,NullifyReturnValue,return (byte[]) getEmptyValue(ctxt);,return null;,14925,added_other
+com/fasterxml/jackson/databind/deser/std/PrimitiveArrayDeserializers.java,279,NullifyReturnValue,return result;,return null;,14901,added_other
+com/fasterxml/jackson/databind/deser/std/PrimitiveArrayDeserializers.java,452,NullifyReturnValue,return new byte[0];,return null;,14917,added_other
+com/fasterxml/jackson/databind/deser/std/PrimitiveArrayDeserializers.java,316,NullifyReturnValue,return ((String) ob).toCharArray();,return null;,14905,added_other
+com/fasterxml/jackson/databind/deser/std/PrimitiveArrayDeserializers.java,313,NullifyReturnValue,return (char[]) ob;,return null;,14904,added_other
+com/fasterxml/jackson/databind/deser/std/PrimitiveArrayDeserializers.java,416,NullifyReturnValue,"return new boolean[] { _parseBooleanPrimitive(p, ctxt) };",return null;,14914,added_other
+com/fasterxml/jackson/databind/node/POJONode.java,48,NullifyReturnValue,return super.binaryValue();,return null;,26322,added_other

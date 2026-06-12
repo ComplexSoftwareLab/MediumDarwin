@@ -1,0 +1,133 @@
+file,line,operator,before,after,mutant_id,paper_category
+com/fasterxml/jackson/core/json/async/NonBlockingJsonParserBase.java,495,NullifyReturnValue,return _currToken.asCharArray();,return null;,12205,added_other
+com/fasterxml/jackson/core/json/ReaderBasedJsonParser.java,2834,NullifyReturnValue,return builder.toByteArray();,return null;,7360,added_other
+com/fasterxml/jackson/core/util/TextBuffer.java,521,NullifyReturnValue,return result;,return null;,15610,added_other
+com/fasterxml/jackson/core/util/BufferRecyclers.java,143,NullifyReturnValue,return JsonStringEncoder.getInstance().encodeAsUTF8(text);,return null;,14526,added_other
+com/fasterxml/jackson/core/util/JsonParserDelegate.java,209,NullifyReturnValue,@Override public char[] getTextCharacters() throws IOException { return delegate.getTextCharacters(); },@Override public char[] getTextCharacters() throws IOException { return null; },15045,added_other
+com/fasterxml/jackson/core/json/UTF8StreamJsonParser.java,441,NullifyReturnValue,return _nameCopyBuffer;,return null;,10455,added_other
+com/fasterxml/jackson/core/util/ByteArrayBuilder.java,163,NullifyReturnValue,return NO_BYTES;,return null;,14576,added_other
+com/fasterxml/jackson/core/json/UTF8StreamJsonParser.java,3723,NullifyReturnValue,return builder.toByteArray();,return null;,10586,added_other
+com/fasterxml/jackson/core/util/TextBuffer.java,433,NullifyReturnValue,if (_resultArray != null) return _resultArray;,if (_resultArray != null) return null;,15604,added_other
+com/fasterxml/jackson/core/json/ReaderBasedJsonParser.java,413,NullifyReturnValue,return null;,return null;,7280,added_other
+com/fasterxml/jackson/core/json/ReaderBasedJsonParser.java,466,NullifyReturnValue,return _binaryValue;,return null;,7281,added_other
+com/fasterxml/jackson/core/io/CharTypes.java,265,NullifyReturnValue,"return AltEscapes.instance.escapesFor(quoteChar, escapeSlash);",return null;,4417,added_other
+com/fasterxml/jackson/core/json/UTF8DataInputJsonParser.java,389,NullifyReturnValue,return _binaryValue;,return null;,8265,added_other
+com/fasterxml/jackson/core/util/BufferRecycler.java,168,NullifyReturnValue,return buffer;,return null;,14473,added_other
+com/fasterxml/jackson/core/json/UTF8DataInputJsonParser.java,310,NullifyReturnValue,return _currToken.asCharArray();,return null;,8263,added_other
+com/fasterxml/jackson/core/io/CharTypes.java,329,NullifyReturnValue,return copyHexChars(true);,return null;,4418,added_other
+com/fasterxml/jackson/core/io/JsonStringEncoder.java,503,NullifyReturnValue,return bb.completeAndCoalesce(outputPtr);,return null;,4826,added_other
+com/fasterxml/jackson/core/json/ReaderBasedJsonParser.java,408,NullifyReturnValue,return _textBuffer.getTextBuffer();,return null;,7278,added_other
+com/fasterxml/jackson/core/io/IOContext.java,389,NullifyReturnValue,return (_tokenCBuffer = _bufferRecycler.allocCharBuffer(BufferRecycler.CHAR_TOKEN_BUFFER));,return null;,4632,added_other
+com/fasterxml/jackson/core/json/UTF8DataInputJsonParser.java,2836,NullifyReturnValue,return builder.toByteArray();,return null;,8386,added_other
+com/fasterxml/jackson/core/util/TextBuffer.java,1203,NullifyReturnValue,return NO_CHARS;,return null;,15632,added_other
+com/fasterxml/jackson/core/base/ParserBase.java,472,NullifyReturnValue,return _binaryValue;,return null;,2675,added_other
+com/fasterxml/jackson/core/io/JsonStringEncoder.java,401,NullifyReturnValue,"return Arrays.copyOfRange(outputBuffer, 0, outputPtr);",return null;,4823,added_other
+com/fasterxml/jackson/core/util/ByteArrayBuilder.java,261,NullifyReturnValue,public byte[] getCurrentSegment() { return _currBlock; },public byte[] getCurrentSegment() { return null; },14583,added_other
+com/fasterxml/jackson/core/util/TextBuffer.java,946,NullifyReturnValue,return _currentSegment;,return null;,15617,added_other
+com/fasterxml/jackson/core/filter/FilteringParserDelegate.java,1066,NullifyReturnValue,@Override public byte[] getBinaryValue(Base64Variant b64variant) throws IOException { return delegate.getBinaryValue(b64variant); },@Override public byte[] getBinaryValue(Base64Variant b64variant) throws IOException { return null; },3708,added_other
+com/fasterxml/jackson/core/util/BufferRecycler.java,199,NullifyReturnValue,return buffer;,return null;,14475,added_other
+com/fasterxml/jackson/core/io/JsonStringEncoder.java,244,NullifyReturnValue,"return Arrays.copyOfRange(outputBuffer, 0, outPtr);",return null;,4821,added_other
+com/fasterxml/jackson/core/util/TextBuffer.java,1114,NullifyReturnValue,return curr;,return null;,15628,added_other
+com/fasterxml/jackson/core/json/UTF8JsonGenerator.java,2246,NullifyReturnValue,return _cfgWriteHexUppercase ? HEX_BYTES_UPPER : HEX_BYTES_LOWER;,return null;,9376,added_other
+com/fasterxml/jackson/core/json/UTF8DataInputJsonParser.java,297,NullifyReturnValue,return _nameCopyBuffer;,return null;,8261,added_other
+com/fasterxml/jackson/core/json/UTF8StreamJsonParser.java,451,NullifyReturnValue,return _textBuffer.getTextBuffer();,return null;,10456,added_other
+com/fasterxml/jackson/core/io/CharTypes.java,343,NullifyReturnValue,return copyHexBytes(true);,return null;,4420,added_other
+com/fasterxml/jackson/core/json/ReaderBasedJsonParser.java,2913,NullifyReturnValue,return builder.toByteArray();,return null;,7362,added_other
+com/fasterxml/jackson/core/util/TextBuffer.java,351,NullifyReturnValue,"return new char[Math.max(needed, MIN_SEGMENT_LEN)];",return null;,15601,added_other
+com/fasterxml/jackson/core/util/TextBuffer.java,1235,NullifyReturnValue,private char[] carr(int len) { return new char[len]; },private char[] carr(int len) { return null; },15637,added_other
+com/fasterxml/jackson/core/util/TextBuffer.java,439,NullifyReturnValue,return (_currentSegment == null) ? NO_CHARS : _currentSegment;,return null;,15606,added_other
+com/fasterxml/jackson/core/json/UTF8DataInputJsonParser.java,2898,NullifyReturnValue,return builder.toByteArray();,return null;,8388,added_other
+com/fasterxml/jackson/core/util/ByteArrayBuilder.java,182,NullifyReturnValue,return result;,return null;,14577,added_other
+com/fasterxml/jackson/core/io/JsonStringEncoder.java,248,NullifyReturnValue,return textBuffer.contentsAsArray();,return null;,4822,added_other
+com/fasterxml/jackson/core/io/SerializedString.java,134,NullifyReturnValue,return result;,return null;,5590,added_other
+com/fasterxml/jackson/core/util/ByteArrayBuilder.java,244,NullifyReturnValue,return _currBlock;,return null;,14581,added_other
+com/fasterxml/jackson/core/util/ByteArrayBuilder.java,204,NullifyReturnValue,return result;,return null;,14578,added_other
+com/fasterxml/jackson/core/io/CharTypes.java,375,NullifyReturnValue,return esc;,return null;,4422,added_other
+com/fasterxml/jackson/core/util/TextBuffer.java,442,NullifyReturnValue,return contentsAsArray();,return null;,15607,added_other
+com/fasterxml/jackson/core/json/ReaderBasedJsonParser.java,410,NullifyReturnValue,return _currToken.asCharArray();,return null;,7279,added_other
+com/fasterxml/jackson/core/json/WriterBasedJsonGenerator.java,26,NullifyReturnValue,return _cfgWriteHexUppercase ? HEX_CHARS_UPPER : HEX_CHARS_LOWER;,return null;,11668,added_other
+com/fasterxml/jackson/core/base/ParserBase.java,1598,NullifyReturnValue,return new int[more];,return null;,2727,added_other
+com/fasterxml/jackson/core/util/BufferRecyclers.java,193,NullifyReturnValue,return JsonStringEncoder.getInstance().quoteAsUTF8(rawText);,return null;,14528,added_other
+com/fasterxml/jackson/core/util/TextBuffer.java,1028,NullifyReturnValue,return curr;,return null;,15621,added_other
+com/fasterxml/jackson/core/io/JsonStringEncoder.java,172,NullifyReturnValue,return quoteAsString((String) input);,return null;,4820,added_other
+com/fasterxml/jackson/core/json/async/NonBlockingJsonParserBase.java,498,NullifyReturnValue,return null;,return null;,12206,added_other
+com/fasterxml/jackson/core/io/IOContext.java,369,NullifyReturnValue,return (_base64Buffer = _bufferRecycler.allocByteBuffer(BufferRecycler.BYTE_BASE64_CODEC_BUFFER));,return null;,4630,added_other
+com/fasterxml/jackson/core/json/UTF8StreamJsonParser.java,532,NullifyReturnValue,return _binaryValue;,return null;,10459,added_other
+com/fasterxml/jackson/core/util/BufferRecyclers.java,160,NullifyReturnValue,return JsonStringEncoder.getInstance().quoteAsString(rawText);,return null;,14527,added_other
+com/fasterxml/jackson/core/io/JsonStringEncoder.java,148,NullifyReturnValue,"return Arrays.copyOfRange(outputBuffer, 0, outPtr);",return null;,4818,added_other
+com/fasterxml/jackson/core/json/ReaderBasedJsonParser.java,2873,NullifyReturnValue,return builder.toByteArray();,return null;,7361,added_other
+com/fasterxml/jackson/core/io/CharacterEscapes.java,76,NullifyReturnValue,"return Arrays.copyOf(esc, esc.length);",return null;,4469,added_other
+com/fasterxml/jackson/core/JsonParser.java,2093,NullifyReturnValue,return getBinaryValue(Base64Variants.getDefaultVariant());,return null;,1319,added_other
+com/fasterxml/jackson/core/util/TextBuffer.java,1210,NullifyReturnValue,"return Arrays.copyOfRange(_inputBuffer, start, start+len);",return null;,15634,added_other
+com/fasterxml/jackson/core/util/TextBuffer.java,1197,NullifyReturnValue,return _resultString.toCharArray();,return null;,15631,added_other
+com/fasterxml/jackson/core/io/SerializedString.java,121,NullifyReturnValue,return result;,return null;,5589,added_other
+com/fasterxml/jackson/core/json/async/NonBlockingJsonParserBase.java,486,NullifyReturnValue,return _nameCopyBuffer;,return null;,12203,added_other
+com/fasterxml/jackson/core/util/BufferRecycler.java,231,NullifyReturnValue,protected byte[] balloc(int size) { return new byte[size]; },protected byte[] balloc(int size) { return null; },14476,added_other
+com/fasterxml/jackson/core/json/async/NonBlockingJsonParserBase.java,492,NullifyReturnValue,return _textBuffer.getTextBuffer();,return null;,12204,added_other
+com/fasterxml/jackson/core/io/CharTypes.java,212,NullifyReturnValue,public static int[] getInputCodeUtf8JsNames() { return sInputCodesUtf8JsNames; },public static int[] getInputCodeUtf8JsNames() { return null; },4409,added_other
+com/fasterxml/jackson/core/util/TextBuffer.java,1112,NullifyReturnValue,if (curr.length >= minSize) return curr;,if (curr.length >= minSize) return null;,15627,added_other
+com/fasterxml/jackson/core/json/UTF8StreamJsonParser.java,457,NullifyReturnValue,return null;,return null;,10458,added_other
+com/fasterxml/jackson/core/io/CharTypes.java,261,NullifyReturnValue,return sOutputEscapes128WithSlash;,return null;,4415,added_other
+com/fasterxml/jackson/core/io/JsonStringEncoder.java,152,NullifyReturnValue,return textBuffer.contentsAsArray();,return null;,4819,added_other
+com/fasterxml/jackson/core/io/CharTypes.java,333,NullifyReturnValue,return (uppercase) ? HC.clone() : HClower.clone();,return null;,4419,added_other
+com/fasterxml/jackson/core/util/TextBuffer.java,1208,NullifyReturnValue,"return Arrays.copyOf(_inputBuffer, len);",return null;,15633,added_other
+com/fasterxml/jackson/core/io/JsonStringEncoder.java,403,NullifyReturnValue,return bb.completeAndCoalesce(outputPtr);,return null;,4824,added_other
+com/fasterxml/jackson/core/util/ByteArrayBuilder.java,232,NullifyReturnValue,return _currBlock;,return null;,14580,added_other
+com/fasterxml/jackson/core/base/ParserBase.java,1604,NullifyReturnValue,"return Arrays.copyOf(arr, len);",return null;,2728,added_other
+com/fasterxml/jackson/core/io/CharTypes.java,347,NullifyReturnValue,return (uppercase) ? HB.clone() : HBlower.clone();,return null;,4421,added_other
+com/fasterxml/jackson/core/io/CharTypes.java,226,NullifyReturnValue,public static int[] get7BitOutputEscapes() { return sOutputEscapes128; },public static int[] get7BitOutputEscapes() { return null; },4412,added_other
+com/fasterxml/jackson/core/util/ByteArrayBuilder.java,258,NullifyReturnValue,return toByteArray();,return null;,14582,added_other
+com/fasterxml/jackson/core/io/IOContext.java,313,NullifyReturnValue,return (_readIOBuffer = _bufferRecycler.allocByteBuffer(BufferRecycler.BYTE_READ_IO_BUFFER));,return null;,4626,added_other
+com/fasterxml/jackson/core/io/CharTypes.java,241,NullifyReturnValue,return sOutputEscapes128;,return null;,4413,added_other
+com/fasterxml/jackson/core/util/TextBuffer.java,435,NullifyReturnValue,return (_resultArray = _resultString.toCharArray());,return null;,15605,added_other
+com/fasterxml/jackson/core/util/JsonParserDelegate.java,286,NullifyReturnValue,@Override public byte[] getBinaryValue(Base64Variant b64variant) throws IOException { return delegate.getBinaryValue(b64variant); },@Override public byte[] getBinaryValue(Base64Variant b64variant) throws IOException { return null; },15056,added_other
+com/fasterxml/jackson/core/io/CharTypes.java,382,NullifyReturnValue,return escapesFor(quoteChar);,return null;,4423,added_other
+com/fasterxml/jackson/core/io/JsonStringEncoder.java,618,NullifyReturnValue,return qbuf;,return null;,4829,added_other
+com/fasterxml/jackson/core/util/TextBuffer.java,349,NullifyReturnValue,"return _allocator.allocCharBuffer(BufferRecycler.CHAR_TEXT_BUFFER, needed);",return null;,15600,added_other
+com/fasterxml/jackson/core/io/IOContext.java,395,NullifyReturnValue,"return (_tokenCBuffer = _bufferRecycler.allocCharBuffer(BufferRecycler.CHAR_TOKEN_BUFFER, minSize));",return null;,4633,added_other
+com/fasterxml/jackson/core/util/BufferRecycler.java,232,NullifyReturnValue,protected char[] calloc(int size) { return new char[size]; },protected char[] calloc(int size) { return null; },14477,added_other
+com/fasterxml/jackson/core/Base64Variant.java,675,NullifyReturnValue,return b.toByteArray();,return null;,138,added_other
+com/fasterxml/jackson/core/io/IOContext.java,405,NullifyReturnValue,"return (_nameCopyBuffer = _bufferRecycler.allocCharBuffer(BufferRecycler.CHAR_NAME_COPY_BUFFER, minSize));",return null;,4635,added_other
+com/fasterxml/jackson/core/util/TextBuffer.java,341,NullifyReturnValue,return _currentSegment;,return null;,15599,added_other
+com/fasterxml/jackson/core/io/CharTypes.java,390,NullifyReturnValue,return esc;,return null;,4424,added_other
+com/fasterxml/jackson/core/io/IOContext.java,356,NullifyReturnValue,"return (_writeEncodingBuffer = _bufferRecycler.allocByteBuffer(BufferRecycler.BYTE_WRITE_ENCODING_BUFFER, minSize));",return null;,4629,added_other
+com/fasterxml/jackson/core/json/WriterBasedJsonGenerator.java,2046,NullifyReturnValue,return buf;,return null;,11670,added_other
+com/fasterxml/jackson/core/io/IOContext.java,384,NullifyReturnValue,"return (_base64Buffer = _bufferRecycler.allocByteBuffer(BufferRecycler.BYTE_BASE64_CODEC_BUFFER, minSize));",return null;,4631,added_other
+com/fasterxml/jackson/core/json/UTF8StreamJsonParser.java,3801,NullifyReturnValue,return builder.toByteArray();,return null;,10588,added_other
+com/fasterxml/jackson/core/io/CharTypes.java,243,NullifyReturnValue,return AltEscapes.instance.escapesFor(quoteChar);,return null;,4414,added_other
+com/fasterxml/jackson/core/json/UTF8DataInputJsonParser.java,313,NullifyReturnValue,return null;,return null;,8264,added_other
+com/fasterxml/jackson/core/io/IOContext.java,328,NullifyReturnValue,"return (_readIOBuffer = _bufferRecycler.allocByteBuffer(BufferRecycler.BYTE_READ_IO_BUFFER, minSize));",return null;,4627,added_other
+com/fasterxml/jackson/core/base/ParserMinimalBase.java,879,NullifyReturnValue,return b;,return null;,3105,added_other
+com/fasterxml/jackson/core/io/CharTypes.java,209,NullifyReturnValue,public static int[] getInputCodeUtf8() { return sInputCodesUTF8; },public static int[] getInputCodeUtf8() { return null; },4407,added_other
+com/fasterxml/jackson/core/json/UTF8DataInputJsonParser.java,307,NullifyReturnValue,return _textBuffer.getTextBuffer();,return null;,8262,added_other
+com/fasterxml/jackson/core/json/WriterBasedJsonGenerator.java,2056,NullifyReturnValue,return _copyBuffer;,return null;,11671,added_other
+com/fasterxml/jackson/core/json/UTF8StreamJsonParser.java,3762,NullifyReturnValue,return builder.toByteArray();,return null;,10587,added_other
+com/fasterxml/jackson/core/util/TextBuffer.java,1218,NullifyReturnValue,return NO_CHARS;,return null;,15635,added_other
+com/fasterxml/jackson/core/base/ParserBase.java,1614,NullifyReturnValue,"return growArrayBy(arr, more);",return null;,2729,added_other
+com/fasterxml/jackson/core/io/IOContext.java,341,NullifyReturnValue,return (_writeEncodingBuffer = _bufferRecycler.allocByteBuffer(BufferRecycler.BYTE_WRITE_ENCODING_BUFFER));,return null;,4628,added_other
+com/fasterxml/jackson/core/json/ReaderBasedJsonParser.java,490,NullifyReturnValue,return _binaryValue;,return null;,7282,added_other
+com/fasterxml/jackson/core/JsonToken.java,173,NullifyReturnValue,public final char[] asCharArray() { return _serializedChars; },public final char[] asCharArray() { return null; },1867,added_other
+com/fasterxml/jackson/core/io/CharTypes.java,215,NullifyReturnValue,public static int[] getInputCodeWS() { return sInputCodesWS; },public static int[] getInputCodeWS() { return null; },4411,added_other
+com/fasterxml/jackson/core/filter/FilteringParserDelegate.java,976,NullifyReturnValue,return delegate.getTextCharacters();,return null;,3698,added_other
+com/fasterxml/jackson/core/util/BufferRecycler.java,156,NullifyReturnValue,"return allocByteBuffer(ix, 0);",return null;,14472,added_other
+com/fasterxml/jackson/core/io/JsonStringEncoder.java,602,NullifyReturnValue,"return Arrays.copyOfRange(outputBuffer, 0, outputPtr);",return null;,4827,added_other
+com/fasterxml/jackson/core/filter/FilteringParserDelegate.java,974,NullifyReturnValue,return currentName().toCharArray();,return null;,3697,added_other
+com/fasterxml/jackson/core/util/BufferRecycler.java,187,NullifyReturnValue,"return allocCharBuffer(ix, 0);",return null;,14474,added_other
+com/fasterxml/jackson/core/util/TextBuffer.java,1096,NullifyReturnValue,"return (_currentSegment = Arrays.copyOf(curr, newLen));",return null;,15626,added_other
+com/fasterxml/jackson/core/json/ReaderBasedJsonParser.java,399,NullifyReturnValue,return _nameCopyBuffer;,return null;,7277,added_other
+com/fasterxml/jackson/core/io/JsonStringEncoder.java,604,NullifyReturnValue,return bb.completeAndCoalesce(outputPtr);,return null;,4828,added_other
+com/fasterxml/jackson/core/JsonToken.java,174,NullifyReturnValue,public final byte[] asByteArray() { return _serializedBytes; },public final byte[] asByteArray() { return null; },1868,added_other
+com/fasterxml/jackson/core/io/IOContext.java,400,NullifyReturnValue,return (_concatCBuffer = _bufferRecycler.allocCharBuffer(BufferRecycler.CHAR_CONCAT_BUFFER));,return null;,4634,added_other
+com/fasterxml/jackson/core/io/CharTypes.java,214,NullifyReturnValue,public static int[] getInputCodeComment() { return sInputCodesComment; },public static int[] getInputCodeComment() { return null; },4410,added_other
+com/fasterxml/jackson/core/io/SerializedString.java,107,NullifyReturnValue,return result;,return null;,5588,added_other
+com/fasterxml/jackson/core/io/CharTypes.java,211,NullifyReturnValue,public static int[] getInputCodeLatin1JsNames() { return sInputCodesJsNames; },public static int[] getInputCodeLatin1JsNames() { return null; },4408,added_other
+com/fasterxml/jackson/core/json/UTF8StreamJsonParser.java,454,NullifyReturnValue,return _currToken.asCharArray();,return null;,10457,added_other
+com/fasterxml/jackson/core/io/CharTypes.java,263,NullifyReturnValue,return sOutputEscapes128;,return null;,4416,added_other
+com/fasterxml/jackson/core/util/TextBuffer.java,1232,NullifyReturnValue,return result;,return null;,15636,added_other
+com/fasterxml/jackson/core/io/CharTypes.java,208,NullifyReturnValue,public static int[] getInputCodeLatin1() { return sInputCodes; },public static int[] getInputCodeLatin1() { return null; },4406,added_other
+com/fasterxml/jackson/core/json/async/NonBlockingJsonParserBase.java,560,NullifyReturnValue,return _binaryValue;,return null;,12207,added_other
+com/fasterxml/jackson/core/io/JsonStringEncoder.java,501,NullifyReturnValue,"return Arrays.copyOfRange(outputBuffer, 0, outputPtr);",return null;,4825,added_other
+com/fasterxml/jackson/core/util/TextBuffer.java,968,NullifyReturnValue,return curr;,return null;,15618,added_other
+com/fasterxml/jackson/core/json/UTF8DataInputJsonParser.java,2866,NullifyReturnValue,return builder.toByteArray();,return null;,8387,added_other
+com/fasterxml/jackson/core/util/TextBuffer.java,432,NullifyReturnValue,if (_inputStart >= 0) return _inputBuffer;,if (_inputStart >= 0) return null;,15603,added_other
+com/fasterxml/jackson/core/JsonpCharacterEscapes.java,44,NullifyReturnValue,return asciiEscapes;,return null;,1920,added_other

@@ -3058,3 +3058,50 @@ Mutant comparison for jackson-core:
   Details: operator_comparisons/jackson-core/added_in_mediumdarwin.csv
            operator_comparisons/jackson-core/removed_in_mediumdarwin.csv
 ========== jackson-core finished at Wed May 20 14:52:09 JST 2026 ==========
+========== jackson-core compare-only at Thu May 21 10:39:39 JST 2026 ==========
+
+Comparing mutation operators: jackson-core -> operator_comparisons/jackson-core/
+Extracted 15890 mutants -> operator_comparisons/jackson-core/littledarwin.csv
+Extracted 15901 mutants -> operator_comparisons/jackson-core/mediumdarwin.csv
+Comparison written to /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/operator_comparisons/jackson-core
+  Original (LD): 15890
+  MediumDarwin: 15901
+  Reduced: 121  Added: 132  delta: 0.07%
+  (strict diff would show removed=1637, added=1737 — see strict_*.csv)
+Mutant comparison for jackson-core:
+  === Paper Table I (refined mutation operators) ===
+  Original (LittleDarwin): 15890
+  MediumDarwin: 15901
+  Reduced: 121
+  Added: 132
+  delta_percent: 0.07
+  check MD = Original - Reduced + Added: 15901 (should equal 15901)
+  
+  in_both_strict_match: 14164
+  ld_only_sites: 32
+  md_only_sites: 132
+  
+    Reduced categories:
+      reduced_remove_method_other: 89
+      reduced_nullify_final_param_non_compilable: 25
+      reduced_nullify_input_other_filter: 7
+    Reduced by operator:
+      RemoveMethod: 89
+      NullifyInputVariable: 32
+  
+    Added categories:
+      added_other: 132
+    Added by operator:
+      NullifyReturnValue: 132
+  
+  === Strict before/after diff (misleading for relational ops) ===
+  strict_removed: 1637
+  strict_added: 1737
+    (LD uses '<'->'>='; MD uses '<'->'<=' — same site, not Reduced+Added)
+  
+  # Listing 1 examples:
+  #   reduced_nullify_final_param_non_compilable -> MUT0 (final param nullify)
+  #   added_remove_method_array_return -> MUT1 (array return RemoveMethod)
+  Details: operator_comparisons/jackson-core/added_in_mediumdarwin.csv
+           operator_comparisons/jackson-core/removed_in_mediumdarwin.csv
+========== jackson-core compare finished at Thu May 21 10:54:55 JST 2026 ==========

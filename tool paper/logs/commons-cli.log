@@ -696,3 +696,48 @@ Mutant comparison for commons-cli:
   Details: operator_comparisons/commons-cli/added_in_mediumdarwin.csv
            operator_comparisons/commons-cli/removed_in_mediumdarwin.csv
 ========== commons-cli finished at Tue May 19 19:37:15 JST 2026 ==========
+========== commons-cli compare-only at Thu May 21 10:37:05 JST 2026 ==========
+
+Comparing mutation operators: commons-cli -> operator_comparisons/commons-cli/
+Extracted 1482 mutants -> operator_comparisons/commons-cli/littledarwin.csv
+Extracted 1213 mutants -> operator_comparisons/commons-cli/mediumdarwin.csv
+Comparison written to /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/operator_comparisons/commons-cli
+  Original (LD): 1482
+  MediumDarwin: 1213
+  Reduced: 269  Added: 0  delta: -18.15%
+  (strict diff would show removed=293, added=33 — see strict_*.csv)
+Mutant comparison for commons-cli:
+  === Paper Table I (refined mutation operators) ===
+  Original (LittleDarwin): 1482
+  MediumDarwin: 1213
+  Reduced: 269
+  Added: 0
+  delta_percent: -18.15
+  check MD = Original - Reduced + Added: 1213 (should equal 1213)
+  
+  in_both_strict_match: 1180
+  ld_only_sites: 260
+  md_only_sites: 0
+  
+    Reduced categories:
+      reduced_nullify_final_param_non_compilable: 254
+      reduced_remove_method_other: 9
+      reduced_nullify_input_other_filter: 6
+    Reduced by operator:
+      NullifyInputVariable: 260
+      RemoveMethod: 9
+  
+    Added categories: (none)
+    Added by operator: (none)
+  
+  === Strict before/after diff (misleading for relational ops) ===
+  strict_removed: 293
+  strict_added: 33
+    (LD uses '<'->'>='; MD uses '<'->'<=' — same site, not Reduced+Added)
+  
+  # Listing 1 examples:
+  #   reduced_nullify_final_param_non_compilable -> MUT0 (final param nullify)
+  #   added_remove_method_array_return -> MUT1 (array return RemoveMethod)
+  Details: operator_comparisons/commons-cli/added_in_mediumdarwin.csv
+           operator_comparisons/commons-cli/removed_in_mediumdarwin.csv
+========== commons-cli compare finished at Thu May 21 10:39:20 JST 2026 ==========

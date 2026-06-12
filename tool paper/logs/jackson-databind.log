@@ -9808,3 +9808,50 @@ Mutant comparison for jackson-databind:
   Details: operator_comparisons/jackson-databind/added_in_mediumdarwin.csv
            operator_comparisons/jackson-databind/removed_in_mediumdarwin.csv
 ========== jackson-databind finished at Wed May 20 18:42:29 JST 2026 ==========
+========== jackson-databind compare-only at Thu May 21 10:39:20 JST 2026 ==========
+
+Comparing mutation operators: jackson-databind -> operator_comparisons/jackson-databind/
+Extracted 37280 mutants -> operator_comparisons/jackson-databind/littledarwin.csv
+Extracted 37206 mutants -> operator_comparisons/jackson-databind/mediumdarwin.csv
+Comparison written to /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/operator_comparisons/jackson-databind
+  Original (LD): 37280
+  MediumDarwin: 37206
+  Reduced: 152  Added: 78  delta: -0.20%
+  (strict diff would show removed=591, added=585 — see strict_*.csv)
+Mutant comparison for jackson-databind:
+  === Paper Table I (refined mutation operators) ===
+  Original (LittleDarwin): 37280
+  MediumDarwin: 37206
+  Reduced: 152
+  Added: 78
+  delta_percent: -0.20
+  check MD = Original - Reduced + Added: 37206 (should equal 37206)
+  
+  in_both_strict_match: 36621
+  ld_only_sites: 84
+  md_only_sites: 78
+  
+    Reduced categories:
+      reduced_remove_method_other: 68
+      reduced_nullify_input_other_filter: 60
+      reduced_nullify_final_param_non_compilable: 24
+    Reduced by operator:
+      NullifyInputVariable: 84
+      RemoveMethod: 68
+  
+    Added categories:
+      added_other: 78
+    Added by operator:
+      NullifyReturnValue: 78
+  
+  === Strict before/after diff (misleading for relational ops) ===
+  strict_removed: 591
+  strict_added: 585
+    (LD uses '<'->'>='; MD uses '<'->'<=' — same site, not Reduced+Added)
+  
+  # Listing 1 examples:
+  #   reduced_nullify_final_param_non_compilable -> MUT0 (final param nullify)
+  #   added_remove_method_array_return -> MUT1 (array return RemoveMethod)
+  Details: operator_comparisons/jackson-databind/added_in_mediumdarwin.csv
+           operator_comparisons/jackson-databind/removed_in_mediumdarwin.csv
+========== jackson-databind compare finished at Thu May 21 11:21:26 JST 2026 ==========

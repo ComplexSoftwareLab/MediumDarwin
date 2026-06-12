@@ -1,7 +1,2463 @@
-Starting mutation analysis at Mon Aug 18 14:30:40 IST 2025
-Checking Java version...
-Java version verified: 1.8.0_462
+Starting mutation analysis at Tue May 19 16:31:55 JST 2026
 Installing system dependencies...
-Starting operator comparison only at Thu May 21 10:36:10 JST 2026
+W: http://developer.download.nvidia.com/compute/cuda/repos/ubuntu2404/x86_64/InRelease: Key is stored in legacy trusted.gpg keyring (/etc/apt/trusted.gpg), see the DEPRECATION section in apt-key(8) for details.
+Checking required JDK installations...
+  Java 11 OK: /usr/lib/jvm/java-11-openjdk-amd64/bin
+Setting up LittleDarwin...
+Setting up Python virtual environment...
+Requirement already satisfied: pip in ./.mediumdarwin_venv/lib/python3.12/site-packages (26.1.1)
+Installing Python dependencies...
+Requirement already satisfied: antlr4-python3-runtime==4.10 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from -r ../requirements.txt (line 1)) (4.10)
+Requirement already satisfied: graphviz==0.21 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from -r ../requirements.txt (line 2)) (0.21)
+Requirement already satisfied: psutil==7.1.3 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from -r ../requirements.txt (line 3)) (7.1.3)
+Requirement already satisfied: networkx==3.5 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from -r ../requirements.txt (line 4)) (3.5)
+Requirement already satisfied: matplotlib==3.10.7 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from -r ../requirements.txt (line 5)) (3.10.7)
+Requirement already satisfied: colorama==0.4.6 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from -r ../requirements.txt (line 6)) (0.4.6)
+Requirement already satisfied: resources==0.0.1 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from -r ../requirements.txt (line 7)) (0.0.1)
+Requirement already satisfied: dill==0.4.0 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from -r ../requirements.txt (line 8)) (0.4.0)
+Requirement already satisfied: Uni-Curses==3.1.2 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from -r ../requirements.txt (line 9)) (3.1.2)
+Requirement already satisfied: joblib==1.5.2 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from -r ../requirements.txt (line 10)) (1.5.2)
+Requirement already satisfied: importlib_resources==6.5.2 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from -r ../requirements.txt (line 11)) (6.5.2)
+Requirement already satisfied: pydot==4.0.1 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from -r ../requirements.txt (line 12)) (4.0.1)
+Requirement already satisfied: plotly in ./.mediumdarwin_venv/lib/python3.12/site-packages (from -r ../requirements.txt (line 13)) (6.7.0)
+Requirement already satisfied: numpy in ./.mediumdarwin_venv/lib/python3.12/site-packages (from -r ../requirements.txt (line 14)) (2.4.6)
+Requirement already satisfied: pyvis in ./.mediumdarwin_venv/lib/python3.12/site-packages (from -r ../requirements.txt (line 15)) (0.3.2)
+Requirement already satisfied: tikzplotlib in ./.mediumdarwin_venv/lib/python3.12/site-packages (from -r ../requirements.txt (line 16)) (0.10.1)
+Requirement already satisfied: contourpy>=1.0.1 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from matplotlib==3.10.7->-r ../requirements.txt (line 5)) (1.3.3)
+Requirement already satisfied: cycler>=0.10 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from matplotlib==3.10.7->-r ../requirements.txt (line 5)) (0.12.1)
+Requirement already satisfied: fonttools>=4.22.0 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from matplotlib==3.10.7->-r ../requirements.txt (line 5)) (4.63.0)
+Requirement already satisfied: kiwisolver>=1.3.1 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from matplotlib==3.10.7->-r ../requirements.txt (line 5)) (1.5.0)
+Requirement already satisfied: packaging>=20.0 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from matplotlib==3.10.7->-r ../requirements.txt (line 5)) (26.2)
+Requirement already satisfied: pillow>=8 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from matplotlib==3.10.7->-r ../requirements.txt (line 5)) (12.2.0)
+Requirement already satisfied: pyparsing>=3 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from matplotlib==3.10.7->-r ../requirements.txt (line 5)) (3.3.2)
+Requirement already satisfied: python-dateutil>=2.7 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from matplotlib==3.10.7->-r ../requirements.txt (line 5)) (2.9.0.post0)
+Requirement already satisfied: x256 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from Uni-Curses==3.1.2->-r ../requirements.txt (line 9)) (0.0.3)
+Requirement already satisfied: narwhals>=1.15.1 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from plotly->-r ../requirements.txt (line 13)) (2.21.2)
+Requirement already satisfied: ipython>=5.3.0 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from pyvis->-r ../requirements.txt (line 15)) (9.13.0)
+Requirement already satisfied: jinja2>=2.9.6 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from pyvis->-r ../requirements.txt (line 15)) (3.1.6)
+Requirement already satisfied: jsonpickle>=1.4.1 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from pyvis->-r ../requirements.txt (line 15)) (4.1.1)
+Requirement already satisfied: webcolors in ./.mediumdarwin_venv/lib/python3.12/site-packages (from tikzplotlib->-r ../requirements.txt (line 16)) (25.10.0)
+Requirement already satisfied: decorator>=5.1.0 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from ipython>=5.3.0->pyvis->-r ../requirements.txt (line 15)) (5.3.1)
+Requirement already satisfied: ipython-pygments-lexers>=1.0.0 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from ipython>=5.3.0->pyvis->-r ../requirements.txt (line 15)) (1.1.1)
+Requirement already satisfied: jedi>=0.18.2 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from ipython>=5.3.0->pyvis->-r ../requirements.txt (line 15)) (0.20.0)
+Requirement already satisfied: matplotlib-inline>=0.1.6 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from ipython>=5.3.0->pyvis->-r ../requirements.txt (line 15)) (0.2.2)
+Requirement already satisfied: pexpect>4.6 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from ipython>=5.3.0->pyvis->-r ../requirements.txt (line 15)) (4.9.0)
+Requirement already satisfied: prompt_toolkit<3.1.0,>=3.0.41 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from ipython>=5.3.0->pyvis->-r ../requirements.txt (line 15)) (3.0.52)
+Requirement already satisfied: pygments>=2.14.0 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from ipython>=5.3.0->pyvis->-r ../requirements.txt (line 15)) (2.20.0)
+Requirement already satisfied: stack_data>=0.6.0 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from ipython>=5.3.0->pyvis->-r ../requirements.txt (line 15)) (0.6.3)
+Requirement already satisfied: traitlets>=5.13.0 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from ipython>=5.3.0->pyvis->-r ../requirements.txt (line 15)) (5.15.0)
+Requirement already satisfied: wcwidth in ./.mediumdarwin_venv/lib/python3.12/site-packages (from prompt_toolkit<3.1.0,>=3.0.41->ipython>=5.3.0->pyvis->-r ../requirements.txt (line 15)) (0.7.0)
+Requirement already satisfied: parso<0.9.0,>=0.8.6 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from jedi>=0.18.2->ipython>=5.3.0->pyvis->-r ../requirements.txt (line 15)) (0.8.7)
+Requirement already satisfied: MarkupSafe>=2.0 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from jinja2>=2.9.6->pyvis->-r ../requirements.txt (line 15)) (3.0.3)
+Requirement already satisfied: ptyprocess>=0.5 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from pexpect>4.6->ipython>=5.3.0->pyvis->-r ../requirements.txt (line 15)) (0.7.0)
+Requirement already satisfied: six>=1.5 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from python-dateutil>=2.7->matplotlib==3.10.7->-r ../requirements.txt (line 5)) (1.17.0)
+Requirement already satisfied: executing>=1.2.0 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from stack_data>=0.6.0->ipython>=5.3.0->pyvis->-r ../requirements.txt (line 15)) (2.2.1)
+Requirement already satisfied: asttokens>=2.1.0 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from stack_data>=0.6.0->ipython>=5.3.0->pyvis->-r ../requirements.txt (line 15)) (3.0.1)
+Requirement already satisfied: pure-eval in ./.mediumdarwin_venv/lib/python3.12/site-packages (from stack_data>=0.6.0->ipython>=5.3.0->pyvis->-r ../requirements.txt (line 15)) (0.2.3)
+
+************* commons-cli (Java 11) *************
+
+Cloning commons-cli...
+Cloning into 'commons-cli'...
+Updating files:  51% (73/143)Updating files:  52% (75/143)Updating files:  53% (76/143)Updating files:  54% (78/143)Updating files:  55% (79/143)Updating files:  56% (81/143)Updating files:  57% (82/143)Updating files:  58% (83/143)Updating files:  59% (85/143)Updating files:  60% (86/143)Updating files:  61% (88/143)Updating files:  62% (89/143)Updating files:  63% (91/143)Updating files:  64% (92/143)Updating files:  65% (93/143)Updating files:  66% (95/143)Updating files:  67% (96/143)Updating files:  68% (98/143)Updating files:  69% (99/143)Updating files:  70% (101/143)Updating files:  71% (102/143)Updating files:  72% (103/143)Updating files:  73% (105/143)Updating files:  74% (106/143)Updating files:  75% (108/143)Updating files:  76% (109/143)Updating files:  77% (111/143)Updating files:  78% (112/143)Updating files:  79% (113/143)Updating files:  80% (115/143)Updating files:  81% (116/143)Updating files:  82% (118/143)Updating files:  83% (119/143)Updating files:  84% (121/143)Updating files:  85% (122/143)Updating files:  86% (123/143)Updating files:  87% (125/143)Updating files:  88% (126/143)Updating files:  89% (128/143)Updating files:  90% (129/143)Updating files:  91% (131/143)Updating files:  92% (132/143)Updating files:  93% (133/143)Updating files:  94% (135/143)Updating files:  95% (136/143)Updating files:  96% (138/143)Updating files:  97% (139/143)Updating files:  98% (141/143)Updating files:  99% (142/143)Updating files: 100% (143/143)Updating files: 100% (143/143), done.
+Note: switching to 'tags/rel/commons-cli-1.9.0'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by switching back to a branch.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -c with the switch command. Example:
+
+  git switch -c <new-branch-name>
+
+Or undo this operation with:
+
+  git switch -
+
+Turn off this advice by setting config variable advice.detachedHead to false
+
+HEAD is now at 698b2382 Rest commons.rc.version
+
+Processing commons-cli (Java 11)...
+----------------------------------------
+JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64
+Using Java 11:
+openjdk version "11.0.30" 2026-01-20
+OpenJDK Runtime Environment (build 11.0.30+7-post-Ubuntu-1ubuntu124.04)
+OpenJDK 64-Bit Server VM (build 11.0.30+7-post-Ubuntu-1ubuntu124.04, mixed mode, sharing)
+----------------------------------------
+python3 ../../MediumDarwin.py -m --all --build-command "mvn,compile" -q -t . -p ./src/main/java
+
+        __       __                  __  __                          _______                                     __
+       |  \     /  \                |  \|  \                        |       \                                   |  \
+       | $$\   /  $$  ______    ____| $$ \$$ __    __  ______ ____  | $$$$$$$\  ______    ______   __   __   __  \$$ _______
+       | $$$\ /  $$$ /      \  /      $$|  \|  \  |  \|      \    \ | $$  | $$ |      \  /      \ |  \ |  \ |  \|  \|       \
+       | $$$$\  $$$$|  $$$$$$\|  $$$$$$$| $$| $$  | $$| $$$$$$\$$$$\| $$  | $$  \$$$$$$\|  $$$$$$\| $$ | $$ | $$| $$| $$$$$$$\
+       | $$\$$ $$ $$| $$    $$| $$  | $$| $$| $$  | $$| $$ | $$ | $$| $$  | $$ /      $$| $$   \$$| $$ | $$ | $$| $$| $$  | $$
+       | $$ \$$$| $$| $$$$$$$$| $$__| $$| $$| $$__/ $$| $$ | $$ | $$| $$__/ $$|  $$$$$$$| $$      | $$_/ $$_/ $$| $$| $$  | $$
+       | $$  \$ | $$ \$$     \ \$$    $$| $$ \$$    $$| $$ | $$ | $$| $$    $$ \$$    $$| $$       \$$   $$   $$| $$| $$  | $$
+        \$$      \$$  \$$$$$$$  \$$$$$$$ \$$  \$$$$$$  \$$  \$$  \$$ \$$$$$$$   \$$$$$$$ \$$        \$$$$$\$$$$  \$$ \$$   \$$
+
+       Copyright (c) 2014 2022 Ali Parsai
+       Copyright (c) 2025      MediumDarwin Contributors
+
+       This project builds upon the original work of Ali Parsai and the LittleDarwin mutation testing framework.
+       We gratefully acknowledge his foundational contributions, which made this extended version possible.
+
+       This program is free software: you can redistribute it and/or modify it under the terms of the GNU
+       General Public License as published by the Free Software Foundation, version 3  of the License, or
+       (at your option) any later version.
+
+       This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied
+       warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the  GNU General Public License for more details.
+
+       You should have received a copy of the GNU General Public License along with this program.
+       If not, see <https://www.gnu.org/licenses/>.
+
+       Original author:
+       Ali Parsai — https://www.parsai.net/
+        
+
+        __       __                  __  __                          _______                                     __            
+       |  \     /  \                |  \|  \                        |       \                                   |  \           
+       | $$\   /  $$  ______    ____| $$ \$$ __    __  ______ ____  | $$$$$$$\  ______    ______   __   __   __  \$$ _______   
+       | $$$\ /  $$$ /      \  /      $$|  \|  \  |  \|      \    \ | $$  | $$ |      \  /      \ |  \ |  \ |  \|  \|       \  
+       | $$$$\  $$$$|  $$$$$$\|  $$$$$$$| $$| $$  | $$| $$$$$$\$$$$\| $$  | $$  \$$$$$$\|  $$$$$$\| $$ | $$ | $$| $$| $$$$$$$\ 
+       | $$\$$ $$ $$| $$    $$| $$  | $$| $$| $$  | $$| $$ | $$ | $$| $$  | $$ /      $$| $$   \$$| $$ | $$ | $$| $$| $$  | $$ 
+       | $$ \$$$| $$| $$$$$$$$| $$__| $$| $$| $$__/ $$| $$ | $$ | $$| $$__/ $$|  $$$$$$$| $$      | $$_/ $$_/ $$| $$| $$  | $$ 
+       | $$  \$ | $$ \$$     \ \$$    $$| $$ \$$    $$| $$ | $$ | $$| $$    $$ \$$    $$| $$       \$$   $$   $$| $$| $$  | $$ 
+        \$$      \$$  \$$$$$$$  \$$$$$$$ \$$  \$$$$$$  \$$  \$$  \$$ \$$$$$$$   \$$$$$$$ \$$        \$$$$$\$$$$  \$$ \$$   \$$ 
+                                                                                                                            
+       Copyright (c) 2014 2022 Ali Parsai                                                                                      
+       Copyright (c) 2025      MediumDarwin Contributors                                                                       
+                                                                                                                            
+       This project builds upon the original work of Ali Parsai and the LittleDarwin mutation testing framework.               
+       We gratefully acknowledge his foundational contributions, which made this extended version possible.                    
+                                                                                                                                
+       This program is free software: you can redistribute it and/or modify it under the terms of the GNU                      
+       General Public License as published by the Free Software Foundation, version 3  of the License, or                      
+       (at your option) any later version.                                                                                     
+                                                                                                                            
+       This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied       
+       warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the  GNU General Public License for more details.   
+                                                                                                                                
+       You should have received a copy of the GNU General Public License along with this program.                              
+       If not, see <https://www.gnu.org/licenses/>.                                                                             
+                                                                                                                                
+       Original author:                                                                                                         
+       Ali Parsai — https://www.parsai.net/                                                                                     
+        
+Source Path:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-cli/src/main/java
+Target Path:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-cli/LittleDarwinResults
+Creating Mutation Database:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-cli/LittleDarwinResults/mutationdatabase
+
+(1/26) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-cli/src/main/java/org/apache/commons/cli/AlreadySelectedException.java
+--> Mutations found:  4
+----> NullifyReturnValue : 2
+----> RemoveMethod : 2
+
+(2/26) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-cli/src/main/java/org/apache/commons/cli/AmbiguousOptionException.java
+--> Mutations found:  6
+----> NullifyObjectInitialization : 1
+----> NullifyReturnValue : 2
+----> RemoveMethod : 3
+
+(3/26) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-cli/src/main/java/org/apache/commons/cli/BasicParser.java
+--> Mutations found:  2
+----> NullifyReturnValue : 1
+----> RemoveMethod : 1
+
+(4/26) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-cli/src/main/java/org/apache/commons/cli/Char.java
+--> Mutations found:  0
+
+(5/26) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-cli/src/main/java/org/apache/commons/cli/CommandLine.java
+--> Mutations found:  174
+----> ArithmeticOperatorReplacementBinary : 2
+----> AssignmentOperatorReplacementShortcut : 1
+----> ConditionalOperatorDeletion : 3
+----> ConditionalOperatorReplacement : 6
+----> NullifyObjectInitialization : 9
+----> NullifyReturnValue : 50
+----> RelationalOperatorReplacement : 19
+----> RemoveMethod : 67
+----> RemoveNullCheck : 17
+
+(6/26) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-cli/src/main/java/org/apache/commons/cli/CommandLineParser.java
+--> Mutations found:  0
+
+(7/26) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-cli/src/main/java/org/apache/commons/cli/Converter.java
+--> Mutations found:  3
+----> ArithmeticOperatorReplacementUnary : 1
+----> NullifyObjectInitialization : 1
+----> RelationalOperatorReplacement : 1
+
+(8/26) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-cli/src/main/java/org/apache/commons/cli/DefaultParser.java
+--> Mutations found:  180
+----> ArithmeticOperatorReplacementBinary : 5
+----> ArithmeticOperatorReplacementShortcut : 2
+----> ArithmeticOperatorReplacementUnary : 4
+----> ConditionalOperatorDeletion : 17
+----> ConditionalOperatorReplacement : 30
+----> NullifyObjectInitialization : 10
+----> NullifyReturnValue : 16
+----> RelationalOperatorReplacement : 36
+----> RemoveMethod : 42
+----> RemoveNullCheck : 18
+
+(9/26) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-cli/src/main/java/org/apache/commons/cli/DeprecatedAttributes.java
+--> Mutations found:  32
+----> ConditionalOperatorDeletion : 2
+----> NullifyObjectInitialization : 4
+----> NullifyReturnValue : 9
+----> RelationalOperatorReplacement : 1
+----> RemoveMethod : 15
+----> RemoveNullCheck : 1
+
+(10/26) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-cli/src/main/java/org/apache/commons/cli/GnuParser.java
+--> Mutations found:  14
+----> ArithmeticOperatorReplacementBinary : 1
+----> ArithmeticOperatorReplacementShortcut : 3
+----> ArithmeticOperatorReplacementUnary : 1
+----> ConditionalOperatorReplacement : 1
+----> NullifyObjectInitialization : 1
+----> NullifyReturnValue : 1
+----> RelationalOperatorReplacement : 4
+----> RemoveMethod : 1
+----> RemoveNullCheck : 1
+
+(11/26) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-cli/src/main/java/org/apache/commons/cli/HelpFormatter.java
+--> Mutations found:  223
+----> ArithmeticOperatorReplacementBinary : 22
+----> ArithmeticOperatorReplacementShortcut : 3
+----> ArithmeticOperatorReplacementUnary : 6
+----> ConditionalOperatorDeletion : 9
+----> ConditionalOperatorReplacement : 12
+----> NullifyObjectInitialization : 22
+----> NullifyReturnValue : 24
+----> RelationalOperatorReplacement : 38
+----> RemoveMethod : 68
+----> RemoveNullCheck : 19
+
+(12/26) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-cli/src/main/java/org/apache/commons/cli/MissingArgumentException.java
+--> Mutations found:  3
+----> ArithmeticOperatorReplacementUnary : 1
+----> NullifyReturnValue : 1
+----> RemoveMethod : 1
+
+(13/26) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-cli/src/main/java/org/apache/commons/cli/MissingOptionException.java
+--> Mutations found:  7
+----> NullifyObjectInitialization : 1
+----> NullifyReturnValue : 2
+----> RelationalOperatorReplacement : 1
+----> RemoveMethod : 3
+
+(14/26) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-cli/src/main/java/org/apache/commons/cli/Option.java
+--> Mutations found:  202
+----> ArithmeticOperatorReplacementBinary : 2
+----> ArithmeticOperatorReplacementUnary : 3
+----> ConditionalOperatorDeletion : 4
+----> ConditionalOperatorReplacement : 10
+----> NullifyObjectInitialization : 11
+----> NullifyReturnValue : 40
+----> RelationalOperatorReplacement : 24
+----> RemoveMethod : 97
+----> RemoveNullCheck : 11
+
+(15/26) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-cli/src/main/java/org/apache/commons/cli/OptionBuilder.java
+--> Mutations found:  44
+----> NullifyObjectInitialization : 3
+----> NullifyReturnValue : 19
+----> RelationalOperatorReplacement : 1
+----> RemoveMethod : 20
+----> RemoveNullCheck : 1
+
+(16/26) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-cli/src/main/java/org/apache/commons/cli/OptionGroup.java
+--> Mutations found:  33
+----> ConditionalOperatorDeletion : 1
+----> ConditionalOperatorReplacement : 1
+----> NullifyObjectInitialization : 3
+----> NullifyReturnValue : 5
+----> RelationalOperatorReplacement : 5
+----> RemoveMethod : 13
+----> RemoveNullCheck : 5
+
+(17/26) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-cli/src/main/java/org/apache/commons/cli/OptionValidator.java
+--> Mutations found:  23
+----> ArithmeticOperatorReplacementShortcut : 1
+----> ConditionalOperatorDeletion : 2
+----> ConditionalOperatorReplacement : 2
+----> NullifyObjectInitialization : 3
+----> NullifyReturnValue : 2
+----> RelationalOperatorReplacement : 4
+----> RemoveMethod : 8
+----> RemoveNullCheck : 1
+
+(18/26) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-cli/src/main/java/org/apache/commons/cli/Options.java
+--> Mutations found:  52
+----> ConditionalOperatorReplacement : 1
+----> NullifyObjectInitialization : 11
+----> NullifyReturnValue : 16
+----> RelationalOperatorReplacement : 1
+----> RemoveMethod : 22
+----> RemoveNullCheck : 1
+
+(19/26) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-cli/src/main/java/org/apache/commons/cli/ParseException.java
+--> Mutations found:  4
+----> NullifyObjectInitialization : 1
+----> NullifyReturnValue : 2
+----> RemoveMethod : 1
+
+(20/26) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-cli/src/main/java/org/apache/commons/cli/Parser.java
+--> Mutations found:  52
+----> ConditionalOperatorDeletion : 8
+----> ConditionalOperatorReplacement : 7
+----> NullifyObjectInitialization : 5
+----> NullifyReturnValue : 6
+----> RelationalOperatorReplacement : 7
+----> RemoveMethod : 12
+----> RemoveNullCheck : 7
+
+(21/26) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-cli/src/main/java/org/apache/commons/cli/PatternOptionBuilder.java
+--> Mutations found:  51
+----> ArithmeticOperatorReplacementShortcut : 1
+----> ConditionalOperatorDeletion : 1
+----> ConditionalOperatorReplacement : 9
+----> NullifyObjectInitialization : 3
+----> NullifyReturnValue : 13
+----> RelationalOperatorReplacement : 16
+----> RemoveMethod : 6
+----> RemoveNullCheck : 2
+
+(22/26) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-cli/src/main/java/org/apache/commons/cli/PosixParser.java
+--> Mutations found:  37
+----> ArithmeticOperatorReplacementBinary : 3
+----> ArithmeticOperatorReplacementShortcut : 1
+----> ArithmeticOperatorReplacementUnary : 2
+----> ConditionalOperatorDeletion : 4
+----> ConditionalOperatorReplacement : 6
+----> NullifyObjectInitialization : 3
+----> NullifyReturnValue : 1
+----> RelationalOperatorReplacement : 9
+----> RemoveMethod : 6
+----> RemoveNullCheck : 2
+
+(23/26) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-cli/src/main/java/org/apache/commons/cli/TypeHandler.java
+--> Mutations found:  33
+----> NullifyObjectInitialization : 4
+----> NullifyReturnValue : 14
+----> RemoveMethod : 15
+
+(24/26) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-cli/src/main/java/org/apache/commons/cli/UnrecognizedOptionException.java
+--> Mutations found:  4
+----> ArithmeticOperatorReplacementUnary : 1
+----> NullifyReturnValue : 1
+----> RemoveMethod : 2
+
+(25/26) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-cli/src/main/java/org/apache/commons/cli/Util.java
+--> Mutations found:  30
+----> ArithmeticOperatorReplacementBinary : 2
+----> ArithmeticOperatorReplacementUnary : 1
+----> ConditionalOperatorReplacement : 5
+----> NullifyReturnValue : 7
+----> RelationalOperatorReplacement : 5
+----> RemoveMethod : 8
+----> RemoveNullCheck : 2
+
+(26/26) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-cli/src/main/java/org/apache/commons/cli/package-info.java
+--> Mutations found:  0
+
+Total mutations found:  1213
+Total mutant found:  1213
+--> ArithmeticOperatorReplacementBinary: 37
+--> ArithmeticOperatorReplacementShortcut: 11
+--> ArithmeticOperatorReplacementUnary: 20
+--> AssignmentOperatorReplacementShortcut: 1
+--> ConditionalOperatorDeletion: 51
+--> ConditionalOperatorReplacement: 90
+--> NullifyObjectInitialization: 96
+--> NullifyReturnValue: 234
+--> RelationalOperatorReplacement: 172
+--> RemoveMethod: 413
+--> RemoveNullCheck: 88
+Cleanup MediumDarwin...
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-cli/src/main/java/org/apache/commons/cli/AlreadySelectedException.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-cli/src/main/java/org/apache/commons/cli/AmbiguousOptionException.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-cli/src/main/java/org/apache/commons/cli/BasicParser.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-cli/src/main/java/org/apache/commons/cli/CommandLine.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-cli/src/main/java/org/apache/commons/cli/Converter.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-cli/src/main/java/org/apache/commons/cli/DefaultParser.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-cli/src/main/java/org/apache/commons/cli/DeprecatedAttributes.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-cli/src/main/java/org/apache/commons/cli/GnuParser.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-cli/src/main/java/org/apache/commons/cli/HelpFormatter.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-cli/src/main/java/org/apache/commons/cli/MissingArgumentException.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-cli/src/main/java/org/apache/commons/cli/MissingOptionException.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-cli/src/main/java/org/apache/commons/cli/Option.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-cli/src/main/java/org/apache/commons/cli/OptionBuilder.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-cli/src/main/java/org/apache/commons/cli/OptionGroup.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-cli/src/main/java/org/apache/commons/cli/OptionValidator.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-cli/src/main/java/org/apache/commons/cli/Options.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-cli/src/main/java/org/apache/commons/cli/ParseException.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-cli/src/main/java/org/apache/commons/cli/Parser.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-cli/src/main/java/org/apache/commons/cli/PatternOptionBuilder.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-cli/src/main/java/org/apache/commons/cli/PosixParser.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-cli/src/main/java/org/apache/commons/cli/TypeHandler.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-cli/src/main/java/org/apache/commons/cli/UnrecognizedOptionException.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-cli/src/main/java/org/apache/commons/cli/Util.java
+elapsed: 0:01:20
+python3 ../littledarwin/LittleDarwin.py -m --all --build-command "mvn,compile" -t . -p ./src/main/java
+
+    __     _  __   __   __       ____                          _
+   / /    (_)/ /_ / /_ / /___   / __ \ ____ _ _____ _      __ (_)____
+  / /    / // __// __// // _ \ / / / // __ `// ___/| | /| / // // __ \
+ / /___ / // /_ / /_ / //  __// /_/ // /_/ // /    | |/ |/ // // / / /
+/_____//_/ \__/ \__//_/ \___//_____/ \__,_//_/     |__/|__//_//_/ /_/
+
+      _                     _                 ___
+     /_|  /|/|  _/__/'     /_|   _ /   _ ' _ (_  _ _ _  _      _ /
+    (  | /   |(//(///()/) (  |/)(/((/_) /_)  /  / (///)(-((/()/ /(
+                                  /
+
+
+    LittleDarwin version 0.10.9 Copyright (C) 2014-2022 Ali Parsai
+
+    LittleDarwin comes with ABSOLUTELY NO WARRANTY.
+    This is free software, and you are welcome to redistribute it
+    under certain conditions; run LittleDarwin --license for details.
+
+
+    
+Source Path:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-cli/src/main/java
+Target Path:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-cli/LittleDarwinResults
+Creating Mutation Database:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-cli/LittleDarwinResults/mutationdatabase
+
+(1/26) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-cli/src/main/java/org/apache/commons/cli/AlreadySelectedException.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  4
+----> RemoveMethod : 2
+----> NullifyReturnValue : 2
+
+(2/26) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-cli/src/main/java/org/apache/commons/cli/AmbiguousOptionException.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  8
+----> NullifyInputVariable : 2
+----> NullifyObjectInitialization : 1
+----> RemoveMethod : 3
+----> NullifyReturnValue : 2
+
+(3/26) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-cli/src/main/java/org/apache/commons/cli/BasicParser.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  5
+----> NullifyInputVariable : 2
+----> RemoveMethod : 2
+----> NullifyReturnValue : 1
+
+(4/26) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-cli/src/main/java/org/apache/commons/cli/Char.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  0
+
+(5/26) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-cli/src/main/java/org/apache/commons/cli/CommandLine.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  232
+----> NullifyInputVariable : 53
+----> NullifyObjectInitialization : 9
+----> RemoveMethod : 72
+----> RelationalOperatorReplacement : 19
+----> NullifyReturnValue : 50
+----> RemoveNullCheck : 17
+----> ConditionalOperatorDeletion : 3
+----> AssignmentOperatorReplacementShortcut : 1
+----> ConditionalOperatorReplacement : 6
+----> ArithmeticOperatorReplacementBinary : 2
+
+(6/26) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-cli/src/main/java/org/apache/commons/cli/CommandLineParser.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  0
+
+(7/26) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-cli/src/main/java/org/apache/commons/cli/Converter.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  3
+----> NullifyObjectInitialization : 1
+----> ArithmeticOperatorReplacementUnary : 1
+----> RelationalOperatorReplacement : 1
+
+(8/26) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-cli/src/main/java/org/apache/commons/cli/DefaultParser.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  213
+----> NullifyInputVariable : 33
+----> NullifyObjectInitialization : 10
+----> RemoveMethod : 42
+----> ArithmeticOperatorReplacementShortcut : 2
+----> ArithmeticOperatorReplacementUnary : 4
+----> RelationalOperatorReplacement : 36
+----> NullifyReturnValue : 16
+----> RemoveNullCheck : 18
+----> ConditionalOperatorDeletion : 17
+----> ConditionalOperatorReplacement : 30
+----> ArithmeticOperatorReplacementBinary : 5
+
+(9/26) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-cli/src/main/java/org/apache/commons/cli/DeprecatedAttributes.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  35
+----> NullifyInputVariable : 3
+----> NullifyObjectInitialization : 4
+----> RemoveMethod : 15
+----> RelationalOperatorReplacement : 1
+----> NullifyReturnValue : 9
+----> RemoveNullCheck : 1
+----> ConditionalOperatorDeletion : 2
+
+(10/26) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-cli/src/main/java/org/apache/commons/cli/GnuParser.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  17
+----> NullifyInputVariable : 2
+----> NullifyObjectInitialization : 1
+----> RemoveMethod : 2
+----> ArithmeticOperatorReplacementShortcut : 3
+----> ArithmeticOperatorReplacementUnary : 1
+----> RelationalOperatorReplacement : 4
+----> NullifyReturnValue : 1
+----> RemoveNullCheck : 1
+----> ConditionalOperatorReplacement : 1
+----> ArithmeticOperatorReplacementBinary : 1
+
+(11/26) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-cli/src/main/java/org/apache/commons/cli/HelpFormatter.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  293
+----> NullifyInputVariable : 70
+----> NullifyObjectInitialization : 22
+----> RemoveMethod : 68
+----> ArithmeticOperatorReplacementShortcut : 3
+----> ArithmeticOperatorReplacementUnary : 6
+----> RelationalOperatorReplacement : 38
+----> NullifyReturnValue : 24
+----> RemoveNullCheck : 19
+----> ConditionalOperatorDeletion : 9
+----> ConditionalOperatorReplacement : 12
+----> ArithmeticOperatorReplacementBinary : 22
+
+(12/26) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-cli/src/main/java/org/apache/commons/cli/MissingArgumentException.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  3
+----> RemoveMethod : 1
+----> ArithmeticOperatorReplacementUnary : 1
+----> NullifyReturnValue : 1
+
+(13/26) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-cli/src/main/java/org/apache/commons/cli/MissingOptionException.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  8
+----> NullifyInputVariable : 1
+----> NullifyObjectInitialization : 1
+----> RemoveMethod : 3
+----> RelationalOperatorReplacement : 1
+----> NullifyReturnValue : 2
+
+(14/26) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-cli/src/main/java/org/apache/commons/cli/Option.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  224
+----> NullifyInputVariable : 21
+----> NullifyObjectInitialization : 11
+----> RemoveMethod : 98
+----> ArithmeticOperatorReplacementUnary : 3
+----> RelationalOperatorReplacement : 24
+----> NullifyReturnValue : 40
+----> RemoveNullCheck : 11
+----> ConditionalOperatorDeletion : 4
+----> ConditionalOperatorReplacement : 10
+----> ArithmeticOperatorReplacementBinary : 2
+
+(15/26) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-cli/src/main/java/org/apache/commons/cli/OptionBuilder.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  50
+----> NullifyInputVariable : 6
+----> NullifyObjectInitialization : 3
+----> RemoveMethod : 20
+----> RelationalOperatorReplacement : 1
+----> NullifyReturnValue : 19
+----> RemoveNullCheck : 1
+
+(16/26) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-cli/src/main/java/org/apache/commons/cli/OptionGroup.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  35
+----> NullifyInputVariable : 2
+----> NullifyObjectInitialization : 3
+----> RemoveMethod : 13
+----> RelationalOperatorReplacement : 5
+----> NullifyReturnValue : 5
+----> RemoveNullCheck : 5
+----> ConditionalOperatorDeletion : 1
+----> ConditionalOperatorReplacement : 1
+
+(17/26) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-cli/src/main/java/org/apache/commons/cli/Options.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  71
+----> NullifyInputVariable : 19
+----> NullifyObjectInitialization : 11
+----> RemoveMethod : 22
+----> RelationalOperatorReplacement : 1
+----> NullifyReturnValue : 16
+----> RemoveNullCheck : 1
+----> ConditionalOperatorReplacement : 1
+
+(18/26) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-cli/src/main/java/org/apache/commons/cli/OptionValidator.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  24
+----> NullifyInputVariable : 1
+----> NullifyObjectInitialization : 3
+----> RemoveMethod : 8
+----> ArithmeticOperatorReplacementShortcut : 1
+----> RelationalOperatorReplacement : 4
+----> NullifyReturnValue : 2
+----> RemoveNullCheck : 1
+----> ConditionalOperatorDeletion : 2
+----> ConditionalOperatorReplacement : 2
+
+(19/26) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-cli/src/main/java/org/apache/commons/cli/package-info.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  0
+
+(20/26) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-cli/src/main/java/org/apache/commons/cli/ParseException.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  5
+----> NullifyInputVariable : 1
+----> NullifyObjectInitialization : 1
+----> RemoveMethod : 1
+----> NullifyReturnValue : 2
+
+(21/26) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-cli/src/main/java/org/apache/commons/cli/Parser.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  69
+----> NullifyInputVariable : 17
+----> NullifyObjectInitialization : 5
+----> RemoveMethod : 12
+----> RelationalOperatorReplacement : 7
+----> NullifyReturnValue : 6
+----> RemoveNullCheck : 7
+----> ConditionalOperatorDeletion : 8
+----> ConditionalOperatorReplacement : 7
+
+(22/26) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-cli/src/main/java/org/apache/commons/cli/PatternOptionBuilder.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  52
+----> NullifyInputVariable : 1
+----> NullifyObjectInitialization : 3
+----> RemoveMethod : 6
+----> ArithmeticOperatorReplacementShortcut : 1
+----> RelationalOperatorReplacement : 16
+----> NullifyReturnValue : 13
+----> RemoveNullCheck : 2
+----> ConditionalOperatorDeletion : 1
+----> ConditionalOperatorReplacement : 9
+
+(23/26) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-cli/src/main/java/org/apache/commons/cli/PosixParser.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  44
+----> NullifyInputVariable : 6
+----> NullifyObjectInitialization : 3
+----> RemoveMethod : 7
+----> ArithmeticOperatorReplacementShortcut : 1
+----> ArithmeticOperatorReplacementUnary : 2
+----> RelationalOperatorReplacement : 9
+----> NullifyReturnValue : 1
+----> RemoveNullCheck : 2
+----> ConditionalOperatorDeletion : 4
+----> ConditionalOperatorReplacement : 6
+----> ArithmeticOperatorReplacementBinary : 3
+
+(24/26) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-cli/src/main/java/org/apache/commons/cli/TypeHandler.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  49
+----> NullifyInputVariable : 16
+----> NullifyObjectInitialization : 4
+----> RemoveMethod : 15
+----> NullifyReturnValue : 14
+
+(25/26) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-cli/src/main/java/org/apache/commons/cli/UnrecognizedOptionException.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  4
+----> RemoveMethod : 2
+----> ArithmeticOperatorReplacementUnary : 1
+----> NullifyReturnValue : 1
+
+(26/26) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-cli/src/main/java/org/apache/commons/cli/Util.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  34
+----> NullifyInputVariable : 4
+----> RemoveMethod : 8
+----> ArithmeticOperatorReplacementUnary : 1
+----> RelationalOperatorReplacement : 5
+----> NullifyReturnValue : 7
+----> RemoveNullCheck : 2
+----> ConditionalOperatorReplacement : 5
+----> ArithmeticOperatorReplacementBinary : 2
+
+Total mutations found:  1482
+--> NullifyInputVariable: 260
+--> NullifyObjectInitialization: 96
+--> RemoveMethod: 422
+--> ArithmeticOperatorReplacementShortcut: 11
+--> ArithmeticOperatorReplacementUnary: 20
+--> RelationalOperatorReplacement: 172
+--> NullifyReturnValue: 234
+--> RemoveNullCheck: 88
+--> ConditionalOperatorDeletion: 51
+--> AssignmentOperatorReplacementShortcut: 1
+--> ConditionalOperatorReplacement: 90
+--> ArithmeticOperatorReplacementBinary: 37
+
+Comparing mutation operators: commons-cli -> operator_comparisons/commons-cli/
+Extracted 1482 mutants -> operator_comparisons/commons-cli/littledarwin.csv
+Extracted 1213 mutants -> operator_comparisons/commons-cli/mediumdarwin.csv
+Comparison written to /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/operator_comparisons/commons-cli
+  littledarwin_mutants (Original): 1482
+  mediumdarwin_mutants: 1213
+  removed_in_mediumdarwin (paper Reduced): 293
+  added_in_mediumdarwin (paper Added): 33
+  in_both_strict_match: 1086
+  delta_percent: -18.15
+  sites_only_in_littledarwin: 184
+  sites_only_in_mediumdarwin: 0
+  sites_in_both: 1061
+  removed_in_mediumdarwin — paper 'Reduced' categories:
+    paper_category breakdown:
+      reduced_nullify_final_param_non_compilable: 254
+      reduced_other_operator_or_format: 33
+      reduced_nullify_input_other_filter: 6
+    operator breakdown:
+      NullifyInputVariable: 260
+      RelationalOperatorReplacement: 33
+  added_in_mediumdarwin — paper 'Added' categories:
+    paper_category breakdown:
+      added_same_site_different_variant: 33
+    operator breakdown:
+      RelationalOperatorReplacement: 33
+Mutant comparison for commons-cli:
+  # MediumDarwin paper Table I style (refined operators only)
+  littledarwin_mutants (Original): 1482
+  mediumdarwin_mutants: 1213
+  removed_in_mediumdarwin (paper Reduced): 293
+  added_in_mediumdarwin (paper Added): 33
+  in_both_strict_match: 1086
+  delta_percent: -18.15
+  
+  # Site-level (same file, line, operator, method signature):
+  sites_only_in_littledarwin: 184
+  sites_only_in_mediumdarwin: 0
+  sites_in_both: 1061
+  
+  # Strict match: same file, line, operator, before, after (after strips /*MUT*/).
+  
+  removed_in_mediumdarwin — paper 'Reduced' categories:
+    paper_category breakdown:
+      reduced_nullify_final_param_non_compilable: 254
+      reduced_other_operator_or_format: 33
+      reduced_nullify_input_other_filter: 6
+    operator breakdown:
+      NullifyInputVariable: 260
+      RelationalOperatorReplacement: 33
+  
+  added_in_mediumdarwin — paper 'Added' categories:
+    paper_category breakdown:
+      added_same_site_different_variant: 33
+    operator breakdown:
+      RelationalOperatorReplacement: 33
+  
+  # Paper mapping:
+  #   reduced_nullify_final_param_non_compilable → Listing 1 MUT0 (final param)
+  #   added_remove_method_array_return → Listing 1 MUT1 (array return RemoveMethod)
+  #   LD getMethodTypeForNode misses array/generic returns; MD uses full JType text.
+  Details: operator_comparisons/commons-cli/added_in_mediumdarwin.csv
+           operator_comparisons/commons-cli/removed_in_mediumdarwin.csv
+Combined summary: operator_comparisons/summary_all.txt
+
+Analysis completed.
+Log: mutation_analysis.log
+Operator comparisons: operator_comparisons/
+
+Projects analyzed:
+- commons-cli (tag: rel/commons-cli-1.9.0, Java: 11)
+Starting mutation analysis at Tue May 19 16:53:35 JST 2026
+Installing system dependencies...
+W: http://developer.download.nvidia.com/compute/cuda/repos/ubuntu2404/x86_64/InRelease: Key is stored in legacy trusted.gpg keyring (/etc/apt/trusted.gpg), see the DEPRECATION section in apt-key(8) for details.
+Checking required JDK installations...
+  Java 8 OK: /usr/lib/jvm/java-8-openjdk-amd64/bin
+Setting up LittleDarwin...
+Setting up Python virtual environment...
+Requirement already satisfied: pip in ./.mediumdarwin_venv/lib/python3.12/site-packages (26.1.1)
+Installing Python dependencies...
+Requirement already satisfied: antlr4-python3-runtime==4.10 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from -r ../requirements.txt (line 1)) (4.10)
+Requirement already satisfied: graphviz==0.21 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from -r ../requirements.txt (line 2)) (0.21)
+Requirement already satisfied: psutil==7.1.3 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from -r ../requirements.txt (line 3)) (7.1.3)
+Requirement already satisfied: networkx==3.5 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from -r ../requirements.txt (line 4)) (3.5)
+Requirement already satisfied: matplotlib==3.10.7 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from -r ../requirements.txt (line 5)) (3.10.7)
+Requirement already satisfied: colorama==0.4.6 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from -r ../requirements.txt (line 6)) (0.4.6)
+Requirement already satisfied: resources==0.0.1 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from -r ../requirements.txt (line 7)) (0.0.1)
+Requirement already satisfied: dill==0.4.0 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from -r ../requirements.txt (line 8)) (0.4.0)
+Requirement already satisfied: Uni-Curses==3.1.2 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from -r ../requirements.txt (line 9)) (3.1.2)
+Requirement already satisfied: joblib==1.5.2 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from -r ../requirements.txt (line 10)) (1.5.2)
+Requirement already satisfied: importlib_resources==6.5.2 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from -r ../requirements.txt (line 11)) (6.5.2)
+Requirement already satisfied: pydot==4.0.1 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from -r ../requirements.txt (line 12)) (4.0.1)
+Requirement already satisfied: plotly in ./.mediumdarwin_venv/lib/python3.12/site-packages (from -r ../requirements.txt (line 13)) (6.7.0)
+Requirement already satisfied: numpy in ./.mediumdarwin_venv/lib/python3.12/site-packages (from -r ../requirements.txt (line 14)) (2.4.6)
+Requirement already satisfied: pyvis in ./.mediumdarwin_venv/lib/python3.12/site-packages (from -r ../requirements.txt (line 15)) (0.3.2)
+Requirement already satisfied: tikzplotlib in ./.mediumdarwin_venv/lib/python3.12/site-packages (from -r ../requirements.txt (line 16)) (0.10.1)
+Requirement already satisfied: contourpy>=1.0.1 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from matplotlib==3.10.7->-r ../requirements.txt (line 5)) (1.3.3)
+Requirement already satisfied: cycler>=0.10 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from matplotlib==3.10.7->-r ../requirements.txt (line 5)) (0.12.1)
+Requirement already satisfied: fonttools>=4.22.0 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from matplotlib==3.10.7->-r ../requirements.txt (line 5)) (4.63.0)
+Requirement already satisfied: kiwisolver>=1.3.1 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from matplotlib==3.10.7->-r ../requirements.txt (line 5)) (1.5.0)
+Requirement already satisfied: packaging>=20.0 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from matplotlib==3.10.7->-r ../requirements.txt (line 5)) (26.2)
+Requirement already satisfied: pillow>=8 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from matplotlib==3.10.7->-r ../requirements.txt (line 5)) (12.2.0)
+Requirement already satisfied: pyparsing>=3 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from matplotlib==3.10.7->-r ../requirements.txt (line 5)) (3.3.2)
+Requirement already satisfied: python-dateutil>=2.7 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from matplotlib==3.10.7->-r ../requirements.txt (line 5)) (2.9.0.post0)
+Requirement already satisfied: x256 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from Uni-Curses==3.1.2->-r ../requirements.txt (line 9)) (0.0.3)
+Requirement already satisfied: narwhals>=1.15.1 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from plotly->-r ../requirements.txt (line 13)) (2.21.2)
+Requirement already satisfied: ipython>=5.3.0 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from pyvis->-r ../requirements.txt (line 15)) (9.13.0)
+Requirement already satisfied: jinja2>=2.9.6 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from pyvis->-r ../requirements.txt (line 15)) (3.1.6)
+Requirement already satisfied: jsonpickle>=1.4.1 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from pyvis->-r ../requirements.txt (line 15)) (4.1.1)
+Requirement already satisfied: webcolors in ./.mediumdarwin_venv/lib/python3.12/site-packages (from tikzplotlib->-r ../requirements.txt (line 16)) (25.10.0)
+Requirement already satisfied: decorator>=5.1.0 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from ipython>=5.3.0->pyvis->-r ../requirements.txt (line 15)) (5.3.1)
+Requirement already satisfied: ipython-pygments-lexers>=1.0.0 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from ipython>=5.3.0->pyvis->-r ../requirements.txt (line 15)) (1.1.1)
+Requirement already satisfied: jedi>=0.18.2 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from ipython>=5.3.0->pyvis->-r ../requirements.txt (line 15)) (0.20.0)
+Requirement already satisfied: matplotlib-inline>=0.1.6 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from ipython>=5.3.0->pyvis->-r ../requirements.txt (line 15)) (0.2.2)
+Requirement already satisfied: pexpect>4.6 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from ipython>=5.3.0->pyvis->-r ../requirements.txt (line 15)) (4.9.0)
+Requirement already satisfied: prompt_toolkit<3.1.0,>=3.0.41 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from ipython>=5.3.0->pyvis->-r ../requirements.txt (line 15)) (3.0.52)
+Requirement already satisfied: pygments>=2.14.0 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from ipython>=5.3.0->pyvis->-r ../requirements.txt (line 15)) (2.20.0)
+Requirement already satisfied: stack_data>=0.6.0 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from ipython>=5.3.0->pyvis->-r ../requirements.txt (line 15)) (0.6.3)
+Requirement already satisfied: traitlets>=5.13.0 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from ipython>=5.3.0->pyvis->-r ../requirements.txt (line 15)) (5.15.0)
+Requirement already satisfied: wcwidth in ./.mediumdarwin_venv/lib/python3.12/site-packages (from prompt_toolkit<3.1.0,>=3.0.41->ipython>=5.3.0->pyvis->-r ../requirements.txt (line 15)) (0.7.0)
+Requirement already satisfied: parso<0.9.0,>=0.8.6 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from jedi>=0.18.2->ipython>=5.3.0->pyvis->-r ../requirements.txt (line 15)) (0.8.7)
+Requirement already satisfied: MarkupSafe>=2.0 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from jinja2>=2.9.6->pyvis->-r ../requirements.txt (line 15)) (3.0.3)
+Requirement already satisfied: ptyprocess>=0.5 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from pexpect>4.6->ipython>=5.3.0->pyvis->-r ../requirements.txt (line 15)) (0.7.0)
+Requirement already satisfied: six>=1.5 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from python-dateutil>=2.7->matplotlib==3.10.7->-r ../requirements.txt (line 5)) (1.17.0)
+Requirement already satisfied: executing>=1.2.0 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from stack_data>=0.6.0->ipython>=5.3.0->pyvis->-r ../requirements.txt (line 15)) (2.2.1)
+Requirement already satisfied: asttokens>=2.1.0 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from stack_data>=0.6.0->ipython>=5.3.0->pyvis->-r ../requirements.txt (line 15)) (3.0.1)
+Requirement already satisfied: pure-eval in ./.mediumdarwin_venv/lib/python3.12/site-packages (from stack_data>=0.6.0->ipython>=5.3.0->pyvis->-r ../requirements.txt (line 15)) (0.2.3)
+
+************* commons-dbutils (Java 8) *************
+
+Cloning commons-dbutils...
+Cloning into 'commons-dbutils'...
+Updating files:  36% (51/139)Updating files:  37% (52/139)Updating files:  38% (53/139)Updating files:  39% (55/139)Updating files:  40% (56/139)Updating files:  41% (57/139)Updating files:  42% (59/139)Updating files:  43% (60/139)Updating files:  44% (62/139)Updating files:  45% (63/139)Updating files:  46% (64/139)Updating files:  47% (66/139)Updating files:  48% (67/139)Updating files:  49% (69/139)Updating files:  50% (70/139)Updating files:  51% (71/139)Updating files:  52% (73/139)Updating files:  53% (74/139)Updating files:  54% (76/139)Updating files:  55% (77/139)Updating files:  56% (78/139)Updating files:  57% (80/139)Updating files:  58% (81/139)Updating files:  59% (83/139)Updating files:  60% (84/139)Updating files:  61% (85/139)Updating files:  62% (87/139)Updating files:  63% (88/139)Updating files:  64% (89/139)Updating files:  64% (90/139)Updating files:  65% (91/139)Updating files:  66% (92/139)Updating files:  67% (94/139)Updating files:  68% (95/139)Updating files:  69% (96/139)Updating files:  70% (98/139)Updating files:  71% (99/139)Updating files:  72% (101/139)Updating files:  73% (102/139)Updating files:  74% (103/139)Updating files:  75% (105/139)Updating files:  76% (106/139)Updating files:  77% (108/139)Updating files:  78% (109/139)Updating files:  79% (110/139)Updating files:  80% (112/139)Updating files:  81% (113/139)Updating files:  82% (114/139)Updating files:  83% (116/139)Updating files:  84% (117/139)Updating files:  85% (119/139)Updating files:  86% (120/139)Updating files:  87% (121/139)Updating files:  88% (123/139)Updating files:  89% (124/139)Updating files:  90% (126/139)Updating files:  91% (127/139)Updating files:  92% (128/139)Updating files:  93% (130/139)Updating files:  94% (131/139)Updating files:  95% (133/139)Updating files:  96% (134/139)Updating files:  97% (135/139)Updating files:  98% (137/139)Updating files:  99% (138/139)Updating files: 100% (139/139)Updating files: 100% (139/139), done.
+Note: switching to 'tags/rel/commons-dbutils-1.8.1'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by switching back to a branch.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -c with the switch command. Example:
+
+  git switch -c <new-branch-name>
+
+Or undo this operation with:
+
+  git switch -
+
+Turn off this advice by setting config variable advice.detachedHead to false
+
+HEAD is now at 0b30ed1 Update POM version for Apache Commons DbUtils release 1.8.1
+
+Processing commons-dbutils (Java 8)...
+----------------------------------------
+JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
+Using Java 8:
+openjdk version "1.8.0_482"
+OpenJDK Runtime Environment (build 1.8.0_482-8u482-ga~us1-0ubuntu1~24.04-b08)
+OpenJDK 64-Bit Server VM (build 25.482-b08, mixed mode)
+----------------------------------------
+python3 ../../MediumDarwin.py -m --all --build-command "mvn,compile" -q -t . -p ./src/main/java
+
+        __       __                  __  __                          _______                                     __
+       |  \     /  \                |  \|  \                        |       \                                   |  \
+       | $$\   /  $$  ______    ____| $$ \$$ __    __  ______ ____  | $$$$$$$\  ______    ______   __   __   __  \$$ _______
+       | $$$\ /  $$$ /      \  /      $$|  \|  \  |  \|      \    \ | $$  | $$ |      \  /      \ |  \ |  \ |  \|  \|       \
+       | $$$$\  $$$$|  $$$$$$\|  $$$$$$$| $$| $$  | $$| $$$$$$\$$$$\| $$  | $$  \$$$$$$\|  $$$$$$\| $$ | $$ | $$| $$| $$$$$$$\
+       | $$\$$ $$ $$| $$    $$| $$  | $$| $$| $$  | $$| $$ | $$ | $$| $$  | $$ /      $$| $$   \$$| $$ | $$ | $$| $$| $$  | $$
+       | $$ \$$$| $$| $$$$$$$$| $$__| $$| $$| $$__/ $$| $$ | $$ | $$| $$__/ $$|  $$$$$$$| $$      | $$_/ $$_/ $$| $$| $$  | $$
+       | $$  \$ | $$ \$$     \ \$$    $$| $$ \$$    $$| $$ | $$ | $$| $$    $$ \$$    $$| $$       \$$   $$   $$| $$| $$  | $$
+        \$$      \$$  \$$$$$$$  \$$$$$$$ \$$  \$$$$$$  \$$  \$$  \$$ \$$$$$$$   \$$$$$$$ \$$        \$$$$$\$$$$  \$$ \$$   \$$
+
+       Copyright (c) 2014 2022 Ali Parsai
+       Copyright (c) 2025      MediumDarwin Contributors
+
+       This project builds upon the original work of Ali Parsai and the LittleDarwin mutation testing framework.
+       We gratefully acknowledge his foundational contributions, which made this extended version possible.
+
+       This program is free software: you can redistribute it and/or modify it under the terms of the GNU
+       General Public License as published by the Free Software Foundation, version 3  of the License, or
+       (at your option) any later version.
+
+       This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied
+       warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the  GNU General Public License for more details.
+
+       You should have received a copy of the GNU General Public License along with this program.
+       If not, see <https://www.gnu.org/licenses/>.
+
+       Original author:
+       Ali Parsai — https://www.parsai.net/
+        
+
+        __       __                  __  __                          _______                                     __            
+       |  \     /  \                |  \|  \                        |       \                                   |  \           
+       | $$\   /  $$  ______    ____| $$ \$$ __    __  ______ ____  | $$$$$$$\  ______    ______   __   __   __  \$$ _______   
+       | $$$\ /  $$$ /      \  /      $$|  \|  \  |  \|      \    \ | $$  | $$ |      \  /      \ |  \ |  \ |  \|  \|       \  
+       | $$$$\  $$$$|  $$$$$$\|  $$$$$$$| $$| $$  | $$| $$$$$$\$$$$\| $$  | $$  \$$$$$$\|  $$$$$$\| $$ | $$ | $$| $$| $$$$$$$\ 
+       | $$\$$ $$ $$| $$    $$| $$  | $$| $$| $$  | $$| $$ | $$ | $$| $$  | $$ /      $$| $$   \$$| $$ | $$ | $$| $$| $$  | $$ 
+       | $$ \$$$| $$| $$$$$$$$| $$__| $$| $$| $$__/ $$| $$ | $$ | $$| $$__/ $$|  $$$$$$$| $$      | $$_/ $$_/ $$| $$| $$  | $$ 
+       | $$  \$ | $$ \$$     \ \$$    $$| $$ \$$    $$| $$ | $$ | $$| $$    $$ \$$    $$| $$       \$$   $$   $$| $$| $$  | $$ 
+        \$$      \$$  \$$$$$$$  \$$$$$$$ \$$  \$$$$$$  \$$  \$$  \$$ \$$$$$$$   \$$$$$$$ \$$        \$$$$$\$$$$  \$$ \$$   \$$ 
+                                                                                                                            
+       Copyright (c) 2014 2022 Ali Parsai                                                                                      
+       Copyright (c) 2025      MediumDarwin Contributors                                                                       
+                                                                                                                            
+       This project builds upon the original work of Ali Parsai and the LittleDarwin mutation testing framework.               
+       We gratefully acknowledge his foundational contributions, which made this extended version possible.                    
+                                                                                                                                
+       This program is free software: you can redistribute it and/or modify it under the terms of the GNU                      
+       General Public License as published by the Free Software Foundation, version 3  of the License, or                      
+       (at your option) any later version.                                                                                     
+                                                                                                                            
+       This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied       
+       warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the  GNU General Public License for more details.   
+                                                                                                                                
+       You should have received a copy of the GNU General Public License along with this program.                              
+       If not, see <https://www.gnu.org/licenses/>.                                                                             
+                                                                                                                                
+       Original author:                                                                                                         
+       Ali Parsai — https://www.parsai.net/                                                                                     
+        
+Source Path:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java
+Target Path:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/LittleDarwinResults
+Creating Mutation Database:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/LittleDarwinResults/mutationdatabase
+
+(1/49) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/AbstractQueryRunner.java
+--> Mutations found:  80
+----> ArithmeticOperatorReplacementBinary : 4
+----> ArithmeticOperatorReplacementShortcut : 3
+----> ConditionalOperatorDeletion : 5
+----> ConditionalOperatorReplacement : 2
+----> NullifyObjectInitialization : 10
+----> NullifyReturnValue : 7
+----> RelationalOperatorReplacement : 16
+----> RemoveMethod : 21
+----> RemoveNullCheck : 12
+
+(2/49) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/AsyncQueryRunner.java
+--> Mutations found:  43
+----> NullifyObjectInitialization : 1
+----> NullifyReturnValue : 21
+----> RemoveMethod : 21
+
+(3/49) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/BaseResultSetHandler.java
+--> Mutations found:  295
+----> NullifyObjectInitialization : 1
+----> NullifyReturnValue : 59
+----> RelationalOperatorReplacement : 1
+----> RemoveMethod : 233
+----> RemoveNullCheck : 1
+
+(4/49) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/BasicRowProcessor.java
+--> Mutations found:  39
+----> ArithmeticOperatorReplacementBinary : 1
+----> ArithmeticOperatorReplacementShortcut : 2
+----> ArithmeticOperatorReplacementUnary : 1
+----> ConditionalOperatorReplacement : 2
+----> NullifyObjectInitialization : 4
+----> NullifyReturnValue : 9
+----> RelationalOperatorReplacement : 6
+----> RemoveMethod : 12
+----> RemoveNullCheck : 2
+
+(5/49) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/BeanProcessor.java
+--> Mutations found:  82
+----> ArithmeticOperatorReplacementBinary : 1
+----> ArithmeticOperatorReplacementShortcut : 3
+----> ArithmeticOperatorReplacementUnary : 1
+----> ConditionalOperatorDeletion : 4
+----> ConditionalOperatorReplacement : 6
+----> NullifyInputVariable : 1
+----> NullifyObjectInitialization : 10
+----> NullifyReturnValue : 12
+----> RelationalOperatorReplacement : 18
+----> RemoveMethod : 15
+----> RemoveNullCheck : 11
+
+(6/49) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/Column.java
+--> Mutations found:  0
+
+(7/49) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/ColumnHandler.java
+--> Mutations found:  0
+
+(8/49) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/DbUtils.java
+--> Mutations found:  58
+----> ConditionalOperatorDeletion : 2
+----> NullifyObjectInitialization : 3
+----> NullifyReturnValue : 3
+----> RelationalOperatorReplacement : 9
+----> RemoveMethod : 32
+----> RemoveNullCheck : 9
+
+(9/49) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/GenerousBeanProcessor.java
+--> Mutations found:  12
+----> ArithmeticOperatorReplacementBinary : 1
+----> ArithmeticOperatorReplacementShortcut : 2
+----> ConditionalOperatorReplacement : 2
+----> NullifyReturnValue : 1
+----> RelationalOperatorReplacement : 4
+----> RemoveMethod : 1
+----> RemoveNullCheck : 1
+
+(10/49) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/OutParameter.java
+--> Mutations found:  14
+----> NullifyReturnValue : 3
+----> RelationalOperatorReplacement : 1
+----> RemoveMethod : 9
+----> RemoveNullCheck : 1
+
+(11/49) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/PropertyHandler.java
+--> Mutations found:  0
+
+(12/49) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/ProxyFactory.java
+--> Mutations found:  19
+----> NullifyObjectInitialization : 1
+----> NullifyReturnValue : 9
+----> RemoveMethod : 9
+
+(13/49) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/QueryLoader.java
+--> Mutations found:  16
+----> NullifyObjectInitialization : 5
+----> NullifyReturnValue : 3
+----> RelationalOperatorReplacement : 2
+----> RemoveMethod : 4
+----> RemoveNullCheck : 2
+
+(14/49) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/QueryRunner.java
+--> Mutations found:  128
+----> ArithmeticOperatorReplacementBinary : 1
+----> ArithmeticOperatorReplacementShortcut : 1
+----> ConditionalOperatorReplacement : 3
+----> NullifyObjectInitialization : 20
+----> NullifyReturnValue : 18
+----> RelationalOperatorReplacement : 27
+----> RemoveMethod : 35
+----> RemoveNullCheck : 23
+
+(15/49) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/ResultSetHandler.java
+--> Mutations found:  0
+
+(16/49) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/ResultSetIterator.java
+--> Mutations found:  13
+----> ConditionalOperatorDeletion : 1
+----> NullifyObjectInitialization : 3
+----> NullifyReturnValue : 3
+----> RemoveMethod : 6
+
+(17/49) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/RowProcessor.java
+--> Mutations found:  0
+
+(18/49) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/StatementConfiguration.java
+--> Mutations found:  56
+----> ConditionalOperatorReplacement : 1
+----> NullifyObjectInitialization : 2
+----> NullifyReturnValue : 13
+----> RelationalOperatorReplacement : 9
+----> RemoveMethod : 23
+----> RemoveNullCheck : 8
+
+(19/49) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/handlers/AbstractKeyedHandler.java
+--> Mutations found:  5
+----> NullifyObjectInitialization : 1
+----> NullifyReturnValue : 2
+----> RemoveMethod : 2
+
+(20/49) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/handlers/AbstractListHandler.java
+--> Mutations found:  3
+----> NullifyObjectInitialization : 1
+----> NullifyReturnValue : 1
+----> RemoveMethod : 1
+
+(21/49) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/handlers/ArrayHandler.java
+--> Mutations found:  3
+----> NullifyObjectInitialization : 1
+----> NullifyReturnValue : 1
+----> RemoveMethod : 1
+
+(22/49) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/handlers/ArrayListHandler.java
+--> Mutations found:  2
+----> NullifyReturnValue : 1
+----> RemoveMethod : 1
+
+(23/49) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/handlers/BeanHandler.java
+--> Mutations found:  2
+----> NullifyReturnValue : 1
+----> RemoveMethod : 1
+
+(24/49) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/handlers/BeanListHandler.java
+--> Mutations found:  2
+----> NullifyReturnValue : 1
+----> RemoveMethod : 1
+
+(25/49) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/handlers/BeanMapHandler.java
+--> Mutations found:  6
+----> NullifyReturnValue : 2
+----> RelationalOperatorReplacement : 1
+----> RemoveMethod : 2
+----> RemoveNullCheck : 1
+
+(26/49) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/handlers/ColumnListHandler.java
+--> Mutations found:  5
+----> NullifyReturnValue : 2
+----> RelationalOperatorReplacement : 1
+----> RemoveMethod : 1
+----> RemoveNullCheck : 1
+
+(27/49) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/handlers/KeyedHandler.java
+--> Mutations found:  6
+----> NullifyReturnValue : 2
+----> RelationalOperatorReplacement : 1
+----> RemoveMethod : 2
+----> RemoveNullCheck : 1
+
+(28/49) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/handlers/MapHandler.java
+--> Mutations found:  2
+----> NullifyReturnValue : 1
+----> RemoveMethod : 1
+
+(29/49) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/handlers/MapListHandler.java
+--> Mutations found:  2
+----> NullifyReturnValue : 1
+----> RemoveMethod : 1
+
+(30/49) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/handlers/ScalarHandler.java
+--> Mutations found:  6
+----> NullifyReturnValue : 3
+----> RelationalOperatorReplacement : 1
+----> RemoveMethod : 1
+----> RemoveNullCheck : 1
+
+(31/49) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/handlers/columns/BooleanColumnHandler.java
+--> Mutations found:  5
+----> ConditionalOperatorReplacement : 1
+----> NullifyReturnValue : 1
+----> RemoveMethod : 3
+
+(32/49) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/handlers/columns/ByteColumnHandler.java
+--> Mutations found:  5
+----> ConditionalOperatorReplacement : 1
+----> NullifyReturnValue : 1
+----> RemoveMethod : 3
+
+(33/49) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/handlers/columns/DoubleColumnHandler.java
+--> Mutations found:  5
+----> ConditionalOperatorReplacement : 1
+----> NullifyReturnValue : 1
+----> RemoveMethod : 3
+
+(34/49) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/handlers/columns/FloatColumnHandler.java
+--> Mutations found:  5
+----> ConditionalOperatorReplacement : 1
+----> NullifyReturnValue : 1
+----> RemoveMethod : 3
+
+(35/49) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/handlers/columns/IntegerColumnHandler.java
+--> Mutations found:  5
+----> ConditionalOperatorReplacement : 1
+----> NullifyReturnValue : 1
+----> RemoveMethod : 3
+
+(36/49) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/handlers/columns/LongColumnHandler.java
+--> Mutations found:  5
+----> ConditionalOperatorReplacement : 1
+----> NullifyReturnValue : 1
+----> RemoveMethod : 3
+
+(37/49) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/handlers/columns/SQLXMLColumnHandler.java
+--> Mutations found:  4
+----> NullifyReturnValue : 1
+----> RemoveMethod : 3
+
+(38/49) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/handlers/columns/ShortColumnHandler.java
+--> Mutations found:  5
+----> ConditionalOperatorReplacement : 1
+----> NullifyReturnValue : 1
+----> RemoveMethod : 3
+
+(39/49) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/handlers/columns/StringColumnHandler.java
+--> Mutations found:  5
+----> NullifyReturnValue : 1
+----> RemoveMethod : 4
+
+(40/49) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/handlers/columns/TimestampColumnHandler.java
+--> Mutations found:  4
+----> NullifyReturnValue : 1
+----> RemoveMethod : 3
+
+(41/49) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/handlers/columns/package-info.java
+--> Mutations found:  0
+
+(42/49) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/handlers/package-info.java
+--> Mutations found:  0
+
+(43/49) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/handlers/properties/DatePropertyHandler.java
+--> Mutations found:  10
+----> ConditionalOperatorDeletion : 1
+----> ConditionalOperatorReplacement : 1
+----> NullifyInputVariable : 1
+----> NullifyObjectInitialization : 3
+----> NullifyReturnValue : 1
+----> RemoveMethod : 3
+
+(44/49) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/handlers/properties/StringEnumPropertyHandler.java
+--> Mutations found:  5
+----> ConditionalOperatorReplacement : 1
+----> NullifyReturnValue : 1
+----> RemoveMethod : 3
+
+(45/49) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/handlers/properties/package-info.java
+--> Mutations found:  0
+
+(46/49) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/package-info.java
+--> Mutations found:  0
+
+(47/49) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/wrappers/SqlNullCheckedResultSet.java
+--> Mutations found:  97
+----> ConditionalOperatorReplacement : 1
+----> NullifyObjectInitialization : 8
+----> NullifyReturnValue : 18
+----> RelationalOperatorReplacement : 9
+----> RemoveMethod : 52
+----> RemoveNullCheck : 9
+
+(48/49) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/wrappers/StringTrimmedResultSet.java
+--> Mutations found:  7
+----> ConditionalOperatorReplacement : 2
+----> NullifyObjectInitialization : 1
+----> NullifyReturnValue : 2
+----> RemoveMethod : 2
+
+(49/49) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/wrappers/package-info.java
+--> Mutations found:  0
+
+Total mutations found:  1066
+Total mutant found:  1066
+--> ArithmeticOperatorReplacementBinary: 8
+--> ArithmeticOperatorReplacementShortcut: 11
+--> ArithmeticOperatorReplacementUnary: 2
+--> ConditionalOperatorDeletion: 13
+--> ConditionalOperatorReplacement: 28
+--> NullifyInputVariable: 2
+--> NullifyObjectInitialization: 75
+--> NullifyReturnValue: 211
+--> RelationalOperatorReplacement: 106
+--> RemoveMethod: 527
+--> RemoveNullCheck: 83
+Cleanup MediumDarwin...
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/AbstractQueryRunner.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/AsyncQueryRunner.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/BaseResultSetHandler.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/BasicRowProcessor.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/BeanProcessor.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/DbUtils.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/GenerousBeanProcessor.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/OutParameter.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/ProxyFactory.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/QueryLoader.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/QueryRunner.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/ResultSetIterator.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/StatementConfiguration.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/handlers/AbstractKeyedHandler.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/handlers/AbstractListHandler.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/handlers/ArrayHandler.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/handlers/ArrayListHandler.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/handlers/BeanHandler.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/handlers/BeanListHandler.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/handlers/BeanMapHandler.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/handlers/ColumnListHandler.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/handlers/KeyedHandler.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/handlers/MapHandler.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/handlers/MapListHandler.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/handlers/ScalarHandler.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/handlers/columns/BooleanColumnHandler.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/handlers/columns/ByteColumnHandler.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/handlers/columns/DoubleColumnHandler.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/handlers/columns/FloatColumnHandler.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/handlers/columns/IntegerColumnHandler.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/handlers/columns/LongColumnHandler.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/handlers/columns/SQLXMLColumnHandler.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/handlers/columns/ShortColumnHandler.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/handlers/columns/StringColumnHandler.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/handlers/columns/TimestampColumnHandler.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/handlers/properties/DatePropertyHandler.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/handlers/properties/StringEnumPropertyHandler.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/wrappers/SqlNullCheckedResultSet.java
+Restored /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/wrappers/StringTrimmedResultSet.java
+elapsed: 0:01:38
+python3 ../littledarwin/LittleDarwin.py -m --all --build-command "mvn,compile" -t . -p ./src/main/java
+
+    __     _  __   __   __       ____                          _
+   / /    (_)/ /_ / /_ / /___   / __ \ ____ _ _____ _      __ (_)____
+  / /    / // __// __// // _ \ / / / // __ `// ___/| | /| / // // __ \
+ / /___ / // /_ / /_ / //  __// /_/ // /_/ // /    | |/ |/ // // / / /
+/_____//_/ \__/ \__//_/ \___//_____/ \__,_//_/     |__/|__//_//_/ /_/
+
+      _                     _                 ___
+     /_|  /|/|  _/__/'     /_|   _ /   _ ' _ (_  _ _ _  _      _ /
+    (  | /   |(//(///()/) (  |/)(/((/_) /_)  /  / (///)(-((/()/ /(
+                                  /
+
+
+    LittleDarwin version 0.10.9 Copyright (C) 2014-2022 Ali Parsai
+
+    LittleDarwin comes with ABSOLUTELY NO WARRANTY.
+    This is free software, and you are welcome to redistribute it
+    under certain conditions; run LittleDarwin --license for details.
+
+
+    
+Source Path:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java
+Target Path:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/LittleDarwinResults
+Creating Mutation Database:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/LittleDarwinResults/mutationdatabase
+
+(1/49) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/AbstractQueryRunner.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  109
+----> ConditionalOperatorReplacement : 2
+----> ArithmeticOperatorReplacementBinary : 4
+----> NullifyInputVariable : 29
+----> NullifyObjectInitialization : 10
+----> RemoveMethod : 21
+----> ArithmeticOperatorReplacementShortcut : 3
+----> RelationalOperatorReplacement : 16
+----> NullifyReturnValue : 7
+----> RemoveNullCheck : 12
+----> ConditionalOperatorDeletion : 5
+
+(2/49) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/AsyncQueryRunner.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  92
+----> NullifyInputVariable : 49
+----> NullifyObjectInitialization : 1
+----> RemoveMethod : 22
+----> NullifyReturnValue : 20
+
+(3/49) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/BaseResultSetHandler.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  445
+----> NullifyInputVariable : 150
+----> NullifyObjectInitialization : 1
+----> RemoveMethod : 235
+----> RelationalOperatorReplacement : 1
+----> NullifyReturnValue : 57
+----> RemoveNullCheck : 1
+
+(4/49) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/BasicRowProcessor.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  51
+----> ConditionalOperatorReplacement : 2
+----> ArithmeticOperatorReplacementBinary : 1
+----> NullifyInputVariable : 12
+----> NullifyObjectInitialization : 4
+----> RemoveMethod : 12
+----> ArithmeticOperatorReplacementShortcut : 2
+----> ArithmeticOperatorReplacementUnary : 1
+----> RelationalOperatorReplacement : 6
+----> NullifyReturnValue : 9
+----> RemoveNullCheck : 2
+
+(5/49) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/BeanProcessor.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  109
+----> ConditionalOperatorReplacement : 6
+----> ArithmeticOperatorReplacementBinary : 1
+----> NullifyInputVariable : 28
+----> NullifyObjectInitialization : 10
+----> RemoveMethod : 16
+----> ArithmeticOperatorReplacementShortcut : 3
+----> ArithmeticOperatorReplacementUnary : 1
+----> RelationalOperatorReplacement : 18
+----> NullifyReturnValue : 11
+----> RemoveNullCheck : 11
+----> ConditionalOperatorDeletion : 4
+
+(6/49) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/Column.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  0
+
+(7/49) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/ColumnHandler.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  0
+
+(8/49) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/DbUtils.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  87
+----> NullifyInputVariable : 29
+----> NullifyObjectInitialization : 3
+----> RemoveMethod : 32
+----> RelationalOperatorReplacement : 9
+----> NullifyReturnValue : 3
+----> RemoveNullCheck : 9
+----> ConditionalOperatorDeletion : 2
+
+(9/49) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/GenerousBeanProcessor.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  14
+----> ConditionalOperatorReplacement : 2
+----> ArithmeticOperatorReplacementBinary : 1
+----> NullifyInputVariable : 2
+----> RemoveMethod : 2
+----> ArithmeticOperatorReplacementShortcut : 2
+----> RelationalOperatorReplacement : 4
+----> RemoveNullCheck : 1
+
+(10/49) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/OutParameter.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  17
+----> NullifyInputVariable : 3
+----> RemoveMethod : 9
+----> RelationalOperatorReplacement : 1
+----> NullifyReturnValue : 3
+----> RemoveNullCheck : 1
+
+(11/49) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/package-info.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  0
+
+(12/49) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/PropertyHandler.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  0
+
+(13/49) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/ProxyFactory.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  28
+----> NullifyInputVariable : 9
+----> NullifyObjectInitialization : 1
+----> RemoveMethod : 9
+----> NullifyReturnValue : 9
+
+(14/49) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/QueryLoader.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  19
+----> NullifyInputVariable : 3
+----> NullifyObjectInitialization : 5
+----> RemoveMethod : 4
+----> RelationalOperatorReplacement : 2
+----> NullifyReturnValue : 3
+----> RemoveNullCheck : 2
+
+(15/49) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/QueryRunner.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  205
+----> ConditionalOperatorReplacement : 3
+----> ArithmeticOperatorReplacementBinary : 1
+----> NullifyInputVariable : 77
+----> NullifyObjectInitialization : 20
+----> RemoveMethod : 37
+----> ArithmeticOperatorReplacementShortcut : 1
+----> RelationalOperatorReplacement : 27
+----> NullifyReturnValue : 16
+----> RemoveNullCheck : 23
+
+(16/49) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/ResultSetHandler.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  0
+
+(17/49) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/ResultSetIterator.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  15
+----> NullifyInputVariable : 2
+----> NullifyObjectInitialization : 3
+----> RemoveMethod : 6
+----> NullifyReturnValue : 3
+----> ConditionalOperatorDeletion : 1
+
+(18/49) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/RowProcessor.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  0
+
+(19/49) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/StatementConfiguration.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  62
+----> ConditionalOperatorReplacement : 1
+----> NullifyInputVariable : 6
+----> NullifyObjectInitialization : 2
+----> RemoveMethod : 23
+----> RelationalOperatorReplacement : 9
+----> NullifyReturnValue : 13
+----> RemoveNullCheck : 8
+
+(20/49) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/handlers/AbstractKeyedHandler.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  6
+----> NullifyInputVariable : 1
+----> NullifyObjectInitialization : 1
+----> RemoveMethod : 2
+----> NullifyReturnValue : 2
+
+(21/49) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/handlers/AbstractListHandler.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  4
+----> NullifyInputVariable : 1
+----> NullifyObjectInitialization : 1
+----> RemoveMethod : 1
+----> NullifyReturnValue : 1
+
+(22/49) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/handlers/ArrayHandler.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  4
+----> NullifyInputVariable : 1
+----> NullifyObjectInitialization : 1
+----> RemoveMethod : 1
+----> NullifyReturnValue : 1
+
+(23/49) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/handlers/ArrayListHandler.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  3
+----> NullifyInputVariable : 1
+----> RemoveMethod : 1
+----> NullifyReturnValue : 1
+
+(24/49) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/handlers/BeanHandler.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  3
+----> NullifyInputVariable : 1
+----> RemoveMethod : 1
+----> NullifyReturnValue : 1
+
+(25/49) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/handlers/BeanListHandler.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  3
+----> NullifyInputVariable : 1
+----> RemoveMethod : 1
+----> NullifyReturnValue : 1
+
+(26/49) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/handlers/BeanMapHandler.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  8
+----> NullifyInputVariable : 2
+----> RemoveMethod : 2
+----> RelationalOperatorReplacement : 1
+----> NullifyReturnValue : 2
+----> RemoveNullCheck : 1
+
+(27/49) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/handlers/ColumnListHandler.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  6
+----> NullifyInputVariable : 1
+----> RemoveMethod : 1
+----> RelationalOperatorReplacement : 1
+----> NullifyReturnValue : 2
+----> RemoveNullCheck : 1
+
+(28/49) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/handlers/KeyedHandler.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  8
+----> NullifyInputVariable : 2
+----> RemoveMethod : 2
+----> RelationalOperatorReplacement : 1
+----> NullifyReturnValue : 2
+----> RemoveNullCheck : 1
+
+(29/49) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/handlers/MapHandler.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  3
+----> NullifyInputVariable : 1
+----> RemoveMethod : 1
+----> NullifyReturnValue : 1
+
+(30/49) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/handlers/MapListHandler.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  3
+----> NullifyInputVariable : 1
+----> RemoveMethod : 1
+----> NullifyReturnValue : 1
+
+(31/49) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/handlers/package-info.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  0
+
+(32/49) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/handlers/ScalarHandler.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  7
+----> NullifyInputVariable : 1
+----> RemoveMethod : 1
+----> RelationalOperatorReplacement : 1
+----> NullifyReturnValue : 3
+----> RemoveNullCheck : 1
+
+(33/49) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/handlers/columns/BooleanColumnHandler.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  7
+----> ConditionalOperatorReplacement : 1
+----> NullifyInputVariable : 2
+----> RemoveMethod : 3
+----> NullifyReturnValue : 1
+
+(34/49) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/handlers/columns/ByteColumnHandler.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  7
+----> ConditionalOperatorReplacement : 1
+----> NullifyInputVariable : 2
+----> RemoveMethod : 3
+----> NullifyReturnValue : 1
+
+(35/49) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/handlers/columns/DoubleColumnHandler.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  7
+----> ConditionalOperatorReplacement : 1
+----> NullifyInputVariable : 2
+----> RemoveMethod : 3
+----> NullifyReturnValue : 1
+
+(36/49) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/handlers/columns/FloatColumnHandler.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  7
+----> ConditionalOperatorReplacement : 1
+----> NullifyInputVariable : 2
+----> RemoveMethod : 3
+----> NullifyReturnValue : 1
+
+(37/49) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/handlers/columns/IntegerColumnHandler.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  7
+----> ConditionalOperatorReplacement : 1
+----> NullifyInputVariable : 2
+----> RemoveMethod : 3
+----> NullifyReturnValue : 1
+
+(38/49) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/handlers/columns/LongColumnHandler.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  7
+----> ConditionalOperatorReplacement : 1
+----> NullifyInputVariable : 2
+----> RemoveMethod : 3
+----> NullifyReturnValue : 1
+
+(39/49) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/handlers/columns/package-info.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  0
+
+(40/49) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/handlers/columns/ShortColumnHandler.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  7
+----> ConditionalOperatorReplacement : 1
+----> NullifyInputVariable : 2
+----> RemoveMethod : 3
+----> NullifyReturnValue : 1
+
+(41/49) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/handlers/columns/SQLXMLColumnHandler.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  6
+----> NullifyInputVariable : 2
+----> RemoveMethod : 3
+----> NullifyReturnValue : 1
+
+(42/49) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/handlers/columns/StringColumnHandler.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  7
+----> NullifyInputVariable : 2
+----> RemoveMethod : 4
+----> NullifyReturnValue : 1
+
+(43/49) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/handlers/columns/TimestampColumnHandler.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  6
+----> NullifyInputVariable : 2
+----> RemoveMethod : 3
+----> NullifyReturnValue : 1
+
+(44/49) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/handlers/properties/DatePropertyHandler.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  13
+----> ConditionalOperatorReplacement : 1
+----> NullifyInputVariable : 4
+----> NullifyObjectInitialization : 3
+----> RemoveMethod : 3
+----> NullifyReturnValue : 1
+----> ConditionalOperatorDeletion : 1
+
+(45/49) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/handlers/properties/package-info.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  0
+
+(46/49) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/handlers/properties/StringEnumPropertyHandler.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  9
+----> ConditionalOperatorReplacement : 1
+----> NullifyInputVariable : 4
+----> RemoveMethod : 3
+----> NullifyReturnValue : 1
+
+(47/49) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/wrappers/package-info.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  0
+
+(48/49) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/wrappers/SqlNullCheckedResultSet.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  113
+----> ConditionalOperatorReplacement : 1
+----> NullifyInputVariable : 17
+----> NullifyObjectInitialization : 8
+----> RemoveMethod : 53
+----> RelationalOperatorReplacement : 9
+----> NullifyReturnValue : 16
+----> RemoveNullCheck : 9
+
+(49/49) Source file:  /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/commons-dbutils/src/main/java/org/apache/commons/dbutils/wrappers/StringTrimmedResultSet.java
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+ANTLR runtime and generated code versions disagree: 4.10!=4.13.1
+--> Mutations found:  11
+----> ConditionalOperatorReplacement : 2
+----> NullifyInputVariable : 4
+----> NullifyObjectInitialization : 1
+----> RemoveMethod : 2
+----> NullifyReturnValue : 2
+
+Total mutations found:  1525
+--> ConditionalOperatorReplacement: 28
+--> ArithmeticOperatorReplacementBinary: 8
+--> NullifyInputVariable: 462
+--> NullifyObjectInitialization: 75
+--> RemoveMethod: 535
+--> ArithmeticOperatorReplacementShortcut: 11
+--> ArithmeticOperatorReplacementUnary: 2
+--> RelationalOperatorReplacement: 106
+--> NullifyReturnValue: 202
+--> RemoveNullCheck: 83
+--> ConditionalOperatorDeletion: 13
+
+Comparing mutation operators: commons-dbutils -> operator_comparisons/commons-dbutils/
+Extracted 1525 mutants -> operator_comparisons/commons-dbutils/littledarwin.csv
+Extracted 1066 mutants -> operator_comparisons/commons-dbutils/mediumdarwin.csv
+Comparison written to /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/operator_comparisons/commons-dbutils
+  Original (LD): 1525
+  MediumDarwin: 1066
+  Reduced: 468  Added: 9  delta: -30.10%
+  (strict diff would show removed=475, added=24 — see strict_*.csv)
+Mutant comparison for commons-dbutils:
+  === Paper Table I (refined mutation operators) ===
+  Original (LittleDarwin): 1525
+  MediumDarwin: 1066
+  Reduced: 468
+  Added: 9
+  delta_percent: -30.10
+  check MD = Original - Reduced + Added: 1066 (should equal 1066)
+  
+  in_both_strict_match: 1042
+  ld_only_sites: 460
+  md_only_sites: 9
+  
+    Reduced categories:
+      reduced_nullify_final_param_non_compilable: 427
+      reduced_nullify_input_other_filter: 33
+      reduced_remove_method_other: 8
+    Reduced by operator:
+      NullifyInputVariable: 460
+      RemoveMethod: 8
+  
+    Added categories:
+      added_other: 9
+    Added by operator:
+      NullifyReturnValue: 9
+  
+  === Strict before/after diff (misleading for relational ops) ===
+  strict_removed: 475
+  strict_added: 24
+    (LD uses '<'->'>='; MD uses '<'->'<=' — same site, not Reduced+Added)
+  
+  # Listing 1 examples:
+  #   reduced_nullify_final_param_non_compilable -> MUT0 (final param nullify)
+  #   added_remove_method_array_return -> MUT1 (array return RemoveMethod)
+  Details: operator_comparisons/commons-dbutils/added_in_mediumdarwin.csv
+           operator_comparisons/commons-dbutils/removed_in_mediumdarwin.csv
+Combined summary: operator_comparisons/summary_all.txt
+
+Analysis completed.
+Log: mutation_analysis.log
+Operator comparisons: operator_comparisons/
+
+Projects analyzed:
+- commons-dbutils (tag: rel/commons-dbutils-1.8.1, Java: 8)
+./run_mutation_analysis.sh: line 415: syntax error near unexpected token `)'
+./run_mutation_analysis.sh: line 415: `A_HOME_21_BIN)'
+Starting mutation analysis at Tue May 19 17:12:49 JST 2026
 Parallel jobs: 1
-ERROR: .mediumdarwin_venv not found. Run a full analysis first or create the venv.
+Installing system dependencies...
+Starting mutation analysis at Tue May 19 17:14:32 JST 2026
+Parallel jobs: 1
+Installing system dependencies...
+Starting operator comparison only at Tue May 19 17:16:48 JST 2026
+Parallel jobs: 1
+Compare-only mode: using existing results under each project directory
+Running 4 project(s) with up to 1 in parallel
+Per-project logs: logs/<project>.log
+[commons-validator] starting (log: logs/commons-validator.log)
+[commons-validator] completed OK
+[jackson-dataformat-xml] starting (log: logs/jackson-dataformat-xml.log)
+[jackson-dataformat-xml] completed OK
+[jettison] starting (log: logs/jettison.log)
+[jettison] completed OK
+[jackson-core] starting (log: logs/jackson-core.log)
+[jackson-core] completed OK
+Combined summary: operator_comparisons/summary_all.txt
+
+Comparison completed.
+Log: mutation_analysis.log
+Per-project logs: logs/
+Operator comparisons: operator_comparisons/
+Starting mutation analysis at Tue May 19 17:17:59 JST 2026
+Parallel jobs: 1
+Installing system dependencies...
+W: http://developer.download.nvidia.com/compute/cuda/repos/ubuntu2404/x86_64/InRelease: Key is stored in legacy trusted.gpg keyring (/etc/apt/trusted.gpg), see the DEPRECATION section in apt-key(8) for details.
+Checking required JDK installations...
+  Java 11 OK: /usr/lib/jvm/java-11-openjdk-amd64/bin
+Setting up LittleDarwin...
+Using existing virtual environment: .mediumdarwin_venv
+Requirement already satisfied: pip in ./.mediumdarwin_venv/lib/python3.12/site-packages (26.1.1)
+Installing Python dependencies...
+Requirement already satisfied: antlr4-python3-runtime==4.10 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from -r ../requirements.txt (line 1)) (4.10)
+Requirement already satisfied: graphviz==0.21 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from -r ../requirements.txt (line 2)) (0.21)
+Requirement already satisfied: psutil==7.1.3 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from -r ../requirements.txt (line 3)) (7.1.3)
+Requirement already satisfied: networkx==3.5 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from -r ../requirements.txt (line 4)) (3.5)
+Requirement already satisfied: matplotlib==3.10.7 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from -r ../requirements.txt (line 5)) (3.10.7)
+Requirement already satisfied: colorama==0.4.6 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from -r ../requirements.txt (line 6)) (0.4.6)
+Requirement already satisfied: resources==0.0.1 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from -r ../requirements.txt (line 7)) (0.0.1)
+Requirement already satisfied: dill==0.4.0 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from -r ../requirements.txt (line 8)) (0.4.0)
+Requirement already satisfied: Uni-Curses==3.1.2 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from -r ../requirements.txt (line 9)) (3.1.2)
+Requirement already satisfied: joblib==1.5.2 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from -r ../requirements.txt (line 10)) (1.5.2)
+Requirement already satisfied: importlib_resources==6.5.2 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from -r ../requirements.txt (line 11)) (6.5.2)
+Requirement already satisfied: pydot==4.0.1 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from -r ../requirements.txt (line 12)) (4.0.1)
+Requirement already satisfied: plotly in ./.mediumdarwin_venv/lib/python3.12/site-packages (from -r ../requirements.txt (line 13)) (6.7.0)
+Requirement already satisfied: numpy in ./.mediumdarwin_venv/lib/python3.12/site-packages (from -r ../requirements.txt (line 14)) (2.4.6)
+Requirement already satisfied: pyvis in ./.mediumdarwin_venv/lib/python3.12/site-packages (from -r ../requirements.txt (line 15)) (0.3.2)
+Requirement already satisfied: tikzplotlib in ./.mediumdarwin_venv/lib/python3.12/site-packages (from -r ../requirements.txt (line 16)) (0.10.1)
+Requirement already satisfied: contourpy>=1.0.1 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from matplotlib==3.10.7->-r ../requirements.txt (line 5)) (1.3.3)
+Requirement already satisfied: cycler>=0.10 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from matplotlib==3.10.7->-r ../requirements.txt (line 5)) (0.12.1)
+Requirement already satisfied: fonttools>=4.22.0 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from matplotlib==3.10.7->-r ../requirements.txt (line 5)) (4.63.0)
+Requirement already satisfied: kiwisolver>=1.3.1 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from matplotlib==3.10.7->-r ../requirements.txt (line 5)) (1.5.0)
+Requirement already satisfied: packaging>=20.0 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from matplotlib==3.10.7->-r ../requirements.txt (line 5)) (26.2)
+Requirement already satisfied: pillow>=8 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from matplotlib==3.10.7->-r ../requirements.txt (line 5)) (12.2.0)
+Requirement already satisfied: pyparsing>=3 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from matplotlib==3.10.7->-r ../requirements.txt (line 5)) (3.3.2)
+Requirement already satisfied: python-dateutil>=2.7 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from matplotlib==3.10.7->-r ../requirements.txt (line 5)) (2.9.0.post0)
+Requirement already satisfied: x256 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from Uni-Curses==3.1.2->-r ../requirements.txt (line 9)) (0.0.3)
+Requirement already satisfied: narwhals>=1.15.1 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from plotly->-r ../requirements.txt (line 13)) (2.21.2)
+Requirement already satisfied: ipython>=5.3.0 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from pyvis->-r ../requirements.txt (line 15)) (9.13.0)
+Requirement already satisfied: jinja2>=2.9.6 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from pyvis->-r ../requirements.txt (line 15)) (3.1.6)
+Requirement already satisfied: jsonpickle>=1.4.1 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from pyvis->-r ../requirements.txt (line 15)) (4.1.1)
+Requirement already satisfied: webcolors in ./.mediumdarwin_venv/lib/python3.12/site-packages (from tikzplotlib->-r ../requirements.txt (line 16)) (25.10.0)
+Requirement already satisfied: decorator>=5.1.0 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from ipython>=5.3.0->pyvis->-r ../requirements.txt (line 15)) (5.3.1)
+Requirement already satisfied: ipython-pygments-lexers>=1.0.0 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from ipython>=5.3.0->pyvis->-r ../requirements.txt (line 15)) (1.1.1)
+Requirement already satisfied: jedi>=0.18.2 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from ipython>=5.3.0->pyvis->-r ../requirements.txt (line 15)) (0.20.0)
+Requirement already satisfied: matplotlib-inline>=0.1.6 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from ipython>=5.3.0->pyvis->-r ../requirements.txt (line 15)) (0.2.2)
+Requirement already satisfied: pexpect>4.6 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from ipython>=5.3.0->pyvis->-r ../requirements.txt (line 15)) (4.9.0)
+Requirement already satisfied: prompt_toolkit<3.1.0,>=3.0.41 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from ipython>=5.3.0->pyvis->-r ../requirements.txt (line 15)) (3.0.52)
+Requirement already satisfied: pygments>=2.14.0 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from ipython>=5.3.0->pyvis->-r ../requirements.txt (line 15)) (2.20.0)
+Requirement already satisfied: stack_data>=0.6.0 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from ipython>=5.3.0->pyvis->-r ../requirements.txt (line 15)) (0.6.3)
+Requirement already satisfied: traitlets>=5.13.0 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from ipython>=5.3.0->pyvis->-r ../requirements.txt (line 15)) (5.15.0)
+Requirement already satisfied: wcwidth in ./.mediumdarwin_venv/lib/python3.12/site-packages (from prompt_toolkit<3.1.0,>=3.0.41->ipython>=5.3.0->pyvis->-r ../requirements.txt (line 15)) (0.7.0)
+Requirement already satisfied: parso<0.9.0,>=0.8.6 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from jedi>=0.18.2->ipython>=5.3.0->pyvis->-r ../requirements.txt (line 15)) (0.8.7)
+Requirement already satisfied: MarkupSafe>=2.0 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from jinja2>=2.9.6->pyvis->-r ../requirements.txt (line 15)) (3.0.3)
+Requirement already satisfied: ptyprocess>=0.5 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from pexpect>4.6->ipython>=5.3.0->pyvis->-r ../requirements.txt (line 15)) (0.7.0)
+Requirement already satisfied: six>=1.5 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from python-dateutil>=2.7->matplotlib==3.10.7->-r ../requirements.txt (line 5)) (1.17.0)
+Requirement already satisfied: executing>=1.2.0 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from stack_data>=0.6.0->ipython>=5.3.0->pyvis->-r ../requirements.txt (line 15)) (2.2.1)
+Requirement already satisfied: asttokens>=2.1.0 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from stack_data>=0.6.0->ipython>=5.3.0->pyvis->-r ../requirements.txt (line 15)) (3.0.1)
+Requirement already satisfied: pure-eval in ./.mediumdarwin_venv/lib/python3.12/site-packages (from stack_data>=0.6.0->ipython>=5.3.0->pyvis->-r ../requirements.txt (line 15)) (0.2.3)
+Running 4 project(s) with up to 1 in parallel
+Per-project logs: logs/<project>.log
+[commons-validator] starting (log: logs/commons-validator.log)
+Starting mutation analysis at Tue May 19 17:19:11 JST 2026
+Parallel jobs: 4
+Installing system dependencies...
+W: http://developer.download.nvidia.com/compute/cuda/repos/ubuntu2404/x86_64/InRelease: Key is stored in legacy trusted.gpg keyring (/etc/apt/trusted.gpg), see the DEPRECATION section in apt-key(8) for details.
+Checking required JDK installations...
+  Java 11 OK: /usr/lib/jvm/java-11-openjdk-amd64/bin
+Setting up LittleDarwin...
+Using existing virtual environment: .mediumdarwin_venv
+Requirement already satisfied: pip in ./.mediumdarwin_venv/lib/python3.12/site-packages (26.1.1)
+Installing Python dependencies...
+Requirement already satisfied: antlr4-python3-runtime==4.10 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from -r ../requirements.txt (line 1)) (4.10)
+Requirement already satisfied: graphviz==0.21 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from -r ../requirements.txt (line 2)) (0.21)
+Requirement already satisfied: psutil==7.1.3 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from -r ../requirements.txt (line 3)) (7.1.3)
+Requirement already satisfied: networkx==3.5 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from -r ../requirements.txt (line 4)) (3.5)
+Requirement already satisfied: matplotlib==3.10.7 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from -r ../requirements.txt (line 5)) (3.10.7)
+Requirement already satisfied: colorama==0.4.6 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from -r ../requirements.txt (line 6)) (0.4.6)
+Requirement already satisfied: resources==0.0.1 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from -r ../requirements.txt (line 7)) (0.0.1)
+Requirement already satisfied: dill==0.4.0 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from -r ../requirements.txt (line 8)) (0.4.0)
+Requirement already satisfied: Uni-Curses==3.1.2 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from -r ../requirements.txt (line 9)) (3.1.2)
+Requirement already satisfied: joblib==1.5.2 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from -r ../requirements.txt (line 10)) (1.5.2)
+Requirement already satisfied: importlib_resources==6.5.2 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from -r ../requirements.txt (line 11)) (6.5.2)
+Requirement already satisfied: pydot==4.0.1 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from -r ../requirements.txt (line 12)) (4.0.1)
+Requirement already satisfied: plotly in ./.mediumdarwin_venv/lib/python3.12/site-packages (from -r ../requirements.txt (line 13)) (6.7.0)
+Requirement already satisfied: numpy in ./.mediumdarwin_venv/lib/python3.12/site-packages (from -r ../requirements.txt (line 14)) (2.4.6)
+Requirement already satisfied: pyvis in ./.mediumdarwin_venv/lib/python3.12/site-packages (from -r ../requirements.txt (line 15)) (0.3.2)
+Requirement already satisfied: tikzplotlib in ./.mediumdarwin_venv/lib/python3.12/site-packages (from -r ../requirements.txt (line 16)) (0.10.1)
+Requirement already satisfied: contourpy>=1.0.1 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from matplotlib==3.10.7->-r ../requirements.txt (line 5)) (1.3.3)
+Requirement already satisfied: cycler>=0.10 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from matplotlib==3.10.7->-r ../requirements.txt (line 5)) (0.12.1)
+Requirement already satisfied: fonttools>=4.22.0 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from matplotlib==3.10.7->-r ../requirements.txt (line 5)) (4.63.0)
+Requirement already satisfied: kiwisolver>=1.3.1 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from matplotlib==3.10.7->-r ../requirements.txt (line 5)) (1.5.0)
+Requirement already satisfied: packaging>=20.0 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from matplotlib==3.10.7->-r ../requirements.txt (line 5)) (26.2)
+Requirement already satisfied: pillow>=8 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from matplotlib==3.10.7->-r ../requirements.txt (line 5)) (12.2.0)
+Requirement already satisfied: pyparsing>=3 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from matplotlib==3.10.7->-r ../requirements.txt (line 5)) (3.3.2)
+Requirement already satisfied: python-dateutil>=2.7 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from matplotlib==3.10.7->-r ../requirements.txt (line 5)) (2.9.0.post0)
+Requirement already satisfied: x256 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from Uni-Curses==3.1.2->-r ../requirements.txt (line 9)) (0.0.3)
+Requirement already satisfied: narwhals>=1.15.1 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from plotly->-r ../requirements.txt (line 13)) (2.21.2)
+Requirement already satisfied: ipython>=5.3.0 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from pyvis->-r ../requirements.txt (line 15)) (9.13.0)
+Requirement already satisfied: jinja2>=2.9.6 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from pyvis->-r ../requirements.txt (line 15)) (3.1.6)
+Requirement already satisfied: jsonpickle>=1.4.1 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from pyvis->-r ../requirements.txt (line 15)) (4.1.1)
+Requirement already satisfied: webcolors in ./.mediumdarwin_venv/lib/python3.12/site-packages (from tikzplotlib->-r ../requirements.txt (line 16)) (25.10.0)
+Requirement already satisfied: decorator>=5.1.0 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from ipython>=5.3.0->pyvis->-r ../requirements.txt (line 15)) (5.3.1)
+Requirement already satisfied: ipython-pygments-lexers>=1.0.0 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from ipython>=5.3.0->pyvis->-r ../requirements.txt (line 15)) (1.1.1)
+Requirement already satisfied: jedi>=0.18.2 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from ipython>=5.3.0->pyvis->-r ../requirements.txt (line 15)) (0.20.0)
+Requirement already satisfied: matplotlib-inline>=0.1.6 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from ipython>=5.3.0->pyvis->-r ../requirements.txt (line 15)) (0.2.2)
+Requirement already satisfied: pexpect>4.6 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from ipython>=5.3.0->pyvis->-r ../requirements.txt (line 15)) (4.9.0)
+Requirement already satisfied: prompt_toolkit<3.1.0,>=3.0.41 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from ipython>=5.3.0->pyvis->-r ../requirements.txt (line 15)) (3.0.52)
+Requirement already satisfied: pygments>=2.14.0 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from ipython>=5.3.0->pyvis->-r ../requirements.txt (line 15)) (2.20.0)
+Requirement already satisfied: stack_data>=0.6.0 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from ipython>=5.3.0->pyvis->-r ../requirements.txt (line 15)) (0.6.3)
+Requirement already satisfied: traitlets>=5.13.0 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from ipython>=5.3.0->pyvis->-r ../requirements.txt (line 15)) (5.15.0)
+Requirement already satisfied: wcwidth in ./.mediumdarwin_venv/lib/python3.12/site-packages (from prompt_toolkit<3.1.0,>=3.0.41->ipython>=5.3.0->pyvis->-r ../requirements.txt (line 15)) (0.7.0)
+Requirement already satisfied: parso<0.9.0,>=0.8.6 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from jedi>=0.18.2->ipython>=5.3.0->pyvis->-r ../requirements.txt (line 15)) (0.8.7)
+Requirement already satisfied: MarkupSafe>=2.0 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from jinja2>=2.9.6->pyvis->-r ../requirements.txt (line 15)) (3.0.3)
+Requirement already satisfied: ptyprocess>=0.5 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from pexpect>4.6->ipython>=5.3.0->pyvis->-r ../requirements.txt (line 15)) (0.7.0)
+Requirement already satisfied: six>=1.5 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from python-dateutil>=2.7->matplotlib==3.10.7->-r ../requirements.txt (line 5)) (1.17.0)
+Requirement already satisfied: executing>=1.2.0 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from stack_data>=0.6.0->ipython>=5.3.0->pyvis->-r ../requirements.txt (line 15)) (2.2.1)
+Requirement already satisfied: asttokens>=2.1.0 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from stack_data>=0.6.0->ipython>=5.3.0->pyvis->-r ../requirements.txt (line 15)) (3.0.1)
+Requirement already satisfied: pure-eval in ./.mediumdarwin_venv/lib/python3.12/site-packages (from stack_data>=0.6.0->ipython>=5.3.0->pyvis->-r ../requirements.txt (line 15)) (0.2.3)
+Running 4 project(s) with up to 4 in parallel
+Per-project logs: logs/<project>.log
+[commons-validator] starting (log: logs/commons-validator.log)
+[jackson-dataformat-xml] starting (log: logs/jackson-dataformat-xml.log)
+[jettison] starting (log: logs/jettison.log)
+[jackson-core] starting (log: logs/jackson-core.log)
+[jettison] completed OK
+[commons-validator] completed OK
+Starting mutation analysis at Tue May 19 17:46:16 JST 2026
+Parallel jobs: 4
+Installing system dependencies...
+W: http://developer.download.nvidia.com/compute/cuda/repos/ubuntu2404/x86_64/InRelease: Key is stored in legacy trusted.gpg keyring (/etc/apt/trusted.gpg), see the DEPRECATION section in apt-key(8) for details.
+Checking required JDK installations...
+  Java 8 OK: /usr/lib/jvm/java-8-openjdk-amd64/bin
+  Java 11 OK: /usr/lib/jvm/java-11-openjdk-amd64/bin
+Setting up LittleDarwin...
+Using existing virtual environment: .mediumdarwin_venv
+Requirement already satisfied: pip in ./.mediumdarwin_venv/lib/python3.12/site-packages (26.1.1)
+Installing Python dependencies...
+Requirement already satisfied: antlr4-python3-runtime==4.10 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from -r ../requirements.txt (line 1)) (4.10)
+Requirement already satisfied: graphviz==0.21 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from -r ../requirements.txt (line 2)) (0.21)
+Requirement already satisfied: psutil==7.1.3 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from -r ../requirements.txt (line 3)) (7.1.3)
+Requirement already satisfied: networkx==3.5 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from -r ../requirements.txt (line 4)) (3.5)
+Requirement already satisfied: matplotlib==3.10.7 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from -r ../requirements.txt (line 5)) (3.10.7)
+Requirement already satisfied: colorama==0.4.6 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from -r ../requirements.txt (line 6)) (0.4.6)
+Requirement already satisfied: resources==0.0.1 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from -r ../requirements.txt (line 7)) (0.0.1)
+Requirement already satisfied: dill==0.4.0 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from -r ../requirements.txt (line 8)) (0.4.0)
+Requirement already satisfied: Uni-Curses==3.1.2 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from -r ../requirements.txt (line 9)) (3.1.2)
+Requirement already satisfied: joblib==1.5.2 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from -r ../requirements.txt (line 10)) (1.5.2)
+Requirement already satisfied: importlib_resources==6.5.2 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from -r ../requirements.txt (line 11)) (6.5.2)
+Requirement already satisfied: pydot==4.0.1 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from -r ../requirements.txt (line 12)) (4.0.1)
+Requirement already satisfied: plotly in ./.mediumdarwin_venv/lib/python3.12/site-packages (from -r ../requirements.txt (line 13)) (6.7.0)
+Requirement already satisfied: numpy in ./.mediumdarwin_venv/lib/python3.12/site-packages (from -r ../requirements.txt (line 14)) (2.4.6)
+Requirement already satisfied: pyvis in ./.mediumdarwin_venv/lib/python3.12/site-packages (from -r ../requirements.txt (line 15)) (0.3.2)
+Requirement already satisfied: tikzplotlib in ./.mediumdarwin_venv/lib/python3.12/site-packages (from -r ../requirements.txt (line 16)) (0.10.1)
+Requirement already satisfied: contourpy>=1.0.1 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from matplotlib==3.10.7->-r ../requirements.txt (line 5)) (1.3.3)
+Requirement already satisfied: cycler>=0.10 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from matplotlib==3.10.7->-r ../requirements.txt (line 5)) (0.12.1)
+Requirement already satisfied: fonttools>=4.22.0 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from matplotlib==3.10.7->-r ../requirements.txt (line 5)) (4.63.0)
+Requirement already satisfied: kiwisolver>=1.3.1 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from matplotlib==3.10.7->-r ../requirements.txt (line 5)) (1.5.0)
+Requirement already satisfied: packaging>=20.0 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from matplotlib==3.10.7->-r ../requirements.txt (line 5)) (26.2)
+Requirement already satisfied: pillow>=8 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from matplotlib==3.10.7->-r ../requirements.txt (line 5)) (12.2.0)
+Requirement already satisfied: pyparsing>=3 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from matplotlib==3.10.7->-r ../requirements.txt (line 5)) (3.3.2)
+Requirement already satisfied: python-dateutil>=2.7 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from matplotlib==3.10.7->-r ../requirements.txt (line 5)) (2.9.0.post0)
+Requirement already satisfied: x256 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from Uni-Curses==3.1.2->-r ../requirements.txt (line 9)) (0.0.3)
+Requirement already satisfied: narwhals>=1.15.1 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from plotly->-r ../requirements.txt (line 13)) (2.21.2)
+Requirement already satisfied: ipython>=5.3.0 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from pyvis->-r ../requirements.txt (line 15)) (9.13.0)
+Requirement already satisfied: jinja2>=2.9.6 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from pyvis->-r ../requirements.txt (line 15)) (3.1.6)
+Requirement already satisfied: jsonpickle>=1.4.1 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from pyvis->-r ../requirements.txt (line 15)) (4.1.1)
+Requirement already satisfied: webcolors in ./.mediumdarwin_venv/lib/python3.12/site-packages (from tikzplotlib->-r ../requirements.txt (line 16)) (25.10.0)
+Requirement already satisfied: decorator>=5.1.0 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from ipython>=5.3.0->pyvis->-r ../requirements.txt (line 15)) (5.3.1)
+Requirement already satisfied: ipython-pygments-lexers>=1.0.0 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from ipython>=5.3.0->pyvis->-r ../requirements.txt (line 15)) (1.1.1)
+Requirement already satisfied: jedi>=0.18.2 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from ipython>=5.3.0->pyvis->-r ../requirements.txt (line 15)) (0.20.0)
+Requirement already satisfied: matplotlib-inline>=0.1.6 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from ipython>=5.3.0->pyvis->-r ../requirements.txt (line 15)) (0.2.2)
+Requirement already satisfied: pexpect>4.6 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from ipython>=5.3.0->pyvis->-r ../requirements.txt (line 15)) (4.9.0)
+Requirement already satisfied: prompt_toolkit<3.1.0,>=3.0.41 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from ipython>=5.3.0->pyvis->-r ../requirements.txt (line 15)) (3.0.52)
+Requirement already satisfied: pygments>=2.14.0 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from ipython>=5.3.0->pyvis->-r ../requirements.txt (line 15)) (2.20.0)
+Requirement already satisfied: stack_data>=0.6.0 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from ipython>=5.3.0->pyvis->-r ../requirements.txt (line 15)) (0.6.3)
+Requirement already satisfied: traitlets>=5.13.0 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from ipython>=5.3.0->pyvis->-r ../requirements.txt (line 15)) (5.15.0)
+Requirement already satisfied: wcwidth in ./.mediumdarwin_venv/lib/python3.12/site-packages (from prompt_toolkit<3.1.0,>=3.0.41->ipython>=5.3.0->pyvis->-r ../requirements.txt (line 15)) (0.7.0)
+Requirement already satisfied: parso<0.9.0,>=0.8.6 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from jedi>=0.18.2->ipython>=5.3.0->pyvis->-r ../requirements.txt (line 15)) (0.8.7)
+Requirement already satisfied: MarkupSafe>=2.0 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from jinja2>=2.9.6->pyvis->-r ../requirements.txt (line 15)) (3.0.3)
+Requirement already satisfied: ptyprocess>=0.5 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from pexpect>4.6->ipython>=5.3.0->pyvis->-r ../requirements.txt (line 15)) (0.7.0)
+Requirement already satisfied: six>=1.5 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from python-dateutil>=2.7->matplotlib==3.10.7->-r ../requirements.txt (line 5)) (1.17.0)
+Requirement already satisfied: executing>=1.2.0 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from stack_data>=0.6.0->ipython>=5.3.0->pyvis->-r ../requirements.txt (line 15)) (2.2.1)
+Requirement already satisfied: asttokens>=2.1.0 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from stack_data>=0.6.0->ipython>=5.3.0->pyvis->-r ../requirements.txt (line 15)) (3.0.1)
+Requirement already satisfied: pure-eval in ./.mediumdarwin_venv/lib/python3.12/site-packages (from stack_data>=0.6.0->ipython>=5.3.0->pyvis->-r ../requirements.txt (line 15)) (0.2.3)
+Running 5 project(s) with up to 4 in parallel
+Per-project logs: logs/<project>.log
+[antomology] starting (log: logs/antomology.log)
+[triangle-example] starting (log: logs/triangle-example.log)
+[commons-cli] starting (log: logs/commons-cli.log)
+[jra] starting (log: logs/jra.log)
+[triangle-example] completed OK
+[commons-dbutils] starting (log: logs/commons-dbutils.log)
+[jra] completed OK
+[antomology] completed OK
+Starting mutation analysis at Tue May 19 17:52:09 JST 2026
+Parallel jobs: 1
+Installing system dependencies...
+W: http://developer.download.nvidia.com/compute/cuda/repos/ubuntu2404/x86_64/InRelease: Key is stored in legacy trusted.gpg keyring (/etc/apt/trusted.gpg), see the DEPRECATION section in apt-key(8) for details.
+[jackson-dataformat-xml] completed OK
+Checking required JDK installations...
+  Java 8 OK: /usr/lib/jvm/java-8-openjdk-amd64/bin
+Setting up LittleDarwin...
+Using existing virtual environment: .mediumdarwin_venv
+Requirement already satisfied: pip in ./.mediumdarwin_venv/lib/python3.12/site-packages (26.1.1)
+Installing Python dependencies...
+Requirement already satisfied: antlr4-python3-runtime==4.10 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from -r ../requirements.txt (line 1)) (4.10)
+Requirement already satisfied: graphviz==0.21 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from -r ../requirements.txt (line 2)) (0.21)
+Requirement already satisfied: psutil==7.1.3 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from -r ../requirements.txt (line 3)) (7.1.3)
+Requirement already satisfied: networkx==3.5 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from -r ../requirements.txt (line 4)) (3.5)
+Requirement already satisfied: matplotlib==3.10.7 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from -r ../requirements.txt (line 5)) (3.10.7)
+Requirement already satisfied: colorama==0.4.6 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from -r ../requirements.txt (line 6)) (0.4.6)
+Requirement already satisfied: resources==0.0.1 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from -r ../requirements.txt (line 7)) (0.0.1)
+Requirement already satisfied: dill==0.4.0 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from -r ../requirements.txt (line 8)) (0.4.0)
+Requirement already satisfied: Uni-Curses==3.1.2 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from -r ../requirements.txt (line 9)) (3.1.2)
+Requirement already satisfied: joblib==1.5.2 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from -r ../requirements.txt (line 10)) (1.5.2)
+Requirement already satisfied: importlib_resources==6.5.2 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from -r ../requirements.txt (line 11)) (6.5.2)
+Requirement already satisfied: pydot==4.0.1 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from -r ../requirements.txt (line 12)) (4.0.1)
+Requirement already satisfied: plotly in ./.mediumdarwin_venv/lib/python3.12/site-packages (from -r ../requirements.txt (line 13)) (6.7.0)
+Requirement already satisfied: numpy in ./.mediumdarwin_venv/lib/python3.12/site-packages (from -r ../requirements.txt (line 14)) (2.4.6)
+Requirement already satisfied: pyvis in ./.mediumdarwin_venv/lib/python3.12/site-packages (from -r ../requirements.txt (line 15)) (0.3.2)
+Requirement already satisfied: tikzplotlib in ./.mediumdarwin_venv/lib/python3.12/site-packages (from -r ../requirements.txt (line 16)) (0.10.1)
+Requirement already satisfied: contourpy>=1.0.1 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from matplotlib==3.10.7->-r ../requirements.txt (line 5)) (1.3.3)
+Requirement already satisfied: cycler>=0.10 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from matplotlib==3.10.7->-r ../requirements.txt (line 5)) (0.12.1)
+Requirement already satisfied: fonttools>=4.22.0 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from matplotlib==3.10.7->-r ../requirements.txt (line 5)) (4.63.0)
+Requirement already satisfied: kiwisolver>=1.3.1 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from matplotlib==3.10.7->-r ../requirements.txt (line 5)) (1.5.0)
+Requirement already satisfied: packaging>=20.0 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from matplotlib==3.10.7->-r ../requirements.txt (line 5)) (26.2)
+Requirement already satisfied: pillow>=8 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from matplotlib==3.10.7->-r ../requirements.txt (line 5)) (12.2.0)
+Requirement already satisfied: pyparsing>=3 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from matplotlib==3.10.7->-r ../requirements.txt (line 5)) (3.3.2)
+Requirement already satisfied: python-dateutil>=2.7 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from matplotlib==3.10.7->-r ../requirements.txt (line 5)) (2.9.0.post0)
+Requirement already satisfied: x256 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from Uni-Curses==3.1.2->-r ../requirements.txt (line 9)) (0.0.3)
+Requirement already satisfied: narwhals>=1.15.1 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from plotly->-r ../requirements.txt (line 13)) (2.21.2)
+Requirement already satisfied: ipython>=5.3.0 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from pyvis->-r ../requirements.txt (line 15)) (9.13.0)
+Requirement already satisfied: jinja2>=2.9.6 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from pyvis->-r ../requirements.txt (line 15)) (3.1.6)
+Requirement already satisfied: jsonpickle>=1.4.1 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from pyvis->-r ../requirements.txt (line 15)) (4.1.1)
+Requirement already satisfied: webcolors in ./.mediumdarwin_venv/lib/python3.12/site-packages (from tikzplotlib->-r ../requirements.txt (line 16)) (25.10.0)
+Requirement already satisfied: decorator>=5.1.0 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from ipython>=5.3.0->pyvis->-r ../requirements.txt (line 15)) (5.3.1)
+Requirement already satisfied: ipython-pygments-lexers>=1.0.0 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from ipython>=5.3.0->pyvis->-r ../requirements.txt (line 15)) (1.1.1)
+Requirement already satisfied: jedi>=0.18.2 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from ipython>=5.3.0->pyvis->-r ../requirements.txt (line 15)) (0.20.0)
+Requirement already satisfied: matplotlib-inline>=0.1.6 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from ipython>=5.3.0->pyvis->-r ../requirements.txt (line 15)) (0.2.2)
+Requirement already satisfied: pexpect>4.6 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from ipython>=5.3.0->pyvis->-r ../requirements.txt (line 15)) (4.9.0)
+Requirement already satisfied: prompt_toolkit<3.1.0,>=3.0.41 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from ipython>=5.3.0->pyvis->-r ../requirements.txt (line 15)) (3.0.52)
+Requirement already satisfied: pygments>=2.14.0 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from ipython>=5.3.0->pyvis->-r ../requirements.txt (line 15)) (2.20.0)
+Requirement already satisfied: stack_data>=0.6.0 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from ipython>=5.3.0->pyvis->-r ../requirements.txt (line 15)) (0.6.3)
+Requirement already satisfied: traitlets>=5.13.0 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from ipython>=5.3.0->pyvis->-r ../requirements.txt (line 15)) (5.15.0)
+Requirement already satisfied: wcwidth in ./.mediumdarwin_venv/lib/python3.12/site-packages (from prompt_toolkit<3.1.0,>=3.0.41->ipython>=5.3.0->pyvis->-r ../requirements.txt (line 15)) (0.7.0)
+Requirement already satisfied: parso<0.9.0,>=0.8.6 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from jedi>=0.18.2->ipython>=5.3.0->pyvis->-r ../requirements.txt (line 15)) (0.8.7)
+Requirement already satisfied: MarkupSafe>=2.0 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from jinja2>=2.9.6->pyvis->-r ../requirements.txt (line 15)) (3.0.3)
+Requirement already satisfied: ptyprocess>=0.5 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from pexpect>4.6->ipython>=5.3.0->pyvis->-r ../requirements.txt (line 15)) (0.7.0)
+Requirement already satisfied: six>=1.5 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from python-dateutil>=2.7->matplotlib==3.10.7->-r ../requirements.txt (line 5)) (1.17.0)
+Requirement already satisfied: executing>=1.2.0 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from stack_data>=0.6.0->ipython>=5.3.0->pyvis->-r ../requirements.txt (line 15)) (2.2.1)
+Requirement already satisfied: asttokens>=2.1.0 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from stack_data>=0.6.0->ipython>=5.3.0->pyvis->-r ../requirements.txt (line 15)) (3.0.1)
+Requirement already satisfied: pure-eval in ./.mediumdarwin_venv/lib/python3.12/site-packages (from stack_data>=0.6.0->ipython>=5.3.0->pyvis->-r ../requirements.txt (line 15)) (0.2.3)
+Running 1 project(s) with up to 1 in parallel
+Per-project logs: logs/<project>.log
+[antomology] starting (log: logs/antomology.log)
+[antomology] completed OK
+Combined summary: operator_comparisons/summary_all.txt
+
+Analysis completed.
+Log: mutation_analysis.log
+Per-project logs: logs/
+Operator comparisons: operator_comparisons/
+
+Projects analyzed:
+- antomology (tag: 557775e1f893dc30b689ee9469344eea6d4dc58b, Java: 8)
+[commons-cli] completed OK
+[commons-dbutils] completed OK
+Combined summary: operator_comparisons/summary_all.txt
+
+Analysis completed.
+Log: mutation_analysis.log
+Per-project logs: logs/
+Operator comparisons: operator_comparisons/
+
+Projects analyzed:
+- antomology (tag: 557775e1f893dc30b689ee9469344eea6d4dc58b, Java: 8)
+- triangle-example (tag: 8, Java: 8)
+- commons-cli (tag: rel/commons-cli-1.9.0, Java: 11)
+- jra (tag: 13cafda39a475af6facadf7e2c037b7b186b72a5, Java: 8)
+- commons-dbutils (tag: rel/commons-dbutils-1.8.1, Java: 8)
+./run_mutation_analysis.sh: line 598: --jobs: command not found
+./run_mutation_analysis.sh: line 599: syntax error near unexpected token `fi'
+./run_mutation_analysis.sh: line 599: `fi'
+Starting mutation analysis at Tue May 19 19:15:51 JST 2026
+Parallel jobs: 4
+Installing system dependencies...
+W: http://developer.download.nvidia.com/compute/cuda/repos/ubuntu2404/x86_64/InRelease: Key is stored in legacy trusted.gpg keyring (/etc/apt/trusted.gpg), see the DEPRECATION section in apt-key(8) for details.
+Checking required JDK installations...
+  Java 8 OK: /usr/lib/jvm/java-8-openjdk-amd64/bin
+  Java 11 OK: /usr/lib/jvm/java-11-openjdk-amd64/bin
+Setting up LittleDarwin...
+Using existing virtual environment: .mediumdarwin_venv
+Requirement already satisfied: pip in ./.mediumdarwin_venv/lib/python3.12/site-packages (26.1.1)
+Installing Python dependencies...
+Requirement already satisfied: antlr4-python3-runtime==4.10 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from -r ../requirements.txt (line 1)) (4.10)
+Requirement already satisfied: graphviz==0.21 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from -r ../requirements.txt (line 2)) (0.21)
+Requirement already satisfied: psutil==7.1.3 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from -r ../requirements.txt (line 3)) (7.1.3)
+Requirement already satisfied: networkx==3.5 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from -r ../requirements.txt (line 4)) (3.5)
+Requirement already satisfied: matplotlib==3.10.7 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from -r ../requirements.txt (line 5)) (3.10.7)
+Requirement already satisfied: colorama==0.4.6 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from -r ../requirements.txt (line 6)) (0.4.6)
+Requirement already satisfied: resources==0.0.1 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from -r ../requirements.txt (line 7)) (0.0.1)
+Requirement already satisfied: dill==0.4.0 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from -r ../requirements.txt (line 8)) (0.4.0)
+Requirement already satisfied: Uni-Curses==3.1.2 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from -r ../requirements.txt (line 9)) (3.1.2)
+Requirement already satisfied: joblib==1.5.2 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from -r ../requirements.txt (line 10)) (1.5.2)
+Requirement already satisfied: importlib_resources==6.5.2 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from -r ../requirements.txt (line 11)) (6.5.2)
+Requirement already satisfied: pydot==4.0.1 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from -r ../requirements.txt (line 12)) (4.0.1)
+Requirement already satisfied: plotly in ./.mediumdarwin_venv/lib/python3.12/site-packages (from -r ../requirements.txt (line 13)) (6.7.0)
+Requirement already satisfied: numpy in ./.mediumdarwin_venv/lib/python3.12/site-packages (from -r ../requirements.txt (line 14)) (2.4.6)
+Requirement already satisfied: pyvis in ./.mediumdarwin_venv/lib/python3.12/site-packages (from -r ../requirements.txt (line 15)) (0.3.2)
+Requirement already satisfied: tikzplotlib in ./.mediumdarwin_venv/lib/python3.12/site-packages (from -r ../requirements.txt (line 16)) (0.10.1)
+Requirement already satisfied: contourpy>=1.0.1 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from matplotlib==3.10.7->-r ../requirements.txt (line 5)) (1.3.3)
+Requirement already satisfied: cycler>=0.10 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from matplotlib==3.10.7->-r ../requirements.txt (line 5)) (0.12.1)
+Requirement already satisfied: fonttools>=4.22.0 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from matplotlib==3.10.7->-r ../requirements.txt (line 5)) (4.63.0)
+Requirement already satisfied: kiwisolver>=1.3.1 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from matplotlib==3.10.7->-r ../requirements.txt (line 5)) (1.5.0)
+Requirement already satisfied: packaging>=20.0 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from matplotlib==3.10.7->-r ../requirements.txt (line 5)) (26.2)
+Requirement already satisfied: pillow>=8 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from matplotlib==3.10.7->-r ../requirements.txt (line 5)) (12.2.0)
+Requirement already satisfied: pyparsing>=3 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from matplotlib==3.10.7->-r ../requirements.txt (line 5)) (3.3.2)
+Requirement already satisfied: python-dateutil>=2.7 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from matplotlib==3.10.7->-r ../requirements.txt (line 5)) (2.9.0.post0)
+Requirement already satisfied: x256 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from Uni-Curses==3.1.2->-r ../requirements.txt (line 9)) (0.0.3)
+Requirement already satisfied: narwhals>=1.15.1 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from plotly->-r ../requirements.txt (line 13)) (2.21.2)
+Requirement already satisfied: ipython>=5.3.0 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from pyvis->-r ../requirements.txt (line 15)) (9.13.0)
+Requirement already satisfied: jinja2>=2.9.6 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from pyvis->-r ../requirements.txt (line 15)) (3.1.6)
+Requirement already satisfied: jsonpickle>=1.4.1 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from pyvis->-r ../requirements.txt (line 15)) (4.1.1)
+Requirement already satisfied: webcolors in ./.mediumdarwin_venv/lib/python3.12/site-packages (from tikzplotlib->-r ../requirements.txt (line 16)) (25.10.0)
+Requirement already satisfied: decorator>=5.1.0 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from ipython>=5.3.0->pyvis->-r ../requirements.txt (line 15)) (5.3.1)
+Requirement already satisfied: ipython-pygments-lexers>=1.0.0 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from ipython>=5.3.0->pyvis->-r ../requirements.txt (line 15)) (1.1.1)
+Requirement already satisfied: jedi>=0.18.2 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from ipython>=5.3.0->pyvis->-r ../requirements.txt (line 15)) (0.20.0)
+Requirement already satisfied: matplotlib-inline>=0.1.6 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from ipython>=5.3.0->pyvis->-r ../requirements.txt (line 15)) (0.2.2)
+Requirement already satisfied: pexpect>4.6 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from ipython>=5.3.0->pyvis->-r ../requirements.txt (line 15)) (4.9.0)
+Requirement already satisfied: prompt_toolkit<3.1.0,>=3.0.41 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from ipython>=5.3.0->pyvis->-r ../requirements.txt (line 15)) (3.0.52)
+Requirement already satisfied: pygments>=2.14.0 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from ipython>=5.3.0->pyvis->-r ../requirements.txt (line 15)) (2.20.0)
+Requirement already satisfied: stack_data>=0.6.0 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from ipython>=5.3.0->pyvis->-r ../requirements.txt (line 15)) (0.6.3)
+Requirement already satisfied: traitlets>=5.13.0 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from ipython>=5.3.0->pyvis->-r ../requirements.txt (line 15)) (5.15.0)
+Requirement already satisfied: wcwidth in ./.mediumdarwin_venv/lib/python3.12/site-packages (from prompt_toolkit<3.1.0,>=3.0.41->ipython>=5.3.0->pyvis->-r ../requirements.txt (line 15)) (0.7.0)
+Requirement already satisfied: parso<0.9.0,>=0.8.6 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from jedi>=0.18.2->ipython>=5.3.0->pyvis->-r ../requirements.txt (line 15)) (0.8.7)
+Requirement already satisfied: MarkupSafe>=2.0 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from jinja2>=2.9.6->pyvis->-r ../requirements.txt (line 15)) (3.0.3)
+Requirement already satisfied: ptyprocess>=0.5 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from pexpect>4.6->ipython>=5.3.0->pyvis->-r ../requirements.txt (line 15)) (0.7.0)
+Requirement already satisfied: six>=1.5 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from python-dateutil>=2.7->matplotlib==3.10.7->-r ../requirements.txt (line 5)) (1.17.0)
+Requirement already satisfied: executing>=1.2.0 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from stack_data>=0.6.0->ipython>=5.3.0->pyvis->-r ../requirements.txt (line 15)) (2.2.1)
+Requirement already satisfied: asttokens>=2.1.0 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from stack_data>=0.6.0->ipython>=5.3.0->pyvis->-r ../requirements.txt (line 15)) (3.0.1)
+Requirement already satisfied: pure-eval in ./.mediumdarwin_venv/lib/python3.12/site-packages (from stack_data>=0.6.0->ipython>=5.3.0->pyvis->-r ../requirements.txt (line 15)) (0.2.3)
+Running 2 project(s) with up to 4 in parallel
+Per-project logs: logs/<project>.log
+[commons-cli] starting (log: logs/commons-cli.log)
+[commons-dbutils] starting (log: logs/commons-dbutils.log)
+Starting mutation analysis at Tue May 19 19:20:39 JST 2026
+Parallel jobs: 1
+Installing system dependencies...
+Starting mutation analysis at Tue May 19 19:20:46 JST 2026
+Parallel jobs: 4
+Installing system dependencies...
+W: http://developer.download.nvidia.com/compute/cuda/repos/ubuntu2404/x86_64/InRelease: Key is stored in legacy trusted.gpg keyring (/etc/apt/trusted.gpg), see the DEPRECATION section in apt-key(8) for details.
+Checking required JDK installations...
+  Java 8 OK: /usr/lib/jvm/java-8-openjdk-amd64/bin
+  Java 11 OK: /usr/lib/jvm/java-11-openjdk-amd64/bin
+Setting up LittleDarwin...
+Using existing virtual environment: .mediumdarwin_venv
+Requirement already satisfied: pip in ./.mediumdarwin_venv/lib/python3.12/site-packages (26.1.1)
+Installing Python dependencies...
+Requirement already satisfied: antlr4-python3-runtime==4.10 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from -r ../requirements.txt (line 1)) (4.10)
+Requirement already satisfied: graphviz==0.21 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from -r ../requirements.txt (line 2)) (0.21)
+Requirement already satisfied: psutil==7.1.3 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from -r ../requirements.txt (line 3)) (7.1.3)
+Requirement already satisfied: networkx==3.5 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from -r ../requirements.txt (line 4)) (3.5)
+Requirement already satisfied: matplotlib==3.10.7 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from -r ../requirements.txt (line 5)) (3.10.7)
+Requirement already satisfied: colorama==0.4.6 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from -r ../requirements.txt (line 6)) (0.4.6)
+Requirement already satisfied: resources==0.0.1 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from -r ../requirements.txt (line 7)) (0.0.1)
+Requirement already satisfied: dill==0.4.0 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from -r ../requirements.txt (line 8)) (0.4.0)
+Requirement already satisfied: Uni-Curses==3.1.2 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from -r ../requirements.txt (line 9)) (3.1.2)
+Requirement already satisfied: joblib==1.5.2 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from -r ../requirements.txt (line 10)) (1.5.2)
+Requirement already satisfied: importlib_resources==6.5.2 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from -r ../requirements.txt (line 11)) (6.5.2)
+Requirement already satisfied: pydot==4.0.1 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from -r ../requirements.txt (line 12)) (4.0.1)
+Requirement already satisfied: plotly in ./.mediumdarwin_venv/lib/python3.12/site-packages (from -r ../requirements.txt (line 13)) (6.7.0)
+Requirement already satisfied: numpy in ./.mediumdarwin_venv/lib/python3.12/site-packages (from -r ../requirements.txt (line 14)) (2.4.6)
+Requirement already satisfied: pyvis in ./.mediumdarwin_venv/lib/python3.12/site-packages (from -r ../requirements.txt (line 15)) (0.3.2)
+Requirement already satisfied: tikzplotlib in ./.mediumdarwin_venv/lib/python3.12/site-packages (from -r ../requirements.txt (line 16)) (0.10.1)
+Requirement already satisfied: contourpy>=1.0.1 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from matplotlib==3.10.7->-r ../requirements.txt (line 5)) (1.3.3)
+Requirement already satisfied: cycler>=0.10 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from matplotlib==3.10.7->-r ../requirements.txt (line 5)) (0.12.1)
+Requirement already satisfied: fonttools>=4.22.0 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from matplotlib==3.10.7->-r ../requirements.txt (line 5)) (4.63.0)
+Requirement already satisfied: kiwisolver>=1.3.1 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from matplotlib==3.10.7->-r ../requirements.txt (line 5)) (1.5.0)
+Requirement already satisfied: packaging>=20.0 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from matplotlib==3.10.7->-r ../requirements.txt (line 5)) (26.2)
+Requirement already satisfied: pillow>=8 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from matplotlib==3.10.7->-r ../requirements.txt (line 5)) (12.2.0)
+Requirement already satisfied: pyparsing>=3 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from matplotlib==3.10.7->-r ../requirements.txt (line 5)) (3.3.2)
+Requirement already satisfied: python-dateutil>=2.7 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from matplotlib==3.10.7->-r ../requirements.txt (line 5)) (2.9.0.post0)
+Requirement already satisfied: x256 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from Uni-Curses==3.1.2->-r ../requirements.txt (line 9)) (0.0.3)
+Requirement already satisfied: narwhals>=1.15.1 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from plotly->-r ../requirements.txt (line 13)) (2.21.2)
+Requirement already satisfied: ipython>=5.3.0 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from pyvis->-r ../requirements.txt (line 15)) (9.13.0)
+Requirement already satisfied: jinja2>=2.9.6 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from pyvis->-r ../requirements.txt (line 15)) (3.1.6)
+Requirement already satisfied: jsonpickle>=1.4.1 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from pyvis->-r ../requirements.txt (line 15)) (4.1.1)
+Requirement already satisfied: webcolors in ./.mediumdarwin_venv/lib/python3.12/site-packages (from tikzplotlib->-r ../requirements.txt (line 16)) (25.10.0)
+Requirement already satisfied: decorator>=5.1.0 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from ipython>=5.3.0->pyvis->-r ../requirements.txt (line 15)) (5.3.1)
+Requirement already satisfied: ipython-pygments-lexers>=1.0.0 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from ipython>=5.3.0->pyvis->-r ../requirements.txt (line 15)) (1.1.1)
+Requirement already satisfied: jedi>=0.18.2 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from ipython>=5.3.0->pyvis->-r ../requirements.txt (line 15)) (0.20.0)
+Requirement already satisfied: matplotlib-inline>=0.1.6 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from ipython>=5.3.0->pyvis->-r ../requirements.txt (line 15)) (0.2.2)
+Requirement already satisfied: pexpect>4.6 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from ipython>=5.3.0->pyvis->-r ../requirements.txt (line 15)) (4.9.0)
+Requirement already satisfied: prompt_toolkit<3.1.0,>=3.0.41 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from ipython>=5.3.0->pyvis->-r ../requirements.txt (line 15)) (3.0.52)
+Requirement already satisfied: pygments>=2.14.0 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from ipython>=5.3.0->pyvis->-r ../requirements.txt (line 15)) (2.20.0)
+Requirement already satisfied: stack_data>=0.6.0 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from ipython>=5.3.0->pyvis->-r ../requirements.txt (line 15)) (0.6.3)
+Requirement already satisfied: traitlets>=5.13.0 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from ipython>=5.3.0->pyvis->-r ../requirements.txt (line 15)) (5.15.0)
+Requirement already satisfied: wcwidth in ./.mediumdarwin_venv/lib/python3.12/site-packages (from prompt_toolkit<3.1.0,>=3.0.41->ipython>=5.3.0->pyvis->-r ../requirements.txt (line 15)) (0.7.0)
+Requirement already satisfied: parso<0.9.0,>=0.8.6 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from jedi>=0.18.2->ipython>=5.3.0->pyvis->-r ../requirements.txt (line 15)) (0.8.7)
+Requirement already satisfied: MarkupSafe>=2.0 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from jinja2>=2.9.6->pyvis->-r ../requirements.txt (line 15)) (3.0.3)
+Requirement already satisfied: ptyprocess>=0.5 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from pexpect>4.6->ipython>=5.3.0->pyvis->-r ../requirements.txt (line 15)) (0.7.0)
+Requirement already satisfied: six>=1.5 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from python-dateutil>=2.7->matplotlib==3.10.7->-r ../requirements.txt (line 5)) (1.17.0)
+Requirement already satisfied: executing>=1.2.0 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from stack_data>=0.6.0->ipython>=5.3.0->pyvis->-r ../requirements.txt (line 15)) (2.2.1)
+Requirement already satisfied: asttokens>=2.1.0 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from stack_data>=0.6.0->ipython>=5.3.0->pyvis->-r ../requirements.txt (line 15)) (3.0.1)
+Requirement already satisfied: pure-eval in ./.mediumdarwin_venv/lib/python3.12/site-packages (from stack_data>=0.6.0->ipython>=5.3.0->pyvis->-r ../requirements.txt (line 15)) (0.2.3)
+Running 7 project(s) with up to 4 in parallel
+Per-project logs: logs/<project>.log
+[jterminal] starting (log: logs/jterminal.log)
+[commons-lang] starting (log: logs/commons-lang.log)
+[jaxen] starting (log: logs/jaxen.log)
+[commons-net] starting (log: logs/commons-net.log)
+[jaxen] completed OK
+[commons-csv] starting (log: logs/commons-csv.log)
+[jterminal] completed OK
+[jackson-databind] starting (log: logs/jackson-databind.log)
+[commons-cli] completed OK
+[commons-dbutils] completed OK
+Combined summary: operator_comparisons/summary_all.txt
+
+Analysis completed.
+Log: mutation_analysis.log
+Per-project logs: logs/
+Operator comparisons: operator_comparisons/
+
+Projects analyzed:
+- commons-cli (tag: rel/commons-cli-1.9.0, Java: 11)
+- commons-dbutils (tag: rel/commons-dbutils-1.8.1, Java: 8)
+[commons-csv] completed OK
+[XChart] starting (log: logs/XChart.log)
+[XChart] completed OK
+[commons-net] completed OK
+Starting mutation analysis at Tue May 19 20:49:36 JST 2026
+Parallel jobs: 1
+Installing system dependencies...
+W: http://developer.download.nvidia.com/compute/cuda/repos/ubuntu2404/x86_64/InRelease: Key is stored in legacy trusted.gpg keyring (/etc/apt/trusted.gpg), see the DEPRECATION section in apt-key(8) for details.
+Checking required JDK installations...
+  Java 11 OK: /usr/lib/jvm/java-11-openjdk-amd64/bin
+Setting up LittleDarwin...
+Using existing virtual environment: .mediumdarwin_venv
+Requirement already satisfied: pip in ./.mediumdarwin_venv/lib/python3.12/site-packages (26.1.1)
+Installing Python dependencies...
+Requirement already satisfied: antlr4-python3-runtime==4.10 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from -r ../requirements.txt (line 1)) (4.10)
+Requirement already satisfied: graphviz==0.21 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from -r ../requirements.txt (line 2)) (0.21)
+Requirement already satisfied: psutil==7.1.3 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from -r ../requirements.txt (line 3)) (7.1.3)
+Requirement already satisfied: networkx==3.5 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from -r ../requirements.txt (line 4)) (3.5)
+Requirement already satisfied: matplotlib==3.10.7 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from -r ../requirements.txt (line 5)) (3.10.7)
+Requirement already satisfied: colorama==0.4.6 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from -r ../requirements.txt (line 6)) (0.4.6)
+Requirement already satisfied: resources==0.0.1 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from -r ../requirements.txt (line 7)) (0.0.1)
+Requirement already satisfied: dill==0.4.0 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from -r ../requirements.txt (line 8)) (0.4.0)
+Requirement already satisfied: Uni-Curses==3.1.2 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from -r ../requirements.txt (line 9)) (3.1.2)
+Requirement already satisfied: joblib==1.5.2 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from -r ../requirements.txt (line 10)) (1.5.2)
+Requirement already satisfied: importlib_resources==6.5.2 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from -r ../requirements.txt (line 11)) (6.5.2)
+Requirement already satisfied: pydot==4.0.1 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from -r ../requirements.txt (line 12)) (4.0.1)
+Requirement already satisfied: plotly in ./.mediumdarwin_venv/lib/python3.12/site-packages (from -r ../requirements.txt (line 13)) (6.7.0)
+Requirement already satisfied: numpy in ./.mediumdarwin_venv/lib/python3.12/site-packages (from -r ../requirements.txt (line 14)) (2.4.6)
+Requirement already satisfied: pyvis in ./.mediumdarwin_venv/lib/python3.12/site-packages (from -r ../requirements.txt (line 15)) (0.3.2)
+Requirement already satisfied: tikzplotlib in ./.mediumdarwin_venv/lib/python3.12/site-packages (from -r ../requirements.txt (line 16)) (0.10.1)
+Requirement already satisfied: contourpy>=1.0.1 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from matplotlib==3.10.7->-r ../requirements.txt (line 5)) (1.3.3)
+Requirement already satisfied: cycler>=0.10 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from matplotlib==3.10.7->-r ../requirements.txt (line 5)) (0.12.1)
+Requirement already satisfied: fonttools>=4.22.0 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from matplotlib==3.10.7->-r ../requirements.txt (line 5)) (4.63.0)
+Requirement already satisfied: kiwisolver>=1.3.1 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from matplotlib==3.10.7->-r ../requirements.txt (line 5)) (1.5.0)
+Requirement already satisfied: packaging>=20.0 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from matplotlib==3.10.7->-r ../requirements.txt (line 5)) (26.2)
+Requirement already satisfied: pillow>=8 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from matplotlib==3.10.7->-r ../requirements.txt (line 5)) (12.2.0)
+Requirement already satisfied: pyparsing>=3 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from matplotlib==3.10.7->-r ../requirements.txt (line 5)) (3.3.2)
+Requirement already satisfied: python-dateutil>=2.7 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from matplotlib==3.10.7->-r ../requirements.txt (line 5)) (2.9.0.post0)
+Requirement already satisfied: x256 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from Uni-Curses==3.1.2->-r ../requirements.txt (line 9)) (0.0.3)
+Requirement already satisfied: narwhals>=1.15.1 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from plotly->-r ../requirements.txt (line 13)) (2.21.2)
+Requirement already satisfied: ipython>=5.3.0 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from pyvis->-r ../requirements.txt (line 15)) (9.13.0)
+Requirement already satisfied: jinja2>=2.9.6 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from pyvis->-r ../requirements.txt (line 15)) (3.1.6)
+Requirement already satisfied: jsonpickle>=1.4.1 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from pyvis->-r ../requirements.txt (line 15)) (4.1.1)
+Requirement already satisfied: webcolors in ./.mediumdarwin_venv/lib/python3.12/site-packages (from tikzplotlib->-r ../requirements.txt (line 16)) (25.10.0)
+Requirement already satisfied: decorator>=5.1.0 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from ipython>=5.3.0->pyvis->-r ../requirements.txt (line 15)) (5.3.1)
+Requirement already satisfied: ipython-pygments-lexers>=1.0.0 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from ipython>=5.3.0->pyvis->-r ../requirements.txt (line 15)) (1.1.1)
+Requirement already satisfied: jedi>=0.18.2 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from ipython>=5.3.0->pyvis->-r ../requirements.txt (line 15)) (0.20.0)
+Requirement already satisfied: matplotlib-inline>=0.1.6 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from ipython>=5.3.0->pyvis->-r ../requirements.txt (line 15)) (0.2.2)
+Requirement already satisfied: pexpect>4.6 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from ipython>=5.3.0->pyvis->-r ../requirements.txt (line 15)) (4.9.0)
+Requirement already satisfied: prompt_toolkit<3.1.0,>=3.0.41 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from ipython>=5.3.0->pyvis->-r ../requirements.txt (line 15)) (3.0.52)
+Requirement already satisfied: pygments>=2.14.0 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from ipython>=5.3.0->pyvis->-r ../requirements.txt (line 15)) (2.20.0)
+Requirement already satisfied: stack_data>=0.6.0 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from ipython>=5.3.0->pyvis->-r ../requirements.txt (line 15)) (0.6.3)
+Requirement already satisfied: traitlets>=5.13.0 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from ipython>=5.3.0->pyvis->-r ../requirements.txt (line 15)) (5.15.0)
+Requirement already satisfied: wcwidth in ./.mediumdarwin_venv/lib/python3.12/site-packages (from prompt_toolkit<3.1.0,>=3.0.41->ipython>=5.3.0->pyvis->-r ../requirements.txt (line 15)) (0.7.0)
+Requirement already satisfied: parso<0.9.0,>=0.8.6 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from jedi>=0.18.2->ipython>=5.3.0->pyvis->-r ../requirements.txt (line 15)) (0.8.7)
+Requirement already satisfied: MarkupSafe>=2.0 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from jinja2>=2.9.6->pyvis->-r ../requirements.txt (line 15)) (3.0.3)
+Requirement already satisfied: ptyprocess>=0.5 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from pexpect>4.6->ipython>=5.3.0->pyvis->-r ../requirements.txt (line 15)) (0.7.0)
+Requirement already satisfied: six>=1.5 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from python-dateutil>=2.7->matplotlib==3.10.7->-r ../requirements.txt (line 5)) (1.17.0)
+Requirement already satisfied: executing>=1.2.0 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from stack_data>=0.6.0->ipython>=5.3.0->pyvis->-r ../requirements.txt (line 15)) (2.2.1)
+Requirement already satisfied: asttokens>=2.1.0 in ./.mediumdarwin_venv/lib/python3.12/site-packages (from stack_data>=0.6.0->ipython>=5.3.0->pyvis->-r ../requirements.txt (line 15)) (3.0.1)
+Requirement already satisfied: pure-eval in ./.mediumdarwin_venv/lib/python3.12/site-packages (from stack_data>=0.6.0->ipython>=5.3.0->pyvis->-r ../requirements.txt (line 15)) (0.2.3)
+Running 1 project(s) with up to 1 in parallel
+Per-project logs: logs/<project>.log
+[XChart] starting (log: logs/XChart.log)
+[XChart] completed OK
+Combined summary: operator_comparisons/summary_all.txt
+
+Analysis completed.
+Log: mutation_analysis.log
+Per-project logs: logs/
+Operator comparisons: operator_comparisons/
+
+Projects analyzed:
+- XChart (tag: xchart-3.8.8, Java: 11)
+[jackson-core] completed OK
+Combined summary: operator_comparisons/summary_all.txt
+
+Analysis completed.
+Log: mutation_analysis.log
+Per-project logs: logs/
+Operator comparisons: operator_comparisons/
+
+Projects analyzed:
+- commons-validator (tag: rel/commons-validator-1.9.0, Java: 11)
+- jackson-dataformat-xml (tag: jackson-dataformat-xml-2.18.2, Java: 11)
+- jettison (tag: jettison-1.5.4, Java: 11)
+- jackson-core (tag: jackson-core-2.18.2, Java: 11)
+./run_mutation_analysis.sh: line 649: syntax error near unexpected token `('
+./run_mutation_analysis.sh: line 649: `    echo "- $project (tag: ${PROJECT_TAG:-<default branch>}, Java: $PROJECT_JAVA)"'
+[commons-lang] completed OK
+[jackson-databind] completed OK
+Combined summary: operator_comparisons/summary_all.txt
+
+Analysis completed.
+Log: mutation_analysis.log
+Per-project logs: logs/
+Operator comparisons: operator_comparisons/
+
+Projects analyzed:
+- jterminal (tag: 751142d9d2cafbde0ec36a80f73bb25bf297f2f3, Java: 11)
+- commons-lang (tag: rel/commons-lang-3.17.0, Java: 11)
+- jaxen (tag: v2.0.0, Java: 8)
+- commons-net (tag: rel/commons-net-3.11.1, Java: 11)
+- commons-csv (tag: rel/commons-csv-1.14.0, Java: 11)
+- jackson-databind (tag: jackson-databind-2.18.2, Java: 11)
+- XChart (tag: xchart-3.8.8, Java: 11)
+./run_mutation_analysis.sh: line 598: 1: command not found
+./run_mutation_analysis.sh: line 599: syntax error near unexpected token `fi'
+./run_mutation_analysis.sh: line 599: `    fi'
+Starting operator comparison only at Thu May 21 10:36:41 JST 2026
+Parallel jobs: 1
+Compare-only mode: using existing results under each project directory
+Running 15 project(s) with up to 1 in parallel
+Per-project logs: logs/<project>.log
+[jterminal] starting (log: logs/jterminal.log)
+Starting operator comparison only at Thu May 21 10:37:04 JST 2026
+Parallel jobs: 8
+Compare-only mode: using existing results under each project directory
+Running 15 project(s) with up to 8 in parallel
+Per-project logs: logs/<project>.log
+[jterminal] starting (log: logs/jterminal.log)
+[commons-validator] starting (log: logs/commons-validator.log)
+[commons-lang] starting (log: logs/commons-lang.log)
+[antomology] starting (log: logs/antomology.log)
+[triangle-example] starting (log: logs/triangle-example.log)
+[commons-cli] starting (log: logs/commons-cli.log)
+[commons-net] starting (log: logs/commons-net.log)
+[jackson-dataformat-xml] starting (log: logs/jackson-dataformat-xml.log)
+[triangle-example] completed OK
+[jettison] starting (log: logs/jettison.log)
+[antomology] completed OK
+[commons-csv] starting (log: logs/commons-csv.log)
+[jterminal] completed OK
+[jra] starting (log: logs/jra.log)
+[jra] completed OK
+[commons-dbutils] starting (log: logs/commons-dbutils.log)
+[commons-cli] completed OK
+[jackson-databind] starting (log: logs/jackson-databind.log)
+[commons-csv] completed OK
+[XChart] starting (log: logs/XChart.log)
+[commons-dbutils] completed OK
+[jackson-core] starting (log: logs/jackson-core.log)
+[jettison] completed OK
+[jackson-dataformat-xml] completed OK
+[commons-validator] completed OK
+[commons-net] completed OK
+[XChart] completed OK
+[jackson-core] completed OK
+[commons-lang] completed OK
+[jackson-databind] completed OK
+Combined summary: operator_comparisons/summary_all.txt
+
+Comparison completed.
+Log: mutation_analysis.log
+Per-project logs: logs/
+Operator comparisons: operator_comparisons/

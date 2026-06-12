@@ -1,0 +1,42 @@
+file,line,operator,before,after,mutant_id,paper_category
+org/knowm/xchart/internal/series/AxesChartSeriesNumericalNoErrorBars.java,239,RemoveMethod,public double[] getExtraValues() {,public double[] getExtraValues() {,11,reduced_remove_method_other
+org/knowm/xchart/internal/series/AxesChartSeriesNumericalNoErrorBars.java,148,RemoveMethod,double[] findMinMax(double[] data) {,double[] findMinMax(double[] data) {,22,reduced_remove_method_other
+org/knowm/xchart/HeatMapChart.java,149,NullifyInputVariable,"public void paint(Graphics2D g, int width, int height) {","public void paint(Graphics2D g, int width, int height) { g = null;",7,reduced_nullify_input_other_filter
+org/knowm/xchart/OHLCSeries.java,286,RemoveMethod,public long[] getVolumeData() {,public long[] getVolumeData() {,16,reduced_remove_method_other
+org/knowm/xchart/style/DialStyler.java,175,RemoveMethod,public double[] getAxisTickValues() {,public double[] getAxisTickValues() {,66,reduced_remove_method_other
+org/knowm/xchart/OHLCSeries.java,280,RemoveMethod,public double[] getCloseData() {,public double[] getCloseData() {,18,reduced_remove_method_other
+org/knowm/xchart/BubbleChart.java,213,NullifyInputVariable,"public void paint(Graphics2D g, int width, int height) {","public void paint(Graphics2D g, int width, int height) { g = null;",2,reduced_nullify_input_other_filter
+org/knowm/xchart/internal/Utils.java,71,RemoveMethod,public static double[] getDoubleArrayFromFloatArray(float[] data) {,public static double[] getDoubleArrayFromFloatArray(float[] data) {,36,reduced_remove_method_other
+org/knowm/xchart/PieChart.java,108,NullifyInputVariable,"public void paint(Graphics2D g, int width, int height) {","public void paint(Graphics2D g, int width, int height) { g = null;",1,reduced_nullify_input_other_filter
+org/knowm/xchart/CategoryChart.java,292,NullifyInputVariable,"public void paint(Graphics2D g, int width, int height) {","public void paint(Graphics2D g, int width, int height) { g = null;",3,reduced_nullify_input_other_filter
+org/knowm/xchart/internal/Utils.java,115,RemoveMethod,public static double[] getDoubleArrayFromDateList(List<?> data) {,public static double[] getDoubleArrayFromDateList(List<?> data) {,30,reduced_remove_method_other
+org/knowm/xchart/internal/series/AxesChartSeriesCategory.java,136,RemoveMethod,"double[] findMinMax(Collection<?> data, DataType dataType) {","double[] findMinMax(Collection<?> data, DataType dataType) {",20,reduced_remove_method_other
+org/knowm/xchart/internal/series/AxesChartSeriesNumericalNoErrorBars.java,200,RemoveMethod,"private double[] findMinMaxWithErrorBars(double[] data, double[] errorBars) {","private double[] findMinMaxWithErrorBars(double[] data, double[] errorBars) {",19,reduced_remove_method_other
+org/knowm/xchart/OHLCSeries.java,275,RemoveMethod,public double[] getLowData() {,public double[] getLowData() {,20,reduced_remove_method_other
+org/knowm/xchart/RadarSeries.java,52,RemoveMethod,public String[] getTooltipOverrides() {,public String[] getTooltipOverrides() {,22,reduced_remove_method_other
+org/knowm/xchart/OHLCSeries.java,260,RemoveMethod,public double[] getXData() {,public double[] getXData() {,26,reduced_remove_method_other
+org/knowm/xchart/CSVImporter.java,108,RemoveMethod,private static String[] getSeriesDataFromCSVRows(File csvFile) {,private static String[] getSeriesDataFromCSVRows(File csvFile) {,40,reduced_remove_method_other
+org/knowm/xchart/internal/Utils.java,129,RemoveMethod,public static double[] getGeneratedDataAsArray(int length) {,public static double[] getGeneratedDataAsArray(int length) {,28,reduced_remove_method_other
+org/knowm/xchart/internal/Utils.java,164,RemoveMethod,public static long[] getLongArrayFromNumberList(List<?> data) {,public static long[] getLongArrayFromNumberList(List<?> data) {,22,reduced_remove_method_other
+org/knowm/xchart/RadarSeries.java,42,RemoveMethod,public double[] getValues() {,public double[] getValues() {,25,reduced_remove_method_other
+org/knowm/xchart/internal/Utils.java,97,RemoveMethod,public static double[] getDoubleArrayFromNumberList(List<?> data) {,public static double[] getDoubleArrayFromNumberList(List<?> data) {,32,reduced_remove_method_other
+org/knowm/xchart/OHLCSeries.java,265,RemoveMethod,public double[] getOpenData() {,public double[] getOpenData() {,24,reduced_remove_method_other
+org/knowm/xchart/internal/series/AxesChartSeriesCategory.java,110,RemoveMethod,"Collection<? extends Number> data, Collection<? extends Number> errorBars) {","Collection<? extends Number> data, Collection<? extends Number> errorBars) {",22,reduced_remove_method_other
+org/knowm/xchart/internal/series/AxesChartSeriesNumericalNoErrorBars.java,229,RemoveMethod,public double[] getXData() {,public double[] getXData() {,15,reduced_remove_method_other
+org/knowm/xchart/OHLCSeries.java,291,RemoveMethod,public double[] getYData() {,public double[] getYData() {,14,reduced_remove_method_other
+org/knowm/xchart/BitmapEncoder.java,258,RemoveMethod,throws IOException {,throws IOException {,70,reduced_remove_method_other
+org/knowm/xchart/internal/Utils.java,151,RemoveMethod,public static long[] getLongArrayFromFloatArray(float[] data) {,public static long[] getLongArrayFromFloatArray(float[] data) {,24,reduced_remove_method_other
+org/knowm/xchart/DialChart.java,109,NullifyInputVariable,"public void paint(Graphics2D g, int width, int height) {","public void paint(Graphics2D g, int width, int height) { g = null;",2,reduced_nullify_input_other_filter
+org/knowm/xchart/XYChart.java,399,NullifyInputVariable,"public void paint(Graphics2D g, int width, int height) {","public void paint(Graphics2D g, int width, int height) { g = null;",4,reduced_nullify_input_other_filter
+org/knowm/xchart/internal/Utils.java,84,RemoveMethod,public static double[] getDoubleArrayFromIntArray(int[] data) {,public static double[] getDoubleArrayFromIntArray(int[] data) {,34,reduced_remove_method_other
+org/knowm/xchart/CSVImporter.java,138,RemoveMethod,private static String[] getSeriesDataFromCSVColumns(File csvFile) {,private static String[] getSeriesDataFromCSVColumns(File csvFile) {,38,reduced_remove_method_other
+org/knowm/xchart/RadarChart.java,143,NullifyInputVariable,"public void paint(Graphics2D g, int width, int height) {","public void paint(Graphics2D g, int width, int height) { g = null;",3,reduced_nullify_input_other_filter
+org/knowm/xchart/internal/chartpart/AxisTickCalculator_.java,357,NullifyInputVariable,private boolean areValuesEquallySpaced(List<Double> values) {,private boolean areValuesEquallySpaced(List<Double> values) { values = null;,69,reduced_nullify_input_other_filter
+org/knowm/xchart/OHLCChart.java,807,NullifyInputVariable,"public void paint(Graphics2D g, int width, int height) {","public void paint(Graphics2D g, int width, int height) { g = null;",7,reduced_nullify_input_other_filter
+org/knowm/xchart/style/DialStyler.java,186,RemoveMethod,public String[] getAxisTickLabels() {,public String[] getAxisTickLabels() {,63,reduced_remove_method_other
+org/knowm/xchart/internal/Utils.java,138,RemoveMethod,public static long[] getLongArrayFromIntArray(int[] data) {,public static long[] getLongArrayFromIntArray(int[] data) {,26,reduced_remove_method_other
+org/knowm/xchart/OHLCSeries.java,270,RemoveMethod,public double[] getHighData() {,public double[] getHighData() {,22,reduced_remove_method_other
+org/knowm/xchart/internal/series/AxesChartSeriesNumericalNoErrorBars.java,234,RemoveMethod,public double[] getYData() {,public double[] getYData() {,13,reduced_remove_method_other
+org/knowm/xchart/BoxChart.java,148,NullifyInputVariable,"public void paint(Graphics2D g, int width, int height) {","public void paint(Graphics2D g, int width, int height) { g = null;",1,reduced_nullify_input_other_filter
+org/knowm/xchart/OHLCSeries.java,226,RemoveMethod,"private double[] findMinMax(double[] lows, double[] highs) {","private double[] findMinMax(double[] lows, double[] highs) {",29,reduced_remove_method_other
+org/knowm/xchart/RadarChart.java,66,RemoveMethod,public String[] getRadiiLabels() {,public String[] getRadiiLabels() {,28,reduced_remove_method_other

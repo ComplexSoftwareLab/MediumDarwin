@@ -1,0 +1,31 @@
+=== Paper Table I (refined mutation operators) ===
+Original (LittleDarwin): 3483
+MediumDarwin: 2890
+Reduced: 593
+Added: 0
+delta_percent: -17.03
+check MD = Original - Reduced + Added: 2890 (should equal 2890)
+
+in_both_strict_match: 2676
+ld_only_sites: 589
+md_only_sites: 0
+
+  Reduced categories:
+    reduced_nullify_final_param_non_compilable: 574
+    reduced_nullify_input_other_filter: 15
+    reduced_remove_method_other: 4
+  Reduced by operator:
+    NullifyInputVariable: 589
+    RemoveMethod: 4
+
+  Added categories: (none)
+  Added by operator: (none)
+
+=== Strict before/after diff (misleading for relational ops) ===
+strict_removed: 803
+strict_added: 214
+  (LD uses '<'->'>='; MD uses '<'->'<=' — same site, not Reduced+Added)
+
+# Listing 1 examples:
+#   reduced_nullify_final_param_non_compilable -> MUT0 (final param nullify)
+#   added_remove_method_array_return -> MUT1 (array return RemoveMethod)

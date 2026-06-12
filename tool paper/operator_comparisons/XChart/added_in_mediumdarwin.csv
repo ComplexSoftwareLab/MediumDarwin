@@ -1,0 +1,35 @@
+file,line,operator,before,after,mutant_id,paper_category
+org/knowm/xchart/internal/series/AxesChartSeriesNumericalNoErrorBars.java,167,NullifyReturnValue,"return new double[] {min, max};",return null;,5279,added_other
+org/knowm/xchart/internal/series/AxesChartSeriesNumericalNoErrorBars.java,231,NullifyReturnValue,return xData;,return null;,5281,added_other
+org/knowm/xchart/OHLCSeries.java,293,NullifyReturnValue,return yData;,return null;,1001,added_other
+org/knowm/xchart/style/DialStyler.java,177,NullifyReturnValue,return axisTickValues;,return null;,5767,added_other
+org/knowm/xchart/internal/Utils.java,87,NullifyReturnValue,return null;,return null;,1595,added_other
+org/knowm/xchart/internal/Utils.java,161,NullifyReturnValue,return longs;,return null;,1605,added_other
+org/knowm/xchart/internal/series/AxesChartSeriesCategory.java,165,NullifyReturnValue,"return new double[] {min, max};",return null;,5236,added_other
+org/knowm/xchart/BitmapEncoder.java,269,NullifyReturnValue,return imageInBytes;,return null;,166,added_other
+org/knowm/xchart/OHLCSeries.java,267,NullifyReturnValue,return openData;,return null;,996,added_other
+org/knowm/xchart/internal/Utils.java,141,NullifyReturnValue,return null;,return null;,1602,added_other
+org/knowm/xchart/internal/Utils.java,179,NullifyReturnValue,return longs;,return null;,1607,added_other
+org/knowm/xchart/internal/Utils.java,74,NullifyReturnValue,return null;,return null;,1593,added_other
+org/knowm/xchart/OHLCSeries.java,272,NullifyReturnValue,return highData;,return null;,997,added_other
+org/knowm/xchart/OHLCSeries.java,288,NullifyReturnValue,return volumeData;,return null;,1000,added_other
+org/knowm/xchart/internal/Utils.java,126,NullifyReturnValue,return doubles;,return null;,1600,added_other
+org/knowm/xchart/internal/Utils.java,148,NullifyReturnValue,return longs;,return null;,1603,added_other
+org/knowm/xchart/internal/series/AxesChartSeriesCategory.java,155,NullifyReturnValue,"return new double[] {Double.NaN, Double.NaN};",return null;,5235,added_other
+org/knowm/xchart/internal/Utils.java,135,NullifyReturnValue,return generatedData;,return null;,1601,added_other
+org/knowm/xchart/internal/series/AxesChartSeriesNumericalNoErrorBars.java,216,NullifyReturnValue,"return new double[] {min, max};",return null;,5280,added_other
+org/knowm/xchart/internal/Utils.java,167,NullifyReturnValue,return null;,return null;,1606,added_other
+org/knowm/xchart/internal/Utils.java,112,NullifyReturnValue,return doubles;,return null;,1598,added_other
+org/knowm/xchart/internal/Utils.java,94,NullifyReturnValue,return doubles;,return null;,1596,added_other
+org/knowm/xchart/internal/series/AxesChartSeriesNumericalNoErrorBars.java,241,NullifyReturnValue,return extraValues;,return null;,5283,added_other
+org/knowm/xchart/OHLCSeries.java,262,NullifyReturnValue,return xData;,return null;,995,added_other
+org/knowm/xchart/internal/series/AxesChartSeriesNumericalNoErrorBars.java,236,NullifyReturnValue,return yData;,return null;,5282,added_other
+org/knowm/xchart/internal/Utils.java,118,NullifyReturnValue,return null;,return null;,1599,added_other
+org/knowm/xchart/internal/series/AxesChartSeriesCategory.java,127,NullifyReturnValue,"return new double[] {min, max};",return null;,5234,added_other
+org/knowm/xchart/OHLCSeries.java,282,NullifyReturnValue,return closeData;,return null;,999,added_other
+org/knowm/xchart/internal/Utils.java,154,NullifyReturnValue,return null;,return null;,1604,added_other
+org/knowm/xchart/internal/Utils.java,81,NullifyReturnValue,return doubles;,return null;,1594,added_other
+org/knowm/xchart/OHLCSeries.java,241,NullifyReturnValue,"return new double[] {min, max};",return null;,994,added_other
+org/knowm/xchart/RadarSeries.java,44,NullifyReturnValue,return values;,return null;,1199,added_other
+org/knowm/xchart/OHLCSeries.java,277,NullifyReturnValue,return lowData;,return null;,998,added_other
+org/knowm/xchart/internal/Utils.java,100,NullifyReturnValue,return null;,return null;,1597,added_other

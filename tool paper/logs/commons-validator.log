@@ -1787,3 +1787,48 @@ Mutant comparison for commons-validator:
   Details: operator_comparisons/commons-validator/added_in_mediumdarwin.csv
            operator_comparisons/commons-validator/removed_in_mediumdarwin.csv
 ========== commons-validator finished at Tue May 19 17:44:53 JST 2026 ==========
+========== commons-validator compare-only at Thu May 21 10:37:05 JST 2026 ==========
+
+Comparing mutation operators: commons-validator -> operator_comparisons/commons-validator/
+Extracted 3483 mutants -> operator_comparisons/commons-validator/littledarwin.csv
+Extracted 2890 mutants -> operator_comparisons/commons-validator/mediumdarwin.csv
+Comparison written to /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/operator_comparisons/commons-validator
+  Original (LD): 3483
+  MediumDarwin: 2890
+  Reduced: 593  Added: 0  delta: -17.03%
+  (strict diff would show removed=803, added=214 — see strict_*.csv)
+Mutant comparison for commons-validator:
+  === Paper Table I (refined mutation operators) ===
+  Original (LittleDarwin): 3483
+  MediumDarwin: 2890
+  Reduced: 593
+  Added: 0
+  delta_percent: -17.03
+  check MD = Original - Reduced + Added: 2890 (should equal 2890)
+  
+  in_both_strict_match: 2676
+  ld_only_sites: 589
+  md_only_sites: 0
+  
+    Reduced categories:
+      reduced_nullify_final_param_non_compilable: 574
+      reduced_nullify_input_other_filter: 15
+      reduced_remove_method_other: 4
+    Reduced by operator:
+      NullifyInputVariable: 589
+      RemoveMethod: 4
+  
+    Added categories: (none)
+    Added by operator: (none)
+  
+  === Strict before/after diff (misleading for relational ops) ===
+  strict_removed: 803
+  strict_added: 214
+    (LD uses '<'->'>='; MD uses '<'->'<=' — same site, not Reduced+Added)
+  
+  # Listing 1 examples:
+  #   reduced_nullify_final_param_non_compilable -> MUT0 (final param nullify)
+  #   added_remove_method_array_return -> MUT1 (array return RemoveMethod)
+  Details: operator_comparisons/commons-validator/added_in_mediumdarwin.csv
+           operator_comparisons/commons-validator/removed_in_mediumdarwin.csv
+========== commons-validator compare finished at Thu May 21 10:41:55 JST 2026 ==========

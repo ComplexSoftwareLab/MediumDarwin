@@ -1,0 +1,2 @@
+file,line,operator,before,after,mutant_id,paper_category
+org/apache/commons/csv/CSVFormat.java,1808,NullifyReturnValue,return delimiter.toCharArray();,return null;,168,added_other

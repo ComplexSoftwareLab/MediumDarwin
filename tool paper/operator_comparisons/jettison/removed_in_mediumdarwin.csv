@@ -1,0 +1,2 @@
+file,line,operator,before,after,mutant_id,paper_category
+org/codehaus/jettison/AbstractXMLStreamReader.java,209,RemoveMethod,public char[] getTextCharacters() {,public char[] getTextCharacters() {,20,reduced_remove_method_other

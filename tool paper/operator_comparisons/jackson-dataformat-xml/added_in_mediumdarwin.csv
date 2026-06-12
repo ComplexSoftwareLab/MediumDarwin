@@ -1,0 +1,7 @@
+file,line,operator,before,after,mutant_id,paper_category
+com/fasterxml/jackson/dataformat/xml/ser/ToXmlGenerator.java,1070,NullifyReturnValue,return result;,return null;,1654,added_other
+com/fasterxml/jackson/dataformat/xml/ser/ToXmlGenerator.java,1055,NullifyReturnValue,return result;,return null;,1653,added_other
+com/fasterxml/jackson/dataformat/xml/deser/FromXmlParser.java,1077,NullifyReturnValue,return (text == null) ? null : text.toCharArray();,return null;,961,added_other
+com/fasterxml/jackson/dataformat/xml/deser/FromXmlParser.java,1141,NullifyReturnValue,return _binaryValue;,return null;,963,added_other
+com/fasterxml/jackson/dataformat/xml/deser/FromXmlParser.java,1150,NullifyReturnValue,return builder.toByteArray();,return null;,964,added_other
+com/fasterxml/jackson/dataformat/xml/ser/ToXmlGenerator.java,1049,NullifyReturnValue,return data;,return null;,1652,added_other

@@ -1,0 +1,5 @@
+file,line,operator,before,after,mutant_id,paper_category
+antomology/SeriesMap.java,10,RemoveMethod,public String[] getNames() {,public String[] getNames() {,8,reduced_remove_method_other
+antomology/Table.java,26,RemoveMethod,public int[] getMaxLengths() {,public int[] getMaxLengths() {,15,reduced_remove_method_other
+antomology/Series.java,23,RemoveMethod,public long[] getTimes() {,public long[] getTimes() {,14,reduced_remove_method_other
+antomology/Table.java,18,RemoveMethod,private int[] getHeaderLengths() {,private int[] getHeaderLengths() {,17,reduced_remove_method_other

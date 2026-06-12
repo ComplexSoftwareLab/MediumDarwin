@@ -422,3 +422,47 @@ Mutant comparison for antomology:
   Details: operator_comparisons/antomology/added_in_mediumdarwin.csv
            operator_comparisons/antomology/removed_in_mediumdarwin.csv
 ========== antomology finished at Tue May 19 17:54:02 JST 2026 ==========
+========== antomology compare-only at Thu May 21 10:37:05 JST 2026 ==========
+
+Comparing mutation operators: antomology -> operator_comparisons/antomology/
+Extracted 246 mutants -> operator_comparisons/antomology/littledarwin.csv
+Extracted 245 mutants -> operator_comparisons/antomology/mediumdarwin.csv
+Comparison written to /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/operator_comparisons/antomology
+  Original (LD): 246
+  MediumDarwin: 245
+  Reduced: 4  Added: 3  delta: -0.41%
+  (strict diff would show removed=11, added=14 — see strict_*.csv)
+Mutant comparison for antomology:
+  === Paper Table I (refined mutation operators) ===
+  Original (LittleDarwin): 246
+  MediumDarwin: 245
+  Reduced: 4
+  Added: 3
+  delta_percent: -0.41
+  check MD = Original - Reduced + Added: 245 (should equal 245)
+  
+  in_both_strict_match: 231
+  ld_only_sites: 0
+  md_only_sites: 3
+  
+    Reduced categories:
+      reduced_remove_method_other: 4
+    Reduced by operator:
+      RemoveMethod: 4
+  
+    Added categories:
+      added_other: 3
+    Added by operator:
+      NullifyReturnValue: 3
+  
+  === Strict before/after diff (misleading for relational ops) ===
+  strict_removed: 11
+  strict_added: 14
+    (LD uses '<'->'>='; MD uses '<'->'<=' — same site, not Reduced+Added)
+  
+  # Listing 1 examples:
+  #   reduced_nullify_final_param_non_compilable -> MUT0 (final param nullify)
+  #   added_remove_method_array_return -> MUT1 (array return RemoveMethod)
+  Details: operator_comparisons/antomology/added_in_mediumdarwin.csv
+           operator_comparisons/antomology/removed_in_mediumdarwin.csv
+========== antomology compare finished at Thu May 21 10:37:20 JST 2026 ==========

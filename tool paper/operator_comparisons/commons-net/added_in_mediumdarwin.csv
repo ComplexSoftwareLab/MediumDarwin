@@ -1,0 +1,34 @@
+file,line,operator,before,after,mutant_id,paper_category
+org/apache/commons/net/ftp/FTPSClient.java,932,NullifyReturnValue,"return Base64.getDecoder().decode(extractPrefixedData(""ADAT="", reply));",return null;,2301,added_other
+org/apache/commons/net/telnet/TelnetOptionHandler.java,237,NullifyReturnValue,return null;,return null;,5595,added_other
+org/apache/commons/net/util/Base64.java,218,NullifyReturnValue,"return encodeBase64Chunked(binaryData, CHUNK_SIZE, CHUNK_SEPARATOR);",return null;,6088,added_other
+org/apache/commons/net/util/Base64.java,115,NullifyReturnValue,return isEmpty(base64) ? base64 : getDecoder().decode(base64);,return null;,6078,added_other
+org/apache/commons/net/util/Base64.java,568,NullifyReturnValue,return isEmpty(source) ? source : getDecoder().decode(source);,return null;,6104,added_other
+org/apache/commons/net/ftp/FTPClient.java,322,NullifyReturnValue,"return new int[] { acksAcked, remain, notAcked, ioErrors }; // debug counts",return null; // debug counts,1488,added_other
+org/apache/commons/net/util/Base64.java,181,NullifyReturnValue,"return encodeBase64(binaryData, chunked, urlSafe, Integer.MAX_VALUE);",return null;,6085,added_other
+org/apache/commons/net/util/Base64.java,435,NullifyReturnValue,return resizedBytes;,return null;,6103,added_other
+org/apache/commons/net/tftp/TFTPDataPacket.java,120,NullifyReturnValue,return data;,return null;,5808,added_other
+org/apache/commons/net/util/Base64.java,282,NullifyReturnValue,return getUrlEncoder().withoutPadding().encode(binaryData);,return null;,6093,added_other
+org/apache/commons/net/telnet/TerminalTypeOptionHandler.java,90,NullifyReturnValue,return response;,return null;,5638,added_other
+org/apache/commons/net/util/Base64.java,144,NullifyReturnValue,"return lineLength > 0 ? encodeBase64Chunked(binaryData, lineLength, lineSeparator)",return null;,6082,added_other
+org/apache/commons/net/ftp/FTPClient.java,1572,NullifyReturnValue,return cslDebug;,return null;,1525,added_other
+org/apache/commons/net/telnet/WindowSizeOptionHandler.java,129,NullifyReturnValue,return response;,return null;,5664,added_other
+org/apache/commons/net/util/Base64.java,589,NullifyReturnValue,"return encode(source, lineLength, lineSeparator, isUrlSafe());",return null;,6106,added_other
+org/apache/commons/net/util/Base64.java,306,NullifyReturnValue,"return encodeBase64(toIntegerBytes(bigInt), false);",return null;,6095,added_other
+org/apache/commons/net/util/Base64.java,227,NullifyReturnValue,return dst;,return null;,6089,added_other
+org/apache/commons/net/util/Base64.java,126,NullifyReturnValue,return getDecoder().decode(base64);,return null;,6079,added_other
+org/apache/commons/net/util/Base64.java,421,NullifyReturnValue,return bigBytes;,return null;,6102,added_other
+org/apache/commons/net/util/Base64.java,142,NullifyReturnValue,return binaryData;,return null;,6081,added_other
+org/apache/commons/net/util/Base64.java,167,NullifyReturnValue,"return chunked ? encodeBase64Chunked(binaryData) : encodeBase64(binaryData, false, false);",return null;,6084,added_other
+org/apache/commons/net/util/SubnetUtils.java,202,NullifyReturnValue,return ret;,return null;,6315,added_other
+org/apache/commons/net/smtp/AuthenticatingSMTPClient.java,287,NullifyReturnValue,return res;,return null;,4970,added_other
+org/apache/commons/net/ftp/FTPSClient.java,930,NullifyReturnValue,return null;,return null;,2300,added_other
+org/apache/commons/net/util/Base64.java,608,NullifyReturnValue,return lineSeparator.clone();,return null;,6108,added_other
+org/apache/commons/net/telnet/TerminalTypeOptionHandler.java,93,NullifyReturnValue,return null;,return null;,5639,added_other
+org/apache/commons/net/util/Base64.java,204,NullifyReturnValue,return chunked ? encodeBase64Chunked(binaryData) : urlSafe ? encodeBase64URLSafe(binaryData) : encodeBase64(binaryData);,return null;,6087,added_other
+org/apache/commons/net/chargen/CharGenUDPClient.java,88,NullifyReturnValue,return result;,return null;,308,added_other
+org/apache/commons/net/util/Base64.java,579,NullifyReturnValue,return getDecoder().decode(source);,return null;,6105,added_other
+org/apache/commons/net/util/Base64.java,197,NullifyReturnValue,return binaryData;,return null;,6086,added_other
+org/apache/commons/net/util/Base64.java,155,NullifyReturnValue,return isEmpty(source) ? source : getEncoder().encode(source);,return null;,6083,added_other
+org/apache/commons/net/telnet/TelnetOptionHandler.java,92,NullifyReturnValue,return null;,return null;,5593,added_other
+org/apache/commons/net/telnet/TelnetOptionHandler.java,223,NullifyReturnValue,return null;,return null;,5594,added_other

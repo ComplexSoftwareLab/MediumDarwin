@@ -3238,3 +3238,49 @@ Mutant comparison for XChart:
   Details: operator_comparisons/XChart/added_in_mediumdarwin.csv
            operator_comparisons/XChart/removed_in_mediumdarwin.csv
 ========== XChart finished at Wed May 20 11:38:55 JST 2026 ==========
+========== XChart compare-only at Thu May 21 10:39:24 JST 2026 ==========
+
+Comparing mutation operators: XChart -> operator_comparisons/XChart/
+Extracted 7004 mutants -> operator_comparisons/XChart/littledarwin.csv
+Extracted 6997 mutants -> operator_comparisons/XChart/mediumdarwin.csv
+Comparison written to /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/operator_comparisons/XChart
+  Original (LD): 7004
+  MediumDarwin: 6997
+  Reduced: 41  Added: 34  delta: -0.10%
+  (strict diff would show removed=265, added=289 — see strict_*.csv)
+Mutant comparison for XChart:
+  === Paper Table I (refined mutation operators) ===
+  Original (LittleDarwin): 7004
+  MediumDarwin: 6997
+  Reduced: 41
+  Added: 34
+  delta_percent: -0.10
+  check MD = Original - Reduced + Added: 6997 (should equal 6997)
+  
+  in_both_strict_match: 6708
+  ld_only_sites: 10
+  md_only_sites: 34
+  
+    Reduced categories:
+      reduced_remove_method_other: 31
+      reduced_nullify_input_other_filter: 10
+    Reduced by operator:
+      RemoveMethod: 31
+      NullifyInputVariable: 10
+  
+    Added categories:
+      added_other: 34
+    Added by operator:
+      NullifyReturnValue: 34
+  
+  === Strict before/after diff (misleading for relational ops) ===
+  strict_removed: 265
+  strict_added: 289
+    (LD uses '<'->'>='; MD uses '<'->'<=' — same site, not Reduced+Added)
+  
+  # Listing 1 examples:
+  #   reduced_nullify_final_param_non_compilable -> MUT0 (final param nullify)
+  #   added_remove_method_array_return -> MUT1 (array return RemoveMethod)
+  Details: operator_comparisons/XChart/added_in_mediumdarwin.csv
+           operator_comparisons/XChart/removed_in_mediumdarwin.csv
+========== XChart compare finished at Thu May 21 10:46:24 JST 2026 ==========

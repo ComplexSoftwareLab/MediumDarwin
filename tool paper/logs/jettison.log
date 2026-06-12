@@ -966,3 +966,47 @@ Mutant comparison for jettison:
   Details: operator_comparisons/jettison/added_in_mediumdarwin.csv
            operator_comparisons/jettison/removed_in_mediumdarwin.csv
 ========== jettison finished at Tue May 19 17:41:37 JST 2026 ==========
+========== jettison compare-only at Thu May 21 10:37:09 JST 2026 ==========
+
+Comparing mutation operators: jettison -> operator_comparisons/jettison/
+Extracted 2211 mutants -> operator_comparisons/jettison/littledarwin.csv
+Extracted 2211 mutants -> operator_comparisons/jettison/mediumdarwin.csv
+Comparison written to /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/operator_comparisons/jettison
+  Original (LD): 2211
+  MediumDarwin: 2211
+  Reduced: 1  Added: 1  delta: 0.00%
+  (strict diff would show removed=106, added=107 — see strict_*.csv)
+Mutant comparison for jettison:
+  === Paper Table I (refined mutation operators) ===
+  Original (LittleDarwin): 2211
+  MediumDarwin: 2211
+  Reduced: 1
+  Added: 1
+  delta_percent: 0.00
+  check MD = Original - Reduced + Added: 2211 (should equal 2211)
+  
+  in_both_strict_match: 2104
+  ld_only_sites: 0
+  md_only_sites: 1
+  
+    Reduced categories:
+      reduced_remove_method_other: 1
+    Reduced by operator:
+      RemoveMethod: 1
+  
+    Added categories:
+      added_other: 1
+    Added by operator:
+      NullifyReturnValue: 1
+  
+  === Strict before/after diff (misleading for relational ops) ===
+  strict_removed: 106
+  strict_added: 107
+    (LD uses '<'->'>='; MD uses '<'->'<=' — same site, not Reduced+Added)
+  
+  # Listing 1 examples:
+  #   reduced_nullify_final_param_non_compilable -> MUT0 (final param nullify)
+  #   added_remove_method_array_return -> MUT1 (array return RemoveMethod)
+  Details: operator_comparisons/jettison/added_in_mediumdarwin.csv
+           operator_comparisons/jettison/removed_in_mediumdarwin.csv
+========== jettison compare finished at Thu May 21 10:40:17 JST 2026 ==========

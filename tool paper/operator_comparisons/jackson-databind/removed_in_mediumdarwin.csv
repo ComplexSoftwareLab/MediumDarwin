@@ -1,0 +1,153 @@
+file,line,operator,before,after,mutant_id,paper_category
+com/fasterxml/jackson/databind/jsontype/BasicPolymorphicTypeValidator.java,104,NullifyInputVariable,public Builder allowIfBaseType(final Class<?> baseOfBase) {,public Builder allowIfBaseType(final Class<?> baseOfBase) { baseOfBase = null;,76,reduced_nullify_final_param_non_compilable
+com/fasterxml/jackson/databind/PropertyNamingStrategies.java,132,NullifyInputVariable,{,{ input = null;,61,reduced_nullify_input_other_filter
+com/fasterxml/jackson/databind/ser/impl/SimpleBeanPropertyFilter.java,97,NullifyInputVariable,{,{ src = null;,44,reduced_nullify_input_other_filter
+com/fasterxml/jackson/databind/deser/std/PrimitiveArrayDeserializers.java,779,RemoveMethod,DeserializationContext ctxt) throws IOException {,DeserializationContext ctxt) throws IOException {,236,reduced_remove_method_other
+com/fasterxml/jackson/databind/jsontype/BasicPolymorphicTypeValidator.java,130,NullifyInputVariable,public Builder allowIfBaseType(final Pattern patternForBase) {,public Builder allowIfBaseType(final Pattern patternForBase) { patternForBase = null;,73,reduced_nullify_final_param_non_compilable
+com/fasterxml/jackson/databind/util/ArrayBuilders.java,109,RemoveMethod,public final short[] _constructArray(int len) { return new short[len]; },public final short[] _constructArray(int len) {,74,reduced_remove_method_other
+com/fasterxml/jackson/databind/util/BeanUtil.java,257,NullifyInputVariable,{,{ basename = null;,60,reduced_nullify_input_other_filter
+com/fasterxml/jackson/databind/deser/std/PrimitiveArrayDeserializers.java,335,RemoveMethod,"protected char[] _concat(char[] oldValue, char[] newValue) {","protected char[] _concat(char[] oldValue, char[] newValue) {",280,reduced_remove_method_other
+com/fasterxml/jackson/databind/deser/std/PrimitiveArrayDeserializers.java,628,RemoveMethod,"protected short[] _concat(short[] oldValue, short[] newValue) {","protected short[] _concat(short[] oldValue, short[] newValue) {",252,reduced_remove_method_other
+com/fasterxml/jackson/databind/deser/std/MapDeserializer.java,864,NullifyInputVariable,{,{ result = null;,193,reduced_nullify_input_other_filter
+com/fasterxml/jackson/databind/deser/std/FactoryBasedEnumDeserializer.java,224,NullifyInputVariable,{,{ p = null;,67,reduced_nullify_input_other_filter
+com/fasterxml/jackson/databind/deser/std/PrimitiveArrayDeserializers.java,888,RemoveMethod,{,{,220,reduced_remove_method_other
+com/fasterxml/jackson/databind/node/ObjectNode.java,518,NullifyInputVariable,{,{ ctxt = null;,246,reduced_nullify_input_other_filter
+com/fasterxml/jackson/databind/introspect/JacksonAnnotationIntrospector.java,935,NullifyInputVariable,{,{ baseType = null;,519,reduced_nullify_input_other_filter
+com/fasterxml/jackson/databind/AnnotationIntrospector.java,930,NullifyInputVariable,{,{ baseType = null;,148,reduced_nullify_input_other_filter
+com/fasterxml/jackson/databind/introspect/JacksonAnnotationIntrospector.java,247,RemoveMethod,{,{,736,reduced_remove_method_other
+com/fasterxml/jackson/databind/deser/std/JsonNodeDeserializer.java,434,NullifyInputVariable,{,{ stack = null;,155,reduced_nullify_input_other_filter
+com/fasterxml/jackson/databind/AnnotationIntrospector.java,1091,RemoveMethod,"Enum<?>[] enumValues, String[] names) {","Enum<?>[] enumValues, String[] names) {",256,reduced_remove_method_other
+com/fasterxml/jackson/databind/util/ArrayBuilders.java,131,RemoveMethod,public final float[] _constructArray(int len) { return new float[len]; },public final float[] _constructArray(int len) {,68,reduced_remove_method_other
+com/fasterxml/jackson/databind/util/NameTransformer.java,40,NullifyInputVariable,{,{ suffix = null;,43,reduced_nullify_input_other_filter
+com/fasterxml/jackson/databind/deser/std/StdDeserializer.java,1236,NullifyInputVariable,{,{ numStr = null;,464,reduced_nullify_input_other_filter
+com/fasterxml/jackson/databind/deser/std/PrimitiveArrayDeserializers.java,260,RemoveMethod,protected char[] _constructEmpty() {,protected char[] _constructEmpty() {,286,reduced_remove_method_other
+com/fasterxml/jackson/databind/deser/std/StdDeserializer.java,1247,NullifyInputVariable,{,{ numStr = null;,463,reduced_nullify_input_other_filter
+com/fasterxml/jackson/databind/ser/std/UUIDSerializer.java,150,RemoveMethod,{,{,43,reduced_remove_method_other
+com/fasterxml/jackson/databind/introspect/JacksonAnnotationIntrospector.java,212,RemoveMethod,"public String[] findEnumValues(Class<?> enumType, Enum<?>[] enumValues, String[] names) {","public String[] findEnumValues(Class<?> enumType, Enum<?>[] enumValues, String[] names) {",738,reduced_remove_method_other
+com/fasterxml/jackson/databind/node/BinaryNode.java,81,RemoveMethod,public byte[] binaryValue() { return _data; },public byte[] binaryValue() {,46,reduced_remove_method_other
+com/fasterxml/jackson/databind/deser/std/PrimitiveArrayDeserializers.java,623,RemoveMethod,DeserializationContext ctxt) throws IOException {,DeserializationContext ctxt) throws IOException {,254,reduced_remove_method_other
+com/fasterxml/jackson/databind/introspect/AnnotationIntrospectorPair.java,516,RemoveMethod,public String[] findSerializationPropertyOrder(AnnotatedClass ac) {,public String[] findSerializationPropertyOrder(AnnotatedClass ac) {,412,reduced_remove_method_other
+com/fasterxml/jackson/databind/deser/std/PrimitiveArrayDeserializers.java,581,RemoveMethod,protected short[] _constructEmpty() {,protected short[] _constructEmpty() {,258,reduced_remove_method_other
+com/fasterxml/jackson/databind/deser/std/UntypedObjectDeserializer.java,987,NullifyInputVariable,{,{ result = null;,248,reduced_nullify_input_other_filter
+com/fasterxml/jackson/databind/util/ArrayBuilders.java,123,RemoveMethod,public final long[] _constructArray(int len) { return new long[len]; },public final long[] _constructArray(int len) {,70,reduced_remove_method_other
+com/fasterxml/jackson/databind/node/TextNode.java,67,RemoveMethod,{,{,55,reduced_remove_method_other
+com/fasterxml/jackson/databind/deser/BeanDeserializer.java,422,NullifyInputVariable,{,{ ctxt = null;,283,reduced_nullify_input_other_filter
+com/fasterxml/jackson/databind/deser/std/MapDeserializer.java,864,NullifyInputVariable,{,{ oldValue = null;,191,reduced_nullify_input_other_filter
+com/fasterxml/jackson/databind/deser/std/UntypedObjectDeserializerNR.java,402,NullifyInputVariable,{,{ result = null;,138,reduced_nullify_input_other_filter
+com/fasterxml/jackson/databind/jsontype/BasicPolymorphicTypeValidator.java,252,NullifyInputVariable,public Builder allowIfSubType(final String prefixForSubType) {,public Builder allowIfSubType(final String prefixForSubType) { prefixForSubType = null;,59,reduced_nullify_final_param_non_compilable
+com/fasterxml/jackson/databind/util/ArrayBuilders.java,102,RemoveMethod,public final byte[] _constructArray(int len) { return new byte[len]; },public final byte[] _constructArray(int len) {,76,reduced_remove_method_other
+com/fasterxml/jackson/databind/deser/std/FactoryBasedEnumDeserializer.java,224,NullifyInputVariable,{,{ creator = null;,65,reduced_nullify_input_other_filter
+com/fasterxml/jackson/databind/deser/std/PrimitiveArrayDeserializers.java,464,RemoveMethod,{,{,265,reduced_remove_method_other
+com/fasterxml/jackson/databind/ser/impl/UnwrappingBeanPropertyWriter.java,159,NullifyInputVariable,{,{ visitor = null;,34,reduced_nullify_input_other_filter
+com/fasterxml/jackson/databind/deser/impl/PropertyValueBuffer.java,331,NullifyInputVariable,{,{ ctxt = null;,94,reduced_nullify_input_other_filter
+com/fasterxml/jackson/databind/util/TokenBuffer.java,2068,RemoveMethod,{,{,483,reduced_remove_method_other
+com/fasterxml/jackson/databind/ext/DOMSerializer.java,73,NullifyInputVariable,"final String name, final Object value) {","final String name, final Object value) { transformerFactory = null;",6,reduced_nullify_final_param_non_compilable
+com/fasterxml/jackson/databind/deser/BeanDeserializer.java,422,NullifyInputVariable,{,{ p = null;,284,reduced_nullify_input_other_filter
+com/fasterxml/jackson/databind/util/ArrayBuilders.java,158,NullifyInputVariable,{,{ defaultValue = null;,49,reduced_nullify_input_other_filter
+com/fasterxml/jackson/databind/introspect/JacksonAnnotationIntrospector.java,1310,NullifyInputVariable,{,{ a = null;,492,reduced_nullify_input_other_filter
+com/fasterxml/jackson/databind/introspect/JacksonAnnotationIntrospector.java,1310,NullifyInputVariable,{,{ config = null;,493,reduced_nullify_input_other_filter
+com/fasterxml/jackson/databind/ObjectReader.java,2233,NullifyInputVariable,"protected JsonParser _considerFilter(final JsonParser p, boolean multiValue) {","protected JsonParser _considerFilter(final JsonParser p, boolean multiValue) { p = null;",323,reduced_nullify_final_param_non_compilable
+com/fasterxml/jackson/databind/node/NodeSerialization.java,56,RemoveMethod,"private byte[] _read(ObjectInput in, int expLen) throws IOException {","private byte[] _read(ObjectInput in, int expLen) throws IOException {",18,reduced_remove_method_other
+com/fasterxml/jackson/databind/util/ArrayBuilders.java,116,RemoveMethod,public final int[] _constructArray(int len) { return new int[len]; },public final int[] _constructArray(int len) {,72,reduced_remove_method_other
+com/fasterxml/jackson/databind/jsontype/BasicPolymorphicTypeValidator.java,207,NullifyInputVariable,public Builder allowIfSubType(final Class<?> subTypeBase) {,public Builder allowIfSubType(final Class<?> subTypeBase) { subTypeBase = null;,65,reduced_nullify_final_param_non_compilable
+com/fasterxml/jackson/databind/deser/std/PrimitiveArrayDeserializers.java,855,RemoveMethod,"protected float[] _concat(float[] oldValue, float[] newValue) {","protected float[] _concat(float[] oldValue, float[] newValue) {",225,reduced_remove_method_other
+com/fasterxml/jackson/databind/node/POJONode.java,44,RemoveMethod,{,{,48,reduced_remove_method_other
+com/fasterxml/jackson/databind/deser/std/StringArrayDeserializer.java,253,RemoveMethod,{,{,89,reduced_remove_method_other
+com/fasterxml/jackson/databind/deser/std/UntypedObjectDeserializer.java,549,NullifyInputVariable,{,{ result = null;,288,reduced_nullify_input_other_filter
+com/fasterxml/jackson/databind/deser/std/PrimitiveArrayDeserializers.java,663,RemoveMethod,{,{,247,reduced_remove_method_other
+com/fasterxml/jackson/databind/ObjectMapper.java,4074,RemoveMethod,{,{,832,reduced_remove_method_other
+com/fasterxml/jackson/databind/deser/std/PrimitiveArrayDeserializers.java,375,RemoveMethod,{,{,275,reduced_remove_method_other
+com/fasterxml/jackson/databind/deser/std/PrimitiveArrayDeserializers.java,532,RemoveMethod,{,{,263,reduced_remove_method_other
+com/fasterxml/jackson/databind/deser/BasicDeserializerFactory.java,750,NullifyInputVariable,{,{ beanDesc = null;,524,reduced_nullify_input_other_filter
+com/fasterxml/jackson/databind/deser/std/PrimitiveArrayDeserializers.java,329,RemoveMethod,DeserializationContext ctxt) throws IOException {,DeserializationContext ctxt) throws IOException {,282,reduced_remove_method_other
+com/fasterxml/jackson/databind/deser/std/PrimitiveArrayDeserializers.java,554,RemoveMethod,"protected byte[] _concat(byte[] oldValue, byte[] newValue) {","protected byte[] _concat(byte[] oldValue, byte[] newValue) {",261,reduced_remove_method_other
+com/fasterxml/jackson/databind/introspect/JacksonAnnotationIntrospector.java,1310,NullifyInputVariable,{,{ baseType = null;,491,reduced_nullify_input_other_filter
+com/fasterxml/jackson/databind/deser/std/PrimitiveArrayDeserializers.java,451,RemoveMethod,protected byte[] _constructEmpty() {,protected byte[] _constructEmpty() {,268,reduced_remove_method_other
+com/fasterxml/jackson/databind/AnnotationIntrospector.java,944,RemoveMethod,public String[] findSerializationPropertyOrder(AnnotatedClass ac) {,public String[] findSerializationPropertyOrder(AnnotatedClass ac) {,266,reduced_remove_method_other
+com/fasterxml/jackson/databind/cfg/MapperBuilder.java,394,NullifyInputVariable,"private static <T> ServiceLoader<T> secureGetServiceLoader(final Class<T> clazz, final ClassLoader classLoader) {","private static <T> ServiceLoader<T> secureGetServiceLoader(final Class<T> clazz, final ClassLoader classLoader) { classLoader = null;",132,reduced_nullify_final_param_non_compilable
+com/fasterxml/jackson/databind/deser/std/PrimitiveArrayDeserializers.java,415,RemoveMethod,DeserializationContext ctxt) throws IOException {,DeserializationContext ctxt) throws IOException {,273,reduced_remove_method_other
+com/fasterxml/jackson/databind/jdk14/JDK14Util.java,30,RemoveMethod,public static String[] getRecordFieldNames(Class<?> recordType) {,public static String[] getRecordFieldNames(Class<?> recordType) {,87,reduced_remove_method_other
+com/fasterxml/jackson/databind/ObjectMapper.java,1166,NullifyInputVariable,"private static <T> ServiceLoader<T> secureGetServiceLoader(final Class<T> clazz, final ClassLoader classLoader) {","private static <T> ServiceLoader<T> secureGetServiceLoader(final Class<T> clazz, final ClassLoader classLoader) { classLoader = null;",664,reduced_nullify_final_param_non_compilable
+com/fasterxml/jackson/databind/deser/std/PrimitiveArrayDeserializers.java,266,RemoveMethod,{,{,284,reduced_remove_method_other
+com/fasterxml/jackson/databind/deser/std/PrimitiveArrayDeserializers.java,817,RemoveMethod,{,{,229,reduced_remove_method_other
+com/fasterxml/jackson/databind/deser/std/MapDeserializer.java,864,NullifyInputVariable,{,{ key = null;,192,reduced_nullify_input_other_filter
+com/fasterxml/jackson/databind/util/NameTransformer.java,40,NullifyInputVariable,{,{ prefix = null;,44,reduced_nullify_input_other_filter
+com/fasterxml/jackson/databind/deser/std/JsonNodeDeserializer.java,528,NullifyInputVariable,{,{ root = null;,150,reduced_nullify_input_other_filter
+com/fasterxml/jackson/databind/util/EnumResolver.java,537,NullifyInputVariable,protected Enum<?> _findEnumCaseInsensitive(final String key) {,protected Enum<?> _findEnumCaseInsensitive(final String key) { key = null;,90,reduced_nullify_final_param_non_compilable
+com/fasterxml/jackson/databind/jsontype/BasicPolymorphicTypeValidator.java,150,NullifyInputVariable,public Builder allowIfBaseType(final String prefixForBase) {,public Builder allowIfBaseType(final String prefixForBase) { prefixForBase = null;,70,reduced_nullify_final_param_non_compilable
+com/fasterxml/jackson/databind/JsonNode.java,890,NullifyInputVariable,public final JsonNode requiredAt(final JsonPointer path) throws IllegalArgumentException {,public final JsonNode requiredAt(final JsonPointer path) throws IllegalArgumentException { path = null;,93,reduced_nullify_final_param_non_compilable
+com/fasterxml/jackson/databind/deser/impl/BeanAsArrayBuilderDeserializer.java,270,NullifyInputVariable,{,{ ctxt = null;,64,reduced_nullify_input_other_filter
+com/fasterxml/jackson/databind/deser/std/PrimitiveArrayDeserializers.java,920,RemoveMethod,DeserializationContext ctxt) throws IOException {,DeserializationContext ctxt) throws IOException {,218,reduced_remove_method_other
+com/fasterxml/jackson/databind/deser/std/JsonNodeDeserializer.java,396,NullifyInputVariable,{,{ nodeFactory = null;,160,reduced_nullify_input_other_filter
+com/fasterxml/jackson/databind/jsontype/BasicPolymorphicTypeValidator.java,186,NullifyInputVariable,public Builder denyForExactBaseType(final Class<?> baseTypeToDeny) {,public Builder denyForExactBaseType(final Class<?> baseTypeToDeny) { baseTypeToDeny = null;,68,reduced_nullify_final_param_non_compilable
+com/fasterxml/jackson/databind/deser/std/StringCollectionDeserializer.java,230,NullifyInputVariable,{,{ deser = null;,72,reduced_nullify_input_other_filter
+com/fasterxml/jackson/databind/introspect/DefaultAccessorNamingStrategy.java,162,NullifyInputVariable,{,{ basename = null;,93,reduced_nullify_input_other_filter
+com/fasterxml/jackson/databind/deser/impl/BeanAsArrayBuilderDeserializer.java,270,NullifyInputVariable,{,{ p = null;,65,reduced_nullify_input_other_filter
+com/fasterxml/jackson/databind/ObjectMapper.java,1166,NullifyInputVariable,"private static <T> ServiceLoader<T> secureGetServiceLoader(final Class<T> clazz, final ClassLoader classLoader) {","private static <T> ServiceLoader<T> secureGetServiceLoader(final Class<T> clazz, final ClassLoader classLoader) { clazz = null;",665,reduced_nullify_final_param_non_compilable
+com/fasterxml/jackson/databind/introspect/DefaultAccessorNamingStrategy.java,199,NullifyInputVariable,{,{ basename = null;,92,reduced_nullify_input_other_filter
+com/fasterxml/jackson/databind/deser/impl/BeanAsArrayDeserializer.java,286,NullifyInputVariable,{,{ ctxt = null;,71,reduced_nullify_input_other_filter
+com/fasterxml/jackson/databind/util/internal/LinkedDeque.java,75,NullifyInputVariable,void linkFirst(final E e) {,void linkFirst(final E e) { e = null;,74,reduced_nullify_final_param_non_compilable
+com/fasterxml/jackson/databind/introspect/JacksonAnnotationIntrospector.java,1054,RemoveMethod,public String[] findSerializationPropertyOrder(AnnotatedClass ac) {,public String[] findSerializationPropertyOrder(AnnotatedClass ac) {,678,reduced_remove_method_other
+com/fasterxml/jackson/databind/ObjectReader.java,627,NullifyInputVariable,public ObjectReader at(final String pointerExpr) {,public ObjectReader at(final String pointerExpr) { pointerExpr = null;,433,reduced_nullify_final_param_non_compilable
+com/fasterxml/jackson/databind/deser/std/PrimitiveArrayDeserializers.java,735,RemoveMethod,protected long[] _constructEmpty() {,protected long[] _constructEmpty() {,240,reduced_remove_method_other
+com/fasterxml/jackson/databind/jdk14/JDK14Util.java,135,RemoveMethod,{,{,81,reduced_remove_method_other
+com/fasterxml/jackson/databind/jsontype/BasicPolymorphicTypeValidator.java,272,NullifyInputVariable,public Builder allowIfSubType(final TypeMatcher matcher) {,public Builder allowIfSubType(final TypeMatcher matcher) { matcher = null;,58,reduced_nullify_final_param_non_compilable
+com/fasterxml/jackson/databind/deser/BasicDeserializerFactory.java,1039,NullifyInputVariable,{,{ beanDesc = null;,508,reduced_nullify_input_other_filter
+com/fasterxml/jackson/databind/deser/impl/BeanAsArrayDeserializer.java,286,NullifyInputVariable,{,{ p = null;,72,reduced_nullify_input_other_filter
+com/fasterxml/jackson/databind/cfg/MapperBuilder.java,394,NullifyInputVariable,"private static <T> ServiceLoader<T> secureGetServiceLoader(final Class<T> clazz, final ClassLoader classLoader) {","private static <T> ServiceLoader<T> secureGetServiceLoader(final Class<T> clazz, final ClassLoader classLoader) { clazz = null;",133,reduced_nullify_final_param_non_compilable
+com/fasterxml/jackson/databind/JsonNode.java,511,RemoveMethod,public byte[] binaryValue() throws IOException {,public byte[] binaryValue() throws IOException {,180,reduced_remove_method_other
+com/fasterxml/jackson/databind/deser/std/PrimitiveArrayDeserializers.java,706,RemoveMethod,"protected int[] _concat(int[] oldValue, int[] newValue) {","protected int[] _concat(int[] oldValue, int[] newValue) {",243,reduced_remove_method_other
+com/fasterxml/jackson/databind/deser/std/PrimitiveArrayDeserializers.java,657,RemoveMethod,protected int[] _constructEmpty() {,protected int[] _constructEmpty() {,249,reduced_remove_method_other
+com/fasterxml/jackson/databind/deser/std/PrimitiveArrayDeserializers.java,850,RemoveMethod,DeserializationContext ctxt) throws IOException {,DeserializationContext ctxt) throws IOException {,227,reduced_remove_method_other
+com/fasterxml/jackson/databind/ext/DOMSerializer.java,73,NullifyInputVariable,"final String name, final Object value) {","final String name, final Object value) { value = null;",4,reduced_nullify_final_param_non_compilable
+com/fasterxml/jackson/databind/deser/std/PrimitiveArrayDeserializers.java,741,RemoveMethod,{,{,238,reduced_remove_method_other
+com/fasterxml/jackson/databind/ext/DOMSerializer.java,73,NullifyInputVariable,"final String name, final Object value) {","final String name, final Object value) { name = null;",5,reduced_nullify_final_param_non_compilable
+com/fasterxml/jackson/databind/jsontype/BasicPolymorphicTypeValidator.java,170,NullifyInputVariable,public Builder allowIfBaseType(final TypeMatcher matcher) {,public Builder allowIfBaseType(final TypeMatcher matcher) { matcher = null;,69,reduced_nullify_final_param_non_compilable
+com/fasterxml/jackson/databind/deser/std/StringArrayDeserializer.java,140,RemoveMethod,{,{,94,reduced_remove_method_other
+com/fasterxml/jackson/databind/introspect/AnnotationIntrospectorPair.java,581,RemoveMethod,"Enum<?>[] enumValues, String[] names) {","Enum<?>[] enumValues, String[] names) {",402,reduced_remove_method_other
+com/fasterxml/jackson/databind/deser/BuilderBasedDeserializer.java,364,NullifyInputVariable,{,{ ctxt = null;,196,reduced_nullify_input_other_filter
+com/fasterxml/jackson/databind/deser/std/PrimitiveArrayDeserializers.java,587,RemoveMethod,{,{,256,reduced_remove_method_other
+com/fasterxml/jackson/databind/deser/std/StringArrayDeserializer.java,190,RemoveMethod,{,{,92,reduced_remove_method_other
+com/fasterxml/jackson/databind/deser/std/JsonNodeDeserializer.java,396,NullifyInputVariable,{,{ stack = null;,159,reduced_nullify_input_other_filter
+com/fasterxml/jackson/databind/deser/std/PrimitiveArrayDeserializers.java,701,RemoveMethod,DeserializationContext ctxt) throws IOException {,DeserializationContext ctxt) throws IOException {,245,reduced_remove_method_other
+com/fasterxml/jackson/databind/deser/std/JsonNodeDeserializer.java,434,NullifyInputVariable,{,{ node = null;,156,reduced_nullify_input_other_filter
+com/fasterxml/jackson/databind/deser/BuilderBasedDeserializer.java,364,NullifyInputVariable,{,{ p = null;,197,reduced_nullify_input_other_filter
+com/fasterxml/jackson/databind/deser/std/PrimitiveArrayDeserializers.java,784,RemoveMethod,"protected long[] _concat(long[] oldValue, long[] newValue) {","protected long[] _concat(long[] oldValue, long[] newValue) {",234,reduced_remove_method_other
+com/fasterxml/jackson/databind/AnnotationIntrospector.java,1311,NullifyInputVariable,{,{ a = null;,111,reduced_nullify_input_other_filter
+com/fasterxml/jackson/databind/PropertyNamingStrategy.java,245,NullifyInputVariable,{,{ input = null;,55,reduced_nullify_input_other_filter
+com/fasterxml/jackson/databind/AnnotationIntrospector.java,1070,RemoveMethod,"public String[] findEnumValues(Class<?> enumType, Enum<?>[] enumValues, String[] names) {","public String[] findEnumValues(Class<?> enumType, Enum<?>[] enumValues, String[] names) {",258,reduced_remove_method_other
+com/fasterxml/jackson/databind/deser/std/PrimitiveArrayDeserializers.java,420,RemoveMethod,"protected boolean[] _concat(boolean[] oldValue, boolean[] newValue) {","protected boolean[] _concat(boolean[] oldValue, boolean[] newValue) {",271,reduced_remove_method_other
+com/fasterxml/jackson/databind/deser/std/PrimitiveArrayDeserializers.java,368,RemoveMethod,protected boolean[] _constructEmpty() {,protected boolean[] _constructEmpty() {,277,reduced_remove_method_other
+com/fasterxml/jackson/databind/deser/std/MapDeserializer.java,864,NullifyInputVariable,{,{ ctxt = null;,194,reduced_nullify_input_other_filter
+com/fasterxml/jackson/databind/util/TokenBuffer.java,1789,RemoveMethod,public char[] getTextCharacters() {,public char[] getTextCharacters() {,517,reduced_remove_method_other
+com/fasterxml/jackson/databind/util/ArrayBuilders.java,94,RemoveMethod,public final boolean[] _constructArray(int len) { return new boolean[len]; },public final boolean[] _constructArray(int len) {,78,reduced_remove_method_other
+com/fasterxml/jackson/databind/node/InternalNodeMapper.java,112,NullifyInputVariable,{,{ rootIterator = null;,16,reduced_nullify_input_other_filter
+com/fasterxml/jackson/databind/node/TreeTraversingParser.java,234,RemoveMethod,public char[] getTextCharacters() throws IOException {,public char[] getTextCharacters() throws IOException {,114,reduced_remove_method_other
+com/fasterxml/jackson/databind/deser/std/PrimitiveArrayDeserializers.java,925,RemoveMethod,"protected double[] _concat(double[] oldValue, double[] newValue) {","protected double[] _concat(double[] oldValue, double[] newValue) {",216,reduced_remove_method_other
+com/fasterxml/jackson/databind/AnnotationIntrospector.java,930,NullifyInputVariable,{,{ a = null;,149,reduced_nullify_input_other_filter
+com/fasterxml/jackson/databind/jsontype/BasicPolymorphicTypeValidator.java,232,NullifyInputVariable,public Builder allowIfSubType(final Pattern patternForSubType) {,public Builder allowIfSubType(final Pattern patternForSubType) { patternForSubType = null;,62,reduced_nullify_final_param_non_compilable
+com/fasterxml/jackson/databind/node/ObjectNode.java,518,NullifyInputVariable,{,{ g = null;,247,reduced_nullify_input_other_filter
+com/fasterxml/jackson/databind/deser/std/StringArrayDeserializer.java,307,RemoveMethod,{,{,87,reduced_remove_method_other
+com/fasterxml/jackson/databind/AnnotationIntrospector.java,1311,NullifyInputVariable,{,{ config = null;,112,reduced_nullify_input_other_filter
+com/fasterxml/jackson/databind/util/internal/LinkedDeque.java,93,NullifyInputVariable,void linkLast(final E e) {,void linkLast(final E e) { e = null;,73,reduced_nullify_final_param_non_compilable
+com/fasterxml/jackson/databind/deser/std/PrimitiveArrayDeserializers.java,882,RemoveMethod,protected double[] _constructEmpty() {,protected double[] _constructEmpty() {,222,reduced_remove_method_other
+com/fasterxml/jackson/databind/ObjectReader.java,637,NullifyInputVariable,public ObjectReader at(final JsonPointer pointer) {,public ObjectReader at(final JsonPointer pointer) { pointer = null;,432,reduced_nullify_final_param_non_compilable
+com/fasterxml/jackson/databind/deser/BasicDeserializerFactory.java,886,NullifyInputVariable,{,{ beanDesc = null;,516,reduced_nullify_input_other_filter
+com/fasterxml/jackson/databind/deser/std/UntypedObjectDeserializerNR.java,378,NullifyInputVariable,{,{ result = null;,143,reduced_nullify_input_other_filter
+com/fasterxml/jackson/databind/node/TextNode.java,89,RemoveMethod,public byte[] binaryValue() throws IOException {,public byte[] binaryValue() throws IOException {,53,reduced_remove_method_other
+com/fasterxml/jackson/databind/ObjectWriter.java,1162,RemoveMethod,{,{,330,reduced_remove_method_other
+com/fasterxml/jackson/databind/util/BeanUtil.java,223,NullifyInputVariable,{,{ basename = null;,61,reduced_nullify_input_other_filter
+com/fasterxml/jackson/databind/introspect/JacksonAnnotationIntrospector.java,935,NullifyInputVariable,{,{ a = null;,520,reduced_nullify_input_other_filter
+com/fasterxml/jackson/databind/introspect/AnnotationIntrospectorPair.java,572,RemoveMethod,"public String[] findEnumValues(Class<?> enumType, Enum<?>[] enumValues, String[] names) {","public String[] findEnumValues(Class<?> enumType, Enum<?>[] enumValues, String[] names) {",404,reduced_remove_method_other
+com/fasterxml/jackson/databind/node/TreeTraversingParser.java,364,RemoveMethod,{,{,90,reduced_remove_method_other
+com/fasterxml/jackson/databind/node/InternalNodeMapper.java,50,RemoveMethod,public static byte[] valueToBytes(Object value) throws IOException {,public static byte[] valueToBytes(Object value) throws IOException {,45,reduced_remove_method_other
+com/fasterxml/jackson/databind/introspect/JacksonAnnotationIntrospector.java,935,NullifyInputVariable,{,{ config = null;,521,reduced_nullify_input_other_filter
+com/fasterxml/jackson/databind/AnnotationIntrospector.java,930,NullifyInputVariable,{,{ config = null;,150,reduced_nullify_input_other_filter
+com/fasterxml/jackson/databind/deser/std/PrimitiveArrayDeserializers.java,811,RemoveMethod,protected float[] _constructEmpty() {,protected float[] _constructEmpty() {,231,reduced_remove_method_other
+com/fasterxml/jackson/databind/deser/std/MapDeserializer.java,864,NullifyInputVariable,{,{ newValue = null;,190,reduced_nullify_input_other_filter
+com/fasterxml/jackson/databind/AnnotationIntrospector.java,1311,NullifyInputVariable,{,{ baseType = null;,110,reduced_nullify_input_other_filter
+com/fasterxml/jackson/databind/util/EnumResolver.java,526,NullifyInputVariable,public Enum<?> findEnum(final String key) {,public Enum<?> findEnum(final String key) { key = null;,91,reduced_nullify_final_param_non_compilable
+com/fasterxml/jackson/databind/util/ArrayBuilders.java,138,RemoveMethod,public final double[] _constructArray(int len) { return new double[len]; },public final double[] _constructArray(int len) {,66,reduced_remove_method_other
+com/fasterxml/jackson/databind/deser/std/UntypedObjectDeserializer.java,963,NullifyInputVariable,{,{ result = null;,253,reduced_nullify_input_other_filter
+com/fasterxml/jackson/databind/deser/std/UntypedObjectDeserializer.java,572,NullifyInputVariable,{,{ result = null;,283,reduced_nullify_input_other_filter
+com/fasterxml/jackson/databind/deser/std/FactoryBasedEnumDeserializer.java,224,NullifyInputVariable,{,{ ctxt = null;,66,reduced_nullify_input_other_filter

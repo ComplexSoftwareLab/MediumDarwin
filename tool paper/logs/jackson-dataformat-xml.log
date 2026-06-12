@@ -1066,3 +1066,47 @@ Mutant comparison for jackson-dataformat-xml:
   Details: operator_comparisons/jackson-dataformat-xml/added_in_mediumdarwin.csv
            operator_comparisons/jackson-dataformat-xml/removed_in_mediumdarwin.csv
 ========== jackson-dataformat-xml finished at Tue May 19 17:52:16 JST 2026 ==========
+========== jackson-dataformat-xml compare-only at Thu May 21 10:37:05 JST 2026 ==========
+
+Comparing mutation operators: jackson-dataformat-xml -> operator_comparisons/jackson-dataformat-xml/
+Extracted 2572 mutants -> operator_comparisons/jackson-dataformat-xml/littledarwin.csv
+Extracted 2573 mutants -> operator_comparisons/jackson-dataformat-xml/mediumdarwin.csv
+Comparison written to /mnt/d/Education/03- PhD/02- TCD/Code/MediumDarwin_private/tool paper/operator_comparisons/jackson-dataformat-xml
+  Original (LD): 2572
+  MediumDarwin: 2573
+  Reduced: 5  Added: 6  delta: 0.04%
+  (strict diff would show removed=54, added=60 — see strict_*.csv)
+Mutant comparison for jackson-dataformat-xml:
+  === Paper Table I (refined mutation operators) ===
+  Original (LittleDarwin): 2572
+  MediumDarwin: 2573
+  Reduced: 5
+  Added: 6
+  delta_percent: 0.04
+  check MD = Original - Reduced + Added: 2573 (should equal 2573)
+  
+  in_both_strict_match: 2513
+  ld_only_sites: 0
+  md_only_sites: 6
+  
+    Reduced categories:
+      reduced_remove_method_other: 5
+    Reduced by operator:
+      RemoveMethod: 5
+  
+    Added categories:
+      added_other: 6
+    Added by operator:
+      NullifyReturnValue: 6
+  
+  === Strict before/after diff (misleading for relational ops) ===
+  strict_removed: 54
+  strict_added: 60
+    (LD uses '<'->'>='; MD uses '<'->'<=' — same site, not Reduced+Added)
+  
+  # Listing 1 examples:
+  #   reduced_nullify_final_param_non_compilable -> MUT0 (final param nullify)
+  #   added_remove_method_array_return -> MUT1 (array return RemoveMethod)
+  Details: operator_comparisons/jackson-dataformat-xml/added_in_mediumdarwin.csv
+           operator_comparisons/jackson-dataformat-xml/removed_in_mediumdarwin.csv
+========== jackson-dataformat-xml compare finished at Thu May 21 10:40:51 JST 2026 ==========

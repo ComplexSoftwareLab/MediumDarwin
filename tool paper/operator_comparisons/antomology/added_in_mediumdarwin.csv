@@ -1,0 +1,4 @@
+file,line,operator,before,after,mutant_id,paper_category
+antomology/Series.java,28,NullifyReturnValue,return times;,return null;,39,added_other
+antomology/Table.java,27,NullifyReturnValue,return maxLengths;,return null;,191,added_other
+antomology/Table.java,23,NullifyReturnValue,return lengths;,return null;,190,added_other
