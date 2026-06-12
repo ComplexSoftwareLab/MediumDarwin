@@ -1,5 +1,6 @@
 import fnmatch
 import io
+"""I/O utilities for Java source discovery, reading, and writing."""
 import os
 import shutil
 from typing import Dict, List
@@ -97,6 +98,9 @@ class JavaIO(object):
                 self.fileList.append(os.path.join(root, filename))
 
         self.filterFiles(mode=filterType, filterList=filterList)
+
+        # Sort fileList to ensure consistent ordering across platforms
+        self.fileList.sort()
 
         if not os.path.exists(self.targetDirectory):
             os.makedirs(self.targetDirectory)
@@ -222,7 +226,8 @@ class JavaIO(object):
             os.path.join(targetDir, str(mutatedFile.mutantID) + ".java")
         )
         with open(targetFile, "w") as contentFile:
-            contentFile.write(mutatedFile.stub + mutatedFile.mutatedCode)
+            contentFile.write(mutatedFile.mutatedCode +
+                              "\n" + mutatedFile.stub)
 
         if self.verbose:
             print("--> generated file: ", targetFile)

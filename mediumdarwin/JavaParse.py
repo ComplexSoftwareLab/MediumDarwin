@@ -1,3 +1,4 @@
+"""High-level helpers for parsing Java code using ANTLR-generated classes."""
 from typing import Dict
 
 from antlr4 import *
