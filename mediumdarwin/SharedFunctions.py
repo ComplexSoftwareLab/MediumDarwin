@@ -700,7 +700,7 @@ def timeoutAlternative(
             # pipe.terminate()
             try:
                 os.killpg(os.getpgid(pipe.pid), signal.SIGTERM)
-            except:
+            except Exception:
                 os.kill(pipe.pid, signal.SIGTERM)
 
         # we just killed the process. let everyone know.
@@ -802,7 +802,7 @@ def timeoutAlternative(
         process.kill()
         process.terminate()
         process.wait()
-    except:
+    except Exception:
         print("error killing process")
 
     if failMessage != None:

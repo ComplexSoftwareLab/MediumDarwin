@@ -698,7 +698,7 @@ class MediumDarwin:
         try:
             # mutationDatabase = shelve.open(databasePath, "r")
             mutationDatabase2 = Database(self.sqlDBPath)
-        except:
+        except Exception:
             print(
                 "Cannot open mutation database. It may be corrupted or unavailable. Delete all generated files and run the mutant generation phase again."
             )

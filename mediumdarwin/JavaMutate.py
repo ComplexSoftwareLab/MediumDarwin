@@ -920,7 +920,7 @@ class NullifyObjectInitialization(MutationOperator):
                 if argumentsStatement.children[-1].symbol.text != ")":
                     continue
 
-            except:
+            except Exception:
                 continue
 
             self.mutableNodes.append(node)
