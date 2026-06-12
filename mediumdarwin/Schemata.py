@@ -1234,7 +1234,9 @@ class Schemata:
             # ? for debugging purposes
             if (debug):
                 json_ = java_parse.tree2JSON_DFS(tree)
-                f = open("C:/img/treetostring.json", "w")
+                f = open(
+                    os.path.join(self.LittleDarwinResultsPath,
+                                 os.path.basename(file) + "-tree.json"), "w")
                 f.write(json_)
                 f.close()
                 java8_mutate_test = JavaMutate(
