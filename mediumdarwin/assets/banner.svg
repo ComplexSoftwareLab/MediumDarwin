@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 649 200" width="649" height="200" role="img" aria-labelledby="md-banner-title md-banner-desc">
+  <title id="md-banner-title">MediumDarwin</title>
+  <desc id="md-banner-desc">Mutation testing for Java</desc>
+  <style type="text/css"><![CDATA[
+    .md-mutation {
+      animation: kf_5_5_opacity_0 2s linear;
+      animation-iteration-count: infinite;
+    }
+    @keyframes kf_5_5_opacity_0 {
+      0% { animation-timing-function: step-end; opacity: 1; }
+      25% { animation-timing-function: step-end; opacity: 0; }
+      50% { animation-timing-function: step-end; opacity: 1; }
+      75% { animation-timing-function: step-end; opacity: 0; }
+      100% { opacity: 1; }
+    }
+  ]]></style>
+  <rect width="649" height="200" fill="#182B2A"/>
+  <g transform="translate(36.65 48)">
+    <path fill="#FFFFFF" d="M0.3092 0.0744554C5.95983 -0.0230186 12.0226 -0.0122464 17.6691 0.0828109L17.6747 11.7902C22.5118 18.4785 27.3186 25.2042 32.0948 31.9671L37.0572 38.9252C37.9138 40.1201 39.0909 41.6462 39.8598 42.8901C44.8027 36.2948 49.578 28.7486 54.5232 22.1498L62.0048 22.1361L62.0133 24.4326L79.39 24.4367L79.3953 103.917C77.5624 104.003 75.3904 103.932 73.5367 103.932H61.9894L61.9779 54.0701C61.9664 50.1027 61.9764 46.1346 62.0079 42.167C54.5609 52.3603 47.3091 63.2375 39.8482 73.4018L17.6578 42.1075C17.8019 48.9652 17.6728 56.6117 17.6713 63.5134L17.6657 103.918L0.0587852 103.936C-0.0365516 93.9619 -0.015716 0.512786 0.119755 0.13004L0.3092 0.0744554Z"/>
+    <path class="md-mutation" fill="#14A17E" d="M62.0002 0.0721346C67.6689 -0.073875 73.6997 0.0459547 79.3861 0.0518957L79.4007 15.0581L79.4015 19.5221C79.4015 20.2266 79.4284 21.4999 79.3638 22.1534C73.6106 22.1575 67.7558 22.233 62.0133 22.1259L61.9779 8.79274C61.9741 6.03638 61.9126 2.80564 62.0002 0.0721346Z"/>
+  </g>
+  <text x="184" y="108" fill="#FFFFFF" font-family="Manrope, Segoe UI, Calibri, sans-serif" font-size="60" font-weight="700" letter-spacing="-1.8">MediumDarwin</text>
+  <text x="184" y="148" fill="#14A17E" font-family="Manrope, Segoe UI, Calibri, sans-serif" font-size="16" font-weight="500" letter-spacing="0.32">Mutation testing for Java</text>
+</svg>

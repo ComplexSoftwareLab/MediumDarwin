@@ -1,3 +1,4 @@
+include mediumdarwin/assets/*.svg
 include mediumdarwin/jar/clover_db_extractor.jar
 include mediumdarwin/jar/clover.jar
 include mediumdarwin/jar/hamcrest-2.2.jar

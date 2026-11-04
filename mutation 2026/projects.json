@@ -1,0 +1,46 @@
+{
+  "triangle-example": {
+    "fom_database": "triangle-example/mutationdatabase_foms.db",
+    "hom_databases": [
+      "triangle-example/cluster_homs_mutationdatabase.db",
+      "triangle-example/mutationdatabase_everywhere.db"
+    ],
+    "threshold": 0
+  },
+  "jra": {
+    "fom_database": "jra/fom_mutationdatabase.db",
+    "hom_databases": [
+      "jra/mutationdatabase_cluster.db",
+      "jra/mutationdatabase_everywhere.db"
+    ],
+    "threshold": 0
+  },
+  "antomology": {
+    "fom_database": "antomology/mutationdatabase_foms.db",
+    "hom_databases": [
+      "antomology/mutationdatabase_homs_1.db",
+      "antomology/mutationdatabase_homs_2.db"
+    ],
+    "threshold": 0
+  },
+  "jterminal": {
+    "fom_database": "jterminal/mutationdatabase_foms.db",
+    "hom_databases": [
+      "jterminal/mutationdatabase_homs_1.db",
+      "jterminal/mutationdatabase_homs_2.db",
+      "jterminal/mutationdatabase_homs_3.db",
+      "jterminal/mutationdatabase_homs_4.db"
+    ],
+    "threshold": 0
+  },
+  "commons-csv": {
+    "fom_database": "commons-csv/mutationdatabase_foms.db",
+    "hom_databases": [
+      "commons-csv/mutationdatabase_homs_1.db",
+      "commons-csv/mutationdatabase_homs_2.db",
+      "commons-csv/mutationdatabase_homs_3.db",
+      "commons-csv/mutationdatabase_homs_4.db"
+    ],
+    "threshold": 0
+  }
+}

@@ -796,4 +796,4 @@ class JavaParse(object):
             except KeyError as e:
                 pass
 
-        graph.render(os.path.join(os.getcwd(), "LittleDarwinResults", "tree"))
+        graph.render(os.path.join(os.getcwd(), "MediumDarwinResults", "tree"))

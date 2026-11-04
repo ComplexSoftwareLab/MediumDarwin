@@ -20,9 +20,9 @@ class TestGradleCloverInit(unittest.TestCase):
                 timeout=1,
             )
             init_path = lc._prepare_gradle_java_tracer(
-                agent_jar=os.path.join(td, "LittleDarwinResults", "jar", "java-tracer-agent.jar"),
-                trace_file=os.path.join(td, "LittleDarwinResults", "trace.json"),
-                coverage_file=os.path.join(td, "LittleDarwinResults", "trace_coverage.json"),
+                agent_jar=os.path.join(td, "MediumDarwinResults", "jar", "java-tracer-agent.jar"),
+                trace_file=os.path.join(td, "MediumDarwinResults", "trace.json"),
+                coverage_file=os.path.join(td, "MediumDarwinResults", "trace_coverage.json"),
             )
             self.assertTrue(os.path.isfile(init_path))
             with open(init_path, encoding="utf-8") as f:

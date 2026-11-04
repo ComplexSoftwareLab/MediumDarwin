@@ -1,0 +1,7 @@
+numpy
+matplotlib
+networkx
+scipy
+python-louvain
+tqdm
+gdown

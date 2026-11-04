@@ -96,6 +96,8 @@ class TestIntegrationProjects(unittest.TestCase):
     @classmethod
     def _run_one(cls, proj_cfg, config_flags, clone_dir):
         """Execute MediumDarwin on *clone_dir*; return (ok, stderr_tail)."""
+        label = os.path.basename(clone_dir)
+        print(f"  running {label}", flush=True)
         extra = []
         if proj_cfg.get("test_target_name"):
             extra += ["--test_target_name", proj_cfg["test_target_name"]]
@@ -125,10 +127,12 @@ class TestIntegrationProjects(unittest.TestCase):
                 capture_output=True, text=True, timeout=900,
             )
         except subprocess.TimeoutExpired:
+            print(f"  finished {label} TIMEOUT", flush=True)
             return False, "TIMEOUT after 900 s"
 
+        print(f"  finished {label} rc={proc.returncode}", flush=True)
         ok = proc.returncode == 0 and os.path.isdir(
-            os.path.join(clone_dir, "LittleDarwinResults")
+            os.path.join(clone_dir, "MediumDarwinResults")
         )
         tail = "\n".join(proc.stderr.strip().splitlines()[-8:])
         return ok, tail
@@ -162,10 +166,11 @@ class TestIntegrationProjects(unittest.TestCase):
                     self._git_clone(pc["url"], cdir, commit=pc.get("commit"))
 
             # ---- submit all ----
-            print(f"\n=== Phase 2: Running 12 configs in parallel (this will take a few minutes) ===\n")
+            workers = max(1, int(os.environ.get("MEDIUMDARWIN_TEST_WORKERS", "12")))
+            print(f"\n=== Phase 2: Running 12 configs with {workers} workers ===\n")
             futures = {}
             exec_info = {}
-            with ThreadPoolExecutor(max_workers=12) as ex:
+            with ThreadPoolExecutor(max_workers=workers) as ex:
                 for pn, pc in _PROJECTS.items():
                     for cn, cf in _CONFIGS.items():
                         label = f"{pn}/{cn}"

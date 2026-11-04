@@ -13,6 +13,7 @@ from mediumdarwin.JavaParser import JavaParser
 from mediumdarwin.Database import Database
 from mediumdarwin.SharedFunctions import getAllInstantiableSubclasses
 from mediumdarwin.SharedFunctions import MutationOperator
+from mediumdarwin.brand import insert_html_banner, report_page_css
 from itertools import combinations
 
 sys.setrecursionlimit(100000)
@@ -60,8 +61,9 @@ class Mutation(object):
 
         self.nodeID = nodeID
 
-        Mutation.mutation_dict[mutationID] = (
-            applied_node_id, applied_node_new, applied_mutation_style)
+        if mutationID is not None:
+            Mutation.mutation_dict[mutationID] = (
+                applied_node_id, applied_node_new, applied_mutation_style)
 
     def apply_mutation_in_place(self, original_tree):
         list_node_indexes = Mutation.mutation_dict[self.mutationID][0]
@@ -359,13 +361,13 @@ class RemoveMethod(MutationOperator):
 
     def __init__(
         self,
-        mutation_id: int,
         sourceTree: JavaParser.CompilationUnitContext,
         sourceCode: str,
         javaParseObject: JavaParse,
         generateMutants: bool = False,
         generateMutations: bool = True,
-        search_children=True
+        search_children=True,
+        mutation_id: int = 0,
     ):
         super().__init__(sourceTree, sourceCode, javaParseObject)
         self.mutatorType = "RemoveMethod"
@@ -724,13 +726,13 @@ class RemoveNullCheck(MutationOperator):
 
     def __init__(
         self,
-        mutation_id: int,
         sourceTree: JavaParser.CompilationUnitContext,
         sourceCode: str,
         javaParseObject: JavaParse,
         generateMutants: bool = False,
         generateMutations: bool = True,
-        search_children=True
+        search_children=True,
+        mutation_id: int = 0,
     ):
         super().__init__(sourceTree, sourceCode, javaParseObject)
         self.mutatorType = "RemoveNullCheck"
@@ -872,13 +874,13 @@ class NullifyObjectInitialization(MutationOperator):
 
     def __init__(
         self,
-        mutation_id: int,
         sourceTree: JavaParser.CompilationUnitContext,
         sourceCode: str,
         javaParseObject: JavaParse,
         generateMutants: bool = False,
         generateMutations: bool = True,
-        search_children=True
+        search_children=True,
+        mutation_id: int = 0,
     ):
         super().__init__(sourceTree, sourceCode, javaParseObject)
         self.mutatorType = "NullifyObjectInitialization"
@@ -987,13 +989,13 @@ class NullifyReturnValue(MutationOperator):
 
     def __init__(
         self,
-        mutation_id: int,
         sourceTree: JavaParser.CompilationUnitContext,
         sourceCode: str,
         javaParseObject: JavaParse,
         generateMutants: bool = False,
         generateMutations: bool = True,
-        search_children=True
+        search_children=True,
+        mutation_id: int = 0,
     ):
         super().__init__(sourceTree, sourceCode, javaParseObject)
         self.mutatorType = "NullifyReturnValue"
@@ -1119,13 +1121,13 @@ class NullifyInputVariable(MutationOperator):
 
     def __init__(
         self,
-        mutation_id: int,
         sourceTree: JavaParser.CompilationUnitContext,
         sourceCode: str,
         javaParseObject: JavaParse,
         generateMutants: bool = False,
         generateMutations: bool = True,
-        search_children=True
+        search_children=True,
+        mutation_id: int = 0,
     ):
         super().__init__(sourceTree, sourceCode, javaParseObject)
         self.mutatorType = "NullifyInputVariable"
@@ -1289,12 +1291,14 @@ class NullifyInputVariable(MutationOperator):
             )
         )
         for node in self.mutableNodes:
+            # Use block_node.start.start as the '{' position (RuleContext always has start/stop set)
+            block_node = node.methodBody().block()
             for replacementText, mutated_node in zip(self.replacementTextDict[node], self.replacementNodeDict[node]):
                 # ---------------------------------------------
                 mutation = Mutation(
                     mutationID=self.mutation_id,
-                    startPos=node.methodBody().start.start,
-                    endPos=node.methodBody().stop.stop,
+                    startPos=block_node.start.start,
+                    endPos=block_node.start.start,
                     lineNumber=node.start.line,
                     nodeID=node.nodeIndex,
                     mutatorType=self.mutatorType,
@@ -1302,7 +1306,7 @@ class NullifyInputVariable(MutationOperator):
                     str(self.mutation_id) + "*/" + replacementText,
                     color=self.color,
                     applied_mutation_style=[Mutation.STYLE_REPLACE],
-                    applied_node_id=[node.methodBody().block().nodeIndex],
+                    applied_node_id=[block_node.nodeIndex],
                     applied_node_new=[mutated_node]
                 )
                 self.mutation_id += 1
@@ -1451,13 +1455,13 @@ class TraditionalMutationOperator(MutationOperator):
 
     def __init__(
         self,
-        mutation_id: int,
         sourceTree: JavaParser.CompilationUnitContext,
         sourceCode: str,
         javaParseObject: JavaParse,
         generateMutants: bool = False,
         generateMutations: bool = True,
-        search_children: bool = True
+        search_children: bool = True,
+        mutation_id: int = 0,
     ):
         super().__init__(
             sourceTree, sourceCode, javaParseObject, generateMutants, generateMutations
@@ -1613,16 +1617,17 @@ class ArithmeticOperatorReplacementBinary(TraditionalMutationOperator):
 
     def __init__(
         self,
-        mutation_id: int,
         sourceTree: JavaParser.CompilationUnitContext,
         sourceCode: str,
         javaParseObject: JavaParse,
         generateMutants: bool = False,
         generateMutations: bool = True,
-        search_children=True
+        search_children=True,
+        mutation_id: int = 0,
     ):
         super().__init__(
-            mutation_id, sourceTree, sourceCode, javaParseObject, generateMutants, generateMutations
+            sourceTree, sourceCode, javaParseObject, generateMutants, generateMutations,
+            mutation_id=mutation_id,
         )
         self.mutatorType = "ArithmeticOperatorReplacementBinary"
         self.color = "#FFB6C1"
@@ -1682,16 +1687,17 @@ class RelationalOperatorReplacement(TraditionalMutationOperator):
 
     def __init__(
         self,
-        mutation_id: int,
         sourceTree: JavaParser.CompilationUnitContext,
         sourceCode: str,
         javaParseObject: JavaParse,
         generateMutants: bool = False,
         generateMutations: bool = True,
-        search_children=True
+        search_children=True,
+        mutation_id: int = 0,
     ):
         super().__init__(
-            mutation_id, sourceTree, sourceCode, javaParseObject, generateMutants, generateMutations
+            sourceTree, sourceCode, javaParseObject, generateMutants, generateMutations,
+            mutation_id=mutation_id,
         )
         self.mutatorType = "RelationalOperatorReplacement"
         self.color = "#FFA07A"
@@ -1748,16 +1754,17 @@ class ConditionalOperatorReplacement(TraditionalMutationOperator):
 
     def __init__(
         self,
-        mutation_id: int,
         sourceTree: JavaParser.CompilationUnitContext,
         sourceCode: str,
         javaParseObject: JavaParse,
         generateMutants: bool = False,
         generateMutations: bool = True,
-        search_children=True
+        search_children=True,
+        mutation_id: int = 0,
     ):
         super().__init__(
-            mutation_id, sourceTree, sourceCode, javaParseObject, generateMutants, generateMutations
+            sourceTree, sourceCode, javaParseObject, generateMutants, generateMutations,
+            mutation_id=mutation_id,
         )
         self.mutatorType = "ConditionalOperatorReplacement"
         self.color = "#87CEFA"
@@ -1810,16 +1817,17 @@ class LogicalOperatorReplacement(TraditionalMutationOperator):
 
     def __init__(
         self,
-        mutation_id: int,
         sourceTree: JavaParser.CompilationUnitContext,
         sourceCode: str,
         javaParseObject: JavaParse,
         generateMutants: bool = False,
         generateMutations: bool = True,
-        search_children=True
+        search_children=True,
+        mutation_id: int = 0,
     ):
         super().__init__(
-            mutation_id, sourceTree, sourceCode, javaParseObject, generateMutants, generateMutations
+            sourceTree, sourceCode, javaParseObject, generateMutants, generateMutations,
+            mutation_id=mutation_id,
         )
         self.mutatorType = "LogicalOperatorReplacement"
         self.color = "#F0E68C"
@@ -1872,16 +1880,17 @@ class AssignmentOperatorReplacementShortcut(TraditionalMutationOperator):
 
     def __init__(
         self,
-        mutation_id: int,
         sourceTree: JavaParser.CompilationUnitContext,
         sourceCode: str,
         javaParseObject: JavaParse,
         generateMutants: bool = False,
         generateMutations: bool = True,
-        search_children=True
+        search_children=True,
+        mutation_id: int = 0,
     ):
         super().__init__(
-            mutation_id, sourceTree, sourceCode, javaParseObject, generateMutants, generateMutations
+            sourceTree, sourceCode, javaParseObject, generateMutants, generateMutations,
+            mutation_id=mutation_id,
         )
         self.mutatorType = "AssignmentOperatorReplacementShortcut"
         self.color = "#B0C4DE"
@@ -1951,16 +1960,17 @@ class ArithmeticOperatorReplacementUnary(TraditionalMutationOperator):
 
     def __init__(
         self,
-        mutation_id: int,
         sourceTree: JavaParser.CompilationUnitContext,
         sourceCode: str,
         javaParseObject: JavaParse,
         generateMutants: bool = False,
         generateMutations: bool = True,
-        search_children=True
+        search_children=True,
+        mutation_id: int = 0,
     ):
         super().__init__(
-            mutation_id, sourceTree, sourceCode, javaParseObject, generateMutants, generateMutations
+            sourceTree, sourceCode, javaParseObject, generateMutants, generateMutations,
+            mutation_id=mutation_id,
         )
         self.mutatorType = "ArithmeticOperatorReplacementUnary"
         self.color = "#DDA0DD"
@@ -2012,16 +2022,17 @@ class ConditionalOperatorDeletion(TraditionalMutationOperator):
 
     def __init__(
         self,
-        mutation_id: int,
         sourceTree: JavaParser.CompilationUnitContext,
         sourceCode: str,
         javaParseObject: JavaParse,
         generateMutants: bool = False,
         generateMutations: bool = True,
-        search_children=True
+        search_children=True,
+        mutation_id: int = 0,
     ):
         super().__init__(
-            mutation_id, sourceTree, sourceCode, javaParseObject, generateMutants, generateMutations
+            sourceTree, sourceCode, javaParseObject, generateMutants, generateMutations,
+            mutation_id=mutation_id,
         )
         self.mutatorType = "ConditionalOperatorDeletion"
         self.color = "#FFD700"
@@ -2070,16 +2081,17 @@ class ArithmeticOperatorReplacementShortcut(TraditionalMutationOperator):
 
     def __init__(
         self,
-        mutation_id: int,
         sourceTree: JavaParser.CompilationUnitContext,
         sourceCode: str,
         javaParseObject: JavaParse,
         generateMutants: bool = False,
         generateMutations: bool = True,
-        search_children=True
+        search_children=True,
+        mutation_id: int = 0,
     ):
         super().__init__(
-            mutation_id,  sourceTree, sourceCode, javaParseObject, generateMutants, generateMutations
+            sourceTree, sourceCode, javaParseObject, generateMutants, generateMutations,
+            mutation_id=mutation_id,
         )
         self.mutatorType = "ArithmeticOperatorReplacementShortcut"
         self.color = "#FF00FF"
@@ -2176,16 +2188,17 @@ class ShiftOperatorReplacement(TraditionalMutationOperator):
 
     def __init__(
         self,
-        mutation_id: int,
         sourceTree: JavaParser.CompilationUnitContext,
         sourceCode: str,
         javaParseObject: JavaParse,
         generateMutants: bool = False,
         generateMutations: bool = True,
-        search_children=True
+        search_children=True,
+        mutation_id: int = 0,
     ):
         super().__init__(
-            mutation_id,  sourceTree, sourceCode, javaParseObject, generateMutants, generateMutations
+            sourceTree, sourceCode, javaParseObject, generateMutants, generateMutations,
+            mutation_id=mutation_id,
         )
         self.mutatorType = "ShiftOperatorReplacement"
         self.color = "#9ACD32"
@@ -2401,12 +2414,12 @@ class JavaMutate(object):
             for metaType in metaTypes:
                 if metaType in MO.metaTypes:
                     mO = MO(
-                        mutation_id,
                         self.sourceTree,
                         self.sourceCode,
                         self.javaParseObject,
                         generateMutants,
                         generateMutations,
+                        mutation_id=mutation_id,
                     )
                     self.mutationOperators.append(mO)
                     mutation_id = mO.mutation_id
@@ -3152,9 +3165,21 @@ class JavaMutate(object):
         """
         mutationTypeCount = dict()
         if database is not None:
-            file_id = database.fetch_data(
+            file_results = database.fetch_data(
                 "file", columns="id", condition=f"name = '{self.file_name}'"
-            )[0][0]
+            )
+            if not file_results:
+                normalized_name = self.file_name.replace("\\", "/")
+                if normalized_name != self.file_name:
+                    file_results = database.fetch_data(
+                        "file", columns="id", condition=f"name = '{normalized_name}'"
+                    )
+            if not file_results:
+                raise ValueError(
+                    f"File not found in database: {self.file_name}. "
+                    f"Make sure the file was inserted during the coverage phase."
+                )
+            file_id = file_results[0][0]
         self.instantiateMutationOperators(
             last_mutation_id, metaTypes, mutationOperator=mutationOperator)
 
@@ -3314,7 +3339,12 @@ class JavaMutate(object):
                 id_counter += 1
         else:
             for mutant in generated_mutants:
+                max_mutation_id = max(
+                    m.mutationID for m in mutant.mutationList
+                )
                 for mutation in mutations:
+                    if mutation.mutationID <= max_mutation_id:
+                        continue
                     already_mutated = False
                     for mutation_in_mutant in mutant.mutationList:
                         if (
@@ -3365,15 +3395,7 @@ class JavaMutate(object):
         """
         self.instantiateMutationOperators(
             metaTypes=self.metaTypes, generateMutations=False)
-        style = """ body { font-family: "Carlito", "Calibri", "Helvetica Neue", sans-serif;}
-                    .code { font-family: monospace; font-size: medium; }
-                    .methodLine { background: white; }
-                    .outsideLine { background: lightgray; }
-                    .tooltip { position: relative; display: inline-block; }
-                    .tooltip .tooltiptext { visibility: hidden; display: block;
-                        background-color: #006400; color: #ffffff; text-align: left;
-                        border-radius: 0.3em; padding: 0.5em 0.5em; position: absolute; top: 125%; z-index: 200;}
-                    .tooltip:hover .tooltiptext { visibility: visible; } """
+        style = report_page_css(aggregate=True)
 
         for mo in self.mutationOperators:
             assert isinstance(mo, MutationOperator)
@@ -3462,7 +3484,7 @@ class JavaMutate(object):
             )
         )
 
-        return output
+        return insert_html_banner(output)
 
     def aggregateReport_schemata(
         self, littleDarwinVersion: str, my_mutations: list, my_mutantsPerLine
@@ -3550,4 +3572,4 @@ class JavaMutate(object):
             )
         )
 
-        return output
+        return insert_html_banner(output)

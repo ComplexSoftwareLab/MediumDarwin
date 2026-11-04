@@ -33,7 +33,7 @@ class TestLittleDarwin(unittest.TestCase):
 
     def tearDown(self) -> None:
         try:
-            with open(os.path.join(self.videoStoreBuildPath, "LittleDarwinResults", "initialbuild.txt"), 'r') as ib:
+            with open(os.path.join(self.videoStoreBuildPath, "MediumDarwinResults", "initialbuild.txt"), 'r') as ib:
                 for line in ib.readlines():
                     print(str(line))
         except Exception as e:

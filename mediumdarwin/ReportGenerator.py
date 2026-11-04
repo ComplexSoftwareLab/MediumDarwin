@@ -1,6 +1,8 @@
 """HTML/text report generation for mutation testing results."""
 import os
 
+from mediumdarwin.brand import insert_html_banner, report_page_css
+
 
 class ReportGenerator(object):
     """ """
@@ -25,19 +27,14 @@ class ReportGenerator(object):
         :return:
         :rtype:
         """
-        reportBeginning = """<!DOCTYPE html><html><head><title>MediumDarwin Mutation Coverage Report</title>
-             <style type='text/css'> body { font-family: "Carlito", "Calibri", "Helvetica Neue", sans-serif; } 
-             table { border-collapse: collapse; } th, td { text-align: left; padding: 1em; }
-             th { background-color: #f0f0f0; color: black; } tr:hover { background-color: #b2daf5; } 
-             a:link, a:visited { color: black; text-decoration: none; display: inline-block; } 
-             a:hover, a:active { font-weight: bold; } .coverage_bar { display: inline-block; border-radius: 0.3em; 
-             height: 1.1em; width: 9em; background: #ff8482; margin: 0 5px; vertical-align: middle; 
-             border: 1px solid #888; position: relative } .coverage_complete { display: inline-block; 
-             border-radius: 0.3em; height: 100%; background: #acff8b; float: left } 
-             .coverage_legend { position: absolute; height: 100%; width: 100%; left: 0; top: 0; text-align: center }
-             </style></head><body><h1>MediumDarwin Mutation Coverage Report</h1>
-             <h2>Project Summary</h2><table><thead><tr><th>Number of Files</th>
-             <th colspan=2>Mutation Coverage</th></tr> </thead> <tbody>"""
+        reportBeginning = (
+            "<!DOCTYPE html><html><head><title>MediumDarwin Mutation Coverage Report</title>"
+            "<style type='text/css'>"
+            + report_page_css()
+            + "</style></head><body><h1>MediumDarwin Mutation Coverage Report</h1>"
+            "<h2>Project Summary</h2><table><thead><tr><th>Number of Files</th>"
+            "<th colspan=2>Mutation Coverage</th></tr></thead><tbody>"
+        )
 
         reportMiddle = """</tbody></table><h2>Breakdown by File</h2><table><thead><tr><th>Name</th>
                           <th colspan=2 >Mutation Coverage</th></tr></thead><tbody>"""
@@ -138,7 +135,7 @@ class ReportGenerator(object):
         reportOutput.extend(breakdownFile)
         reportOutput.append(reportEnd)
 
-        return "\n".join(reportOutput)
+        return insert_html_banner("\n".join(reportOutput))
 
     def generateHTMLReportPerFile(
         self, filePath, reportPath, survived, killed, non_covered, buildFailed, testFailed, timeoutList=None, schemata: str = None
@@ -170,18 +167,14 @@ class ReportGenerator(object):
             else:
                 return str(inputVar)
 
-        reportBeginning = """<!DOCTYPE html><html><head><title>MediumDarwin Mutation Coverage Report</title>
-             <style type='text/css'> body { font-family: "Carlito", "Calibri", "Helvetica Neue", sans-serif; } 
-             table { border-collapse: collapse; } th, td { text-align: left; padding: 1em; }
-             th { background-color: #f0f0f0; color: black; } tr:hover { background-color: #b2daf5; } 
-             a:link, a:visited { color: black; text-decoration: none; display: inline-block; } 
-             a:hover, a:active { font-weight: bold; } .coverage_bar { display: inline-block; border-radius: 0.3em; 
-             height: 1.1em; width: 9em; background: #ff8482; margin: 0 5px; vertical-align: middle; 
-             border: 1px solid #888; position: relative } .coverage_complete { display: inline-block; 
-             border-radius: 0.3em; height: 100%; background: #acff8b; float: left } 
-             .coverage_legend { position: absolute; height: 100%; width: 100%; left: 0; top: 0; text-align: center }
-             </style></head><body><h1>MediumDarwin Mutation Coverage Report</h1><h2>File Summary</h2><table><thead><tr>
-             <th>Number of Mutants</th><th>Mutation Coverage</th></tr></thead><tbody>"""
+        reportBeginning = (
+            "<!DOCTYPE html><html><head><title>MediumDarwin Mutation Coverage Report</title>"
+            "<style type='text/css'>"
+            + report_page_css()
+            + "</style></head><body><h1>MediumDarwin Mutation Coverage Report</h1>"
+            "<h2>File Summary</h2><table><thead><tr>"
+            "<th>Number of Mutants</th><th>Mutation Coverage</th></tr></thead><tbody>"
+        )
 
         reportMiddle = (
             '<tr><td colspan=2 style="text-align:center"><a href="aggregate.html">Aggregate Report</a></td></tr></tbody></table><h2>Detailed List</h2><br><table><thead><tr><th>Survived Mutant ('
@@ -441,4 +434,4 @@ class ReportGenerator(object):
         reportOutput.extend(output)
         reportOutput.append(reportEnd)
 
-        return "\n".join(reportOutput)
+        return insert_html_banner("\n".join(reportOutput))

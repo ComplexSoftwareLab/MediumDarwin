@@ -90,7 +90,7 @@ class JavaIO(object):
         # print targetPath, desiredType
         self.sourceDirectory = targetPath
         self.targetDirectory = os.path.abspath(
-            os.path.join(buildPath, "LittleDarwinResults")
+            os.path.join(buildPath, "MediumDarwinResults")
         )
 
         for root, dirnames, filenames in os.walk(self.sourceDirectory):

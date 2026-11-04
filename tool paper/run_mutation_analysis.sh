@@ -219,7 +219,7 @@ run_mutation_analysis() {
     return 1
   fi
 
-  # Avoid nested MediumDarwinResults/... from mv when re-running a project.
+  # MediumDarwin writes MediumDarwinResults. LittleDarwin still writes LittleDarwinResults.
   rm -rf LittleDarwinResults MediumDarwinResults
 
   echo -e "python3 ../../MediumDarwin.py -m --all --build-command \"${PROJECT_BUILD//,/, }\" -q -t . -p $PROJECT_SOURCE"
@@ -231,12 +231,11 @@ run_mutation_analysis() {
     -t . \
     -p "$PROJECT_SOURCE"
 
-  if [[ ! -d LittleDarwinResults ]]; then
-    echo "ERROR: MediumDarwin did not create LittleDarwinResults in $project_name"
+  if [[ ! -d MediumDarwinResults ]]; then
+    echo "ERROR: MediumDarwin did not create MediumDarwinResults in $project_name"
     cd ..
     return 1
   fi
-  mv LittleDarwinResults MediumDarwinResults
 
   echo -e "python3 ../littledarwin/LittleDarwin.py -m --all --build-command \"${PROJECT_BUILD//,/, }\" -t . -p $PROJECT_SOURCE"
   python3 ../littledarwin/LittleDarwin.py \
@@ -366,8 +365,8 @@ compare_operator_results() {
     echo "WARN: Skipping operator comparison for $project_name (missing $md_results)"
     return 0
   fi
-  if [[ -d "${md_results}/LittleDarwinResults" ]]; then
-    echo "ERROR: ${md_results}/LittleDarwinResults is nested (stale mv). Re-run after:"
+  if [[ -d "${md_results}/MediumDarwinResults" ]]; then
+    echo "ERROR: ${md_results}/MediumDarwinResults is nested. Re-run after:"
     echo "       cd $project_name && rm -rf LittleDarwinResults MediumDarwinResults"
     return 1
   fi

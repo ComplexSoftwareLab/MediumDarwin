@@ -196,7 +196,7 @@ def ensure_gradle_test_selection_init_script(project_path: str) -> str:
 
     This function is parallel-safe: uses atomic file writing to avoid race conditions.
     """
-    init_dir = os.path.join(project_path, "LittleDarwinResults")
+    init_dir = os.path.join(project_path, "MediumDarwinResults")
     os.makedirs(init_dir, exist_ok=True)
     init_path = os.path.join(init_dir, "md-test-selection.init.gradle")
     if os.path.isfile(init_path):
@@ -316,12 +316,12 @@ def ensure_gradle_isolation_init_script(project_path: str) -> str:
       -Dmd.reportsDir=<path>     (optional; where to write JUnit XML reports)
 
     Effects:
-      - Sets each project's buildDir under LittleDarwinResults/gradle-build/<runId>/...
+      - Sets each project's buildDir under MediumDarwinResults/gradle-build/<runId>/...
       - Redirects JUnit XML outputs to md.reportsDir when provided
 
     This function is parallel-safe: uses atomic file writing to avoid race conditions.
     """
-    init_dir = os.path.join(project_path, "LittleDarwinResults")
+    init_dir = os.path.join(project_path, "MediumDarwinResults")
     os.makedirs(init_dir, exist_ok=True)
     init_path = os.path.join(init_dir, "md-gradle-isolation.init.gradle")
     if os.path.isfile(init_path):
@@ -335,7 +335,7 @@ if (runId != null && !runId.isEmpty()) {
     allprojects { p ->
         def root = gradle.rootProject.projectDir
         def safePath = p.path.replace(':','_')
-        p.buildDir = new File(root, "LittleDarwinResults/gradle-build/" + runId + "/" + safePath)
+        p.buildDir = new File(root, "MediumDarwinResults/gradle-build/" + runId + "/" + safePath)
     }
 }
 
@@ -532,6 +532,9 @@ def return_D_arguments(command):
     return D_args
 
 
+DUMMY_SENTINEL = "***dummy***"
+
+
 def getCommand(commandString: str):
     """Convert a comma-separated command into a token list.
 
@@ -547,6 +550,95 @@ def getCommand(commandString: str):
     preserved = commandString.replace("\f", placeholder)
     tokens = preserved.split(",")
     return [token.replace(placeholder, ",") for token in tokens]
+
+
+def is_dummy_command(value) -> bool:
+    """Return True if a CLI command option is unset (the ***dummy*** sentinel)."""
+    if value is None:
+        return True
+    if isinstance(value, str):
+        stripped = value.strip()
+        return stripped == "" or stripped == DUMMY_SENTINEL
+    if isinstance(value, (list, tuple)):
+        if not value:
+            return True
+        return is_dummy_command(value[0])
+    return False
+
+
+def resolve_test_command(options):
+    """Return the command list used to execute mutants.
+
+    ``--test-command`` wins. If it is omitted, fall back to ``-c`` /
+    ``--build-command`` (classic LittleDarwin). Never returns the dummy sentinel.
+    """
+    test_raw = getattr(options, "testCommand", DUMMY_SENTINEL)
+    if not is_dummy_command(test_raw):
+        return getCommand(test_raw)
+    build_raw = getattr(options, "buildCommand", DUMMY_SENTINEL)
+    if not is_dummy_command(build_raw):
+        return getCommand(build_raw)
+    return []
+
+
+def resolve_sql_db_path(options) -> str:
+    """Return the SQLite mutation database path.
+
+    Honors ``--use-alternate-database``. When that option is omitted, the
+    database lives at ``{buildPath}/MediumDarwinResults/mutationdatabase.db``.
+
+    Args:
+        options: Parsed CLI options with ``buildPath`` and ``alternateDb``.
+
+    Returns:
+        Absolute path to the SQLite database file.
+    """
+    alternate = getattr(options, "alternateDb", DUMMY_SENTINEL)
+    if not is_dummy_command(alternate):
+        return os.path.abspath(alternate)
+    build_path = getattr(options, "buildPath", "")
+    return os.path.abspath(
+        os.path.join(build_path, "MediumDarwinResults", "mutationdatabase.db")
+    )
+
+
+def ensure_sql_db_parent(db_path: str) -> None:
+    """Create the parent directory of ``db_path`` if it does not already exist."""
+    parent = os.path.dirname(os.path.abspath(db_path))
+    if parent:
+        os.makedirs(parent, exist_ok=True)
+
+
+def mutant_test_reports_dir(
+    results_path: str,
+    file_name: str,
+    mutant_id,
+    source_path: str = None,
+    suffix: str = "-test_reports",
+) -> str:
+    """Return the per-mutant JUnit XML directory under MediumDarwinResults.
+
+    ``file_name`` is the source-relative path returned by Database fetch
+    helpers when ``options`` is provided (for example
+    ``java/org/apache/commons/exec/CommandLine.java``). Absolute paths are
+    converted with ``source_path``.
+
+    Do not pass an already-relative name through ``os.path.relpath(...,
+    source_path)``. Python first makes the relative name absolute via the
+    process cwd, so the lookup lands outside MediumDarwinResults and
+    killed/survived mutants are stored as compile failures.
+    """
+    if not file_name:
+        rel = ""
+    elif os.path.isabs(file_name) and source_path:
+        try:
+            rel = os.path.relpath(file_name, source_path)
+        except ValueError:
+            rel = file_name
+    else:
+        rel = file_name
+    rel = rel.replace("\\", "/")
+    return os.path.join(results_path, *rel.split("/"), f"{mutant_id}{suffix}")
 
 
 def getAllInstantiableSubclasses(parentClass):
@@ -708,6 +800,13 @@ def timeoutAlternative(
 
     # timeout must be int, otherwise problems arise.
     assert isinstance(timeout, int)
+
+    if is_dummy_command(commandString):
+        print(
+            "\nNo test command given. Pass --test-command "
+            "(for example: --test-command mvn,test) or use -c with a command that runs tests."
+        )
+        sys.exit(5)
 
     reliableCommandString = shutil.which(os.path.abspath(commandString[0]))
 

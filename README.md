@@ -1,4 +1,7 @@
 # MediumDarwin
+
+<img src="mediumdarwin/assets/banner.svg" alt="MediumDarwin — Mutation testing for Java" width="520">
+
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.16893737.svg)](https://doi.org/10.5281/zenodo.16893737)
 
 This repository serves as the companion code for the research paper "MediumDarwin: LittleDarwin Grows with Performance and Research-oriented Extensions." The project is a work in progress. Depending on the acceptance of pull requests, this repository may eventually be merged with the original [LittleDarwin](https://github.com/aliparsai/LittleDarwin).
@@ -77,6 +80,9 @@ Options:
   --test_target_name NAME   Ant target name for running tests (default: test).
   --junit_target_name NAME  Ant target name for JUnit (default: internal-test).
   -v, --verbose             Enable verbose output.
+  --debug                   Debug output (implies --verbose): AST dumps, node indices, mutation text.
+  --quiet                   Errors and warnings only; disables progress bars and the startup banner.
+  --no-progress             Disable progress bars even in an interactive terminal.
   --cleanup CMD             Commands to run after each build.
   -p, --path PATH           Path to source files.
   -t, --build-path PATH     Path to build system working directory.

@@ -1,5 +1,6 @@
 import os
 import sys
+import tempfile
 import unittest
 
 from mediumdarwin.SharedFunctions import (
@@ -53,32 +54,37 @@ class TestGradleHelpers(unittest.TestCase):
         self.assertIn("--tests a.b.OtherTest.testB", joined)
 
     def test_gradle_file_based_selection_adds_init_script_and_property(self):
-        cmd = ["gradle", "test"]
-        selected_file = write_selected_tests_file(
-            target_file="D:/tmp/md-selected-tests.txt",
-            covered_tests=[("a.b.MyTest#testA",), ("a.b.OtherTest.testB",)],
-        )
-        out = add_gradle_test_selection_via_file(
-            cmd, project_path="D:/proj", selected_tests_file=selected_file
-        )
-        joined = " ".join(out)
-        self.assertIn("-I", out)
-        self.assertIn("md-test-selection.init.gradle", joined)
-        self.assertIn("-Dmd.includeTestsFile=", joined)
+        with tempfile.TemporaryDirectory() as td:
+            cmd = ["gradle", "test"]
+            selected_file = write_selected_tests_file(
+                target_file=os.path.join(td, "md-selected-tests.txt"),
+                covered_tests=[("a.b.MyTest#testA",), ("a.b.OtherTest.testB",)],
+            )
+            out = add_gradle_test_selection_via_file(
+                cmd,
+                project_path=os.path.join(td, "proj"),
+                selected_tests_file=selected_file,
+            )
+            joined = " ".join(out)
+            self.assertIn("-I", out)
+            self.assertIn("md-test-selection.init.gradle", joined)
+            self.assertIn("-Dmd.includeTestsFile=", joined)
 
     def test_gradle_isolation_adds_run_id_and_reports_dir(self):
-        cmd = ["gradle", "test"]
-        out = add_gradle_isolation(
-            cmd,
-            project_path="D:/proj",
-            run_id="123",
-            reports_dir="D:/proj/LittleDarwinResults/123-test_reports",
-        )
-        joined = " ".join(out)
-        self.assertIn("--no-daemon", out)
-        self.assertIn("md-gradle-isolation.init.gradle", joined)
-        self.assertIn("-Dmd.runId=123", joined)
-        self.assertIn("-Dmd.reportsDir=", joined)
+        with tempfile.TemporaryDirectory() as td:
+            project = os.path.join(td, "proj")
+            cmd = ["gradle", "test"]
+            out = add_gradle_isolation(
+                cmd,
+                project_path=project,
+                run_id="123",
+                reports_dir=os.path.join(project, "MediumDarwinResults", "123-test_reports"),
+            )
+            joined = " ".join(out)
+            self.assertIn("--no-daemon", out)
+            self.assertIn("md-gradle-isolation.init.gradle", joined)
+            self.assertIn("-Dmd.runId=123", joined)
+            self.assertIn("-Dmd.reportsDir=", joined)
 
 
 if __name__ == "__main__":

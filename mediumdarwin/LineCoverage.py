@@ -48,7 +48,7 @@ class LineCoverage:
             self.include_file_add = str(
                 os.path.join(
                     self.project_path,
-                    "LittleDarwinResults",
+                    "MediumDarwinResults",
                     "include-tests.txt",
                 )
             )
@@ -64,7 +64,7 @@ class LineCoverage:
             self.include_file_add = str(
                 os.path.join(
                     self.project_path,
-                    "LittleDarwinResults",
+                    "MediumDarwinResults",
                     "include-tests.txt",
                 )
             )
@@ -82,11 +82,11 @@ class LineCoverage:
         instability/compatibility issues in real projects.
         """
         os.makedirs(os.path.join(self.project_path,
-                    "LittleDarwinResults"), exist_ok=True)
+                    "MediumDarwinResults"), exist_ok=True)
         self.clover_db_path = str(os.path.join(
-            self.project_path, "LittleDarwinResults", "clover.db"))
+            self.project_path, "MediumDarwinResults", "clover.db"))
         init_path = os.path.join(
-            self.project_path, "LittleDarwinResults", "md-clover.init.gradle")
+            self.project_path, "MediumDarwinResults", "md-clover.init.gradle")
 
         # Always (re)write the init script to pick up bugfixes across MediumDarwin versions.
         #
@@ -98,7 +98,7 @@ class LineCoverage:
         #
         # Override knobs:
         #   -Dmd.cloverVersion=<version>                     (default: 4.5.2)
-        #   -Dmd.cloverDbPath=<absolute path to clover.db>   (default: <cwd>/LittleDarwinResults/clover.db)
+        #   -Dmd.cloverDbPath=<absolute path to clover.db>   (default: <cwd>/MediumDarwinResults/clover.db)
         script = r"""
 // MediumDarwin OpenClover init script (manual integration) (MD_CLOVER_MANUAL_V1)
 
@@ -115,7 +115,7 @@ initscript {
 // NOTE: In init scripts, gradle.rootProject may not be available during script evaluation.
 def mdRootDir = gradle.startParameter.currentDir
 def dbPath = System.getProperty('md.cloverDbPath') ? new File(System.getProperty('md.cloverDbPath'))
-    : new File(mdRootDir, 'LittleDarwinResults/clover.db')
+    : new File(mdRootDir, 'MediumDarwinResults/clover.db')
 
 allprojects { p ->
     p.pluginManager.withPlugin('java') {
@@ -244,9 +244,9 @@ allprojects { p ->
     def _ensure_java_tracer_agent_jar(self) -> str:
         """Build a fat coverage-only Java agent jar from MediumDarwin's JavaTracerAgent.java (includes ASM classes).
 
-        Output: <project>/LittleDarwinResults/jar/java-tracer-agent.jar
+        Output: <project>/MediumDarwinResults/jar/java-tracer-agent.jar
         """
-        out_dir = os.path.join(self.project_path, "LittleDarwinResults", "jar")
+        out_dir = os.path.join(self.project_path, "MediumDarwinResults", "jar")
         os.makedirs(out_dir, exist_ok=True)
         jar_path = os.path.join(out_dir, "java-tracer-agent.jar")
 
@@ -376,7 +376,7 @@ allprojects { p ->
 
         This function is parallel-safe: uses atomic file writing to avoid race conditions.
         """
-        init_dir = os.path.join(self.project_path, "LittleDarwinResults")
+        init_dir = os.path.join(self.project_path, "MediumDarwinResults")
         os.makedirs(init_dir, exist_ok=True)
         init_path = os.path.join(init_dir, "md-java-tracer.init.gradle")
 
@@ -902,7 +902,7 @@ allprojects {{ p ->
             with open(clover_file_path, "rb") as clover_file:
                 new_file_path = str(
                     os.path.join(
-                        self.project_path, "LittleDarwinResults", "jar", "clover.jar"
+                        self.project_path, "MediumDarwinResults", "jar", "clover.jar"
                     )
                 )
                 os.makedirs(os.path.dirname(new_file_path), exist_ok=True)
@@ -916,7 +916,7 @@ allprojects {{ p ->
                 new_file_path = str(
                     os.path.join(
                         self.project_path,
-                        "LittleDarwinResults",
+                        "MediumDarwinResults",
                         "jar",
                         "junit-4.13.2.jar",
                     )
@@ -932,7 +932,7 @@ allprojects {{ p ->
                 new_file_path = str(
                     os.path.join(
                         self.project_path,
-                        "LittleDarwinResults",
+                        "MediumDarwinResults",
                         "jar",
                         "hamcrest-2.2.jar",
                     )
@@ -952,7 +952,7 @@ allprojects {{ p ->
             "location",
             str(
                 os.path.join(
-                    self.project_path, "LittleDarwinResults", "jar", "clover.jar"
+                    self.project_path, "MediumDarwinResults", "jar", "clover.jar"
                 )
             ),
         )
@@ -964,7 +964,7 @@ allprojects {{ p ->
             "location",
             str(
                 os.path.join(
-                    self.project_path, "LittleDarwinResults", "jar", "hamcrest-2.2.jar"
+                    self.project_path, "MediumDarwinResults", "jar", "hamcrest-2.2.jar"
                 )
             ),
         )
@@ -976,7 +976,7 @@ allprojects {{ p ->
             "location",
             str(
                 os.path.join(
-                    self.project_path, "LittleDarwinResults", "jar", "junit-4.13.2.jar"
+                    self.project_path, "MediumDarwinResults", "jar", "junit-4.13.2.jar"
                 )
             ),
         )
@@ -1025,7 +1025,7 @@ allprojects {{ p ->
         )
         clover_setup_element.set(
             "initstring",
-            str(os.path.join(self.project_path, "LittleDarwinResults", "clover.db")),
+            str(os.path.join(self.project_path, "MediumDarwinResults", "clover.db")),
         )
 
         test_target_element = root.find(".//*[@name='" + junit_target + "']")
@@ -1261,7 +1261,7 @@ allprojects {{ p ->
                         )
                     report_element.text = str(
                         os.path.join(
-                            self.project_path, "LittleDarwinResults", "test-reports"
+                            self.project_path, "MediumDarwinResults", "test-reports"
                         )
                     )
             if no_surefire:
@@ -1301,7 +1301,7 @@ allprojects {{ p ->
                 )
                 report_element.text = str(
                     os.path.join(
-                        self.project_path, "LittleDarwinResults", "test-reports"
+                        self.project_path, "MediumDarwinResults", "test-reports"
                     )
                 )
             # Create a new <plugin> element for the Clover plugin
@@ -1464,11 +1464,11 @@ allprojects {{ p ->
             #! **************
             self.clover_db_path = str(
                 os.path.join(self.project_path,
-                             "LittleDarwinResults", "clover.db")
+                             "MediumDarwinResults", "clover.db")
             )
             self.clover_tmp_db_path = str(
                 os.path.join(
-                    self.project_path, "LittleDarwinResults", "tmp", "clover.db"
+                    self.project_path, "MediumDarwinResults", "tmp", "clover.db"
                 )
             )
             commandString = [self.build_type, "-f",
@@ -1506,7 +1506,7 @@ allprojects {{ p ->
                 "-Dmaven.clover.cloverMergeDatabase=" + self.clover_db_path,
                 "-Dmaven.clover.merge.basedir="
                 + str(os.path.join(self.project_path,
-                      "LittleDarwinResults", "tmp")),
+                      "MediumDarwinResults", "tmp")),
                 "clover:clean",
             ]
             processKilled, processExitCode, runOutput, time_delta = timeoutAlternative(
@@ -1556,7 +1556,7 @@ allprojects {{ p ->
                 "-lib",
                 str(
                     os.path.join(
-                        self.project_path, "LittleDarwinResults", "jar", "clover.jar"
+                        self.project_path, "MediumDarwinResults", "jar", "clover.jar"
                     )
                 ),
                 "-f",
@@ -1584,7 +1584,7 @@ allprojects {{ p ->
             # the path to the clover.db file
             self.clover_db_path = str(
                 os.path.join(self.project_path,
-                             "LittleDarwinResults", "clover.db")
+                             "MediumDarwinResults", "clover.db")
             )
 
             processKilled, processExitCode, runOutput, time_delta = timeoutAlternative(
@@ -1610,10 +1610,10 @@ allprojects {{ p ->
             # Gradle: collect statement coverage via JavaTracerAgent, then import into SQLite.
             agent_jar = self._ensure_java_tracer_agent_jar()
             trace_file = os.path.join(
-                self.project_path, "LittleDarwinResults", "trace.json"
+                self.project_path, "MediumDarwinResults", "trace.json"
             )
             base_coverage_file = os.path.join(
-                self.project_path, "LittleDarwinResults", "trace_coverage.json"
+                self.project_path, "MediumDarwinResults", "trace_coverage.json"
             )
             coverage_file = base_coverage_file
             init_script = self._prepare_gradle_java_tracer(
@@ -1649,9 +1649,9 @@ allprojects {{ p ->
             # Merge all per-process coverage files (trace_coverage.<pid>.json) into base file
             self._merge_pid_coverage_files(base_coverage_file)
 
-            # If the expected coverage file isn't present, try a small fallback search under LittleDarwinResults.
+            # If the expected coverage file isn't present, try a small fallback search under MediumDarwinResults.
             if not os.path.isfile(base_coverage_file):
-                lr = os.path.join(self.project_path, "LittleDarwinResults")
+                lr = os.path.join(self.project_path, "MediumDarwinResults")
                 candidates = []
                 try:
                     candidates.extend(list(Path(lr).rglob("*coverage*.json")))

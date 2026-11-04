@@ -9,13 +9,11 @@ import re
 import itertools
 import os
 from mediumdarwin.JavaMutate import Mutation
-from unicurses import *
 from pathlib import Path
 import importlib_resources as resources
 from joblib import Parallel, delayed
 from optparse import OptionParser
 from antlr4.tree.Tree import TerminalNodeImpl
-from colorama import Fore, Style
 from antlr4 import Token
 from mediumdarwin.LineCoverage import LineCoverage
 from mediumdarwin import License
@@ -25,6 +23,13 @@ from mediumdarwin.JavaMutate import JavaMutate, LogicalOperatorReplacement, Cond
 from mediumdarwin.Database import Database
 from mediumdarwin.JavaParser import JavaParser
 from mediumdarwin.SharedFunctions import *
+from mediumdarwin.ConsoleUI import (
+    ConsoleUI,
+    add_reporting_options,
+    apply_verbosity_flags,
+    combination_count,
+    count_pipeline_stages,
+)
 from mediumdarwin.JavaMutate import (
     recursiveCloneANTLRNodeAndItsChildren,
     replaceNodes,
@@ -312,10 +317,12 @@ def parseCmdArgs(optionParser: OptionParser, mockArgs: list = None) -> object:
         default="***dummy***",
         help="Path to a file containing multiple HOM definitions, one per line. Each line should contain comma-separated mutation IDs (e.g., '1, 2, 3, 4' on first line, '5, 6, 7' on second line).",
     )
+    add_reporting_options(optionParser)
     if mockArgs is None:
         (options, args) = optionParser.parse_args()
     else:
         (options, args) = optionParser.parse_args(args=mockArgs)
+    apply_verbosity_flags(options)
 
     if options.help_me:
         print(r"""
@@ -331,6 +338,9 @@ def parseCmdArgs(optionParser: OptionParser, mockArgs: list = None) -> object:
                 --test_target_name NAME   Ant target name for running tests (default: test).
                 --junit_target_name NAME  Ant target name for JUnit (default: internal-test).
                 -v, --verbose             Enable verbose output.
+                --debug                   Debug output (implies --verbose): AST dumps, node indices, mutation text.
+                --quiet                   Errors and warnings only; disables progress bars and the startup banner.
+                --no-progress             Disable progress bars even in an interactive terminal.
                 --cleanup CMD             Commands to run after each build.
                 -p, --path PATH           Path to source files.
                 -t, --build-path PATH     Path to build system working directory.
@@ -399,7 +409,7 @@ def parseCmdArgs(optionParser: OptionParser, mockArgs: list = None) -> object:
 
 
 class Schemata:
-    littleDarwinVersion = "0.10.7"
+    littleDarwinVersion = "2.0.0.0"
     clean_time = 0
     compile_time = 0
     test_time = 0
@@ -408,7 +418,11 @@ class Schemata:
     def _emit_formatter_warning(self, message: str) -> None:
         if getattr(self, "_formatter_warning_emitted", False):
             return
-        print(f"[WARN] {message}")
+        ui = getattr(self, "ui", None)
+        if ui is not None:
+            ui.warn(message)
+        else:
+            print(f"[WARN] {message}")
         self._formatter_warning_emitted = True
 
     def _format_java_file(self, java_file_path: str) -> None:
@@ -442,6 +456,7 @@ class Schemata:
             )
 
     def subsumptionAnalysisPhase(self, options: object) -> None:
+        self.ui.stage("Subsumption analysis")
         mutationDatabase = Database(self.sqlDBPath)
         mutationDatabase.delete_data("mutant_test", "result!="+str(Database.RES_ID_BUILD_FAILURE) +
                                      " AND result!="+str(Database.RES_ID_NON_COVERED) +
@@ -450,7 +465,7 @@ class Schemata:
         self.updateMutationTestTable(options, mutationDatabase)
         self.createMutantTestMatrix(options, mutationDatabase)
 
-    def updateMutationTestTable(self, options: object, mutationDatabase, file_name=None, mutant_id=None) -> None:
+    def updateMutationTestTable(self, options: object, mutationDatabase, file_name=None, mutant_id=None, fallback_result=None) -> None:
         if file_name == None and mutant_id == None:
             file_muants = mutationDatabase.fetch_mutants(options=options)
         else:
@@ -503,35 +518,45 @@ class Schemata:
                                    error_msg))
             return values
 
+        fallback_messages = {
+            Database.RES_ID_BUILD_FAILURE: "no results found. Most probably compilation error.",
+            Database.RES_ID_KILLED_MUTANT: "killed",
+            Database.RES_ID_SURVIVED_MUTANT: "survived",
+            Database.RES_ID_TIMEOUT: "timeout",
+            Database.RES_ID_NON_COVERED: "non-covered",
+        }
+
         for file_mutant in file_muants:
-            fileRelativePath = os.path.join(
-                self.LittleDarwinResultsPath,
-                os.path.relpath(file_mutant[0], options.sourcePath),
-            )
-            directory = str(
-                os.path.join(
-                    fileRelativePath,
-                    str(file_mutant[1]) + "-test_reports",
-                )
+            source_path = getattr(options, "sourcePath", None) if options else None
+            directory = mutant_test_reports_dir(
+                self.MediumDarwinResultsPath,
+                file_mutant[0],
+                file_mutant[1],
+                source_path=source_path,
             )
             xml_files = []
-            if os.path.exists(directory):
-                values = []
-                for xml_file in glob(str(os.path.join(directory, "**", "*.xml")), recursive=True):
-                    values_ = return_values(xml_file)
-                    values.extend(values_)
+            values = []
+            if os.path.isdir(directory):
+                for xml_file in Path(directory).rglob("*.xml"):
+                    values.extend(return_values(str(xml_file)))
+            if values:
                 mutationDatabase.insert_many(
                     "mutant_test", "mutant_id, test_id, result, time, message", values)
             else:
+                result = (
+                    fallback_result
+                    if fallback_result is not None
+                    else Database.RES_ID_BUILD_FAILURE
+                )
                 mutationDatabase.insert_data(
                     "mutant_test",
                     "mutant_id, test_id, result, time, message",
                     [
                         file_mutant[1],
                         Database.NO_INFO,
-                        Database.RES_ID_BUILD_FAILURE,
+                        result,
                         "0",
-                        "no results found. Most probably compilation error.",
+                        fallback_messages.get(result, ""),
                     ],
                 )
         # use this sql query to get the records of the mutants that have caused compilation errors:
@@ -555,8 +580,11 @@ class Schemata:
                 test_mutant_dict[mutant_test[1]] = set()
             test_mutant_dict[mutant_test[1]].add(mutant_test[0])
         G = nx.DiGraph()
-        for mutant in mutant_test_dict.keys():
-            for mutant2 in mutant_test_dict.keys():
+        mutant_ids = list(mutant_test_dict.keys())
+        for mutant in self.ui.track(
+            mutant_ids, desc="Building subsumption graph", unit="mutant"
+        ):
+            for mutant2 in mutant_ids:
                 if G.has_node(str(mutant)) == False:
                     G.add_node(str(mutant))
                     G.nodes[str(mutant)]["label"] = str(mutant)
@@ -574,29 +602,24 @@ class Schemata:
                             mutant_test_dict[mutant] == mutant_test_dict[mutant2]
                         ):  # equal test sets
                             G.add_edge(str(mutant), str(mutant2), color="red")
-                            print(
-                                Fore.RED + str(mutant) +
-                                " ---> " + str(mutant2),
+                            self.ui.verbose(
+                                f"[red]{mutant} ---> {mutant2}[/red]"
                             )
-                            print(
+                            self.ui.verbose(
                                 str(mutant_test_dict[mutant])
                                 + " ---> "
                                 + str(mutant_test_dict[mutant2])
                             )
-                            print(Style.RESET_ALL)
                         else:  # subset test sets
                             G.add_edge(str(mutant), str(mutant2), color="blue")
-                            print(
-                                Fore.BLUE + str(mutant) +
-                                " ---> " + str(mutant2),
+                            self.ui.verbose(
+                                f"[blue]{mutant} ---> {mutant2}[/blue]"
                             )
-                            print(
+                            self.ui.verbose(
                                 str(mutant_test_dict[mutant])
                                 + " ---> "
                                 + str(mutant_test_dict[mutant2])
                             )
-                            print(Style.RESET_ALL)
-                        print("-----------------------------------")
 
         # Contracting nodes mutates the graph (removes/merges nodes + edges).
         # Iterating NetworkX views while mutating can yield stale (u, v) pairs,
@@ -624,30 +647,30 @@ class Schemata:
         for node in TR.nodes:
             if TR.in_degree(node) == 0:
                 TR.nodes[node]["color"] = "green"
-                print(Fore.GREEN + " d(" + str(node) + ") =" +
-                      str(G.out_degree(node)))
+                self.ui.verbose(
+                    f"[green] d({node}) ={G.out_degree(node)}[/green]"
+                )
             mapping[node] = G.nodes[node]["label"]
 
-        print(Style.RESET_ALL)
         TR = nx.relabel_nodes(TR, mapping)
         dot_string_alt = nx.nx_pydot.to_pydot(TR).to_string()
 
         nx.write_gml(
             TR,
-            os.path.join(self.LittleDarwinResultsPath,
+            os.path.join(self.MediumDarwinResultsPath,
                          "subsumption_graph.gml"),
             stringizer=str,
         )
         nx.write_pajek(
             TR,
-            os.path.join(self.LittleDarwinResultsPath,
+            os.path.join(self.MediumDarwinResultsPath,
                          "subsumption_graph.gml"),
         )
         # Also persist the labeled graph in modern formats (optional for downstream tools)
         try:
             nx.write_gpickle(
                 TR,
-                os.path.join(self.LittleDarwinResultsPath,
+                os.path.join(self.MediumDarwinResultsPath,
                              "dmsg_labeled.gpickle"),
             )
         except Exception:
@@ -655,7 +678,7 @@ class Schemata:
         try:
             nx.write_graphml(
                 TR,
-                os.path.join(self.LittleDarwinResultsPath,
+                os.path.join(self.MediumDarwinResultsPath,
                              "dmsg_labeled.graphml"),
             )
         except Exception:
@@ -663,12 +686,12 @@ class Schemata:
         try:
             nx.write_gexf(
                 TR,
-                os.path.join(self.LittleDarwinResultsPath,
+                os.path.join(self.MediumDarwinResultsPath,
                              "dmsg_labeled.gexf"),
             )
         except Exception:
             pass
-        with open(os.path.join(self.LittleDarwinResultsPath, "subsumption_graph.dot"), "w") as file:
+        with open(os.path.join(self.MediumDarwinResultsPath, "subsumption_graph.dot"), "w") as file:
             file.write(dot_string_alt)
 
     def run_test(
@@ -1128,10 +1151,10 @@ class Schemata:
         filterType,
         filterList,
         mutation_database,
-        debug=True
+        debug=False
     ):
         if mutation_database is None:
-            print("Error opening databases.")
+            self.ui.error("Error opening databases.")
             return
         build_command = getCommand(options.buildCommand)
         enabledMutators = "Traditional"
@@ -1148,7 +1171,7 @@ class Schemata:
         try:
             assert os.path.isdir(options.sourcePath)
         except AssertionError as exception:
-            print("Source path must be a directory.")
+            self.ui.error("Source path must be a directory.")
             sys.exit(1)
 
         # Parsing the source file into a tree.
@@ -1169,9 +1192,10 @@ class Schemata:
         densityResultsPath = os.path.join(
             java_io.targetDirectory, "ProjectDensityReport.csv"
         )
-        print("Source Path: ", java_io.sourceDirectory)
-        print("Target Path: ", java_io.targetDirectory)
-        print("Creating Mutation Database: ", self.sqlDBPath)
+        self.ui.info(f"Source Path: {java_io.sourceDirectory}")
+        self.ui.info(f"Target Path: {java_io.targetDirectory}")
+        self.ui.info(f"Creating Mutation Database: {self.sqlDBPath}")
+        self.ui.info(f"Source files: {fileCount}")
 
         file_mutations_dict = {}
         compile_mutations_files = set()
@@ -1181,11 +1205,11 @@ class Schemata:
         trees_dict = dict()
         last_mutation_id = 0
 
-        for file in java_io.fileList:
-            print(
-                "\n(" + str(fileCounter + 1) + "/" +
-                str(fileCount) + ") Source file: ",
-                file,
+        for file in self.ui.track(
+            java_io.fileList, desc="Generating mutations", unit="file"
+        ):
+            self.ui.verbose(
+                f"({fileCounter + 1}/{fileCount}) Source file: {file}"
             )
 
             file_mutations_dict[file] = dict()
@@ -1211,7 +1235,7 @@ class Schemata:
                 source_code = java_io.getFileContent(file)
                 tree = java_parse.parse(source_code)
             except Exception as e:
-                print("Error in parsing Java code, skipping the file.")
+                self.ui.warn("Error in parsing Java code, skipping the file.")
                 sys.stderr.write(str(e))
                 continue
             fileCounter += 1
@@ -1221,7 +1245,7 @@ class Schemata:
             normalized_file = normalize_file_path(file, options.sourcePath)
             # Use the normalized file path directly (keeping .java extension)
             targetDir = os.path.join(
-                self.LittleDarwinResultsPath, normalized_file)
+                self.MediumDarwinResultsPath, normalized_file)
             if not os.path.exists(targetDir):
                 os.makedirs(targetDir, exist_ok=True)
             if not os.path.isfile(os.path.join(targetDir, "original.java")):
@@ -1232,10 +1256,10 @@ class Schemata:
             mutationOperators = list()
 
             # ? for debugging purposes
-            if (debug):
+            if debug:
                 json_ = java_parse.tree2JSON_DFS(tree)
                 f = open(
-                    os.path.join(self.LittleDarwinResultsPath,
+                    os.path.join(self.MediumDarwinResultsPath,
                                  os.path.basename(file) + "-tree.json"), "w")
                 f.write(json_)
                 f.close()
@@ -1245,17 +1269,19 @@ class Schemata:
                     javaParseObject=java_parse,
                     file_name=file,
                     verbose=True,
-                    mutantTypes=[enabledMutators]
+                    metaTypes=[enabledMutators]
                 )
                 mutantTypes = java8_mutate_test.gatherMutations(
                     metaTypes=[enabledMutators],
                 )
-                print("--> TEST Mutations found: ", sum(mutantTypes.values()))
+                self.ui.debug(
+                    f"TEST Mutations found: {sum(mutantTypes.values())}"
+                )
                 for mutantType in mutantTypes.keys():
                     if mutantTypes[mutantType] > 0:
-                        print("---->", mutantType, ":",
-                              mutantTypes[mutantType])
-                print("-------------------------------------")
+                        self.ui.debug(
+                            f"  {mutantType}: {mutantTypes[mutantType]}"
+                        )
 
             mutantTypes_file = dict()
 
@@ -1282,8 +1308,8 @@ class Schemata:
                     main_node = java_parse.getNode(tree, nodeInd)
                     body_ind = self.return_body_node(main_node)
                     # ? for debugging purposes
-                    if (debug):
-                        print("nodeIndex: "+str(nodeInd))
+                    if debug:
+                        self.ui.debug("nodeIndex: " + str(nodeInd))
                     node_dict[nodeInd] = sorted(
                         node_dict[nodeInd], key=lambda x: str(type(x)).lower(), reverse=False)
                     for mO in node_dict[nodeInd]:
@@ -1386,9 +1412,10 @@ class Schemata:
                             tmp = java8_mutate.returnTernary(
                                 mutations_in_node, main_node.mutationType if hasattr(main_node, "mutationType") else 0, body_ind)
                             # ? for debugging purposes
-                            if (debug):
-                                print("final expression: " +
-                                      tmp.getText())
+                            if debug:
+                                self.ui.debug(
+                                    "final expression: " + tmp.getText()
+                                )
                             tmp.parentCtx = main_node.parentCtx
                             replaceNodes(main_node, tmp)
                         else:
@@ -1406,11 +1433,13 @@ class Schemata:
                                         tree, mutation.nodeID)
                                 body_ind = self.return_body_node(replaced_node)
                                 # ? for debugging purposes
-                                if (debug):
-                                    print(
-                                        "type: "+str(type(replaced_node)))
-                                    print("mutation type: " +
-                                          mutation.mutatorType)
+                                if debug:
+                                    self.ui.debug(
+                                        "type: " + str(type(replaced_node))
+                                    )
+                                    self.ui.debug(
+                                        "mutation type: " + mutation.mutatorType
+                                    )
 
                                 operator_id = mutation_database.fetch_data(
                                     "mutation_operator",
@@ -1488,11 +1517,15 @@ class Schemata:
                                     mutation.apply_reverse_mutation_in_place(
                                         replaced_node)
                                 # ? for debugging purposes
-                                if (debug):
-                                    print("original_Version: " +
-                                          replaced_node.getText())
-                                    print("mutated_Version: " +
-                                          copiedParent.getText())
+                                if debug:
+                                    self.ui.debug(
+                                        "original_Version: "
+                                        + replaced_node.getText()
+                                    )
+                                    self.ui.debug(
+                                        "mutated_Version: "
+                                        + copiedParent.getText()
+                                    )
                                 #! **********************************************
                                 if (skipTernary):
                                     tmp = copiedParent
@@ -1520,18 +1553,22 @@ class Schemata:
                                             mutations_in_node, replaced_node.mutationType if hasattr(replaced_node, "mutationType") else 0, body_ind)
                                 # ************************************************************************************************
                                 # ? for debugging purposes
-                                if (debug):
-                                    print("final expression: "+tmp.getText())
+                                if debug:
+                                    self.ui.debug(
+                                        "final expression: " + tmp.getText()
+                                    )
                                 # tmp.mutationID = mutation.mutationID
                                 tmp.parentCtx = replaced_node.parentCtx
                                 replaceNodes(replaced_node, tmp)
 
-            print("--> Mutations found: ", sum(mutantTypes_file.values()))
+            found = sum(mutantTypes_file.values())
+            self.ui.verbose(
+                f"Mutations found in {os.path.basename(file)}: {found}")
             for mutantType in mutantTypes_file.keys():
                 if mutantTypes_file[mutantType] > 0:
-                    print("---->", mutantType, ":",
-                          mutantTypes_file[mutantType])
-            print("-------------------------------------")
+                    self.ui.verbose(
+                        f"  {mutantType}: {mutantTypes_file[mutantType]}"
+                    )
             # adding getEnv and ld variables to methods
             class_bodies = self.return_class_body(tree)
             for class_body in class_bodies:
@@ -1616,8 +1653,8 @@ class Schemata:
             if not process_build_killed and not process_build_exit_code:
                 break  # if the build command succeeds
             if debug:
-                print("build failure:")
-                print(run_output_build)
+                self.ui.debug("build failure:")
+                self.ui.debug(str(run_output_build))
             # if the build command fails, find the line and the column that causes error
             ls_new = list()
             # find the line and the column that causes error
@@ -1629,11 +1666,11 @@ class Schemata:
                     run_output_build, options.compile_failure_regex)
             # ls_new.sort()
             if (ls_new == []):
-                print(
+                self.ui.error(
                     "Schemata compilation failed but the line and the column are not detected. You might want to check the regex. The output is saved to failure_output.txt")
                 with open(os.path.abspath(
                     os.path.join(
-                        options.buildPath, "LittleDarwinResults", "failure_output.txt"
+                        options.buildPath, "MediumDarwinResults", "failure_output.txt"
                     )
                 ), "w") as contentFile:
                     contentFile.write(str(run_output_build))
@@ -1654,10 +1691,10 @@ class Schemata:
                     startPos -= 1
                     if (startPos < 0):
                         if (row == 0):
-                            print("ERROR in detecting the mutant ID!")
+                            self.ui.error("ERROR in detecting the mutant ID!")
                             with open(os.path.abspath(
                                 os.path.join(
-                                    options.buildPath, "LittleDarwinResults", "failure_output.txt"
+                                    options.buildPath, "MediumDarwinResults", "failure_output.txt"
                                 )
                             ), "w") as contentFile:
                                 contentFile.write(str(run_output_build))
@@ -1677,14 +1714,14 @@ class Schemata:
                 matches.add((l[0], int(match.group(1))))
                 startPos = startPos - 2
             for match in matches:
-                print(str(match[1]), end="-")
+                self.ui.verbose(f"Build-failure mutation: {match[1]}")
                 build_failures.add(match[1])
                 # Normalize file path to match database format and create class folder structure
                 normalized_file = normalize_file_path(
                     match[0], options.sourcePath)
                 # Use the normalized file path directly (keeping .java extension)
                 targetDir = os.path.join(
-                    self.LittleDarwinResultsPath, normalized_file)
+                    self.MediumDarwinResultsPath, normalized_file)
                 if not os.path.exists(targetDir):
                     os.makedirs(targetDir, exist_ok=True)
                 targetTextOutputFile = os.path.join(
@@ -1698,7 +1735,7 @@ class Schemata:
                     trees_dict[os.path.abspath(match[0])], str(match[1]))
                 if debug:
                     for node_ in nodes_:
-                        print(node_.getText())
+                        self.ui.debug(node_.getText())
                 for node_ in nodes_:
                     if (hasattr(node_, "hom")):
                         # if its a hom node, reverse mutate the mutation which caused the build failure
@@ -1717,11 +1754,9 @@ class Schemata:
                         file_mutations_dict[os.path.abspath(match[0])][match[1]].apply_reverse_mutation_in_place(
                             mutated_tree=node_)
                 # ? for debugging purposes
-                if (debug):
-                    print(
-                        repr(l)
-                        + " : "
-                        + str(match[1])
+                if debug:
+                    self.ui.debug(
+                        repr(l) + " : " + str(match[1])
                     )
             # write the schemata file without the build failure causing mutations
             for match in matches:
@@ -1737,7 +1772,7 @@ class Schemata:
             normalized_file = normalize_file_path(file, options.sourcePath)
             # Use the normalized file path directly (keeping .java extension)
             targetDir = os.path.join(
-                self.LittleDarwinResultsPath, normalized_file)
+                self.MediumDarwinResultsPath, normalized_file)
             if not os.path.exists(targetDir):
                 os.makedirs(targetDir, exist_ok=True)
             shutil.copyfile(file, os.path.join(
@@ -1754,66 +1789,23 @@ class Schemata:
                 file, json_string, options=options)
             shutil.copyfile(os.path.join(targetDir, "original.java"), file)
 
-        print("-------------------------------------")
-        print("\nTotal mutations found: ", sum(mutantTypes_project.values()))
-        print("Build failure causing mutations found: ", len(build_failures))
-        print("Compile time mutations found: ", len(compile_mutations_files))
-        for mutantType in mutantTypes_project.keys():
-            if mutantTypes_project[mutantType] > 0:
-                print("---->", mutantType, ":",
-                      mutantTypes_project[mutantType])
-        print("-------------------------------------")
+        type_rows = [
+            (mutantType, mutantTypes_project[mutantType])
+            for mutantType in mutantTypes_project.keys()
+            if mutantTypes_project[mutantType] > 0
+        ]
+        self.ui.summary_table(
+            "Mutation generation",
+            [
+                ("Total mutations", sum(mutantTypes_project.values())),
+                ("Build-failure mutations", len(build_failures)),
+                ("Compile-time mutations", len(compile_mutations_files)),
+            ] + type_rows,
+        )
         return (
             build_failures,
             file_mutations_dict
         )
-
-    def print_results(self, res_dict, start_time):
-
-        fileCounter = 0
-        totalMutantCount = 0
-        totalMutantCounter = 0
-
-        for file in res_dict.keys():
-            totalMutantCount += len(res_dict[file]["mutantsList"])
-            tmp = set.union(set(res_dict[file]["survivedList"]), set(res_dict[file]["killedList"]), set(res_dict[file]["timeoutList"]), set(
-                res_dict[file]["nonCoveredList"]), set(res_dict[file]["buildFailureList"]), set(res_dict[file]["testFailureList"]))
-            totalMutantCounter += len(tmp)
-
-        # When using mutationIdsFile, use HOM definition count instead of total mutants across files
-        if hasattr(self, 'hom_definitions_count') and self.hom_definitions_count is not None:
-            totalMutantCount = self.hom_definitions_count
-
-        line_no = 0
-        mvaddstr(line_no, 0, " total: " + str(totalMutantCounter) + "/" + str((totalMutantCount)) + " elapsed: " +
-                 str(datetime.timedelta(seconds=int(time.time() - start_time))) + " remaining: " + str(
-                     datetime.timedelta(
-                         seconds=int(
-                                    (float(time.time() - start_time) /
-                                     (totalMutantCounter if totalMutantCounter != 0 else 1))
-                             * float(totalMutantCount - totalMutantCounter)
-                         )
-                     )
-        ))
-
-        line_no += 1
-        for file in res_dict.keys():
-            fileCounter += 1
-            tmp = set.union(set(res_dict[file]["survivedList"]), set(res_dict[file]["killedList"]), set(res_dict[file]["timeoutList"]), set(
-                res_dict[file]["nonCoveredList"]), set(res_dict[file]["buildFailureList"]), set(res_dict[file]["testFailureList"]))
-            current = len(tmp)
-            if (current == len(res_dict[file]["mutantsList"])):
-                mvdeleteln(line_no, 0)
-                mvdeleteln(line_no+1, 0)
-                continue
-            mvaddstr(line_no, 0, " (" + str(fileCounter) + "/" + str(len(res_dict)) +
-                     ") collecting results for "+file)
-            line_no += 1
-            mvaddstr(line_no, 0, " current: " + str(current) + "/" +
-                     str(len(res_dict[file]["mutantsList"])) + " *** survived: " + str(len(res_dict[file]["survivedList"])) +
-                     " - killed: " + str(len(res_dict[file]["killedList"])) + " - non-covered: " + str(
-                len(res_dict[file]["nonCoveredList"])))
-            line_no += 1
 
     def run_mutant_schemata(
         self,
@@ -1831,7 +1823,19 @@ class Schemata:
         JOBS_NO = options.numberOfJobs
         build_command = getCommand(options.buildCommand)
         clean_command = getCommand(options.cleanUp)
-        test_command = getCommand(options.testCommand)
+        test_command_fallback = is_dummy_command(options.testCommand)
+        test_command = resolve_test_command(options)
+        if not test_command:
+            self.ui.error(
+                "Cannot execute mutants: neither --test-command nor -c/--build-command is set."
+            )
+            sys.exit(5)
+        if test_command_fallback:
+            self.ui.warn(
+                "No --test-command given; using -c for mutant execution: "
+                + ",".join(test_command)
+                + ". Pass --test-command (e.g. mvn,test) to run the test suite."
+            )
 
         source_directory = os.path.abspath(options.sourcePath)
         build_directory = os.path.abspath(options.buildPath)
@@ -1854,19 +1858,12 @@ class Schemata:
                     kotlin if os.path.isfile(kotlin) else groovy)
 
         # let's tell the user upfront that this may corrupt the source code.
-        print("\n\n!!! CAUTION !!!")
-        print("Code can be changed accidentally. Create a backup first.\n")
+        self.ui.warn(
+            "Code can be changed accidentally. Create a backup first.")
 
-        if options.alternateDb == "***dummy***":
-            databasePath = os.path.abspath(
-                os.path.join(
-                    options.buildPath, "LittleDarwinResults", "mutationdatabase"
-                )
-            )
-        else:
-            databasePath = options.alternateDb
-
-        mutantsPath = os.path.dirname(databasePath)
+        self.sqlDBPath = resolve_sql_db_path(options)
+        ensure_sql_db_parent(self.sqlDBPath)
+        mutantsPath = os.path.dirname(os.path.abspath(self.sqlDBPath))
         assert os.path.isdir(mutantsPath)
 
         java_parse = JavaParse(options.isVerboseActive)
@@ -1880,7 +1877,7 @@ class Schemata:
         # moving schemata to the main directory
         for file in java_io.fileList:
             targetDir = os.path.join(
-                self.LittleDarwinResultsPath,
+                self.MediumDarwinResultsPath,
                 os.path.relpath(file, options.sourcePath),
             )
             if os.path.isfile(os.path.join(targetDir, "mutant_schemata.java")):
@@ -1892,30 +1889,32 @@ class Schemata:
 
             if options.cleanUp != "***dummy***":
                 s_time = time.time()
-                (
-                    process_clean_killed,
-                    process_clean_exit_code,
-                    run_output_clean,
-                    time_delta
-                ) = timeoutAlternative(
-                    clean_command,
-                    workingDirectory=build_directory,
-                    timeout=int(options.timeout),
-                    failMessage=options.fail_string,
-                )
+                with self.ui.status(f"Cleaning project: {' '.join(clean_command)}"):
+                    (
+                        process_clean_killed,
+                        process_clean_exit_code,
+                        run_output_clean,
+                        time_delta
+                    ) = timeoutAlternative(
+                        clean_command,
+                        workingDirectory=build_directory,
+                        timeout=int(options.timeout),
+                        failMessage=options.fail_string,
+                    )
                 self.clean_time += time.time() - s_time
             if options.buildCommand != "***dummy***":
-                (
-                    process_build_killed,
-                    process_build_exit_code,
-                    run_output_build,
-                    time_delta
-                ) = timeoutAlternative(
-                    build_command,
-                    workingDirectory=build_directory,
-                    timeout=int(options.initial_timeout),
-                    failMessage=options.fail_string,
-                )
+                with self.ui.status(f"Building project: {' '.join(build_command)}"):
+                    (
+                        process_build_killed,
+                        process_build_exit_code,
+                        run_output_build,
+                        time_delta
+                    ) = timeoutAlternative(
+                        build_command,
+                        workingDirectory=build_directory,
+                        timeout=int(options.initial_timeout),
+                        failMessage=options.fail_string,
+                    )
 
             if options.testCommand != "***dummy***":
                 initial_command = test_command.copy()
@@ -1923,17 +1922,18 @@ class Schemata:
                 # Fall back to build command if test command not specified
                 initial_command = options.buildCommand.split(
                     ",") if options.initialBuildCommand == "***dummy***" else getCommand(options.initialBuildCommand)
-            (
-                process_build_killed,
-                process_build_exit_code,
-                run_output_build,
-                time_delta
-            ) = timeoutAlternative(
-                initial_command,
-                workingDirectory=build_directory,
-                timeout=int(options.initial_timeout),
-                failMessage=options.fail_string,
-            )
+            with self.ui.status(f"Initial test run: {' '.join(initial_command)}"):
+                (
+                    process_build_killed,
+                    process_build_exit_code,
+                    run_output_build,
+                    time_delta
+                ) = timeoutAlternative(
+                    initial_command,
+                    workingDirectory=build_directory,
+                    timeout=int(options.initial_timeout),
+                    failMessage=options.fail_string,
+                )
             # After initial build/test, always parse surefire XMLs and ensure tests are recorded in DB
             # This keeps test records available for subsumption analysis when needed
             try:
@@ -1941,12 +1941,14 @@ class Schemata:
                     build_directory, buildType, mutation_db)
             except Exception:
                 pass
-        print("Running mutants...", end=' ')
         compile_mutations_trees = dict()
         compile_mutations_ = dict()
         if len(compile_mutations_files) > 0:
-            print("Running compile time mutants...", end=' ')
-            for CTM in compile_mutations_files:
+            for CTM in self.ui.track(
+                compile_mutations_files,
+                desc="Preparing compile-time mutants",
+                unit="mutant",
+            ):
                 # Convert sourcePath-relative path back to buildPath-relative for DB lookup
                 normalized_ctm_file = source_relative_to_build_relative(
                     CTM[0], options.sourcePath, options.buildPath)
@@ -1957,8 +1959,8 @@ class Schemata:
                     output = mutation_db.fetch_data(
                         "file", "*", f"name = '{CTM[0]}'")
                 if not output:
-                    print(
-                        f"Warning: File not found in database: {CTM[0]} (normalized: {normalized_ctm_file})")
+                    self.ui.warn(
+                        f"File not found in database: {CTM[0]} (normalized: {normalized_ctm_file})")
                     continue
                 # source_code = java_io.getFileContent(CTM[0])
                 # tree = java_parse.parse(source_code)
@@ -1966,7 +1968,11 @@ class Schemata:
                     continue
                 tree = java_parse.Json2Tree(output[0][2])
                 compile_mutations_trees[CTM[0]] = tree
-            for CTM in compile_mutations_files:
+            for CTM in self.ui.track(
+                compile_mutations_files,
+                desc="Mapping compile-time mutation nodes",
+                unit="mutant",
+            ):
                 tree = compile_mutations_trees[CTM[0]]
                 expressionContexts = findNodesWithMutationID(
                     tree, str(CTM[1].mutationID))
@@ -1974,495 +1980,216 @@ class Schemata:
                 for expression in expressionContexts:
                     compile_mutations_[CTM[1].mutationID].append([
                         CTM[1], expression])
+            self.ui.info(
+                f"Mapped {len(compile_mutations_)} compile-time mutation(s) "
+                f"in {len(compile_mutations_trees)} file(s)"
+            )
         build_failure_mutants = mutation_db.fetch_build_failure_mutants(
             options=options)
         for file in mutants_dict.keys():
-            # file is the relative path from the source path
-            # Create subdirectory for this class in LittleDarwinResults (keeping .java extension)
-            targetDir = os.path.join(self.LittleDarwinResultsPath, file)
-            if not os.path.exists(targetDir):
-                os.makedirs(targetDir, exist_ok=True)
-            res_dict[file] = {"mutantsList": list(mutants_dict[file].keys()), "survivedList": list(), "killedList": list(
-            ), "nonCoveredList": list(), "buildFailureList": list(), "testFailureList": list(), "timeoutList": list()}
+            targetDir = os.path.join(self.MediumDarwinResultsPath, file)
+            os.makedirs(targetDir, exist_ok=True)
+            res_dict[file] = {
+                "mutantsList": list(mutants_dict[file].keys()),
+                "survivedList": list(),
+                "killedList": list(),
+                "nonCoveredList": list(),
+                "buildFailureList": list(),
+                "testFailureList": list(),
+                "timeoutList": list(),
+            }
             #! antomology has problem with build failures. It reports them both as killed at build and survived
             for record in build_failure_mutants:
-                if (record[0] == file):
+                if record[0] == file:
                     mutant_id_str = str(record[1])
-                    if mutant_id_str not in res_dict[record[0]]["killedList"]:
-                        res_dict[record[0]]["killedList"].append(mutant_id_str)
-                    if mutant_id_str not in res_dict[record[0]]["buildFailureList"]:
-                        res_dict[record[0]]["buildFailureList"].append(
+                    if mutant_id_str not in res_dict[file]["killedList"]:
+                        res_dict[file]["killedList"].append(mutant_id_str)
+                    if mutant_id_str not in res_dict[file]["buildFailureList"]:
+                        res_dict[file]["buildFailureList"].append(
                             mutant_id_str)
-            for mutant_id in mutants_dict[file].keys():
-                if str(mutant_id) in res_dict[file]["buildFailureList"]:
+
+        n_compile = 0
+        n_schemata = 0
+        for file, mutants in mutants_dict.items():
+            skipped = set(res_dict[file]["buildFailureList"])
+            for mutant_id, subset in mutants.items():
+                if str(mutant_id) in skipped:
                     continue
-                subset = mutants_dict[file][mutant_id]
-                compile_again = list()
-                for mutation in subset:
-                    # if the mutant is in the compile mutations list then compile and run it again
-                    if mutation in compile_mutations_.keys():
-                        compile_again.append(mutation)
-                        for i in range(len(compile_mutations_[mutation])):
-                            (app_inds, app_nodes) = compile_mutations_[mutation][i][0].apply_mutation_in_place(
-                                compile_mutations_[mutation][i][1]
-                            )
-                            compile_mutations_[mutation][i] = [
-                                compile_mutations_[mutation][i][0], compile_mutations_[mutation][i][1], app_inds, app_nodes]
-                        # compile_mutations_[mutation][0].apply_mutation_in_place(
-                        #     compile_mutations_[mutation][1])
-                if len(compile_again) != 0:
-                    print(subset, end=" ")
-                    # run mutations that need recompilation
-                    for c_a in compile_again:
-                        with open(
-                            file,
-                            "w",
-                        ) as f:
-                            f.write(
-                                java_parse.getText(
-                                    compile_mutations_trees[file]
-                                )
-                            )
-                        self._format_java_file(file)
-                    if options.cleanUp != "***dummy***":
-                        s_time = time.time()
-                        (
-                            process_clean_killed,
-                            process_clean_exit_code,
-                            run_output_clean,
-                            time_delta
-                        ) = timeoutAlternative(
-                            clean_command,
-                            workingDirectory=build_directory,
-                            timeout=int(options.timeout),
-                            failMessage=options.fail_string,
-                        )
-                        self.clean_time += time.time() - s_time
-                    os.makedirs(
-                        os.path.join(
-                            targetDir,
-                            str(mutant_id) + "-test_reports",
-                        ),
-                        exist_ok=True,
-                    )
-                    no_test = False
-                    buildFile_ = buildFile
-                    if options.isCoverageActive:
-                        if (buildType == "mvn"):
-                            D_args = return_D_arguments(" ".join(test_command))
-                        lines = mutation_db.fetch_file_mutant_by_mutation_ID(
-                            mutant_id, options=options)
-                        test_names = list()
-                        for line in lines:
-                            test_names.extend(
-                                mutation_db.fetch_coverage(file, line[2], options=options))
-                        # insturmented but not covered
-                        non_covered = False
-                        while ("-",) in test_names:
-                            non_covered = True
-                            test_names.remove(("-",))
-                        if non_covered:
-                            if len(test_names) == 0:
-                                res = (mutant_id, subset,
-                                       Database.RES_ID_NON_COVERED, file)
-                                msg = "non-covered"
-                                mutant_id_str = str(res[0])
-                                if mutant_id_str not in res_dict[res[3]]["nonCoveredList"]:
-                                    res_dict[res[3]]["nonCoveredList"].append(
-                                        mutant_id_str)
-                                continue
-                        no_test = False
-                        while ("?",) in test_names:
-                            no_test = True
-                            test_names.remove(("?",))
-                        if no_test:
-                            if len(test_names) == 0:
-                                if (buildType == "mvn"):
-                                    D_args.append("-DskipTests")
-                        if (buildType == "mvn"):
-                            if (len(test_names) == 0 and not no_test) or (options.runAllTests == True and not no_test):
-                                test_names = [""]
-
-                        if (buildType == "ant"):
-                            if (len(test_names) == 0 and not no_test) or (options.runAllTests == True and not no_test):
-                                # there are no instrumentations so we read all tests
-                                test_names = mutation_db.fetch_all_coverage()
-
-                        if (buildType == "gradle"):
-                            if (len(test_names) == 0 and not no_test) or (options.runAllTests == True and not no_test):
-                                # No per-line instrumentation found -> run all tests (no filtering)
-                                test_names = [""]
-                        if buildType == "ant":
-                            buildFile_ = os.path.join(
-                                build_directory, "build.xml" + str(mutant_id))
-                        elif buildType == "mvn":
-                            buildFile_ = os.path.join(
-                                build_directory, "pom.xml" + str(mutant_id)
-                            )
-                        elif buildType == "gradle":
-                            # Do not override Gradle build files via CLI flags; keep original build scripts.
-                            buildFile_ = buildFile
-                        # Make sure the per-mutant build file exists before LineCoverage._prepare_* reads it.
-                        if buildType in ("ant", "mvn"):
-                            shutil.copy2(buildFile, buildFile_)
-                        if buildType in ("ant", "mvn"):
-                            with resources.as_file(
-                                resources.files("mediumdarwin")
-                                .joinpath("jar")
-                                .joinpath("clover_db_extractor.jar")
-                            ) as jar_path:
-                                line_coverage = LineCoverage(
-                                    project_path=build_directory,
-                                    clover_db_extractor_path=jar_path,
-                                    build_file_path=buildFile_,
-                                    build_type=build_command[0],
-                                    sqlDB_path=self.sqlDBPath,
-                                    D_args=D_args,
-                                    runAllTests=options.runAllTests,
-                                    timeout=int(options.initial_timeout),
-                                    source_path=options.sourcePath,
-                                )
-                        if buildType in ("ant", "mvn"):
-                            includeFile_ = os.path.join(
-                                targetDir, "include" + str(mutant_id)
-                            )
-                            if buildType == "ant":
-                                line_coverage._prepare_build_xml(
-                                    include_file=includeFile_,
-                                    junit_target=options.junitTargetName,
-                                    subsumption=options.isSubsumptionActive,
-                                )
-                                line_coverage.add_tests_to_build_xml(
-                                    junit_target=options.junitTargetName,
-                                    report_path=os.path.join(
-                                        targetDir, str(
-                                            mutant_id) + "-test_reports"
-                                    ),
-                                    covered_tests=test_names,
-                                    subsumption=options.isSubsumptionActive,
-                                )
-                            elif buildType == "mvn":
-                                line_coverage._prepare_pom(
-                                    include_file_add=includeFile_)
-                                line_coverage.add_tests_to_pom_xml(
-                                    include_tests_file=includeFile_,
-                                    report_path=os.path.join(
-                                        targetDir, str(
-                                            mutant_id) + "-test_reports"
-                                    ),
-                                    covered_tests=test_names,
-                                    subsumption=options.isSubsumptionActive,
-                                )
-                    test_command_ = test_command.copy()
-                    if (no_test):
-                        if (buildType == "mvn"):
-                            test_command_.extend(D_args)
-                    test_command_ = change_build_file(
-                        test_command_.copy(), buildFile_
-                    )
-                    if options.isCoverageActive and buildType == "gradle" and (options.runAllTests == False) and (not no_test):
-                        # Only filter when we have a non-empty selected set.
-                        if isinstance(test_names, list) and test_names != [""]:
-                            selected_file = write_selected_tests_file(
-                                os.path.join(
-                                    targetDir,
-                                    "include" + str(mutant_id) +
-                                    ".selected-tests.txt",
-                                ),
-                                test_names,
-                            )
-                            test_command_ = add_gradle_test_selection_via_file(
-                                test_command_, build_directory, selected_file
-                            )
-                    # CRITICAL: For Gradle, always add isolation flags (both coverage and schemata-only paths)
-                    # This ensures parallel-safe report handling and correct report directory redirection
-                    if buildType == "gradle":
-                        # Clear reports directory before test to ensure we get fresh results for this mutant
-                        report_path_for_mutant = os.path.join(
-                            targetDir, str(mutant_id) + "-test_reports")
-                        shutil.rmtree(report_path_for_mutant,
-                                      ignore_errors=True)
-                        os.makedirs(report_path_for_mutant, exist_ok=True)
-                        test_command_ = add_gradle_isolation(
-                            test_command_,
-                            project_path=build_directory,
-                            run_id=str(mutant_id),
-                            reports_dir=report_path_for_mutant,
-                        )
-                    s_time = time.time()
-                    (
-                        process_test_killed,
-                        process_test_exit_code,
-                        run_output_test,
-                        time_delta
-                    ) = timeoutAlternative(
-                        test_command_.copy(),
-                        workingDirectory=build_directory,
-                        timeout=int(options.timeout),
-                        failMessage=options.fail_string,
-                        activeMutants=subset,
-                    )
-                    self.test_time += s_time - time.time()
-                    targetTextOutputFile = str(
-                        os.path.join(
-                            targetDir, str(mutant_id) + ".txt"
-                        )
-                    )
-                    if buildType == "ant":
-                        backupFile = os.path.join(
-                            targetDir,
-                            str(mutant_id) + ".build.xml",
-                        )
-                    elif buildType == "mvn":
-                        backupFile = os.path.join(
-                            targetDir,
-                            str(mutant_id) + ".pom.xml",
-                        )
-                    if backupFile == None or buildFile_ == None:
-                        print("build file not found no backup is taken")
-                    else:
-                        if options.isCoverageActive:
-                            if debug:
-                                print("moving: " + buildFile_ +
-                                      " -> " + backupFile)
-                            shutil.move(buildFile_, backupFile)
-                        else:
-                            if debug:
-                                print("copying: " + buildFile_ +
-                                      " -> " + backupFile)
-                            shutil.copy(buildFile_, backupFile)
-                    if options.isCoverageActive and buildType in ("mvn", "ant"):
-                        os.remove(line_coverage.build_file_path + ".bak")
-                        del line_coverage
-                    with open(targetTextOutputFile, "w") as contentFile:
-                        contentFile.write(" ".join(test_command_) + "\n\r")
-                        contentFile.write(str(run_output_test))
-
-                    # Copy surefire/JUnit XML reports to per-mutant folder (needed for database insertion)
-                    report_path_for_mutant = os.path.join(
-                        targetDir, str(mutant_id) + "-test_reports"
-                    )
-                    try:
-                        if buildType == "mvn":
-                            default_reports_dir = os.path.join(
-                                build_directory, "target", "surefire-reports")
-                            if os.path.isdir(default_reports_dir):
-                                for xml_file in Path(default_reports_dir).glob("*.xml"):
-                                    if xml_file.is_file():
-                                        shutil.copy2(str(xml_file), os.path.join(
-                                            report_path_for_mutant, xml_file.name))
-                        elif buildType == "ant":
-                            possible_dirs = [
-                                os.path.join(build_directory, "test-results"),
-                                os.path.join(build_directory,
-                                             "target", "test-results"),
-                                build_directory,
-                            ]
-                            for possible_dir in possible_dirs:
-                                if os.path.isdir(possible_dir):
-                                    xml_files = list(
-                                        Path(possible_dir).glob("*.xml"))
-                                    if xml_files:
-                                        for xml_file in xml_files:
-                                            if xml_file.is_file():
-                                                shutil.copy2(str(xml_file), os.path.join(
-                                                    report_path_for_mutant, xml_file.name))
-                                        break
-                        elif buildType == "gradle":
-                            # For Gradle, reports are written directly to report_path_for_mutant via md.reportsDir
-                            # (similar to how Maven writes to a per-mutant directory via pom.xml configuration)
-                            # No copying needed - reports should already be in the correct location
-                            pass
-                    except Exception:
-                        # best-effort; missing reports shouldn't crash the run
-                        pass
-
-                    if process_test_killed or process_test_exit_code:
-                        if debug:
-                            print("killed: " + str(subset))
-                        mutant_id_str = str(mutant_id)
-                        if process_test_killed:
-                            res = (mutant_id, subset,
-                                   Database.RES_ID_TIMEOUT, file)
-                            if mutant_id_str not in res_dict[res[3]]["timeoutList"]:
-                                res_dict[res[3]]["timeoutList"].append(
-                                    mutant_id_str)
-                            if mutant_id_str not in res_dict[res[3]]["killedList"]:
-                                res_dict[res[3]]["killedList"].append(
-                                    mutant_id_str)
-                            msg = "timeout"
-                            result_code = Database.RES_ID_TIMEOUT
-                            # For timeout, insert summary record
-                            mutation_db.insert_data(
-                                "mutant_test",
-                                "mutant_id, test_id, result, time, message",
-                                [
-                                    res[0],
-                                    Database.NO_INFO,
-                                    result_code,
-                                    str(time_delta),
-                                    msg,
-                                ],
-                            )
-                        else:
-                            res = (mutant_id, subset,
-                                   Database.RES_ID_KILLED_MUTANT, file)
-                            if mutant_id_str not in res_dict[res[3]]["testFailureList"]:
-                                res_dict[res[3]]["testFailureList"].append(
-                                    mutant_id_str)
-                            if mutant_id_str not in res_dict[res[3]]["killedList"]:
-                                res_dict[res[3]]["killedList"].append(
-                                    mutant_id_str)
-                            msg = "killed"
-                            result_code = Database.RES_ID_KILLED_MUTANT
-                            # Always parse surefire reports to get individual test results
-                            self.updateMutationTestTable(
-                                options=options, mutationDatabase=mutation_db, file_name=file, mutant_id=mutant_id)
-                    else:
-                        if debug:
-                            print("Survived: " + str(subset))
-                        res = (mutant_id, subset,
-                               Database.RES_ID_SURVIVED_MUTANT, file)
-                        mutant_id_str = str(mutant_id)
-                        if mutant_id_str not in res_dict[res[3]]["survivedList"]:
-                            res_dict[res[3]]["survivedList"].append(
-                                mutant_id_str)
-                        msg = "survived"
-                        # Always parse surefire reports to get individual test results
-                        self.updateMutationTestTable(
-                            options=options, mutationDatabase=mutation_db, file_name=file, mutant_id=mutant_id)
-                    # reverse the mutations after running the compile time mutant
-                    for c_a in compile_again:
-                        # compile_mutations_[mutation][1].reverse_mutation()
-                        for i in range(len(compile_mutations_[c_a])):
-                            compile_mutations_[c_a][i][0].apply_reverse_mutation_in_place(
-                                compile_mutations_[c_a][i][1],
-                                compile_mutations_[c_a][i][2],
-                                compile_mutations_[c_a][i][3],)
-
-                    schemataFile = os.path.join(
-                        self.LittleDarwinResultsPath,
-                        os.path.relpath(file, options.sourcePath),
-                        "mutant_schemata.java"
-                    )
-                    if os.path.isfile(schemataFile):
-                        shutil.copyfile(
-                            schemataFile, file)
+                if any(mutation in compile_mutations_ for mutation in subset):
+                    n_compile += 1
                 else:
-                    # Initialize variables for schemata-only path
-                    test_names = []
-                    no_test = False
-                    buildFile_ = buildFile
-                    test_command_ = test_command.copy()
-                    # For schemata-only path, ensure test_command_ is properly initialized
-                    # and will be modified with Gradle isolation flags below
-                    if options.isCoverageActive:
-                        buildFile_ = None
-                        D_args = []
-                        if buildType == "mvn":
-                            D_args = return_D_arguments(" ".join(test_command))
-                            buildFile_ = os.path.join(
-                                build_directory, "pom.xml" + str(mutant_id)
+                    n_schemata += 1
+        already_done = sum(
+            len(data["buildFailureList"]) for data in res_dict.values()
+        )
+        total_exec = n_compile + n_schemata + already_done
+        self.ui.info(
+            f"{n_compile + n_schemata} mutant(s) to execute: "
+            f"{n_compile} compile-time (sequential rebuild+test), "
+            f"{n_schemata} schemata ({JOBS_NO} parallel job(s))"
+        )
+        if n_compile:
+            self.ui.info(
+                "Compile-time mutants rewrite source and rebuild one at a time; "
+                f"each command is limited to --timeout {options.timeout}s."
+            )
+
+        dash_cm = self.ui.execution_dashboard(
+            res_dict,
+            start_time,
+            total=total_exec,
+            desc="Running mutants",
+            completed=already_done,
+        )
+        dash = dash_cm.__enter__()
+        try:
+            dash.set_status(
+                "Queueing schemata mutants and running compile-time rebuilds..."
+            )
+            for file in mutants_dict.keys():
+                # file is the relative path from the source path
+                # Create subdirectory for this class in MediumDarwinResults (keeping .java extension)
+                targetDir = os.path.join(self.MediumDarwinResultsPath, file)
+                # Filesystem ops need the absolute path under sourcePath; DB/dict keys stay source-relative.
+                abs_file = os.path.abspath(
+                    os.path.join(source_directory, file))
+                os.makedirs(targetDir, exist_ok=True)
+                for mutant_id in mutants_dict[file].keys():
+                    if str(mutant_id) in res_dict[file]["buildFailureList"]:
+                        continue
+                    subset = mutants_dict[file][mutant_id]
+                    compile_again = list()
+                    for mutation in subset:
+                        # if the mutant is in the compile mutations list then compile and run it again
+                        if mutation in compile_mutations_.keys():
+                            compile_again.append(mutation)
+                            for i in range(len(compile_mutations_[mutation])):
+                                (app_inds, app_nodes) = compile_mutations_[mutation][i][0].apply_mutation_in_place(
+                                    compile_mutations_[mutation][i][1]
+                                )
+                                compile_mutations_[mutation][i] = [
+                                    compile_mutations_[mutation][i][0], compile_mutations_[mutation][i][1], app_inds, app_nodes]
+                            # compile_mutations_[mutation][0].apply_mutation_in_place(
+                            #     compile_mutations_[mutation][1])
+                    if len(compile_again) != 0:
+                        self.ui.debug(str(subset))
+                        # run mutations that need recompilation
+                        for c_a in compile_again:
+                            with open(
+                                abs_file,
+                                "w",
+                            ) as f:
+                                f.write(
+                                    java_parse.getText(
+                                        compile_mutations_trees[file]
+                                    )
+                                )
+                            self._format_java_file(abs_file)
+                        if options.cleanUp != "***dummy***":
+                            s_time = time.time()
+                            (
+                                process_clean_killed,
+                                process_clean_exit_code,
+                                run_output_clean,
+                                time_delta
+                            ) = timeoutAlternative(
+                                clean_command,
+                                workingDirectory=build_directory,
+                                timeout=int(options.timeout),
+                                failMessage=options.fail_string,
                             )
-                        elif buildType == "ant":
-                            buildFile_ = os.path.join(
-                                build_directory, "build.xml" + str(mutant_id)
-                            )
-                        elif buildType == "gradle":
-                            # Gradle build scripts should not be copied per-mutant here.
-                            # Gradle test filtering/isolation is done via command flags/init scripts.
-                            buildFile_ = buildFile
-                        # Only create per-mutant build files for tools that are actually rewritten.
-                        if buildType in ("mvn", "ant") and buildFile_ is not None:
-                            shutil.copy2(buildFile, buildFile_)
-                        lines = mutation_db.fetch_file_mutant_by_mutation_ID(
-                            mutant_id, options=options)
-                        test_names = list()
-                        for line in lines:
-                            test_names.extend(
-                                mutation_db.fetch_coverage(file, line[2], options=options))
+                            self.clean_time += time.time() - s_time
                         os.makedirs(
-                            os.path.join(targetDir, str(
-                                mutant_id) + "-test_reports"),
+                            os.path.join(
+                                targetDir,
+                                str(mutant_id) + "-test_reports",
+                            ),
                             exist_ok=True,
                         )
-                        non_covered = False
-                        while ("-",) in test_names:
-                            non_covered = True
-                            test_names.remove(("-",))
-                        if non_covered:
-                            if len(test_names) == 0:
-                                res = (mutant_id, subset,
-                                       Database.RES_ID_NON_COVERED, file)
-                                msg = "non-covered"
-                                res_dict[res[3]]["nonCoveredList"].append(
-                                    str(res[0]))
-                                mutation_db.insert_data(
-                                    "mutant_test",
-                                    "mutant_id, test_id, result, time, message",
-                                    [
-                                        res[0],
-                                        Database.INSTURMENTED_NOT_COVERED,
-                                        Database.RES_ID_NON_COVERED,
-                                        "0",
-                                        msg,
-                                    ],
-                                )
-                                if buildType in ("mvn", "ant") and buildFile_ and buildFile_ != buildFile and os.path.isfile(buildFile_):
-                                    os.remove(buildFile_)
-                                continue
                         no_test = False
-                        while ("?",) in test_names:
-                            no_test = True
-                            test_names.remove(("?",))
-                        if no_test:
-                            if len(test_names) == 0:
-                                if (buildType == "mvn"):
-                                    D_args.append("-DskipTests")
-                        if (buildType == "mvn"):
-                            if (len(test_names) == 0 and not no_test) or (options.runAllTests == True and not no_test):
-                                test_names = [""]
+                        buildFile_ = buildFile
+                        if options.isCoverageActive:
+                            if (buildType == "mvn"):
+                                D_args = return_D_arguments(
+                                    " ".join(test_command))
+                            lines = mutation_db.fetch_file_mutant_by_mutation_ID(
+                                mutant_id, options=options)
+                            test_names = list()
+                            for line in lines:
+                                test_names.extend(
+                                    mutation_db.fetch_coverage(file, line[2], options=options))
+                            # insturmented but not covered
+                            non_covered = False
+                            while ("-",) in test_names:
+                                non_covered = True
+                                test_names.remove(("-",))
+                            if non_covered:
+                                if len(test_names) == 0:
+                                    res = (mutant_id, subset,
+                                           Database.RES_ID_NON_COVERED, file)
+                                    msg = "non-covered"
+                                    mutant_id_str = str(res[0])
+                                    if mutant_id_str not in res_dict[res[3]]["nonCoveredList"]:
+                                        res_dict[res[3]]["nonCoveredList"].append(
+                                            mutant_id_str)
+                                    dash.update(advance=1)
+                                    continue
+                            no_test = False
+                            while ("?",) in test_names:
+                                no_test = True
+                                test_names.remove(("?",))
+                            if no_test:
+                                if len(test_names) == 0:
+                                    if (buildType == "mvn"):
+                                        D_args.append("-DskipTests")
+                            if (buildType == "mvn"):
+                                if (len(test_names) == 0 and not no_test) or (options.runAllTests == True and not no_test):
+                                    test_names = [""]
 
-                        if (buildType == "ant"):
-                            if (len(test_names) == 0 and not no_test) or (options.runAllTests == True and not no_test):
-                                # there are no instrumentations so we read all tests
-                                test_names = mutation_db.fetch_all_coverage()
-                        if (buildType == "gradle"):
-                            if (len(test_names) == 0 and not no_test) or (options.runAllTests == True and not no_test):
-                                test_names = [""]
-                        with resources.as_file(
-                            resources.files("mediumdarwin")
-                            .joinpath("jar")
-                            .joinpath("clover_db_extractor.jar")
-                        ) as jar_path:
-                            if buildType in ("mvn", "ant"):
-                                line_coverage = LineCoverage(
-                                    project_path=build_directory,
-                                    clover_db_extractor_path=jar_path,
-                                    build_file_path=buildFile_,
-                                    build_type=build_command[0],
-                                    sqlDB_path=self.sqlDBPath,
-                                    D_args=D_args,
-                                    runAllTests=options.runAllTests,
-                                    timeout=int(options.initial_timeout),
-                                    source_path=options.sourcePath,
+                            if (buildType == "ant"):
+                                if (len(test_names) == 0 and not no_test) or (options.runAllTests == True and not no_test):
+                                    # there are no instrumentations so we read all tests
+                                    test_names = mutation_db.fetch_all_coverage()
+
+                            if (buildType == "gradle"):
+                                if (len(test_names) == 0 and not no_test) or (options.runAllTests == True and not no_test):
+                                    # No per-line instrumentation found -> run all tests (no filtering)
+                                    test_names = [""]
+                            if buildType == "ant":
+                                buildFile_ = os.path.join(
+                                    build_directory, "build.xml" + str(mutant_id))
+                            elif buildType == "mvn":
+                                buildFile_ = os.path.join(
+                                    build_directory, "pom.xml" + str(mutant_id)
                                 )
+                            elif buildType == "gradle":
+                                # Do not override Gradle build files via CLI flags; keep original build scripts.
+                                buildFile_ = buildFile
+                            # Make sure the per-mutant build file exists before LineCoverage._prepare_* reads it.
+                            if buildType in ("ant", "mvn"):
+                                shutil.copy2(buildFile, buildFile_)
+                            if buildType in ("ant", "mvn"):
+                                with resources.as_file(
+                                    resources.files("mediumdarwin")
+                                    .joinpath("jar")
+                                    .joinpath("clover_db_extractor.jar")
+                                ) as jar_path:
+                                    line_coverage = LineCoverage(
+                                        project_path=build_directory,
+                                        clover_db_extractor_path=jar_path,
+                                        build_file_path=buildFile_,
+                                        build_type=build_command[0],
+                                        sqlDB_path=self.sqlDBPath,
+                                        D_args=D_args,
+                                        runAllTests=options.runAllTests,
+                                        timeout=int(options.initial_timeout),
+                                        source_path=options.sourcePath,
+                                    )
+                            if buildType in ("ant", "mvn"):
                                 includeFile_ = os.path.join(
                                     targetDir, "include" + str(mutant_id)
                                 )
-                                if buildType == "mvn":
-                                    line_coverage._prepare_pom(
-                                        include_file_add=includeFile_)
-                                    line_coverage.add_tests_to_pom_xml(
-                                        include_tests_file=includeFile_,
-                                        report_path=os.path.join(
-                                            targetDir, str(
-                                                mutant_id) + "-test_reports"
-                                        ),
-                                        covered_tests=test_names,
-                                        subsumption=options.isSubsumptionActive,
-                                    )
-                                elif buildType == "ant":
+                                if buildType == "ant":
                                     line_coverage._prepare_build_xml(
                                         include_file=includeFile_,
                                         junit_target=options.junitTargetName,
@@ -2477,196 +2204,567 @@ class Schemata:
                                         covered_tests=test_names,
                                         subsumption=options.isSubsumptionActive,
                                     )
+                                elif buildType == "mvn":
+                                    line_coverage._prepare_pom(
+                                        include_file_add=includeFile_)
+                                    line_coverage.add_tests_to_pom_xml(
+                                        include_tests_file=includeFile_,
+                                        report_path=os.path.join(
+                                            targetDir, str(
+                                                mutant_id) + "-test_reports"
+                                        ),
+                                        covered_tests=test_names,
+                                        subsumption=options.isSubsumptionActive,
+                                    )
                         test_command_ = test_command.copy()
                         if (no_test):
                             if (buildType == "mvn"):
-                                test_command_.extend(
-                                    D_args)
-                        # For Gradle, do not attempt to override build file
+                                test_command_.extend(D_args)
                         test_command_ = change_build_file(
                             test_command_.copy(), buildFile_
                         )
-                        # For Gradle, prefer file-based test selection so we also persist the chosen
-                        # tests to `include<id>.selected-tests.txt` for debugging/reproducibility.
-                        if buildType == "gradle" and (options.runAllTests == False) and (not no_test):
+                        if options.isCoverageActive and buildType == "gradle" and (options.runAllTests == False) and (not no_test):
+                            # Only filter when we have a non-empty selected set.
                             if isinstance(test_names, list) and test_names != [""]:
                                 selected_file = write_selected_tests_file(
                                     os.path.join(
                                         targetDir,
-                                        "include" +
-                                        str(mutant_id) + ".selected-tests.txt",
+                                        "include" + str(mutant_id) +
+                                        ".selected-tests.txt",
                                     ),
                                     test_names,
                                 )
                                 test_command_ = add_gradle_test_selection_via_file(
                                     test_command_, build_directory, selected_file
                                 )
-                        if buildType in ("mvn", "ant"):
+                        # CRITICAL: For Gradle, always add isolation flags (both coverage and schemata-only paths)
+                        # This ensures parallel-safe report handling and correct report directory redirection
+                        if buildType == "gradle":
+                            # Clear reports directory before test to ensure we get fresh results for this mutant
+                            report_path_for_mutant = os.path.join(
+                                targetDir, str(mutant_id) + "-test_reports")
+                            shutil.rmtree(report_path_for_mutant,
+                                          ignore_errors=True)
+                            os.makedirs(report_path_for_mutant, exist_ok=True)
+                            test_command_ = add_gradle_isolation(
+                                test_command_,
+                                project_path=build_directory,
+                                run_id=str(mutant_id),
+                                reports_dir=report_path_for_mutant,
+                            )
+                        dash.set_status(
+                            f"Compile-time mutant {mutant_id} "
+                            f"({os.path.basename(file)}): {' '.join(test_command_)}"
+                        )
+                        s_time = time.time()
+                        (
+                            process_test_killed,
+                            process_test_exit_code,
+                            run_output_test,
+                            time_delta
+                        ) = timeoutAlternative(
+                            test_command_.copy(),
+                            workingDirectory=build_directory,
+                            timeout=int(options.timeout),
+                            failMessage=options.fail_string,
+                            activeMutants=subset,
+                        )
+                        self.test_time += s_time - time.time()
+                        targetTextOutputFile = str(
+                            os.path.join(
+                                targetDir, str(mutant_id) + ".txt"
+                            )
+                        )
+                        if buildType == "ant":
+                            backupFile = os.path.join(
+                                targetDir,
+                                str(mutant_id) + ".build.xml",
+                            )
+                        elif buildType == "mvn":
+                            backupFile = os.path.join(
+                                targetDir,
+                                str(mutant_id) + ".pom.xml",
+                            )
+                        if backupFile == None or buildFile_ == None:
+                            self.ui.debug(
+                                "build file not found no backup is taken")
+                        else:
+                            if options.isCoverageActive:
+                                if debug:
+                                    self.ui.debug(
+                                        "moving: " + buildFile_ + " -> " + backupFile
+                                    )
+                                shutil.move(buildFile_, backupFile)
+                            else:
+                                if debug:
+                                    self.ui.debug(
+                                        "copying: " + buildFile_ + " -> " + backupFile
+                                    )
+                                shutil.copy(buildFile_, backupFile)
+                        if options.isCoverageActive and buildType in ("mvn", "ant"):
                             os.remove(line_coverage.build_file_path + ".bak")
                             del line_coverage
-                    # CRITICAL: For Gradle, always add isolation flags (both coverage and schemata-only paths)
-                    # This must be OUTSIDE the if options.isCoverageActive block to run for schemata-only runs
-                    if buildType == "gradle":
-                        # Clear reports directory before test to ensure we get fresh results for this mutant
+                        with open(targetTextOutputFile, "w") as contentFile:
+                            contentFile.write(" ".join(test_command_) + "\n\r")
+                            contentFile.write(str(run_output_test))
+
+                        # Copy surefire/JUnit XML reports to per-mutant folder (needed for database insertion)
                         report_path_for_mutant = os.path.join(
-                            targetDir, str(mutant_id) + "-test_reports")
-                        shutil.rmtree(report_path_for_mutant,
-                                      ignore_errors=True)
-                        os.makedirs(report_path_for_mutant, exist_ok=True)
-                        test_command_ = add_gradle_isolation(
-                            test_command_,
-                            project_path=build_directory,
-                            run_id=str(mutant_id),
-                            reports_dir=report_path_for_mutant,
+                            targetDir, str(mutant_id) + "-test_reports"
                         )
-                    targetTextOutputFile = str(
-                        os.path.join(
-                            targetDir, str(mutant_id) + ".txt"
+                        try:
+                            if buildType == "mvn":
+                                default_reports_dir = os.path.join(
+                                    build_directory, "target", "surefire-reports")
+                                if os.path.isdir(default_reports_dir):
+                                    for xml_file in Path(default_reports_dir).glob("*.xml"):
+                                        if xml_file.is_file():
+                                            shutil.copy2(str(xml_file), os.path.join(
+                                                report_path_for_mutant, xml_file.name))
+                            elif buildType == "ant":
+                                possible_dirs = [
+                                    os.path.join(build_directory,
+                                                 "test-results"),
+                                    os.path.join(build_directory,
+                                                 "target", "test-results"),
+                                    build_directory,
+                                ]
+                                for possible_dir in possible_dirs:
+                                    if os.path.isdir(possible_dir):
+                                        xml_files = list(
+                                            Path(possible_dir).glob("*.xml"))
+                                        if xml_files:
+                                            for xml_file in xml_files:
+                                                if xml_file.is_file():
+                                                    shutil.copy2(str(xml_file), os.path.join(
+                                                        report_path_for_mutant, xml_file.name))
+                                            break
+                            elif buildType == "gradle":
+                                # For Gradle, reports are written directly to report_path_for_mutant via md.reportsDir
+                                # (similar to how Maven writes to a per-mutant directory via pom.xml configuration)
+                                # No copying needed - reports should already be in the correct location
+                                pass
+                        except Exception:
+                            # best-effort; missing reports shouldn't crash the run
+                            pass
+
+                        if process_test_killed or process_test_exit_code:
+                            if debug:
+                                self.ui.debug("killed: " + str(subset))
+                            mutant_id_str = str(mutant_id)
+                            if process_test_killed:
+                                res = (mutant_id, subset,
+                                       Database.RES_ID_TIMEOUT, file)
+                                if mutant_id_str not in res_dict[res[3]]["timeoutList"]:
+                                    res_dict[res[3]]["timeoutList"].append(
+                                        mutant_id_str)
+                                if mutant_id_str not in res_dict[res[3]]["killedList"]:
+                                    res_dict[res[3]]["killedList"].append(
+                                        mutant_id_str)
+                                msg = "timeout"
+                                result_code = Database.RES_ID_TIMEOUT
+                                # For timeout, insert summary record
+                                mutation_db.insert_data(
+                                    "mutant_test",
+                                    "mutant_id, test_id, result, time, message",
+                                    [
+                                        res[0],
+                                        Database.NO_INFO,
+                                        result_code,
+                                        str(time_delta),
+                                        msg,
+                                    ],
+                                )
+                            else:
+                                res = (mutant_id, subset,
+                                       Database.RES_ID_KILLED_MUTANT, file)
+                                if mutant_id_str not in res_dict[res[3]]["testFailureList"]:
+                                    res_dict[res[3]]["testFailureList"].append(
+                                        mutant_id_str)
+                                if mutant_id_str not in res_dict[res[3]]["killedList"]:
+                                    res_dict[res[3]]["killedList"].append(
+                                        mutant_id_str)
+                                msg = "killed"
+                                result_code = Database.RES_ID_KILLED_MUTANT
+                                # Always parse surefire reports to get individual test results
+                                self.updateMutationTestTable(
+                                    options=options, mutationDatabase=mutation_db, file_name=file, mutant_id=mutant_id, fallback_result=result_code)
+                        else:
+                            if debug:
+                                self.ui.debug("Survived: " + str(subset))
+                            res = (mutant_id, subset,
+                                   Database.RES_ID_SURVIVED_MUTANT, file)
+                            mutant_id_str = str(mutant_id)
+                            if mutant_id_str not in res_dict[res[3]]["survivedList"]:
+                                res_dict[res[3]]["survivedList"].append(
+                                    mutant_id_str)
+                            msg = "survived"
+                            # Always parse surefire reports to get individual test results
+                            self.updateMutationTestTable(
+                                options=options, mutationDatabase=mutation_db, file_name=file, mutant_id=mutant_id, fallback_result=Database.RES_ID_SURVIVED_MUTANT)
+                        # reverse the mutations after running the compile time mutant
+                        for c_a in compile_again:
+                            # compile_mutations_[mutation][1].reverse_mutation()
+                            for i in range(len(compile_mutations_[c_a])):
+                                compile_mutations_[c_a][i][0].apply_reverse_mutation_in_place(
+                                    compile_mutations_[c_a][i][1],
+                                    compile_mutations_[c_a][i][2],
+                                    compile_mutations_[c_a][i][3],)
+
+                        # file is already sourcePath-relative; targetDir is MediumDarwinResults/<file>
+                        schemataFile = os.path.join(
+                            targetDir,
+                            "mutant_schemata.java"
                         )
-                    )
-                    # Reports directory is already created above for Gradle, create for others
-                    if buildType != "gradle":
-                        os.makedirs(
-                            os.path.join(targetDir, str(
-                                mutant_id) + "-test_reports"),
-                            exist_ok=True,
+                        if os.path.isfile(schemataFile):
+                            shutil.copyfile(
+                                schemataFile, abs_file)
+                        dash.update(advance=1)
+                        self.ui.verbose(
+                            f"Compile-time mutant {mutant_id}: {msg}"
                         )
-                    function_calls.append(
-                        (mutant_id, subset, targetTextOutputFile, test_command_, file)
-                    )
-        # clean the project once before running tests because of the previous builds (test command is indepndent of the build command)
-        if options.cleanUp != "***dummy***":
-            s_time = time.time()
+                    else:
+                        # Initialize variables for schemata-only path
+                        test_names = []
+                        no_test = False
+                        buildFile_ = buildFile
+                        test_command_ = test_command.copy()
+                        # For schemata-only path, ensure test_command_ is properly initialized
+                        # and will be modified with Gradle isolation flags below
+                        if options.isCoverageActive:
+                            buildFile_ = None
+                            D_args = []
+                            if buildType == "mvn":
+                                D_args = return_D_arguments(
+                                    " ".join(test_command))
+                                buildFile_ = os.path.join(
+                                    build_directory, "pom.xml" + str(mutant_id)
+                                )
+                            elif buildType == "ant":
+                                buildFile_ = os.path.join(
+                                    build_directory, "build.xml" +
+                                    str(mutant_id)
+                                )
+                            elif buildType == "gradle":
+                                # Gradle build scripts should not be copied per-mutant here.
+                                # Gradle test filtering/isolation is done via command flags/init scripts.
+                                buildFile_ = buildFile
+                            # Only create per-mutant build files for tools that are actually rewritten.
+                            if buildType in ("mvn", "ant") and buildFile_ is not None:
+                                shutil.copy2(buildFile, buildFile_)
+                            lines = mutation_db.fetch_file_mutant_by_mutation_ID(
+                                mutant_id, options=options)
+                            test_names = list()
+                            for line in lines:
+                                test_names.extend(
+                                    mutation_db.fetch_coverage(file, line[2], options=options))
+                            os.makedirs(
+                                os.path.join(targetDir, str(
+                                    mutant_id) + "-test_reports"),
+                                exist_ok=True,
+                            )
+                            non_covered = False
+                            while ("-",) in test_names:
+                                non_covered = True
+                                test_names.remove(("-",))
+                            if non_covered:
+                                if len(test_names) == 0:
+                                    res = (mutant_id, subset,
+                                           Database.RES_ID_NON_COVERED, file)
+                                    msg = "non-covered"
+                                    res_dict[res[3]]["nonCoveredList"].append(
+                                        str(res[0]))
+                                    mutation_db.insert_data(
+                                        "mutant_test",
+                                        "mutant_id, test_id, result, time, message",
+                                        [
+                                            res[0],
+                                            Database.INSTURMENTED_NOT_COVERED,
+                                            Database.RES_ID_NON_COVERED,
+                                            "0",
+                                            msg,
+                                        ],
+                                    )
+                                    if buildType in ("mvn", "ant") and buildFile_ and buildFile_ != buildFile and os.path.isfile(buildFile_):
+                                        os.remove(buildFile_)
+                                    continue
+                            no_test = False
+                            while ("?",) in test_names:
+                                no_test = True
+                                test_names.remove(("?",))
+                            if no_test:
+                                if len(test_names) == 0:
+                                    if (buildType == "mvn"):
+                                        D_args.append("-DskipTests")
+                            if (buildType == "mvn"):
+                                if (len(test_names) == 0 and not no_test) or (options.runAllTests == True and not no_test):
+                                    test_names = [""]
+
+                            if (buildType == "ant"):
+                                if (len(test_names) == 0 and not no_test) or (options.runAllTests == True and not no_test):
+                                    # there are no instrumentations so we read all tests
+                                    test_names = mutation_db.fetch_all_coverage()
+                            if (buildType == "gradle"):
+                                if (len(test_names) == 0 and not no_test) or (options.runAllTests == True and not no_test):
+                                    test_names = [""]
+                            with resources.as_file(
+                                resources.files("mediumdarwin")
+                                .joinpath("jar")
+                                .joinpath("clover_db_extractor.jar")
+                            ) as jar_path:
+                                if buildType in ("mvn", "ant"):
+                                    line_coverage = LineCoverage(
+                                        project_path=build_directory,
+                                        clover_db_extractor_path=jar_path,
+                                        build_file_path=buildFile_,
+                                        build_type=build_command[0],
+                                        sqlDB_path=self.sqlDBPath,
+                                        D_args=D_args,
+                                        runAllTests=options.runAllTests,
+                                        timeout=int(options.initial_timeout),
+                                        source_path=options.sourcePath,
+                                    )
+                                    includeFile_ = os.path.join(
+                                        targetDir, "include" + str(mutant_id)
+                                    )
+                                    if buildType == "mvn":
+                                        line_coverage._prepare_pom(
+                                            include_file_add=includeFile_)
+                                        line_coverage.add_tests_to_pom_xml(
+                                            include_tests_file=includeFile_,
+                                            report_path=os.path.join(
+                                                targetDir, str(
+                                                    mutant_id) + "-test_reports"
+                                            ),
+                                            covered_tests=test_names,
+                                            subsumption=options.isSubsumptionActive,
+                                        )
+                                    elif buildType == "ant":
+                                        line_coverage._prepare_build_xml(
+                                            include_file=includeFile_,
+                                            junit_target=options.junitTargetName,
+                                            subsumption=options.isSubsumptionActive,
+                                        )
+                                        line_coverage.add_tests_to_build_xml(
+                                            junit_target=options.junitTargetName,
+                                            report_path=os.path.join(
+                                                targetDir, str(
+                                                    mutant_id) + "-test_reports"
+                                            ),
+                                            covered_tests=test_names,
+                                            subsumption=options.isSubsumptionActive,
+                                        )
+                            test_command_ = test_command.copy()
+                            if (no_test):
+                                if (buildType == "mvn"):
+                                    test_command_.extend(
+                                        D_args)
+                            # For Gradle, do not attempt to override build file
+                            test_command_ = change_build_file(
+                                test_command_.copy(), buildFile_
+                            )
+                            # For Gradle, prefer file-based test selection so we also persist the chosen
+                            # tests to `include<id>.selected-tests.txt` for debugging/reproducibility.
+                            if buildType == "gradle" and (options.runAllTests == False) and (not no_test):
+                                if isinstance(test_names, list) and test_names != [""]:
+                                    selected_file = write_selected_tests_file(
+                                        os.path.join(
+                                            targetDir,
+                                            "include" +
+                                            str(mutant_id) +
+                                            ".selected-tests.txt",
+                                        ),
+                                        test_names,
+                                    )
+                                    test_command_ = add_gradle_test_selection_via_file(
+                                        test_command_, build_directory, selected_file
+                                    )
+                            if buildType in ("mvn", "ant"):
+                                os.remove(
+                                    line_coverage.build_file_path + ".bak")
+                                del line_coverage
+                        # CRITICAL: For Gradle, always add isolation flags (both coverage and schemata-only paths)
+                        # This must be OUTSIDE the if options.isCoverageActive block to run for schemata-only runs
+                        if buildType == "gradle":
+                            # Clear reports directory before test to ensure we get fresh results for this mutant
+                            report_path_for_mutant = os.path.join(
+                                targetDir, str(mutant_id) + "-test_reports")
+                            shutil.rmtree(report_path_for_mutant,
+                                          ignore_errors=True)
+                            os.makedirs(report_path_for_mutant, exist_ok=True)
+                            test_command_ = add_gradle_isolation(
+                                test_command_,
+                                project_path=build_directory,
+                                run_id=str(mutant_id),
+                                reports_dir=report_path_for_mutant,
+                            )
+                        targetTextOutputFile = str(
+                            os.path.join(
+                                targetDir, str(mutant_id) + ".txt"
+                            )
+                        )
+                        # Reports directory is already created above for Gradle, create for others
+                        if buildType != "gradle":
+                            os.makedirs(
+                                os.path.join(targetDir, str(
+                                    mutant_id) + "-test_reports"),
+                                exist_ok=True,
+                            )
+                        function_calls.append(
+                            (mutant_id, subset, targetTextOutputFile,
+                             test_command_, file)
+                        )
+            rebuild_cmd = (
+                options.buildCommand.split(",")
+                if options.initialBuildCommand == "***dummy***"
+                else getCommand(options.initialBuildCommand)
+            )
+            # clean the project once before running tests because of the previous builds (test command is independent of the build command)
+            if options.cleanUp != "***dummy***":
+                dash.set_status(f"Cleaning project: {' '.join(clean_command)}")
+                s_time = time.time()
+                (
+                    process_clean_killed,
+                    process_clean_exit_code,
+                    run_output_clean,
+                    time_delta
+                ) = timeoutAlternative(
+                    clean_command,
+                    workingDirectory=build_directory,
+                    timeout=int(options.timeout),
+                    failMessage=options.fail_string,
+                )
+                self.clean_time += time.time() - s_time
+            dash.set_status(
+                f"Rebuilding project before schemata tests: {' '.join(rebuild_cmd)}"
+            )
             (
-                process_clean_killed,
-                process_clean_exit_code,
-                run_output_clean,
+                process_build_killed,
+                process_build_exit_code,
+                run_output_build,
                 time_delta
             ) = timeoutAlternative(
-                clean_command,
+                rebuild_cmd,
                 workingDirectory=build_directory,
-                timeout=int(options.timeout),
+                timeout=int(options.initial_timeout),
                 failMessage=options.fail_string,
             )
-            self.clean_time += time.time() - s_time
-        (
-            process_build_killed,
-            process_build_exit_code,
-            run_output_build,
-            time_delta
-        ) = timeoutAlternative(
-            options.buildCommand.split(
-                ",") if options.initialBuildCommand == "***dummy***" else getCommand(options.initialBuildCommand),
-            workingDirectory=build_directory,
-            timeout=int(options.initial_timeout),
-            failMessage=options.fail_string,
-        )
-        # create a parallel execution list of the test commands
-        parallel = Parallel(n_jobs=JOBS_NO, return_as="generator_unordered")
-        output_generator = parallel(
-            delayed(self.run_test)(
-                mutation=mutation,
-                test_command=test_command,
-                source_directory=build_directory,
-                mutant_id=mutant_id,
-                targetTextOutputFile=targetTextOutputFile,
-                coverage=options.isCoverageActive,
-                timeout=int(options.timeout),
-                fail_message=options.fail_string,
-                file=file
+            # create a parallel execution list of the test commands
+            if function_calls:
+                dash.set_status(
+                    f"Running {len(function_calls)} schemata mutant(s) "
+                    f"with {JOBS_NO} parallel job(s)..."
+                )
+            parallel = Parallel(
+                n_jobs=JOBS_NO, return_as="generator_unordered")
+            output_generator = parallel(
+                delayed(self.run_test)(
+                    mutation=mutation,
+                    test_command=test_command,
+                    source_directory=build_directory,
+                    mutant_id=mutant_id,
+                    targetTextOutputFile=targetTextOutputFile,
+                    coverage=options.isCoverageActive,
+                    timeout=int(options.timeout),
+                    fail_message=options.fail_string,
+                    file=file,
+                    debug=self.ui.debug_enabled,
+                )
+                for (
+                    mutant_id,
+                    mutation,
+                    targetTextOutputFile,
+                    test_command,
+                    file
+                ) in function_calls
             )
-            for (
-                mutant_id,
-                mutation,
-                targetTextOutputFile,
-                test_command,
-                file
-            ) in function_calls
-        )
-        stdscr = initscr()
-        s_time = time.time()
-        with open(
-            os.path.join(mutantsPath, "output.txt"),
-            "w",
-        ) as f:
-            for item in output_generator:
-                msg = ""
-                mutant_id_str = str(item[0])
-                file = item[3]
-                if item[2] == Database.RES_ID_SURVIVED_MUTANT:
-                    if mutant_id_str not in res_dict[file]["survivedList"]:
-                        res_dict[file]["survivedList"].append(mutant_id_str)
-                    msg = "survived"
-                elif item[2] == Database.RES_ID_KILLED_MUTANT:
-                    if mutant_id_str not in res_dict[file]["testFailureList"]:
-                        res_dict[file]["testFailureList"].append(mutant_id_str)
-                    if mutant_id_str not in res_dict[file]["killedList"]:
-                        res_dict[file]["killedList"].append(mutant_id_str)
-                    msg = "killed"
-                elif item[2] == Database.RES_ID_BUILD_FAILURE:
-                    msg = "build failure"
-                    if mutant_id_str not in res_dict[file]["killedList"]:
-                        res_dict[file]["killedList"].append(mutant_id_str)
-                    if mutant_id_str not in res_dict[file]["buildFailureList"]:
-                        res_dict[file]["buildFailureList"].append(
-                            mutant_id_str)
-                elif item[2] == Database.RES_ID_TIMEOUT:
-                    msg = "timeout"
-                    if mutant_id_str not in res_dict[file]["killedList"]:
-                        res_dict[file]["killedList"].append(mutant_id_str)
-                    if mutant_id_str not in res_dict[file]["timeoutList"]:
-                        res_dict[file]["timeoutList"].append(mutant_id_str)
-                elif item[2] == Database.RES_ID_NON_COVERED:
-                    msg = "non-covered"
-                    if mutant_id_str not in res_dict[file]["nonCoveredList"]:
-                        res_dict[file]["nonCoveredList"].append(mutant_id_str)
+            s_time = time.time()
+            with open(
+                os.path.join(mutantsPath, "output.txt"),
+                "w",
+            ) as f:
+                for item in output_generator:
+                    msg = ""
+                    mutant_id_str = str(item[0])
+                    file = item[3]
+                    if item[2] == Database.RES_ID_SURVIVED_MUTANT:
+                        if mutant_id_str not in res_dict[file]["survivedList"]:
+                            res_dict[file]["survivedList"].append(
+                                mutant_id_str)
+                        msg = "survived"
+                    elif item[2] == Database.RES_ID_KILLED_MUTANT:
+                        if mutant_id_str not in res_dict[file]["testFailureList"]:
+                            res_dict[file]["testFailureList"].append(
+                                mutant_id_str)
+                        if mutant_id_str not in res_dict[file]["killedList"]:
+                            res_dict[file]["killedList"].append(mutant_id_str)
+                        msg = "killed"
+                    elif item[2] == Database.RES_ID_BUILD_FAILURE:
+                        msg = "build failure"
+                        if mutant_id_str not in res_dict[file]["killedList"]:
+                            res_dict[file]["killedList"].append(mutant_id_str)
+                        if mutant_id_str not in res_dict[file]["buildFailureList"]:
+                            res_dict[file]["buildFailureList"].append(
+                                mutant_id_str)
+                    elif item[2] == Database.RES_ID_TIMEOUT:
+                        msg = "timeout"
+                        if mutant_id_str not in res_dict[file]["killedList"]:
+                            res_dict[file]["killedList"].append(mutant_id_str)
+                        if mutant_id_str not in res_dict[file]["timeoutList"]:
+                            res_dict[file]["timeoutList"].append(mutant_id_str)
+                    elif item[2] == Database.RES_ID_NON_COVERED:
+                        msg = "non-covered"
+                        if mutant_id_str not in res_dict[file]["nonCoveredList"]:
+                            res_dict[file]["nonCoveredList"].append(
+                                mutant_id_str)
 
-                # Always try to parse surefire reports and insert individual test results
-                # For special cases (timeout, build failure, non-covered), insert a summary record
-                # For normal cases (survived/killed), parse surefire XMLs for detailed test results
-                if (item[2] == Database.RES_ID_TIMEOUT) or (item[2] == Database.RES_ID_BUILD_FAILURE) or (item[2] == Database.RES_ID_NON_COVERED):
-                    # For these special cases, insert summary record
-                    mutation_db.insert_data(
-                        "mutant_test",
-                        "mutant_id, test_id, result, time, message",
-                        [
-                            item[0],
-                            Database.NO_INFO,
-                            item[2],
-                            str(item[4]),
-                            msg,
-                        ],
-                    )
-                else:
-                    # For survived/killed mutants, always parse surefire reports to get individual test results
-                    # This populates mutant_test with per-test results regardless of coverage/subsumption flags
-                    self.updateMutationTestTable(
-                        options=options, mutationDatabase=mutation_db, file_name=item[3], mutant_id=item[0])
-                self.print_results(res_dict, start_time)
-                refresh()
-                f.write(str(item[0]) + " : " + msg + "\n\r")
-            self.test_time += time.time() - s_time
-            f.write("clean time : " +
-                    str(datetime.timedelta(seconds=int(self.clean_time))) + "\n\r")
-            f.write("test time : " +
-                    str(datetime.timedelta(seconds=int(self.test_time))) + "\n\r")
-        # release the terminal
-        endwin()
-        print("done")
+                    # Always try to parse surefire reports and insert individual test results
+                    # For special cases (timeout, build failure, non-covered), insert a summary record
+                    # For normal cases (survived/killed), parse surefire XMLs for detailed test results
+                    if (item[2] == Database.RES_ID_TIMEOUT) or (item[2] == Database.RES_ID_BUILD_FAILURE) or (item[2] == Database.RES_ID_NON_COVERED):
+                        # For these special cases, insert summary record
+                        mutation_db.insert_data(
+                            "mutant_test",
+                            "mutant_id, test_id, result, time, message",
+                            [
+                                item[0],
+                                Database.NO_INFO,
+                                item[2],
+                                str(item[4]),
+                                msg,
+                            ],
+                        )
+                    else:
+                        # For survived/killed mutants, always parse surefire reports to get individual test results
+                        # This populates mutant_test with per-test results regardless of coverage/subsumption flags
+                        self.updateMutationTestTable(
+                            options=options, mutationDatabase=mutation_db, file_name=item[3], mutant_id=item[0], fallback_result=item[2])
+                    dash.update(advance=1)
+                    self.ui.verbose(f"Mutant {item[0]}: {msg}")
+                    f.write(str(item[0]) + " : " + msg + "\n\r")
+                self.test_time += time.time() - s_time
+                f.write("clean time : " +
+                        str(datetime.timedelta(seconds=int(self.clean_time))) + "\n\r")
+                f.write("test time : " +
+                        str(datetime.timedelta(seconds=int(self.test_time))) + "\n\r")
+        finally:
+            dash_cm.__exit__(*sys.exc_info())
+        self.ui.info("Mutant execution finished.")
         # output_generator.extend(resList)
         # read the results from the db and generate the HTML report files
         targetHTMLReportFile = os.path.abspath(
-            os.path.join(self.LittleDarwinResultsPath, "index.html"))
+            os.path.join(self.MediumDarwinResultsPath, "index.html"))
         from mediumdarwin.ReportGenerator import ReportGenerator
         reportGenerator = ReportGenerator(self.littleDarwinVersion)
-        reportGenerator.initiateDatabase(self.LittleDarwinResultsPath)
+        reportGenerator.initiateDatabase(self.MediumDarwinResultsPath)
         htmlReportData = list()
-        print("--> Writing the reports: ")
-        for file in res_dict.keys():
-            print("----> " + file)
+        self.ui.stage("Writing HTML reports")
+        for file in self.ui.track(
+            list(res_dict.keys()), desc="Writing reports", unit="file"
+        ):
             # file is the database file name (normalized relative path like "src/main/java/.../Class.java")
-            # Create subdirectory for this class in LittleDarwinResults (keeping .java extension)
-            targetDir = os.path.join(self.LittleDarwinResultsPath, file)
+            # Create subdirectory for this class in MediumDarwinResults (keeping .java extension)
+            targetDir = os.path.join(self.MediumDarwinResultsPath, file)
             if not os.path.exists(targetDir):
                 os.makedirs(targetDir, exist_ok=True)
             targetHTMLOutputFile = os.path.join(
@@ -2704,7 +2802,7 @@ class Schemata:
         # -----------------------------------------------------
         for file in java_io.fileList:
             targetDir = os.path.join(
-                self.LittleDarwinResultsPath,
+                self.MediumDarwinResultsPath,
                 os.path.relpath(file, options.sourcePath),
             )
             if os.path.isfile(os.path.join(targetDir, "original.java")):
@@ -2723,7 +2821,11 @@ class Schemata:
         """
         Terminate MediumDarwin
         """
-        print("Cleanup MediumDarwin...")
+        ui = getattr(self, "ui", None)
+        if ui is not None:
+            ui.verbose("Cleanup MediumDarwin...")
+        else:
+            print("Cleanup MediumDarwin...")
         java_io = JavaIO(self.options.isVerboseActive)
         java_io.listFiles(
             targetPath=os.path.abspath(self.options.sourcePath),
@@ -2733,67 +2835,42 @@ class Schemata:
         )
         for file in java_io.fileList:
             originalFile = os.path.join(
-                self.LittleDarwinResultsPath,
+                self.MediumDarwinResultsPath,
                 os.path.relpath(file, self.options.sourcePath),
                 "original.java"
             )
             if os.path.isfile(originalFile):
                 shutil.copyfile(
                     originalFile, file)
-                print("Restored " + file)
+                if ui is not None:
+                    ui.verbose("Restored " + file)
+                else:
+                    print("Restored " + file)
 
     def __init__(self, mockArgs: list = None):
-        print(r"""
-        __       __                  __  __                          _______                                     __
-       |  \     /  \                |  \|  \                        |       \                                   |  \
-       | $$\   /  $$  ______    ____| $$ \$$ __    __  ______ ____  | $$$$$$$\  ______    ______   __   __   __  \$$ _______
-       | $$$\ /  $$$ /      \  /      $$|  \|  \  |  \|      \    \ | $$  | $$ |      \  /      \ |  \ |  \ |  \|  \|       \
-       | $$$$\  $$$$|  $$$$$$\|  $$$$$$$| $$| $$  | $$| $$$$$$\$$$$\| $$  | $$  \$$$$$$\|  $$$$$$\| $$ | $$ | $$| $$| $$$$$$$\
-       | $$\$$ $$ $$| $$    $$| $$  | $$| $$| $$  | $$| $$ | $$ | $$| $$  | $$ /      $$| $$   \$$| $$ | $$ | $$| $$| $$  | $$
-       | $$ \$$$| $$| $$$$$$$$| $$__| $$| $$| $$__/ $$| $$ | $$ | $$| $$__/ $$|  $$$$$$$| $$      | $$_/ $$_/ $$| $$| $$  | $$
-       | $$  \$ | $$ \$$     \ \$$    $$| $$ \$$    $$| $$ | $$ | $$| $$    $$ \$$    $$| $$       \$$   $$   $$| $$| $$  | $$
-        \$$      \$$  \$$$$$$$  \$$$$$$$ \$$  \$$$$$$  \$$  \$$  \$$ \$$$$$$$   \$$$$$$$ \$$        \$$$$$\$$$$  \$$ \$$   \$$
-
-       Copyright (c) 2014 2022 Ali Parsai
-       Copyright (c) 2025      MediumDarwin Contributors
-
-       This project builds upon the original work of Ali Parsai and the LittleDarwin mutation testing framework.
-       We gratefully acknowledge his foundational contributions, which made this extended version possible.
-
-       This program is free software: you can redistribute it and/or modify it under the terms of the GNU
-       General Public License as published by the Free Software Foundation, version 3  of the License, or
-       (at your option) any later version.
-
-       This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied
-       warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the  GNU General Public License for more details.
-
-       You should have received a copy of the GNU General Public License along with this program.
-       If not, see <https://www.gnu.org/licenses/>.
-
-       Original author:
-       Ali Parsai — https://www.parsai.net/
-        """)
         optionParser = OptionParser()
         self.options, self.filterType, self.filterList, higherOrder = parseCmdArgs(
             optionParser, mockArgs
         )
-        self.LittleDarwinResultsPath = os.path.join(
-            self.options.buildPath, "LittleDarwinResults"
+        self.ui = ConsoleUI.from_options(self.options)
+        self.MediumDarwinResultsPath = os.path.join(
+            self.options.buildPath, "MediumDarwinResults"
         )
-        self.sqlDBPath = os.path.join(
-            self.LittleDarwinResultsPath, "mutationdatabase.db"
-        )
+        self.sqlDBPath = resolve_sql_db_path(self.options)
         self._formatter_warning_emitted = False
-        if not os.path.exists(self.LittleDarwinResultsPath):
-            os.makedirs(self.LittleDarwinResultsPath, exist_ok=True)
+        if not os.path.exists(self.MediumDarwinResultsPath):
+            os.makedirs(self.MediumDarwinResultsPath, exist_ok=True)
+        ensure_sql_db_parent(self.sqlDBPath)
 
     def main(self):
         """
         Main LittleDarwin Function
         """
+        self.ui.banner()
 
         MUTATION_ORDER = self.options.higherOrder
         mutationDatabase2 = Database(self.sqlDBPath)
+        self.ui.set_stage_total(count_pipeline_stages(self.options))
 
         # Read HOM definitions from file if --mutation-ids-file is specified
         hom_definitions = []
@@ -2811,26 +2888,26 @@ class Schemata:
                             if mutation_id_list:
                                 hom_definitions.append(mutation_id_list)
                         except ValueError:
-                            print(
-                                f"Warning: Invalid format in {self.options.mutationIdsFile} line {line_num}: {line}")
-                            print(
+                            self.ui.warn(
+                                f"Invalid format in {self.options.mutationIdsFile} line {line_num}: {line}")
+                            self.ui.warn(
                                 "Expected format: comma-separated integers (e.g., '1, 2, 3, 4')")
                             continue
             except FileNotFoundError:
-                print(
+                self.ui.error(
                     f"Error: Mutation IDs file not found: {self.options.mutationIdsFile}")
                 sys.exit(1)
             except Exception as e:
-                print(
+                self.ui.error(
                     f"Error reading mutation IDs file {self.options.mutationIdsFile}: {e}")
                 sys.exit(1)
 
             if not hom_definitions:
-                print(
+                self.ui.error(
                     f"Error: No valid HOM definitions found in {self.options.mutationIdsFile}")
                 sys.exit(1)
 
-            print(
+            self.ui.info(
                 f"Loaded {len(hom_definitions)} HOM definitions from {self.options.mutationIdsFile}")
             # Store HOM count for progress tracking
             self.hom_definitions_count = len(hom_definitions)
@@ -2838,14 +2915,16 @@ class Schemata:
             self.hom_definitions_count = None
         if self.options.isBuildActive or self.options.isMutationActive:
             mutationDatabase2.create_tables()
+            self.ui.stage("Discovering source files")
             java_io = JavaIO(self.options.isVerboseActive)
             java_io.listFiles(targetPath=os.path.abspath(self.options.sourcePath), buildPath=os.path.abspath(
                 self.options.buildPath), filterType=self.filterType, filterList=self.filterList)
+            self.ui.info(f"Found {len(java_io.fileList)} Java source file(s)")
             for f in java_io.fileList:
                 mutationDatabase2.insert_file(f, options=self.options)
             build_command = getCommand(self.options.buildCommand)
             clean_command = getCommand(self.options.cleanUp)
-            test_command = getCommand(self.options.testCommand)
+            test_command = resolve_test_command(self.options)
 
             build_directory = os.path.abspath(self.options.buildPath)
 
@@ -2864,19 +2943,22 @@ class Schemata:
                         kotlin if os.path.isfile(kotlin) else groovy)
             # initial build check to avoid false results. the system must be able to build cleanly without errors.
             # use build command for the initial build unless it is explicitly provided.
-            print("Initial build...", end=" ", flush=True)
+            self.ui.stage(
+                f"Initial build (timeout {self.options.initial_timeout}s)"
+            )
             s_time = time.time()
             try:
-                processInitialKilled, processInitialExitCode, initialOutput, time_delta = (
-                    timeoutAlternative(
-                        self.options.buildCommand.split(
-                            ",") if self.options.initialBuildCommand == "***dummy***" else getCommand(self.options.initialBuildCommand),
-                        workingDirectory=os.path.abspath(
-                            self.options.buildPath),
-                        timeout=int(self.options.initial_timeout),
-                        failMessage=self.options.fail_string,
+                with self.ui.status("Running initial build..."):
+                    processInitialKilled, processInitialExitCode, initialOutput, time_delta = (
+                        timeoutAlternative(
+                            self.options.buildCommand.split(
+                                ",") if self.options.initialBuildCommand == "***dummy***" else getCommand(self.options.initialBuildCommand),
+                            workingDirectory=os.path.abspath(
+                                self.options.buildPath),
+                            timeout=int(self.options.initial_timeout),
+                            failMessage=self.options.fail_string,
+                        )
                     )
-                )
                 # workaround for older python versions
                 if processInitialKilled or processInitialExitCode:
                     raise subprocess.CalledProcessError(
@@ -2887,45 +2969,47 @@ class Schemata:
                     )
                 with open(
                     os.path.abspath(os.path.join(
-                        self.LittleDarwinResultsPath, "initialbuild.txt")), "w"
+                        self.MediumDarwinResultsPath, "initialbuild.txt")), "w"
                 ) as contentFile:
                     contentFile.write(str(initialOutput))
+                self.ui.info("Initial build succeeded.")
                 # run line coverage and store the results
                 if self.options.isCoverageActive == True:
                     line_coverage = None
-                    print("Running clover test coverage collection...",
-                          end=" ", flush=True)
-                    with resources.as_file(
-                        resources.files("mediumdarwin")
-                        .joinpath("jar")
-                        .joinpath("clover_db_extractor.jar")
-                    ) as jar_path:
-                        line_coverage = LineCoverage(
-                            project_path=build_directory,
-                            clover_db_extractor_path=jar_path,
-                            build_file_path=buildFile,
-                            build_type=build_command[0],
-                            sqlDB_path=self.sqlDBPath,
-                            D_args=return_D_arguments(" ".join(test_command)),
-                            runAllTests=self.options.runAllTests,
-                            timeout=int(self.options.initial_timeout),
-                            source_path=self.options.sourcePath,
-                        )
-                        line_coverage.run_clover(
-                            junit_target=self.options.junitTargetName,
-                            test_target=(
-                                "test" if buildType in (
-                                    "mvn", "gradle") else self.options.testTargetName
-                            ),
-                        )
-                        if buildType in ("mvn", "ant"):
-                            line_coverage.restore_the_build_file()
-                print("done.\n\n")
+                    self.ui.stage("Collecting test coverage")
+                    with self.ui.status("Running Clover coverage collection..."):
+                        with resources.as_file(
+                            resources.files("mediumdarwin")
+                            .joinpath("jar")
+                            .joinpath("clover_db_extractor.jar")
+                        ) as jar_path:
+                            line_coverage = LineCoverage(
+                                project_path=build_directory,
+                                clover_db_extractor_path=jar_path,
+                                build_file_path=buildFile,
+                                build_type=build_command[0],
+                                sqlDB_path=self.sqlDBPath,
+                                D_args=return_D_arguments(
+                                    " ".join(test_command)),
+                                runAllTests=self.options.runAllTests,
+                                timeout=int(self.options.initial_timeout),
+                                source_path=self.options.sourcePath,
+                            )
+                            line_coverage.run_clover(
+                                junit_target=self.options.junitTargetName,
+                                test_target=(
+                                    "test" if buildType in (
+                                        "mvn", "gradle") else self.options.testTargetName
+                                ),
+                            )
+                            if buildType in ("mvn", "ant"):
+                                line_coverage.restore_the_build_file()
+                    self.ui.info("Coverage collection finished.")
             except subprocess.CalledProcessError as exception:
                 initialOutput = exception.output
                 with open(
                     os.path.abspath(os.path.join(
-                        self.LittleDarwinResultsPath, "initialbuild.txt")), "w"
+                        self.MediumDarwinResultsPath, "initialbuild.txt")), "w"
                 ) as contentFile:
                     initialOutput = initialOutput
                     contentFile.write(
@@ -2933,11 +3017,11 @@ class Schemata:
                         + "\n Command: "
                         + " ".join(exception.cmd)
                     )
-                print("failed.\n")
-                print(
-                    "Initial build failed. Try building the system manually first to make sure it can be built. "
+                self.ui.error("Initial build failed.")
+                self.ui.error(
+                    "Try building the system manually first to make sure it can be built. "
                     + "Take a look at "
-                    + os.path.abspath(os.path.join(self.LittleDarwinResultsPath,
+                    + os.path.abspath(os.path.join(self.MediumDarwinResultsPath,
                                                    "initialbuild.txt"))
                     + " to find out why this happened."
                 )
@@ -2963,6 +3047,7 @@ class Schemata:
         # ---------------------------------------- mutant generation phase ------------------------------------------------
         # *****************************************************************************************************************
         if self.options.isMutationActive:
+            self.ui.stage("Generating mutations")
             (
                 build_failures,
                 file_mutations_dict,
@@ -2971,10 +3056,10 @@ class Schemata:
                 self.filterType,
                 self.filterList,
                 mutationDatabase2,
-                False
+                self.ui.debug_enabled,
             )
             mutant_ID = -1
-            print("--> Writing mutant data to the DB: ")
+            self.ui.stage("Writing mutants to the database")
 
             # Backfill coverage for mutations that weren't covered by tests
             # This must be done AFTER mutations are inserted into the database
@@ -2992,16 +3077,16 @@ class Schemata:
                     )
                     line_coverage.backfill_mutation_coverage(
                         options=self.options)
-                    print("--> Backfilled coverage for mutations (Gradle)")
+                    self.ui.info("Backfilled coverage for mutations (Gradle)")
                 except Exception as e:
-                    print(
-                        f"Warning: Failed to backfill mutation coverage: {e}")
+                    self.ui.warn(
+                        f"Failed to backfill mutation coverage: {e}")
 
             # Check if mutation IDs file is requested (takes precedence over normal generation)
             if self.options.mutationIdsFile != "***dummy***" and hom_definitions:
                 # Use HOM definitions from file
                 # Iterate over HOM definitions first, then collect mutations across all files
-                print("--> Processing HOM definitions from file")
+                self.ui.info("Processing HOM definitions from file")
                 hom_start_id = mutant_ID + 1
                 # Collect warnings: missing IDs and skipped HOMs
                 missing_ids_set = set()
@@ -3009,172 +3094,199 @@ class Schemata:
                 # HOMs skipped because mutations span multiple files
                 skipped_homs_multiple_files = []
                 generated_homs_count = 0  # Track number of HOMs actually generated
-                for hom_idx, mutation_id_list in enumerate(hom_definitions):
-                    # Collect mutations with specified IDs, grouped by file
-                    mutations_by_file = {}
+                with self.ui.progress_task(
+                    "Processing HOM definitions",
+                    total=len(hom_definitions),
+                    unit="HOM",
+                ) as task:
+                    for hom_idx, mutation_id_list in enumerate(hom_definitions):
+                        # Collect mutations with specified IDs, grouped by file
+                        mutations_by_file = {}
 
-                    for file in file_mutations_dict.keys():
-                        file_mutations = [
-                            mut_id for mut_id in file_mutations_dict[file].keys()
-                            if mut_id in mutation_id_list
-                        ]
-                        if file_mutations:
-                            mutations_by_file[file] = file_mutations
+                        for file in file_mutations_dict.keys():
+                            file_mutations = [
+                                mut_id for mut_id in file_mutations_dict[file].keys()
+                                if mut_id in mutation_id_list
+                            ]
+                            if file_mutations:
+                                mutations_by_file[file] = file_mutations
 
-                    # Skip this HOM if no mutations match
-                    if not mutations_by_file:
-                        skipped_homs_no_mutations.append(hom_idx + 1)
-                        continue
+                        # Skip this HOM if no mutations match
+                        if not mutations_by_file:
+                            skipped_homs_no_mutations.append(hom_idx + 1)
+                            task.advance(1)
+                            continue
 
-                    # Ensure all mutations belong to the same file
-                    if len(mutations_by_file) > 1:
-                        # Mutations span multiple files - skip this HOM
-                        skipped_homs_multiple_files.append(hom_idx + 1)
-                        continue
+                        # Ensure all mutations belong to the same file
+                        if len(mutations_by_file) > 1:
+                            # Mutations span multiple files - skip this HOM
+                            skipped_homs_multiple_files.append(hom_idx + 1)
+                            task.advance(1)
+                            continue
 
-                    # All mutations are from a single file
-                    primary_file = list(mutations_by_file.keys())[0]
-                    selected_mutations = mutations_by_file[primary_file]
+                        # All mutations are from a single file
+                        primary_file = list(mutations_by_file.keys())[0]
+                        selected_mutations = mutations_by_file[primary_file]
 
-                    # Check if all requested mutation IDs were found
-                    found_ids = set(selected_mutations)
-                    missing_ids = set(mutation_id_list) - found_ids
-                    if missing_ids:
-                        # Store warning instead of printing immediately
-                        missing_ids_set.update(missing_ids)
+                        # Check if all requested mutation IDs were found
+                        found_ids = set(selected_mutations)
+                        missing_ids = set(mutation_id_list) - found_ids
+                        if missing_ids:
+                            # Store warning instead of printing immediately
+                            missing_ids_set.update(missing_ids)
 
-                    # Create a single mutant with all selected mutations for this HOM (all from the same file)
-                    mutant_ID += 1
-                    generated_homs_count += 1
-                    my_set = set()
-                    build_failure_occurred = False
-                    for mutation in selected_mutations:
-                        my_set.add(mutation)
-                        mutationDatabase2.insert_mutant(
-                            mutant_ID, mutation)
-                        if mutation in build_failures:
-                            res = (mutant_ID, tuple(selected_mutations),
-                                   Database.RES_ID_BUILD_FAILURE, primary_file)
-                            msg = "build failure"
-                            mutationDatabase2.insert_data(
-                                "mutant_test",
-                                "mutant_id, test_id, result, time, message",
-                                [
-                                    res[0],
-                                    Database.NO_TEST,
-                                    Database.RES_ID_BUILD_FAILURE,
-                                    "0",
-                                    msg,
-                                ],
-                            )
-                            build_failure_occurred = True
-                            break
-
-                    if (hom_idx + 1) % 100 == 0:
-                        print(
-                            f"  Processed {hom_idx + 1}/{len(hom_definitions)} HOM definitions...")
+                        # Create a single mutant with all selected mutations for this HOM (all from the same file)
+                        mutant_ID += 1
+                        generated_homs_count += 1
+                        build_failure_occurred = False
+                        for mutation in selected_mutations:
+                            mutationDatabase2.insert_mutant(
+                                mutant_ID, mutation)
+                            if mutation in build_failures:
+                                res = (mutant_ID, tuple(selected_mutations),
+                                       Database.RES_ID_BUILD_FAILURE, primary_file)
+                                msg = "build failure"
+                                mutationDatabase2.insert_data(
+                                    "mutant_test",
+                                    "mutant_id, test_id, result, time, message",
+                                    [
+                                        res[0],
+                                        Database.NO_TEST,
+                                        Database.RES_ID_BUILD_FAILURE,
+                                        "0",
+                                        msg,
+                                    ],
+                                )
+                                build_failure_occurred = True
+                                break
+                        task.advance(
+                            1,
+                            description=(
+                                f"HOM {hom_idx + 1}/{len(hom_definitions)}"
+                            ),
+                        )
 
                 # Print aggregated warnings
                 if missing_ids_set:
-                    print(
-                        f"Warning: Some mutation IDs were not found: {missing_ids_set}")
+                    self.ui.warn(
+                        f"Some mutation IDs were not found: {missing_ids_set}")
                 if skipped_homs_no_mutations:
-                    print(
-                        f"Warning: {len(skipped_homs_no_mutations)} HOM(s) were skipped because no mutations were found in any file: {skipped_homs_no_mutations[:20]}{'...' if len(skipped_homs_no_mutations) > 20 else ''}")
+                    self.ui.warn(
+                        f"{len(skipped_homs_no_mutations)} HOM(s) were skipped because no mutations were found in any file: {skipped_homs_no_mutations[:20]}{'...' if len(skipped_homs_no_mutations) > 20 else ''}")
                 if skipped_homs_multiple_files:
-                    print(
-                        f"Warning: {len(skipped_homs_multiple_files)} HOM(s) were skipped because mutations span multiple files: {skipped_homs_multiple_files[:20]}{'...' if len(skipped_homs_multiple_files) > 20 else ''}")
+                    self.ui.warn(
+                        f"{len(skipped_homs_multiple_files)} HOM(s) were skipped because mutations span multiple files: {skipped_homs_multiple_files[:20]}{'...' if len(skipped_homs_multiple_files) > 20 else ''}")
 
                 mutants_created = mutant_ID + 1 - hom_start_id
                 total_loaded = len(hom_definitions)
                 total_generated = generated_homs_count
                 total_skipped = total_loaded - total_generated
 
-                print(
-                    f"\n--> Created {mutants_created} mutants from {len(hom_definitions)} HOM definitions")
-
-                # Print comprehensive HOM generation summary
-                print(f"\n=== HOM Generation Summary ===")
-                print(f"Loaded HOM definitions: {total_loaded}")
-                print(f"Generated HOMs: {total_generated}")
-                print(f"Skipped HOMs: {total_skipped}")
+                summary_rows = [
+                    ("Loaded HOM definitions", total_loaded),
+                    ("Generated HOMs", total_generated),
+                    ("Skipped HOMs", total_skipped),
+                    ("Mutants created", mutants_created),
+                ]
                 if skipped_homs_no_mutations:
-                    print(
-                        f"  - Skipped due to no mutations found in any file: {len(skipped_homs_no_mutations)}")
-                    if len(skipped_homs_no_mutations) <= 50:
-                        print(f"    HOM IDs: {skipped_homs_no_mutations}")
-                    else:
-                        print(
-                            f"    HOM IDs (first 50): {skipped_homs_no_mutations[:50]}...")
+                    summary_rows.append(
+                        ("Skipped (no mutations)", len(skipped_homs_no_mutations))
+                    )
                 if skipped_homs_multiple_files:
-                    print(
-                        f"  - Skipped due to mutations spanning multiple files: {len(skipped_homs_multiple_files)}")
-                    if len(skipped_homs_multiple_files) <= 50:
-                        print(f"    HOM IDs: {skipped_homs_multiple_files}")
-                    else:
-                        print(
-                            f"    HOM IDs (first 50): {skipped_homs_multiple_files[:50]}...")
+                    summary_rows.append(
+                        ("Skipped (multiple files)", len(
+                            skipped_homs_multiple_files))
+                    )
+                self.ui.summary_table("HOM generation", summary_rows)
+                if skipped_homs_no_mutations:
+                    self.ui.verbose(
+                        f"HOM IDs skipped (no mutations): {skipped_homs_no_mutations[:50]}"
+                    )
+                if skipped_homs_multiple_files:
+                    self.ui.verbose(
+                        f"HOM IDs skipped (multiple files): {skipped_homs_multiple_files[:50]}"
+                    )
             else:
                 # Normal mutant generation using combinations
+                total_combos = 0
                 for file in file_mutations_dict.keys():
-                    print("----> " + file)
-                    for L in range(1, (MUTATION_ORDER + 1)):
-                        for subset in itertools.combinations(file_mutations_dict[file].keys(), L):
-                            mutant_ID += 1
-                            my_set = set()
-                            for mutation in subset:
-                                my_set.add(mutation)
-                                mutationDatabase2.insert_mutant(
-                                    mutant_ID, mutation)
-                                if mutation in build_failures:
-                                    res = (mutant_ID, subset,
-                                           Database.RES_ID_BUILD_FAILURE, file)
-                                    msg = "build failure"
-                                    mutationDatabase2.insert_data(
-                                        "mutant_test",
-                                        "mutant_id, test_id, result, time, message",
-                                        [
-                                            res[0],
-                                            Database.NO_TEST,
-                                            Database.RES_ID_BUILD_FAILURE,
-                                            "0",
-                                            msg,
-                                        ],
-                                    )
-                                    break
-            print("-------------------------------------")
+                    total_combos += combination_count(
+                        len(file_mutations_dict[file]), MUTATION_ORDER
+                    )
+                with self.ui.progress_task(
+                    "Writing mutants to the database",
+                    total=total_combos,
+                    unit="mutant",
+                ) as task:
+                    for file in file_mutations_dict.keys():
+                        short = os.path.basename(file) or file
+                        for L in range(1, (MUTATION_ORDER + 1)):
+                            for subset in itertools.combinations(file_mutations_dict[file].keys(), L):
+                                mutant_ID += 1
+                                for mutation in subset:
+                                    mutationDatabase2.insert_mutant(
+                                        mutant_ID, mutation)
+                                    if mutation in build_failures:
+                                        res = (mutant_ID, subset,
+                                               Database.RES_ID_BUILD_FAILURE, file)
+                                        msg = "build failure"
+                                        mutationDatabase2.insert_data(
+                                            "mutant_test",
+                                            "mutant_id, test_id, result, time, message",
+                                            [
+                                                res[0],
+                                                Database.NO_TEST,
+                                                Database.RES_ID_BUILD_FAILURE,
+                                                "0",
+                                                msg,
+                                            ],
+                                        )
+                                        break
+                                task.advance(
+                                    1,
+                                    description=f"Writing mutants ({short})",
+                                )
+            self.ui.info(f"Wrote {mutant_ID + 1} mutant(s) to the database")
         if self.options.isBuildActive:
-            results = mutationDatabase2.fetch_mutations()
-            java_parse = JavaParse(False)
-            Mutation.reverse_mutation_dict = dict()
-            Mutation.mutation_dict = dict()
-            for res in results:
-                Mutation.mutation_dict[int(res[0])] = (
-                    eval(res[9]), eval(res[8]), eval(res[10]))
-                for i in range(len(Mutation.mutation_dict[int(res[0])][0])):
-                    Mutation.mutation_dict[int(res[0])][1][i] = java_parse.Json2Tree(
-                        Mutation.mutation_dict[int(res[0])][1][i])
+            self.ui.stage("Executing mutants")
+            with self.ui.status("Loading mutants from the database..."):
+                results = mutationDatabase2.fetch_mutations()
+                java_parse = JavaParse(False)
+                Mutation.reverse_mutation_dict = dict()
+                Mutation.mutation_dict = dict()
+                for res in results:
+                    Mutation.mutation_dict[int(res[0])] = (
+                        eval(res[9]), eval(res[8]), eval(res[10]))
+                    for i in range(len(Mutation.mutation_dict[int(res[0])][0])):
+                        Mutation.mutation_dict[int(res[0])][1][i] = java_parse.Json2Tree(
+                            Mutation.mutation_dict[int(res[0])][1][i])
 
-                    Mutation.mutation_dict[int(res[0])][0][i] = int(
-                        Mutation.mutation_dict[int(res[0])][0][i])
-                    Mutation.mutation_dict[int(
-                        res[0])][2][i] = Mutation.mutation_dict[int(res[0])][2][i]
+                        Mutation.mutation_dict[int(res[0])][0][i] = int(
+                            Mutation.mutation_dict[int(res[0])][0][i])
+                        Mutation.mutation_dict[int(
+                            res[0])][2][i] = Mutation.mutation_dict[int(res[0])][2][i]
 
-            mutants_dict_ = mutationDatabase2.construct_mutant_dict(
-                self.options)
-            compile_mutations_files = mutationDatabase2.construct_compile_mutations(
-                self.options)
+                mutants_dict_ = mutationDatabase2.construct_mutant_dict(
+                    self.options)
+                compile_mutations_files = mutationDatabase2.construct_compile_mutations(
+                    self.options)
+            n_mutants = sum(len(v) for v in mutants_dict_.values())
+            self.ui.info(
+                f"Loaded {n_mutants} mutant(s) across {len(mutants_dict_)} file(s); "
+                f"{len(compile_mutations_files)} compile-time mutation record(s)"
+            )
             output_generator = self.run_mutant_schemata(
                 mutants_dict_,
                 # de_pickled_build_failures,
                 compile_mutations_files,
                 mutationDatabase2,
                 self.options,
+                debug=self.ui.debug_enabled,
             )
-            count = 0
-            for item in output_generator:
-                count += item[2]
-            print(str(count) + "/" + str(len(output_generator)))
+            if output_generator:
+                self.ui.verbose(
+                    f"Execution records: {len(output_generator)}"
+                )
 
         if self.options.isSubsumptionActive:
             self.subsumptionAnalysisPhase(self.options)

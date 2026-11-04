@@ -120,9 +120,9 @@ class Database:
             "id INTEGER PRIMARY KEY, qualified_name TEXT",
         )
         self.insert_data("test", "id,qualified_name", [
-                         self.INSTURMENTED_NOT_COVERED, "-"])
-        self.insert_data("test", "id,qualified_name", [self.NO_TEST, "?"])
-        self.insert_data("test", "id,qualified_name", [self.NO_INFO, "*"])
+                         self.INSTURMENTED_NOT_COVERED, "-"], ignore_conflict=True)
+        self.insert_data("test", "id,qualified_name", [self.NO_TEST, "?"], ignore_conflict=True)
+        self.insert_data("test", "id,qualified_name", [self.NO_INFO, "*"], ignore_conflict=True)
 
         self.create_table(
             "file",
@@ -143,9 +143,10 @@ class Database:
         query = f"CREATE TABLE IF NOT EXISTS {table_name} ({columns})"
         self.cursor.execute(query)
 
-    def insert_data(self, table_name, columns, values):
+    def insert_data(self, table_name, columns, values, ignore_conflict=False):
         value_holder = ",".join(["?"] * len(values))
-        query = f"INSERT INTO {table_name} ({columns}) VALUES({value_holder})"
+        verb = "INSERT OR IGNORE" if ignore_conflict else "INSERT"
+        query = f"{verb} INTO {table_name} ({columns}) VALUES({value_holder})"
         try:
             self.cursor.execute(query, (values))
             self.conn.commit()
@@ -762,6 +763,14 @@ class Database:
             coverage_entries,
         )
         self.conn.commit()
+
+    def has_table(self, name: str) -> bool:
+        """Return True when ``name`` is an existing table in this database."""
+        self.cursor.execute(
+            "SELECT 1 FROM sqlite_master WHERE type='table' AND name=?",
+            (name,),
+        )
+        return self.cursor.fetchone() is not None
 
     def close_connection(self):
         self.conn.close()
