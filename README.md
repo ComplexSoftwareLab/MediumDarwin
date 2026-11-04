@@ -1,5 +1,7 @@
 # MediumDarwin
 
+<img src="mediumdarwin/assets/banner.svg" alt="MediumDarwin — Mutation testing for Java" width="520">
+
 MediumDarwin is a mutation testing tool for Java. It generates mutants, runs the project's build and tests against them, and writes a mutation score.
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.16893737.svg)](https://doi.org/10.5281/zenodo.16893737)
